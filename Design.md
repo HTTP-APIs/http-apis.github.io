@@ -1,4 +1,4 @@
-This section explains the design, architecture and the implementation of Hydrus along with a few use cases for the same.
+This page explains the design, architecture and the implementation of Hydrus along with a few use cases for the same.
 
 Table of contents
 -------------
