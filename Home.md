@@ -9,8 +9,6 @@ Table of contents
 * [Requirements](#req)
 * [Usage](#usage)
 * [Design](#design)
-    * [Database Design](#dbdesign)
-    * [Use cases](#usecase)
 
 <a name="features"></a>
 Features
