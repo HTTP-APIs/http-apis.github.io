@@ -1,7 +1,4 @@
-<a name="usage"></a>
-Usage
-===================
-This section explains the basic usage and setup of Hydrus.
+This page explains the basic usage and setup of Hydrus.
 
 Table of contents
 -------------
