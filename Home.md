@@ -7,6 +7,7 @@ Table of contents
 -------------
 * [Features](#features)
 * [Requirements](#req)
+* [Demo](#demo)
 * [Usage](#usage)
 * [Design](#design)
 
@@ -28,6 +29,28 @@ The system is built over the following standards and tools:
 - [PostgreSQL](https://www.postgresql.org/) as the backend database for storage and CRUD operations.
 
 Apart from this, there are also various Python packages that Hydrus uses. A list of all these packages can be found in the [requirements.txt](https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt) file. It would be advisable to run **`pip install -r requirements.txt`** before setting up other things.
+
+<a name="demo"></a>
+Demo
+-------------
+**Please make sure you have [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/) installed.**
+
+Once we have docker up and running setting up the demo server is a piece of cake.
+### Running the demo server
+- Clone the repository to your local machine.
+- `cd` into the project directory and use `docker-compose build` to build the required docker containers.
+- Start the containers using `docker-compose up`(With this we have our demo server up and running).
+- Get the hydrus container name using `docker ps`. It should be something like hydrus* ( Mine is hydrus_1).
+- Now, all we need to do is setup and populate the database. Connect to the container using <br/> `docker exec -i -t <container_name or container_id> /bin/bash`.
+- Create the database models using `python /app/hydrus/data/db_models.py`.
+- Parse and insert classes from RDF/OWL vocabulary to the database using `python /app/hydrus/data/insert_classes.py`
+- Insert random data generated  by `hydrus.data.generator` using `python /app/hydrus/data/insert_data.py`
+- Exit the docker container shell using `exit`.
+
+**The demo server should be up and running at `127.0.0.1:8080/api`.**
+
+**NOTE:** Docker port binding is not working in Windows. Windows users can access the server at `<docker_ip>:8080/api`. You can check your docker_ip using `docker-machine ip`.
+
 
 <a name="usage"></a>
 Usage
