@@ -40,8 +40,7 @@ Once we have docker up and running setting up the demo server is a piece of cake
 - Clone the repository to your local machine.
 - `cd` into the project directory and use `docker-compose build` to build the required docker containers.
 - Start the containers using `docker-compose up`(With this we have our demo server up and running).
-- Get the hydrus container name using `docker ps`. It should be something like hydrus* ( Mine is hydrus_1).
-- Now, all we need to do is setup and populate the database. Connect to the container using <br/> `docker exec -i -t <container_name or container_id> /bin/bash`.
+- Now, all we need to do is setup and populate the database. Connect to the container using <br/> `docker exec -i -t <container_name or container_id> /bin/bash` ( You can get the hydrus container name using `docker ps`. It should be something like `hydrus*`).
 - Create the database models using `python /app/hydrus/data/db_models.py`.
 - Parse and insert classes from RDF/OWL vocabulary to the database using `python /app/hydrus/data/insert_classes.py`
 - Insert random data generated  by `hydrus.data.generator` using `python /app/hydrus/data/insert_data.py`
