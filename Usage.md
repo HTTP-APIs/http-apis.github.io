@@ -161,7 +161,7 @@ instance = {
         }
 
         # In case the property is an AbstractProperty, the class name should be given as Value
-        "category": "Spacecraft_Communication",     # AbstractProperty: Classname, Classname is automatically mapped to relevant RDFClass
+        "@type": "Spacecraft_Communication",     # AbstractProperty: Classname, Classname is automatically mapped to relevant RDFClass
     }
 }
 
@@ -182,7 +182,7 @@ Setting up a new Hydra server from Hydrus is pretty straightforward and involves
 ### 1. The first step is parsing the `HydraClasses` and their `SupportedProperties` from the OWL vocabulary.
 To setup a new Hydra server you need to provide an OWL vocabulary. 
 
-`Hydrus.hydraspec.parser` can be used to generate parsed classes. Just import the OWL vocabulary in `parser.py` and run it.<br/> It will parse and convert all the OWL classes and properties into `HydraClasses` and their `SupportedProperties`. 
+`Hydrus.hydraspec.parser` can be used to generate parsed classes. Just import the OWL vocabulary in `parser.py` and run it. It will parse and convert all the OWL classes and properties into `HydraClasses` and their `SupportedProperties`. 
 
 For example - 
 We have the `Subsystem` OWL vocabulary defined in `Hydrus.metadata.subsystem_vocab_jsonld`.
@@ -205,13 +205,25 @@ if __name__ == "__main__":
     ......
 ``` 
 Running the `parser.py` will return `HydraClasses` and their `SupportedProperties`.<br/> 
-We can save this as `parsed_classes` using Output redirection `python parser.py > parsed_classes` should do it!<br/>
+We can save this as `parsed_classes` using Output redirection. Running `python parser.py > parsed_classes` should do it!<br/>
 Now we're ready to move forward. The next steps involve generating a Hydra vocabulary and various contexts.
 
 ### 2. Generating `HydraVocab` from parsed classes
-`Hydrus.hydraspec.vocab_generator` can be used to generate a Hydra Vocabulary from the parsed classes. Vocab generator mainly consists `gen_vocab()` function.
+`Hydrus.hydraspec.vocab_generator` can be used to generate a Hydra Vocabulary from the parsed classes. Vocab generator mainly consists `gen_vocab` function.
 ```python
 def gen_vocab(parsed_classes, server_url, item_type, item_semantic_url):
+    """Generate Hydra Vocabulary."""
+    SERVER_URL = server_url
+    ITEM_TYPE = item_type
+    ITEM_SEMANTIC_URL = item_semantic_url
+
+    vocab_template = {
+        "@context": {
+            "vocab": SERVER_URL + "/api/vocab#",
+            "hydra": "http://www.w3.org/ns/hydra/core#",
+            "ApiDocumentation": "hydra:ApiDocumentation",
+            "property": {
+......
 ```
 We need to pass the following variables into `gen_vocab()` for generation of a Hydra Vocabulary
 * `parsed_classes` - Use the classes parsed earlier from the OWL vocabulary.
@@ -221,8 +233,13 @@ We need to pass the following variables into `gen_vocab()` for generation of a H
 
 Vocab generator uses a Hydra Vocabulary template `vocab_template` to generate the required hydra vocabulary.
 
-After passing all these variables, simply running the `vocab_generator.py` will create a Hydra vocabulary for the server.<br/>
-Use Output redirection to save it, `python vocab_generator.py > vocab` should do it!
+After passing all these variables, simply running the `vocab_generator.py` will return a Hydra vocabulary for the server.<br/>
+
+```python
+    print(gen_vocab(parsed_classes, "http://hydrus.com/", "Cots",
+          "http://ontology.projectchronos.eu/subsystems?format=jsonld"))
+```
+Use Output redirection to save it, Running `python vocab_generator.py > vocab` should do it!
 
 ### 3. Generating the `Entrypoint` and `Entrypoint_context`
 * #### Entrypoint Generator
@@ -241,6 +258,10 @@ def gen_entrypoint(server_url, item_type):
     }
 
     return json.dumps(entrypoint_template, indent=4)
+```
+We can generate the data for entrypoint simply by doing something like this:
+```python
+print(gen_entrypoint("http://hydrus.com/", "Cots"))
 ```
 * #### Entrypoint Context Generator
 `Hydrus.hydraspec.entrypoint_context_generator` also uses a similar template to generate the entrypoint context.
@@ -265,6 +286,10 @@ def gen_entrypoint_context(server_url, item_type):
 
     return json.dumps(entrypoint_context_template, indent=4)
 ```
+We can generate the data for entrypoint context simply by doing something like this:
+```python
+print(gen_entrypoint_context("http://hydrus.com/", "Cots"))
+```
 
 Both the `Hydrus.hydraspec.entrypoint_generator` and `Hydrus.hydraspec.entrypoint_context_generator` can be used to generate `Entrypoint` and `Entrypoint_context` data.
 
@@ -287,7 +312,7 @@ Use [these](https://github.com/HTTP-APIs/hydrus/wiki#demo) instruction to start 
 
 <a name="moddata"></a>
 ## Manipulating data
-We already saw how `insert` work in the previous section, we will now see how the other crud operations work and what are the errors and exceptions for each of them.
+We already saw how `insert` work in the Adding instance section, we will now see how the other crud operations work and what are the errors and exceptions for each of them.
 
 <a name="crud"></a>
 ### CRUD opertions
@@ -298,13 +323,13 @@ GET
 from hydrus.data import crud
 import json
 
-instance = crud.get(id_=1)     # Return the Resource/Instance with ID = 1
+instance = crud.get(id_=1, type_="Spacecraft_Communication")     # Return the Resource/Instance with ID = 1
 print(json.dumps(instance, indent=4))
 # Output:
 # {
 #     "name": "12W communication",
 #     "object": {
-#         "category": "Spacecraft_Communication",
+#         "@type": "Spacecraft_Communication",
 #         "hasMass": 98,
 #         "hasMonetaryValue": 6604,
 #         "hasPower": -61,
@@ -319,7 +344,7 @@ DELETE
 from hydrus.data import crud
 import json
 
-output = crud.delete(id_=1)     # Deletes the Resource/Instance with ID = 1
+output = crud.delete(id_=1, type_="Spacecraft_Communication")     # Deletes the Resource/Instance with ID = 1
 print(json.dumps(output, indent=4))
 # Output:
 # {
@@ -334,7 +359,7 @@ import json
 new_object = {
     "name": "14W communication",
     "object": {
-        "category": "Spacecraft_Communication",
+        "@type": "Spacecraft_Thermal",
         "hasMass": 8,
         "hasMonetaryValue": 6204,
         "hasPower": -10,
@@ -358,10 +383,17 @@ NOTE: Relevant all responses are returned in JSON format
 
 GET
 ```python
+
+# A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
+{   
+    401: "The class dummyClass is not a valid/defined RDFClass"
+}
+
 # A 404 error is returned when an Instance is not found
 {
     404: "Instance with ID : 2 NOT FOUND"
 }
+
 ```
 
 INSERT
@@ -389,6 +421,12 @@ INSERT
 
 DELETE
 ```python
+
+# A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
+{   
+    401: "The class dummyClass is not a valid/defined RDFClass"
+}
+
 # A 404 error is returned when an Instance is not found
 {
     404: "Instance with ID : 2 NOT FOUND"
