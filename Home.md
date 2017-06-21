@@ -43,7 +43,8 @@ Once we have docker up and running setting up the demo server is a piece of cake
 - Now, all we need to do is setup and populate the database. Connect to the container using <br/> `docker exec -i -t <container_name or container_id> /bin/bash` ( You can get the hydrus container name using `docker ps`. It should be something like `hydrus*`).
 - Create the database models using `python /app/hydrus/data/db_models.py`.
 - Parse and insert classes from RDF/OWL vocabulary to the database using `python /app/hydrus/data/insert_classes.py`
-- Insert random data generated  by `hydrus.data.generator` using `python /app/hydrus/data/insert_data.py`
+- Insert random data generated  by `hydrus.data.generator` using `python /app/hydrus/data/insert_data.py`. <br/>
+**NOTE**: This step is only valid for the subsystem example. You'll need to write your own generator to populate the database for any other example.
 - Exit the docker container shell using `exit`.
 
 **The demo server should be up and running at `127.0.0.1:8080/api`.**
