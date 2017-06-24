@@ -109,7 +109,7 @@ hydrus.data.doc_parse.insert_classes(classes)
 hydrus.data.doc_parse.insert_properties(classes)
 ```
 
-The final way to add classes and properties to Hydrus is to use RDF/OWL definitions of the classes. This can be done by using the OWL/RDF parser to create Hydra APIDocumentation and then adding data as explained in the previous step.
+The final way to add classes and properties to Hydrus is to use RDF/OWL vocabulary. This can be done by using the OWL/RDF parser to generate a list of Hydra classes which is then used by `hydrus.hydraspec.vocab_generator` to generate the ApiDocumentation and then adding data from the ApiDocumentation as explained in the previous step.
 ```python
 from hydrus.hydraspec import parser
 
@@ -134,15 +134,21 @@ data = {
     }
 }
 
-owl_props = parser.get_all_properties(data)     # Get all Owl:Properties
+    # Get all the owl:ObjectProperty objects from the vocab
+    owl_props = get_all_properties(data)
 
-hydra_props = parser.hydrafy_properties(owl_props)      # Convert them to Hydra:Property along with class metadata
+    # Convert each owl:ObjectProperty into a Hydra:SupportedProperty, also get classes that support it based on domain and range.
+    hydra_props = hydrafy_properties(owl_props, SEMANTIC_REF_NAME)
 
-owl_classes = parser.get_all_classes(subsystem_data)    # Get all the owl:Classes
+    # Get all the owl:Class objects from the vocab
+    owl_classes = get_all_classes(subsystem_data)
 
-hydra_classes = parser.hydrafy_classes(owl_classes, hydra_props)    # Convert each owl:Class into a Hydra:Class with property data
+    # Convert each owl:Class into a Hydra:Class, also get supportedProperty for each
+    hydra_classes = hydrafy_classes(
+        owl_classes, hydra_props, SEMANTIC_REF_NAME)
 
-apidoc = gen_APIDoc(hydra_classes)      # Create API Documentation with the Hydra:supportedClass
+    # Create API Documentation with the Hydra:Class list
+    supported_classes = gen_supported_classes(hydra_classes)
 ```
 ---
 ### Adding Instances/Resources
