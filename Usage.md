@@ -217,33 +217,39 @@ Now we're ready to move forward. The next steps involve generating a Hydra vocab
 ### 2. Generating `HydraVocab` from parsed classes
 `Hydrus.hydraspec.vocab_generator` can be used to generate a Hydra Vocabulary from the parsed classes. Vocab generator mainly consists `gen_vocab` function.
 ```python
-def gen_vocab(parsed_classes, server_url, item_type, item_semantic_url):
+def gen_vocab(parsed_classes, server_url, semantic_ref_name, semantic_ref_url):
     """Generate Hydra Vocabulary."""
     SERVER_URL = server_url
-    ITEM_TYPE = item_type
-    ITEM_SEMANTIC_URL = item_semantic_url
+    SEMANTIC_REF_NAME = semantic_ref_name
+    SEMANTIC_REF_URL = semantic_ref_url
 
     vocab_template = {
         "@context": {
-            "vocab": SERVER_URL + "/api/vocab#",
+            "vocab": SERVER_URL + "api/vocab#",
             "hydra": "http://www.w3.org/ns/hydra/core#",
+            semantic_ref_name: semantic_ref_url,
             "ApiDocumentation": "hydra:ApiDocumentation",
             "property": {
+                "@id": "hydra:property",
+                "@type": "@id"
+},
 ......
 ```
 We need to pass the following variables into `gen_vocab()` for generation of a Hydra Vocabulary
 * `parsed_classes` - Use the classes parsed earlier from the OWL vocabulary.
 * `server_url` - Url where the server is hosted.
-* `item_type` - Item type can be anything depending upon what is being served by the API. For example in Subsystems example `item_type = Cots`.
-* `item_sematic_url` - Semantic reference of the Item.
+* `semantic_ref_name` - Semantic reference name is the name to be given to the semantic reference Url ( Remote Semantic Vocabulary). For example, in this case we are using `subsystems` as semantic reference name.
+* `sematic_ref_url` - Semantic reference Url for the item types.
 
 Vocab generator uses a Hydra Vocabulary template `vocab_template` to generate the required hydra vocabulary.
 
 After passing all these variables, simply running the `vocab_generator.py` will return a Hydra vocabulary for the server.<br/>
 
 ```python
-    print(gen_vocab(parsed_classes, "http://hydrus.com/", "Cots",
-          "http://ontology.projectchronos.eu/subsystems?format=jsonld"))
+ # DEMO
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(gen_vocab(parsed_classes, SERVER_URL, "subsystems",
+"http://ontology.projectchronos.eu/subsystems"))
 ```
 Use Output redirection to save it, Running `python vocab_generator.py > vocab` should do it!
 
@@ -251,50 +257,53 @@ Use Output redirection to save it, Running `python vocab_generator.py > vocab` s
 * #### Entrypoint Generator
 `Hydrus.hydraspec.entrypoint_generator` uses an Entrypoint template to generate the required Entrypoint data.
 ```python
-def gen_entrypoint(server_url, item_type):
+def gen_entrypoint(server_url):
     """Generate EntryPoint."""
     SERVER_URL = server_url
-    ITEM_TYPE = item_type
 
     entrypoint_template = {
-      "@context": SERVER_URL + "api/contexts/EntryPoint.jsonld",
-      "@id": SERVER_URL + "api/",
+      "@context": "/api/contexts/EntryPoint.jsonld",
+      "@id": "/api",
       "@type": "EntryPoint",
-      ITEM_TYPE.lower(): "api/%s/" % (ITEM_TYPE.lower())
     }
 
-    return json.dumps(entrypoint_template, indent=4)
+    supported_ops = gen_supported_ops(parsed_classes)
+    for op in supported_ops:
+        entrypoint_template[op.keys()[0]] = op[op.keys()[0]]
+
+    return entrypoint_template
 ```
 We can generate the data for entrypoint simply by doing something like this:
 ```python
-print(gen_entrypoint("http://hydrus.com/", "Cots"))
+pp = pprint.PrettyPrinter(indent=4)
+pp.pprint(gen_entrypoint(`server_url`))
 ```
 * #### Entrypoint Context Generator
 `Hydrus.hydraspec.entrypoint_context_generator` also uses a similar template to generate the entrypoint context.
 ```python
 
-def gen_entrypoint_context(server_url, item_type):
+def gen_entrypoint_context(server_url):
     """Generate context for the EntryPoint."""
     SERVER_URL = server_url
-    ITEM_TYPE = item_type
 
     entrypoint_context_template = {
         "@context": {
             "hydra": "http://www.w3.org/ns/hydra/core#",
-            "vocab": SERVER_URL + "/api/vocab#",
+            "vocab": SERVER_URL + "api/vocab#",
             "EntryPoint": "vocab:EntryPoint",
-            ITEM_TYPE.lower(): {
-                "@id": "vocab:EntryPoint/"+ITEM_TYPE,
-                "@type": "@id"
-            }
+            ##Supported Operations will be appended here
         }
     }
+    supported_ops = gen_supported_ops(parsed_classes)
+    for op in supported_ops:
+        entrypoint_context_template["@context"][op.keys()[0]] = op[op.keys()[0]]
+    return entrypoint_context_template
 
-    return json.dumps(entrypoint_context_template, indent=4)
 ```
 We can generate the data for entrypoint context simply by doing something like this:
 ```python
-print(gen_entrypoint_context("http://hydrus.com/", "Cots"))
+pp = pprint.PrettyPrinter(indent=4)
+pp.pprint(gen_entrypoint_context(SERVER_URL))
 ```
 
 Both the `Hydrus.hydraspec.entrypoint_generator` and `Hydrus.hydraspec.entrypoint_context_generator` can be used to generate `Entrypoint` and `Entrypoint_context` data.
@@ -308,7 +317,8 @@ Endpoints are defined in `api.add_resource` like this:
 
 ```python
 # Needs to be changed manually
-api.add_resource(Item, "/api/<string:type_>/<int:id_>", endpoint="cots")
+api.add_resource(Item, "/api/<string:type_>/<int:id_>", endpoint="item")
+
 ```
 
 ### 5. Starting the API server
