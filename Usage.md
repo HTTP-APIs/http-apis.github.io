@@ -2,6 +2,7 @@ This page explains the basic usage and setting up a Hydra server using Hydrus.
 
 Table of contents
 -------------
+* [The API Documentation](#apidoc)
 * [Setting up the database](#dbsetup)
 * [Adding data](#adddata)
     * [Classes and Properties](#classprop)
@@ -13,6 +14,104 @@ Table of contents
 * [Setting up the server](#servsetup)
 * [Running tests](#test)
 * [Using the client](#useclient)
+
+<a name="apidoc"></a>
+## The APIDocumentation
+Much of Hydrus is built around the Hydra API Documentation. The API Doc is defined in the Hydra spec [here](http://www.hydra-cg.com/spec/latest/core/).
+The API Doc is the entity that tells Hydrus how the server must be set up, what are the endpoints that must be created, what data needs to be served, the operations supported by the data and so on.
+The Hydra API Doc needs to be placed in the `hydrus.metadata.doc.py` file as defined below:
+```python
+# hydrus.metadata.doc
+
+doc = {
+  "@context": "http://www.w3.org/ns/hydra/context.jsonld",
+  "@id": "http://api.example.com/doc/",
+  "@type": "ApiDocumentation",
+  "title": "The name of the API",
+  "description": "A short description of the API",
+  "entrypoint": "URL of the API's main entry point",
+  "supportedClass": [
+    # ... Classes known to be supported by the Web API ...
+  ],
+  "possibleStatus": [
+    # ... Statuses that should be expected and handled properly ...
+  ]
+}
+
+```
+
+The API Documentation is automatically parsed and a HydraDoc object as defined below is created:
+![doc_writer](https://image.ibb.co/eWURkQ/doc_writer.png)
+
+The HydraDoc can also be used to create Hydra API Documentation, a sample is shown below:
+```python
+# Sample to create Hydra APIDocumentation using doc_writer
+
+from hydrus.hydraspec.doc_writer import HydraDoc, HydraClass, HydraClassProp, HydraClassOp
+
+API_NAME = "demoapi"
+BASE_URL = "https://hydrus.com/"
+ENTRY_POINT = "api"
+# API_NAME is the name of the api
+# The API will be accessible at BASE_URL + ENTRY_POINT (http://hydrus.com/api/)
+
+api_doc = HydraDoc(API_NAME,
+                   "Title for the API Documentation",
+                   "Description for the API Documentation",
+                   ENTRY_POINT,
+                   BASE_URL)
+
+# Creating classes for the API
+class_uri = "http://hydrus.com/dummyClass"  # URI of class for the HydraClass
+class_title = "dummyClass"  # Title of the Class
+class_description = "A dummyClass for demo"     # Description of the class
+class_ = HydraClass(class_uri, class_title, class_description, endpoint=False)
+# Setting endpoint=True creates an endpoint for the class itself, this is usually for classes that have single instances
+# These classes should not ideally have a Collection, although Hydrus allows creation of such Collections
+
+# Create new properties for the class
+prop1_uri = "http://hydrus.com/prop1"   # The URI of the class of the property
+prop1_title = "Prop1"   # Title of the property
+dummyProp1 = HydraClassProp(prop1_uri, prop1_title , required=False, read=False, write=True)
+prop2_uri = "http://hydrus.com/prop2"
+prop2_title = "Prop2"
+dummyProp2 = HydraClassProp(prop1_uri, prop2_title, required=False, read=False, write=True)
+# Properties that are required=True must be added during class object creation
+# Properties that are read=True are read only
+# Properties that are write=True are writable
+
+# Create operations for the class
+op_name = "SubmitProp"  # The name of the operation
+op_method = "POST"  # The method of the Operation [GET, POST, PUT, DELETE]
+op_expects = "vocab:Drone"  # URI of the object that is expected for the operation
+op_returns = None   # URI of the object that is returned by the operation
+op_status = [{"statusCode": 200, "description": "Drone updated"}]   # List of statusCode for the operation
+op1 = HydraClassOp(op_name
+                   op_method,
+                   op_expects,
+                   op_returns,
+                   op_status)
+
+# Add the operation and properties to the Class
+class_.add_supported_prop(prop1)
+class_.add_supported_prop(prop2)
+
+class_.add_supported_op(op1)
+
+# Add the class to the HydraDoc
+api_doc.add_supported_class(class_, collection=True)
+# Using collection=True creates a HydraCollection for the class.
+# The name of the Collection is class_.title+"Collection"
+# The collection inherently supports GET and PUT operations
+
+# Other operations
+api_doc.add_baseResource()  # Creates the base Resource Class and adds it to the API Documentation
+api_doc.add_baseCollection()    # Creates the base Collection Class and adds it to the API Documentation
+api_doc.gen_EntryPoint()    # Generates the EntryPoint object for the Doc using the Classes and Collections
+
+api_doc.generate()  # Returns the entire API Documentation as a Python dict
+```
+
 
 <a name="dbsetup"></a>
 ## Setting up the database
@@ -186,11 +285,11 @@ crud.insert(object_=instance, id_=1)    #This will insert 'instance' with ID = 1
 ## Setting up a Hydra server from OWL vocabulary
 Setting up a new Hydra server from Hydrus is pretty straightforward and involves the following steps:
 ### 1. The first step is parsing the `HydraClasses` and their `SupportedProperties` from the OWL vocabulary.
-To setup a new Hydra server you need to provide an OWL vocabulary. 
+To setup a new Hydra server you need to provide an OWL vocabulary.
 
-`Hydrus.hydraspec.parser` can be used to generate parsed classes. Just import the OWL vocabulary in `parser.py` and run it. It will parse and convert all the OWL classes and properties into `HydraClasses` and their `SupportedProperties`. 
+`Hydrus.hydraspec.parser` can be used to generate parsed classes. Just import the OWL vocabulary in `parser.py` and run it. It will parse and convert all the OWL classes and properties into `HydraClasses` and their `SupportedProperties`.
 
-For example - 
+For example -
 We have the `Subsystem` OWL vocabulary defined in `Hydrus.metadata.subsystem_vocab_jsonld`.
 
 Import this into `parser.py` using
@@ -209,8 +308,8 @@ if __name__ == "__main__":
     # Get all the owl:ObjectProperty objects from the vocab
     owl_props = get_all_properties(data)
     ......
-``` 
-Running the `parser.py` will return `HydraClasses` and their `SupportedProperties`.<br/> 
+```
+Running the `parser.py` will return `HydraClasses` and their `SupportedProperties`.<br/>
 We can save this as `parsed_classes` using Output redirection. Running `python parser.py > parsed_classes` should do it!<br/>
 Now we're ready to move forward. The next steps involve generating a Hydra vocabulary and various contexts.
 
