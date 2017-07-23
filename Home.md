@@ -30,7 +30,7 @@ The system is built over the following standards and tools:
 
 Apart from this, there are also various Python packages that Hydrus uses. A list of all these packages can be found in the [requirements.txt](https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt) file. It would be advisable to run **`pip install -r requirements.txt`** before setting up other things.
 
-<a name="demo"></a>
+<!-- <a name="demo"></a>
 Demo
 -------------
 **Please make sure you have [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/) installed.**
@@ -49,7 +49,7 @@ Once we have docker up and running setting up the demo server is a piece of cake
 
 **The demo server should be up and running at `127.0.0.1:8080/api`.**
 
-**NOTE:** Docker port binding is not working in Windows. Windows users can access the server at `<docker_ip>:8080/api`. You can check your docker_ip using `docker-machine ip`.
+**NOTE:** Docker port binding is not working in Windows. Windows users can access the server at `<docker_ip>:8080/api`. You can check your docker_ip using `docker-machine ip`. -->
 
 
 <a name="usage"></a>
