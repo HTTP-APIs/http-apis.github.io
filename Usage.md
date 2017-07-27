@@ -19,31 +19,14 @@ Table of contents
 ## The APIDocumentation
 Much of Hydrus is built around the Hydra API Documentation. The API Doc is defined in the Hydra spec [here](http://www.hydra-cg.com/spec/latest/core/).
 The API Doc is the entity that tells Hydrus how the server must be set up, what are the endpoints that must be created, what data needs to be served, the operations supported by the data and so on.
-The Hydra API Doc needs to be placed in the `hydrus.metadata.doc.py` file as defined below:
-```python
-# hydrus.metadata.doc
+Hydrus uses Python classes in `hydrus.hydraspec.doc_writer` to create/define API Docs. Here is a brief diagram explaining the different classes in `doc_writer`:
 
-doc = {
-  "@context": "http://www.w3.org/ns/hydra/context.jsonld",
-  "@id": "http://api.example.com/doc/",
-  "@type": "ApiDocumentation",
-  "title": "The name of the API",
-  "description": "A short description of the API",
-  "entrypoint": "URL of the API's main entry point",
-  "supportedClass": [
-    # ... Classes known to be supported by the Web API ...
-  ],
-  "possibleStatus": [
-    # ... Statuses that should be expected and handled properly ...
-  ]
-}
-
-```
-
-The API Documentation is automatically parsed and a HydraDoc object as defined below is created:
 ![doc_writer](https://image.ibb.co/eWURkQ/doc_writer.png)
 
-The HydraDoc can also be used to create Hydra API Documentation, a sample is shown below:
+The HydraDoc object is crucial for Hydrus to be able to set up the API. There are a number of ways you can create this object from your API Documentation.
+
+The `doc_writer` can be used to create an API Doc itself as defined below:
+
 ```python
 # Sample to create Hydra APIDocumentation using doc_writer
 
@@ -112,7 +95,31 @@ api_doc.gen_EntryPoint()    # Generates the EntryPoint object for the Doc using 
 api_doc.generate()  # Returns the entire API Documentation as a Python dict
 ```
 
+In case you already have an API Doc defined in JSON or a Python dict, Hydrus provides a way to turn this API Doc into `doc_writer` classes. This is done using `hydrus.hydraspec.doc_maker` as defined below:
+```python
+# Sample to convert the API Doc into doc_writer classes
 
+from hydrus.hydraspec.doc_maker import createDoc
+
+# Note: It would be better to use json.loads from the python json library to create 'doc'
+doc = {
+  "@context": "http://www.w3.org/ns/hydra/context.jsonld",
+  "@id": "http://api.example.com/doc/",
+  "@type": "ApiDocumentation",
+  "title": "The name of the API",
+  "description": "A short description of the API",
+  "entrypoint": "URL of the API's main entry point",
+  "supportedClass": [
+    # ... Classes known to be supported by the Web API ...
+  ],
+  "possibleStatus": [
+    # ... Statuses that should be expected and handled properly ...
+  ]
+}
+
+APIDoc = createDoc(doc, HYDRUS_SERVER_URL="https://hydrus.com", API_NAME="demoapi")
+# HYDRUS_SERVER_URL and API_NAME are optional parameters. If not defined, the default values from the doc object are used.
+```
 <a name="dbsetup"></a>
 ## Setting up the database
 The databse models use SQLAlchemy as an ORM Layer mapping relations to Python Classs and Objects. A good reference for the ORM can be found [here](http://docs.sqlalchemy.org/en/rel_1_0/orm/tutorial.html)
