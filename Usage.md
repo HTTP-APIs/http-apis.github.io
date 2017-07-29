@@ -296,18 +296,18 @@ doc_parse.insert_properties(classes, session=db_session)
 ```
 **NOTE:** You can use the `ApiDocumentation` dictionary directly to get the classes and properties, but it is advised that the `HydraDoc` object be used to generate the ApiDocumentation, as there may be unwanted errors in the dictionary that maybe permanently added to the database.
 
-<a name="url"></a>
+<a name="urls"></a>
 ## Server URL and the API name
 Hydrus needs to know the server URL defined as `HYDRUS_SERVER_URL` at which it is hosted and the API name defined as `API_NAME`, which also serves as the entrypoint for the API.
 
 These are used to define IDs for objects/resources that Hydrus serves. For example, a Hydrus server hosted at `https://hydrus.com/api` must return objects with ID `@id: https://hydrus.com/api/dummyClass/1`.
 
-It is essential for Hydrus to now this, as the Hydra spec requres IDs for objects to be dereferencable links.
+It is essential for Hydrus to know this, as the Hydra spec requres IDs for objects to be dereferencable links.
 Since most servers use an interface to link with the actual application or backend process, these things cannot be found out by Hydrus on it's own and must be provided during setup.
 
 <a name="appf"></a>
 ## App factory
-The API name, must also be used for Hydrus to actually create an app. The `app_factory` method creates an API with all routes directed at `/[API_NAME]`, for example if you create an app using the `API_NAME` `"demoapi"`, all operations for the API will be at the route `/demoapi/..`. The API name serves as the entrypoint for the application. We can create an app using the `API_NAME` as follows:
+The API name, must also be used for Hydrus to actually create an app. The `app_factory` method creates an API with all routes directed at `/[API_NAME]`, for example if you create an app using the `API_NAME` as `"demoapi"`, all operations for the API will be at the route `/demoapi/..`. The API name serves as the entrypoint for the application. We can create an app using the `API_NAME` as follows:
 
 ```python
 from hydrus.app import app_factory
@@ -332,6 +332,7 @@ with set_api_name(app, API_NAME):
                 # Start the Hydrus app
                 app.run(host='127.0.0.1', debug=True, port=8080)
 ```
+The Hydrus app is a modified instance of the Flask app with the required operations and routes predefined. All options/operations on the app object will be the same as those done in the Flask app.
 
 <a name="test"></a>
 ## Running tests
