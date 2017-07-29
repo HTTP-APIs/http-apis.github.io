@@ -81,7 +81,7 @@ dummyProp2 = HydraClassProp(prop1_uri, prop2_title, required=False, read=False, 
 # Properties that are read=True are read only
 # Properties that are write=True are writable
 ```
-Apart from properties, classes also need to have operations that allow them to modify the data stored within their instances, these operation are defined as `HydraClassOp` and are stored in `supportedOperation` of the `HydraClass`.
+Apart from properties, classes also need to have operations that allow them to modify the data stored within their instances, these operation are defined as `HydraClassOp` and are stored in `supportedOperation` of the `HydraClass`. Properties are defined as `HydraClassProp` objects:
 
 ```python
 from hydrus.hydraspec.doc_writer import HydraClassOp
@@ -120,7 +120,7 @@ api_doc.add_supported_class(class_, collection=True)
 #       The collection inherently supports GET and PUT operations
 ```
 
-Apart from basic these, an API Documentation also needs to have the Resource and Collection classes, so that Collections and their members can be identified by the server. This can be done automatically using the `add_baseResource` and `add_baseCollection` methods.
+Apart from these, an API Documentation also needs to have the [Resource](http://www.w3.org/ns/hydra/core#Resource) and [Collection](http://www.w3.org/ns/hydra/core#Collection) classes, so that Resources, Collections and their members can be identified by the server. This can be done automatically using the `add_baseResource` and `add_baseCollection` methods.
 
 ```python
 # Other operations
