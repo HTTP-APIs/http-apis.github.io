@@ -320,6 +320,8 @@ app = app_factory(API_NAME)
 ## Plug and Play
 Once everything needed to create a Hydra based API is in place, we must connect them to each other. This is done using the methods defined in the `hydrus.utils` module. The use of these pluggable modules requires an app context which a variant of the Python `context`, much like the request context in most servers. As such the Python keyword `with` must be used to create a context in which the application must run. This is done as follows:
 ```python
+from hydrus.utils import set_api_name, set_doc, set_session, set_hydrus_server_url
+
 # Set the name of the API
 with set_api_name(app, API_NAME):
     # Set the API Documentation
