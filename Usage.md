@@ -3,6 +3,7 @@ This page explains the basic usage and setting up a Hydra server using Hydrus.
 Table of contents
 -------------
 * [The API Documentation](#apidoc)
+    * [Creating a new API Documentation](#newdoc)
 * [Setting up the database](#dbsetup)
 * [Adding data](#adddata)
     * [Classes and Properties](#classprop)
@@ -19,18 +20,21 @@ Table of contents
 ## The APIDocumentation
 Much of Hydrus is built around the Hydra API Documentation. The API Doc is defined in the Hydra spec [here](http://www.hydra-cg.com/spec/latest/core/).
 The API Doc is the entity that tells Hydrus how the server must be set up, what are the endpoints that must be created, what data needs to be served, the operations supported by the data and so on.
-Hydrus uses Python classes in `hydrus.hydraspec.doc_writer` to create/define API Docs. Here is a brief diagram explaining the different classes in `doc_writer`:
+Hydrus uses Python classes in `hydrus.hydraspec.doc_writer` to create/define API Docs. A description of these classes and their design can be found in the [Design](https://github.com/HTTP-APIs/hydrus/wiki/Design) section.
 
-![doc_writer](https://image.ibb.co/eWURkQ/doc_writer.png)
+<!-- ![doc_writer](https://image.ibb.co/eWURkQ/doc_writer.png) -->
 
-The HydraDoc object is crucial for Hydrus to be able to set up the API. There are a number of ways you can create this object from your API Documentation.
+The `hydurs.hydraspec.doc_writer.HydraDoc` object is crucial for Hydrus to be able to set up the API. There are a number of ways you can create this object from your API Documentation:
 
+<a name="newdoc"></a>
+### Create a new API Documentation and a new `HydraDoc` object
 The `doc_writer` can be used to create an API Doc itself as defined below:
 
+The first step is to create a new `HydraDoc` object
 ```python
 # Sample to create Hydra APIDocumentation using doc_writer
 
-from hydrus.hydraspec.doc_writer import HydraDoc, HydraClass, HydraClassProp, HydraClassOp
+from hydrus.hydraspec.doc_writer import HydraDoc
 
 API_NAME = "demoapi"
 BASE_URL = "https://hydrus.com/"
@@ -43,6 +47,13 @@ api_doc = HydraDoc(API_NAME,
                    "Description for the API Documentation",
                    ENTRY_POINT,
                    BASE_URL)
+```
+
+The API Documentation is created, but it is not yet complete, we still need to add classes, properties and operations to the Doc. We also need to generate the EntryPoint object which is crucial for the API and it's operations to be discovered by a Hydra Client.
+
+We will now define a class for this API Documentation, which is of the type `HydraClass`
+```python
+from hydrus.hydraspec.doc_writer import HydraClass
 
 # Creating classes for the API
 class_uri = "http://hydrus.com/dummyClass"  # URI of class for the HydraClass
@@ -51,17 +62,29 @@ class_description = "A dummyClass for demo"     # Description of the class
 class_ = HydraClass(class_uri, class_title, class_description, endpoint=False)
 # Setting endpoint=True creates an endpoint for the class itself, this is usually for classes that have single instances
 # These classes should not ideally have a Collection, although Hydrus allows creation of such Collections
+```
+Classes need to have properties that allow them to store information related to the class, much like attributes in a Python class, these are stored as `supportedProperty` of the `HydraClass`.
+```python
+
+from hydrus.hydraspec.doc_writer import HydraClassProp
 
 # Create new properties for the class
 prop1_uri = "http://hydrus.com/prop1"   # The URI of the class of the property
 prop1_title = "Prop1"   # Title of the property
 dummyProp1 = HydraClassProp(prop1_uri, prop1_title , required=False, read=False, write=True)
+
 prop2_uri = "http://hydrus.com/prop2"
 prop2_title = "Prop2"
 dummyProp2 = HydraClassProp(prop1_uri, prop2_title, required=False, read=False, write=True)
+
 # Properties that are required=True must be added during class object creation
 # Properties that are read=True are read only
 # Properties that are write=True are writable
+```
+Apart from properties, classes also need to have operations that allow them to modify the data stored within their instances, these operation are defined as `HydraClassOp` and are stored in `supportedOperation` of the `HydraClass`.
+
+```python
+from hydrus.hydraspec.doc_writer import HydraClassOp
 
 # Create operations for the class
 op_name = "SubmitProp"  # The name of the operation
@@ -69,30 +92,48 @@ op_method = "POST"  # The method of the Operation [GET, POST, PUT, DELETE]
 op_expects = "vocab:Drone"  # URI of the object that is expected for the operation
 op_returns = None   # URI of the object that is returned by the operation
 op_status = [{"statusCode": 200, "description": "Drone updated"}]   # List of statusCode for the operation
+
 op1 = HydraClassOp(op_name
                    op_method,
                    op_expects,
                    op_returns,
                    op_status)
+```
 
+Once the classes and properties have been defined, we need to add them to the class.
+
+```python
 # Add the operation and properties to the Class
 class_.add_supported_prop(prop1)
 class_.add_supported_prop(prop2)
 
 class_.add_supported_op(op1)
+```
+Now that we have defined a class along with it's properties and operations, we must add this class to the APIDocumentation.
 
+```python
 # Add the class to the HydraDoc
 api_doc.add_supported_class(class_, collection=True)
-# Using collection=True creates a HydraCollection for the class.
-# The name of the Collection is class_.title+"Collection"
-# The collection inherently supports GET and PUT operations
 
+# NOTE: Using collection=True creates a HydraCollection for the class.
+#       The name of the Collection is class_.title+"Collection"
+#       The collection inherently supports GET and PUT operations
+```
+
+Apart from basic these, an API Documentation also needs to have the Resource and Collection classes, so that Collections and their members can be identified by the server. This can be done automatically using the `add_baseResource` and `add_baseCollection` methods.
+
+```python
 # Other operations
 api_doc.add_baseResource()  # Creates the base Resource Class and adds it to the API Documentation
 api_doc.add_baseCollection()    # Creates the base Collection Class and adds it to the API Documentation
+```
+Finally we need to create the EntryPoint object for the API Documentation. All Collections are automatically assigned endpoints in the EntryPoint object. Classes that had their `endpoint` variables set to `True` are also assigned endpoints in the EntryPoint object, this object is created automatically by the `HydraDoc` object, and can be created using the `gen_EntryPoint` method.
+```python
 api_doc.gen_EntryPoint()    # Generates the EntryPoint object for the Doc using the Classes and Collections
-
-api_doc.generate()  # Returns the entire API Documentation as a Python dict
+```
+The final API Documentation can be viewed by calling the `generate` method which returns a Python dictionary containing the entire API Documentation.
+```python
+doc = api_doc.generate()  # Returns the entire API Documentation as a Python dict
 ```
 
 In case you already have an API Doc defined in JSON or a Python dict, Hydrus provides a way to turn this API Doc into `doc_writer` classes. This is done using `hydrus.hydraspec.doc_maker` as defined below:
