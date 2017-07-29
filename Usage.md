@@ -4,6 +4,7 @@ Table of contents
 -------------
 * [The API Documentation](#apidoc)
     * [Creating a new API Documentation](#newdoc)
+    * [Use an existing API Documentation](#olddoc)
 * [Setting up the database](#dbsetup)
 * [Adding data](#adddata)
     * [Classes and Properties](#classprop)
@@ -63,7 +64,7 @@ class_ = HydraClass(class_uri, class_title, class_description, endpoint=False)
 # Setting endpoint=True creates an endpoint for the class itself, this is usually for classes that have single instances
 # These classes should not ideally have a Collection, although Hydrus allows creation of such Collections
 ```
-Classes need to have properties that allow them to store information related to the class, much like attributes in a Python class, these are stored as `supportedProperty` of the `HydraClass`.
+Classes need to have properties that allow them to store information related to the class, much like attributes in a Python class, these are stored as `supportedProperty` of the `HydraClass`. Properties are defined as `HydraClassProp` objects:
 ```python
 
 from hydrus.hydraspec.doc_writer import HydraClassProp
@@ -81,17 +82,17 @@ dummyProp2 = HydraClassProp(prop1_uri, prop2_title, required=False, read=False, 
 # Properties that are read=True are read only
 # Properties that are write=True are writable
 ```
-Apart from properties, classes also need to have operations that allow them to modify the data stored within their instances, these operation are defined as `HydraClassOp` and are stored in `supportedOperation` of the `HydraClass`. Properties are defined as `HydraClassProp` objects:
+Apart from properties, classes also need to have operations that allow them to modify the data stored within their instances, these operation are defined as `HydraClassOp` and are stored in `supportedOperation` of the `HydraClass`.
 
 ```python
 from hydrus.hydraspec.doc_writer import HydraClassOp
 
 # Create operations for the class
-op_name = "SubmitProp"  # The name of the operation
+op_name = "UpdateClass"  # The name of the operation
 op_method = "POST"  # The method of the Operation [GET, POST, PUT, DELETE]
-op_expects = "vocab:Drone"  # URI of the object that is expected for the operation
+op_expects = "vocab:dummyClass"  # URI of the object that is expected for the operation
 op_returns = None   # URI of the object that is returned by the operation
-op_status = [{"statusCode": 200, "description": "Drone updated"}]   # List of statusCode for the operation
+op_status = [{"statusCode": 200, "description": "dummyClass updated"}]   # List of statusCode for the operation
 
 op1 = HydraClassOp(op_name
                    op_method,
@@ -135,6 +136,10 @@ The final API Documentation can be viewed by calling the `generate` method which
 ```python
 doc = api_doc.generate()  # Returns the entire API Documentation as a Python dict
 ```
+The complete script for this API Documentation can be found in `hydrus/hydraspec/doc_writer_sample.py`, the generated ApiDocumentation can be found in `hydrus/hydraspec/doc_writer_sample_output.py`.
+
+<a name="olddoc"></a>
+### Use an existing API Documentation to create a new `HydraDoc` object
 
 In case you already have an API Doc defined in JSON or a Python dict, Hydrus provides a way to turn this API Doc into `doc_writer` classes. This is done using `hydrus.hydraspec.doc_maker` as defined below:
 ```python
@@ -328,150 +333,6 @@ crud.insert(object_=instance)   # This will insert 'instance' into Instance and 
 # Optionally, we can specify the ID of an instance if it is not already used
 crud.insert(object_=instance, id_=1)    #This will insert 'instance' with ID = 1  
 ```
-
-<a name="setup"></a>
-## Setting up a Hydra server from OWL vocabulary
-Setting up a new Hydra server from Hydrus is pretty straightforward and involves the following steps:
-### 1. The first step is parsing the `HydraClasses` and their `SupportedProperties` from the OWL vocabulary.
-To setup a new Hydra server you need to provide an OWL vocabulary.
-
-`Hydrus.hydraspec.parser` can be used to generate parsed classes. Just import the OWL vocabulary in `parser.py` and run it. It will parse and convert all the OWL classes and properties into `HydraClasses` and their `SupportedProperties`.
-
-For example -
-We have the `Subsystem` OWL vocabulary defined in `Hydrus.metadata.subsystem_vocab_jsonld`.
-
-Import this into `parser.py` using
-```python
-from hydrus.metadata.subsystem_vocab_jsonld import subsystem_data
-```
-Pass this vocab to data
-```python
-if __name__ == "__main__":
-    # NOTE: Usage must be in the following order
-        # get_all_properties() >> hydrafy_properties() >> properties
-        # get_all_classes() + properties >> hydrafy_classes() >> classes
-        # classes >> gen_APIDoc()
-
-    data = subsystem_data
-    # Get all the owl:ObjectProperty objects from the vocab
-    owl_props = get_all_properties(data)
-    ......
-```
-Running the `parser.py` will return `HydraClasses` and their `SupportedProperties`.<br/>
-We can save this as `parsed_classes` using Output redirection. Running `python parser.py > parsed_classes` should do it!<br/>
-Now we're ready to move forward. The next steps involve generating a Hydra vocabulary and various contexts.
-
-### 2. Generating `HydraVocab` from parsed classes
-`Hydrus.hydraspec.vocab_generator` can be used to generate a Hydra Vocabulary from the parsed classes. Vocab generator mainly consists `gen_vocab` function.
-```python
-def gen_vocab(parsed_classes, server_url, semantic_ref_name, semantic_ref_url):
-    """Generate Hydra Vocabulary."""
-    SERVER_URL = server_url
-    SEMANTIC_REF_NAME = semantic_ref_name
-    SEMANTIC_REF_URL = semantic_ref_url
-
-    vocab_template = {
-        "@context": {
-            "vocab": SERVER_URL + "api/vocab#",
-            "hydra": "http://www.w3.org/ns/hydra/core#",
-            semantic_ref_name: semantic_ref_url,
-            "ApiDocumentation": "hydra:ApiDocumentation",
-            "property": {
-                "@id": "hydra:property",
-                "@type": "@id"
-},
-......
-```
-We need to pass the following variables into `gen_vocab()` for generation of a Hydra Vocabulary
-* `parsed_classes` - Use the classes parsed earlier from the OWL vocabulary.
-* `server_url` - Url where the server is hosted.
-* `semantic_ref_name` - Semantic reference name is the name to be given to the semantic reference Url ( Remote Semantic Vocabulary). For example, in this case we are using `subsystems` as semantic reference name.
-* `sematic_ref_url` - Semantic reference Url for the item types.
-
-Vocab generator uses a Hydra Vocabulary template `vocab_template` to generate the required hydra vocabulary.
-
-After passing all these variables, simply running the `vocab_generator.py` will return a Hydra vocabulary for the server.<br/>
-
-```python
- # DEMO
-    pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(gen_vocab(parsed_classes, SERVER_URL, "subsystems",
-"http://ontology.projectchronos.eu/subsystems"))
-```
-Use Output redirection to save it, Running `python vocab_generator.py > vocab` should do it!
-
-### 3. Generating the `Entrypoint` and `Entrypoint_context`
-* #### Entrypoint Generator
-`Hydrus.hydraspec.entrypoint_generator` uses an Entrypoint template to generate the required Entrypoint data.
-```python
-def gen_entrypoint(server_url):
-    """Generate EntryPoint."""
-    SERVER_URL = server_url
-
-    entrypoint_template = {
-      "@context": "/api/contexts/EntryPoint.jsonld",
-      "@id": "/api",
-      "@type": "EntryPoint",
-    }
-
-    supported_ops = gen_supported_ops(parsed_classes)
-    for op in supported_ops:
-        entrypoint_template[op.keys()[0]] = op[op.keys()[0]]
-
-    return entrypoint_template
-```
-We can generate the data for entrypoint simply by doing something like this:
-```python
-pp = pprint.PrettyPrinter(indent=4)
-pp.pprint(gen_entrypoint(`server_url`))
-```
-* #### Entrypoint Context Generator
-`Hydrus.hydraspec.entrypoint_context_generator` also uses a similar template to generate the entrypoint context.
-```python
-
-def gen_entrypoint_context(server_url):
-    """Generate context for the EntryPoint."""
-    SERVER_URL = server_url
-
-    entrypoint_context_template = {
-        "@context": {
-            "hydra": "http://www.w3.org/ns/hydra/core#",
-            "vocab": SERVER_URL + "api/vocab#",
-            "EntryPoint": "vocab:EntryPoint",
-            ##Supported Operations will be appended here
-        }
-    }
-    supported_ops = gen_supported_ops(parsed_classes)
-    for op in supported_ops:
-        entrypoint_context_template["@context"][op.keys()[0]] = op[op.keys()[0]]
-    return entrypoint_context_template
-
-```
-We can generate the data for entrypoint context simply by doing something like this:
-```python
-pp = pprint.PrettyPrinter(indent=4)
-pp.pprint(gen_entrypoint_context(SERVER_URL))
-```
-
-Both the `Hydrus.hydraspec.entrypoint_generator` and `Hydrus.hydraspec.entrypoint_context_generator` can be used to generate `Entrypoint` and `Entrypoint_context` data.
-
-### 4. Binding all the generated data in `Hydrus.app`
-`Hydrus.app` is the main `Flask` application from where all the Contexts and endpoints are server.<br/>
-The implementation of `app.py` is pretty straightforward.
-
-Modify `Hydrus.app` to use the generated data (`vocab`, `entrypoint` and `entrypoint_context`) and change the endpoints depending upon your requirements.<br/>
-Endpoints are defined in `api.add_resource` like this:
-
-```python
-# Needs to be changed manually
-api.add_resource(Item, "/api/<string:type_>/<int:id_>", endpoint="item")
-
-```
-
-### 5. Starting the API server
-Use [these](https://github.com/HTTP-APIs/hydrus/wiki#demo) instruction to start your hydra development server locally.<br>
-**NOTE**: You'll have to modify the OWL vocabulary references in these instructions too.
-
 
 <a name="moddata"></a>
 ## Manipulating data
