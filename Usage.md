@@ -12,7 +12,6 @@ Table of contents
 * [App factory](#appf)
 * [Plug and Play](#pnp)
 * [Running tests](#test)
-* [Using the client](#useclient)
 
 <a name="servsetup"></a>
 ## Setting up the server
@@ -336,15 +335,4 @@ The Hydrus app is a modified instance of the Flask app with the required operati
 
 <a name="test"></a>
 ## Running tests
-There are a number of tests in place to ensure that Hydrus functions properly.
-For running tests related to ensuring the validity of the database run
-
-**`python -m unittest hydrus.data.test_db`**
-
-For running client side tests related to the server, run
-
-**`python -m unittest hydrus.test_app`**
-
-<a name="useclient"></a>
-## Using the client
-(Under developement) client not yet ready
+Will be added once dynamic tests are in place
