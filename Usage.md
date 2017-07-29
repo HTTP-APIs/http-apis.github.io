@@ -2,20 +2,77 @@ This page explains the basic usage and setting up a Hydra server using Hydrus.
 
 Table of contents
 -------------
+* [Setting up the server](#servsetup)
 * [The API Documentation](#apidoc)
     * [Creating a new API Documentation](#newdoc)
     * [Use an existing API Documentation](#olddoc)
 * [Setting up the database](#dbsetup)
-* [Adding data](#adddata)
-    * [Classes and Properties](#classprop)
-    * [Instances](#instance)
-* [Setting up a new server from OWL vocabulary](#setup)
-* [Manipulating data](#moddata)
-    * [CRUD operations](#crud)
-    * [Exceptions](#error)
-* [Setting up the server](#servsetup)
+* [Adding Classes and Properties](#classprop)
+* [Server URL and the API name](#urls)
+* [App factory](#appf)
+* [Plug and Play](#pnp)
 * [Running tests](#test)
 * [Using the client](#useclient)
+
+<a name="servsetup"></a>
+## Setting up the server
+Hydrus is a generic server that can serve a REST based API, using the Hydra APIDocumentation to understand the kind of data and the operations supported by the API. Getting a server running in Hydrus is pretty straight forward. All you need to do is create a script that plugs the API Documentation, the database and a few other variables and start a Hydrus app. An example of this is given below, in the following subsections, we will adress each part of the script and teach you how to create your own API using your API Documentation.
+
+```python
+"""Demo script for setting up an API using Hydrus."""
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+from hydrus.app import app_factory
+from hydrus.utils import set_session, set_doc, set_hydrus_server_url, set_api_name
+from hydrus.data import doc_parse
+from hydrus.hydraspec import doc_maker
+from hydrus.data.db_models import Base
+from hydrus.metadata.doc import doc     # Can be replaced by any API Documentation
+
+# Define the server URL, this is what will be displayed on the Doc
+HYDRUS_SERVER_URL = "http://localhost:8080/"
+
+# The name of the API or the EntryPoint, the api will be at http://localhost/<API_NAME>
+API_NAME = "serverapi"
+
+# Define the Hydra API Documentation
+# NOTE: You can use your own API Documentation and create a HydraDoc object using doc_maker
+#       Or you may create your own HydraDoc Documentation using doc_writer [see hydrus/hydraspec/doc_writer_sample]
+apidoc = doc_maker.createDoc(doc, HYDRUS_SERVER_URL, API_NAME)
+
+# Define the database connection
+engine = create_engine('sqlite:///path/to/database/file')
+# Add the required Models to the database
+Base.metadata.create_all(engine)
+# Start a session with the DB and create all classes needed by the APIDoc
+session = sessionmaker(bind=engine)()
+
+# Get all the classes from the doc
+classes = doc_parse.get_classes(apidoc.generate())     # You can also pass a dictionary as defined in hydrus/hydraspec/doc_writer_sample_output.py
+# Get all the properties from the classes
+properties = doc_parse.get_all_properties(classes)
+# Insert them into the database
+doc_parse.insert_classes(classes, session)
+doc_parse.insert_properties(properties, session)
+
+# Create a Hydrus app with the API name you want, default will be "api"
+app = app_factory(API_NAME)
+
+# Set the name of the API
+with set_api_name(app, API_NAME):
+    # Set the API Documentation
+    with set_doc(app, apidoc):
+        # Set HYDRUS_SERVER_URL
+        with set_hydrus_server_url(app, HYDRUS_SERVER_URL):
+            # Set the Database session
+            with set_session(app, session):
+                # Start the Hydrus app
+                app.run(host='127.0.0.1', debug=True, port=8080)
+```
+
+We will now break down each of these steps and understand what they really do. Let's begin.
 
 <a name="apidoc"></a>
 ## The APIDocumentation
@@ -43,7 +100,7 @@ ENTRY_POINT = "api"
 # API_NAME is the name of the api
 # The API will be accessible at BASE_URL + ENTRY_POINT (http://hydrus.com/api/)
 
-api_doc = HydraDoc(API_NAME,
+apidoc = HydraDoc(API_NAME,
                    "Title for the API Documentation",
                    "Description for the API Documentation",
                    ENTRY_POINT,
@@ -114,7 +171,7 @@ Now that we have defined a class along with it's properties and operations, we m
 
 ```python
 # Add the class to the HydraDoc
-api_doc.add_supported_class(class_, collection=True)
+apidoc.add_supported_class(class_, collection=True)
 
 # NOTE: Using collection=True creates a HydraCollection for the class.
 #       The name of the Collection is class_.title+"Collection"
@@ -125,16 +182,16 @@ Apart from these, an API Documentation also needs to have the [Resource](http://
 
 ```python
 # Other operations
-api_doc.add_baseResource()  # Creates the base Resource Class and adds it to the API Documentation
-api_doc.add_baseCollection()    # Creates the base Collection Class and adds it to the API Documentation
+apidoc.add_baseResource()  # Creates the base Resource Class and adds it to the API Documentation
+apidoc.add_baseCollection()    # Creates the base Collection Class and adds it to the API Documentation
 ```
 Finally we need to create the EntryPoint object for the API Documentation. All Collections are automatically assigned endpoints in the EntryPoint object. Classes that had their `endpoint` variables set to `True` are also assigned endpoints in the EntryPoint object, this object is created automatically by the `HydraDoc` object, and can be created using the `gen_EntryPoint` method.
 ```python
-api_doc.gen_EntryPoint()    # Generates the EntryPoint object for the Doc using the Classes and Collections
+apidoc.gen_EntryPoint()    # Generates the EntryPoint object for the Doc using the Classes and Collections
 ```
-The final API Documentation can be viewed by calling the `generate` method which returns a Python dictionary containing the entire API Documentation.
+The final API Documentation can be viewed by calling the `generate` method which returns a Python dictionary containing the entire API Documentation. The `generate` method can be called for every class defined in the `doc_writer` module to generate a Python dictionary for it.
 ```python
-doc = api_doc.generate()  # Returns the entire API Documentation as a Python dict
+doc = apidoc.generate()  # Returns the entire API Documentation as a Python dict
 ```
 The complete script for this API Documentation can be found in `hydrus/hydraspec/doc_writer_sample.py`, the generated ApiDocumentation can be found in `hydrus/hydraspec/doc_writer_sample_output.py`.
 
@@ -166,71 +223,43 @@ doc = {
 APIDoc = createDoc(doc, HYDRUS_SERVER_URL="https://hydrus.com", API_NAME="demoapi")
 # HYDRUS_SERVER_URL and API_NAME are optional parameters. If not defined, the default values from the doc object are used.
 ```
+Make sure that `doc` is a Python dictionary and all objects defined are according to the Hydra [spec](www.hydra-cg.com/spec/latest/core/).
+JSON variables can such as `true`, `false` and `null` can be used as strings. Python variants such as `True`, `False` and `None` can also be used.
+
 <a name="dbsetup"></a>
 ## Setting up the database
-The databse models use SQLAlchemy as an ORM Layer mapping relations to Python Classs and Objects. A good reference for the ORM can be found [here](http://docs.sqlalchemy.org/en/rel_1_0/orm/tutorial.html)
+Now that we have defined the API Documentation, the next thing Hydrus needs to function is a database to store the actual resources of the API. Hydrus has it's own database models that are generic and can be used for most APIs, more information about these can be found in the [Design](https://github.com/HTTP-APIs/hydrus/wiki/Design) section.
 
-The `engine` parameter in `hydrus.data.db_models` is used to connect to the database. This needs to be modified according to the type of connection:
-For example, if the database is an SQLite database, the engine parameter would be as follows:
+The databse models use SQLAlchemy as an ORM Layer mapping relations to Python Classs and Objects. A good reference for the ORM can be found [here](http://docs.sqlalchemy.org/en/rel_1_0/orm/tutorial.html).
+Here is how we can create a new connection and create the necessary models for Hydrus to use.
 
+A new connection to a database can be created as follows:
 ```python
 from sqlalchemy import create_engine
 
-hydrus.data.db_models.engine = create_engine('sqlite:///path/to/database/file')
+engine = create_engine('sqlite:///path/to/database/file')
 ```
-Once the engine is setup, the creation of the required tables can be done as follows:
+This engine acts as a connection on which we can create sessions to interact with the database. You can use any other database, we have used SQLite for the purpose of this demo. A list of possible database and how to connect to them can be found [here](http://docs.sqlalchemy.org/en/rel_1_0/orm/tutorial.html).
+
+Once we have connected to the database we need to create the necessary models from Hydrus:
 
 ```python
 from hydrus.data.db_models import Base
 
-Base.metadata.create_all(hydrus.data.db_models.engine)
+Base.metadata.create_all(engine)
 ```
-This will successfully create all required models in the specified database.
-
-<a name="adddata"></a>
-## Adding data
-Now that the database models have been setup, we need to populate them with data.
+This will successfully create all required models in the connected database. The information of the API however is still not available in these models, to make them available, we need to use the API Doc to add metadata about the classes and their properties in the database. This can be done using the API Documentation object.
 
 <a name="classprop"></a>
-### Adding Classes and Properties
-The first step in adding data is adding the RDFClasses and Properties that the server must support. There are three ways to do this:
+## Adding Classes and Properties
+To add the classes and properties to Hydrus, we need the same database `engine` in which we earlier created the models for Hydrus. To this, we will add metadata using the HydraDoc object. This can be done using the `doc_parse` module in Hydrus.
 
-The first is to manually add all RDFClasses and Properties. Here are some examples:
 ```python
-'''Adding a new RDFClass'''
-from hydrus.data.db_models import RDFClass, engine
+from hydrus.data import doc_parse
+from hydrus.hydraspec import doc_maker
 from sqlalchemy.orm import sessionmaker
 
-thermal = RDFClass(name="Subsystem_Thermal")    # Creates a new RDFClass instance
-
-# Add the instance to the database
-Session = sessionmaker(bind=models.engine)
-session = Session()
-session.add(thermal)
-session.commit()
-session.close()
-```
-```python
-'''Adding a new Property'''
-from hydrus.data.db_models import AbstractProperty, InstanceProperty, engine
-from sqlalchemy.orm import sessionmaker
-
-subclassof = AbstractProperty(name="SubClassOf")    # Creates a new AbstractProperty instance
-cost = InstanceProperty(name="hasMonetaryValue")    # Creates a new InstanceProperty instance
-
-# Add the instance to the database
-Session = sessionmaker(bind=models.engine)
-session = Session()
-session.add(subclassof)
-session.add(cost)
-session.commit()
-session.close()
-```
-The second way to add RDFClasses and Properties is to provide the Hydra APIDocumentation of the API
-```python
-import hydrus
-
-data = {
+ApiDocumentation = {
     "@context": "http://www.w3.org/ns/hydra/context.jsonld",
     "@id": "http://api.example.com/doc/",
     "@type": "ApiDocumentation",
@@ -255,223 +284,53 @@ data = {
     ]
 }
 
-classes = hydrus.data.doc_parse.get_classes(data)
-properties = hydrus.data.doc_parse.get_all_properties(classes)
-hydrus.data.doc_parse.insert_classes(classes)
-hydrus.data.doc_parse.insert_properties(classes)
+db_session = session = sessionmaker(bind=engine)()
+
+doc = doc_maker.createDoc(ApiDocumentation)
+
+classes = doc_parse.get_classes(doc.generate())
+properties = doc_parse.get_all_properties(doc.generate())
+
+doc_parse.insert_classes(classes, session=db_session)
+doc_parse.insert_properties(classes, session=db_session)
 ```
+**NOTE:** You can use the `ApiDocumentation` dictionary directly to get the classes and properties, but it is advised that the `HydraDoc` object be used to generate the ApiDocumentation, as there may be unwanted errors in the dictionary that maybe permanently added to the database.
 
-The final way to add classes and properties to Hydrus is to use RDF/OWL vocabulary. This can be done by using the OWL/RDF parser to generate a list of Hydra classes which is then used by `hydrus.hydraspec.vocab_generator` to generate the ApiDocumentation and then adding data from the ApiDocumentation as explained in the previous step.
+<a name="url"></a>
+## Server URL and the API name
+Hydrus needs to know the server URL defined as `HYDRUS_SERVER_URL` at which it is hosted and the API name defined as `API_NAME`, which also serves as the entrypoint for the API.
+
+These are used to define IDs for objects/resources that Hydrus serves. For example, a Hydrus server hosted at `https://hydrus.com/api` must return objects with ID `@id: https://hydrus.com/api/dummyClass/1`.
+
+It is essential for Hydrus to now this, as the Hydra spec requres IDs for objects to be dereferencable links.
+Since most servers use an interface to link with the actual application or backend process, these things cannot be found out by Hydrus on it's own and must be provided during setup.
+
+<a name="appf"></a>
+## App factory
+The API name, must also be used for Hydrus to actually create an app. The `app_factory` method creates an API with all routes directed at `/[API_NAME]`, for example if you create an app using the `API_NAME` `"demoapi"`, all operations for the API will be at the route `/demoapi/..`. The API name serves as the entrypoint for the application. We can create an app using the `API_NAME` as follows:
+
 ```python
-from hydrus.hydraspec import parser
+from hydrus.app import app_factory
 
-data = {
-    {
-       "@type": [
-          {
-              "@id": "http://www.w3.org/2002/07/owl#ObjectProperty"
-          }
-       ],
-       "@id": "http://api.example.com/doc/#Property",
-       "rdf:label": "Propertyname"
-    },
-    {
-       "@type": "http://www.w3.org/2002/07/owl#Class",
-       "@id": "http://api.example.com/doc/#Class",
-       "rdf:comment": "comment about the class",
-       "rdf:label": "Classname",
-       "rdfs:subClassOf": [
-            # ...List of known class restrictions...
-       ],
-    }
-}
+API_NAME = 'demoapi'
 
-    # Get all the owl:ObjectProperty objects from the vocab
-    owl_props = get_all_properties(data)
-
-    # Convert each owl:ObjectProperty into a Hydra:SupportedProperty, also get classes that support it based on domain and range.
-    hydra_props = hydrafy_properties(owl_props, SEMANTIC_REF_NAME)
-
-    # Get all the owl:Class objects from the vocab
-    owl_classes = get_all_classes(subsystem_data)
-
-    # Convert each owl:Class into a Hydra:Class, also get supportedProperty for each
-    hydra_classes = hydrafy_classes(
-        owl_classes, hydra_props, SEMANTIC_REF_NAME)
-
-    # Create API Documentation with the Hydra:Class list
-    supported_classes = gen_supported_classes(hydra_classes)
+# Create a Hydrus app with the API name you want, default will be "api"
+app = app_factory(API_NAME)
 ```
----
-### Adding Instances/Resources
-To add objects to the instances for a given class, we first need to define a standard way of declaring instances.
-We have given an example of a subsystem instance below
+<a name="pnp"></a>
+## Plug and Play
+Once everything needed to create a Hydra based API is in place, we must connect them to each other. This is done using the methods defined in the `hydrus.utils` module. The use of these pluggable modules requires an app context which a variant of the Python `context`, much like the request context in most servers. As such the Python keyword `with` must be used to create a context in which the application must run. This is done as follows:
 ```python
-instance = {
-    "name": "12W communication",    # The name of the instance must be in "name"
-    "object": {
-        # The "object" key contains all the properties and their values for a given instance
-        "maxWorkingTemperature": 63,    # InstanceProperty: Value, Value is automatically converted to Terminal Object
-
-        # In case the Value for a property is another Resource, we use the following syntax
-        "hasDuplicate":{
-            "@id": "subsystem/34"   # The "@id" tag gives the ID of the other instance
-        }
-
-        # In case the property is an AbstractProperty, the class name should be given as Value
-        "@type": "Spacecraft_Communication",     # AbstractProperty: Classname, Classname is automatically mapped to relevant RDFClass
-    }
-}
-
-```
-Once we have defined such an `instance`, we can use the built-in CRUD operations of Hydrus to add these instances.
-```python
-from hydrus.data import crud
-
-crud.insert(object_=instance)   # This will insert 'instance' into Instance and all other information into Graph.
-
-# Optionally, we can specify the ID of an instance if it is not already used
-crud.insert(object_=instance, id_=1)    #This will insert 'instance' with ID = 1  
-```
-
-<a name="moddata"></a>
-## Manipulating data
-We already saw how `insert` work in the Adding instance section, we will now see how the other crud operations work and what are the errors and exceptions for each of them.
-
-<a name="crud"></a>
-### CRUD opertions
-Apart from `insert`, the CRUD operations also support `get`, `delete` and `update` opertions. Here are examples for all three:
-
-GET
-```python
-from hydrus.data import crud
-import json
-
-instance = crud.get(id_=1, type_="Spacecraft_Communication")     # Return the Resource/Instance with ID = 1
-print(json.dumps(instance, indent=4))
-# Output:
-# {
-#     "name": "12W communication",
-#     "object": {
-#         "@type": "Spacecraft_Communication",
-#         "hasMass": 98,
-#         "hasMonetaryValue": 6604,
-#         "hasPower": -61,
-#         "hasVolume": 99,
-#         "maxWorkingTemperature": 63,
-#         "minWorkingTemperature": -26
-#     }
-# }
-```
-DELETE
-```python
-from hydrus.data import crud
-import json
-
-output = crud.delete(id_=1, type_="Spacecraft_Communication")     # Deletes the Resource/Instance with ID = 1
-print(json.dumps(output, indent=4))
-# Output:
-# {
-#   204: "Object with ID : 1 successfully deleted!"
-# }
-```
-UPDATE
-```python
-from hydrus.data import crud
-import json
-
-new_object = {
-    "name": "14W communication",
-    "object": {
-        "@type": "Spacecraft_Thermal",
-        "hasMass": 8,
-        "hasMonetaryValue": 6204,
-        "hasPower": -10,
-        "hasVolume": 200,
-        "maxWorkingTemperature": 63,
-        "minWorkingTemperature": -26
-    }
-}
-output = crud.update(id_=1, object_=new_object)     # Updates the Resource/Instance with ID = 1 with new_object
-print(json.dumps(output, indent=4))
-# Output:
-# {
-#   204: "Object with ID : 1 successfully updated!"
-# }
-```
----
-<a name="error"></a>
-### Exceptions
-The CRUD operations have a number of checks and conditions in place to ensure validity of data. Here are the exceptions that are returned for each of the operations when these conditions are violated.
-NOTE: Relevant all responses are returned in JSON format
-
-GET
-```python
-
-# A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
-{   
-    401: "The class dummyClass is not a valid/defined RDFClass"
-}
-
-# A 404 error is returned when an Instance is not found
-{
-    404: "Instance with ID : 2 NOT FOUND"
-}
-
-```
-
-INSERT
-```python
-# A 400 error is returned when an instance with a given ID already exists
-{
-    400: "Instance with ID : 1 already exists"
-}
-
-# A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
-{   
-    401: "The class dummyClass is not a valid/defined RDFClass"
-}
-
-# A 402 error is returned when a given Property: Value pair has an invalid/undefined Property
-{
-    402: "The property dummyProp is not a valid/defined Property"
-}
-
-# A 403 error is returned when a given InstanceProperty: Instance pair has an invalid/undefined Instance ID
-{   
-    403: "The instance 2 is not a valid Instance"
-}
-```
-
-DELETE
-```python
-
-# A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
-{   
-    401: "The class dummyClass is not a valid/defined RDFClass"
-}
-
-# A 404 error is returned when an Instance is not found
-{
-    404: "Instance with ID : 2 NOT FOUND"
-}
-```
-
-The `update` operation is a combination of a `delete` and an `insert` operation. All exceptions for both the operation are inherited by update.
-
-<a name="servsetup"></a>
-### Setting up the server
-The following section explains how the server needs to be setup to be able to serve the data we added in the previous section.
-
-The generic server is implemented using the [Flask](http://flask.pocoo.org/) micro-framework. To get the server up and running, all you need to do is:
-```python
-from hydrus.app import app
-
-IP = "127.0.0.1"
-port_ = 8000
-app.run(host=IP, port=port_)
-
-# The server will be running at http://127.0.0.1:8000/
+# Set the name of the API
+with set_api_name(app, API_NAME):
+    # Set the API Documentation
+    with set_doc(app, apidoc):
+        # Set HYDRUS_SERVER_URL
+        with set_hydrus_server_url(app, HYDRUS_SERVER_URL):
+            # Set the Database session
+            with set_session(app, session):
+                # Start the Hydrus app
+                app.run(host='127.0.0.1', debug=True, port=8080)
 ```
 
 <a name="test"></a>
