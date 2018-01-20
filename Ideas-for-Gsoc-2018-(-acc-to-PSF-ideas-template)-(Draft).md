@@ -11,7 +11,6 @@ Although Hydrus is primarily a Python-based library right now, most Hydra users 
 ### Skills Required
 * Python
 * Git
-* Sqlalchemy
 * Flask
 * Command Line 
 * Basic knowledge of Semantic Web and Graph Databases
@@ -55,7 +54,7 @@ Right now, we only have no mechanism for searching an instance of a class in the
 
 ## 3. Python Client Implementation
 ### Description
-We still need to implement a generic Hydra client that can reference an API Documentation and allow users to interact with an API using objects, rather than URIs/paths. The HydraConsole is a good reference client to use, and we could extend functionality and implement a Python version of it. More ideas are welcome on this.
+Implement a generic Hydra client that can reference an API Documentation and allow users to interact with an API using objects, rather than URIs/paths. The HydraConsole is a good reference client to use, and we could extend functionality and implement a Python version of it. More ideas are welcome on this.
 
 ### Skills
 * Strong Knowledge of Graphs
@@ -108,6 +107,7 @@ There is no way right now to actually change the way the client accesses the ser
 ### Skills
 * Python
 * Flask
+* Git
 * Strong knowledge of Authentication and Authorization in various APIs
 * Basic Knowledge of Semantic Web
 * Ability to learn new technologies quickly
