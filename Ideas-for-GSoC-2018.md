@@ -1,34 +1,218 @@
-## Hydrus Server Changes:
+# Project Ideas
 
-* ### Command Line Interface for Hydrus
-  Although Hydrus is primarily a Python-based library right now, most Hydra users may not be familiar with Python to set up servers. It would be great if we could have a CLI for Hydrus where users would just need to pass parameters to set up a server and get it up and running. 
-  Also, the current process of server setup is long and needs a lot of prerequisite knowledge to be able to set up. 
-  This process needs to be abstracted to make it simpler, and more powerful for a user to have more control over the server. Maybe something similar to Python’s SimpleHTTPServer. 
+# Ideas related to Hydrus Server
+The ideas are arranged in increasing order of difficulty. Feel free to combine several ideas into your proposal.
 
-* ### More User defined Controls for the server
-  There is no way right now to actually change the way the client accesses the server set up by Hydrus. Although there is some support for Authentication/Authorization, the actual implementations are very basic and do not offer much security features. There is also no way to control server access or limit/modify user privilege. There may be APIs that provide different levels of access to different users. There are also bottlenecks in place in REST APIs that limit the number of requests each user can make, such control is not given to users. There needs to be a way to add additional controls to the server, that can be built on top of the original Hydrus app.
+## 1. Design a Command line interface for Hydrus
 
-* ### API Querying
-  Right now, we only have no mechanism for searching an instance of a class in the Hydra API. Most APIs implement a search feature where the data is queried using a defined syntax. This is more of an issue with Hydra itself as the mechanism for search is not defined in Hydra yet. It would be great if we can have some advance querying functionality like they have in graph databases.
+### Description
+Although Hydrus is primarily a Python-based library right now, most Hydra users may not be familiar with Python to set up servers. It would be great if we could have a CLI for Hydrus where users would just need to pass parameters to set up a server and get it up and running. Also, the current process of server setup is long and needs a lot of prerequisite knowledge to be able to set up. This process needs to be abstracted to make it simpler, and more powerful for a user to have more control over the server. Maybe something similar to Python’s SimpleHTTPServer.
 
-***
-## Demos
+### Skills Required
+* Python
+* Git
+* Flask
+* Command Line 
+* Basic knowledge of Semantic Web and Graph Databases
+* Ability to learn new technologies quickly
+* Ability to write test suites
 
-* ###  Demonstration with Dynamic API paths
-  If we can create an API whose structure(paths to different kinds of data) is constantly changing only the vocab path stays same. Then we can use a Hydra client to discover the required paths for various kinds of data. This can be a great way to demonstrate the capabilities and use cases of HTTP-APIs and Hydra in general.
-We can have a UI showing the API structure in real-time and allow users to POST/GET/PUT/DELETE any type of data. We can also show how the client and API server interact with each other ( We had a lot of requests going on in the drone demo and it was very difficult to understand how things are working in the background.)
-For example:
-Suppose we have a Student class with basic properties like Name, Id, Class etc. Then the user can request for data say "Students with Id = 1*" without knowing anything about the API structure as it's dynamic. We can also demonstrate advanced querying features with this.
+### Difficulty Level - Easy to Intermediate
 
-* ### Satellite and Subsystems Demo
-  We may finally end up implementing the astronomy/satellites vocabulary as thought in the beginning. We need a way to demonstrate how Hydra can be utilized by Satellites to communicate with each other and get information about each of their subsystems and statuses. The OWL Vocabulary for Subsystems is given [here](https://github.com/chronos-pramantha/RDFvocab). We need to create a Hydra Spec for a demo system that will use these ontologies for a demo.
+### Related Links
+* [Hydrus Repo](https://github.com/HTTP-APIs/hydrus)
+* [Hydrus Wiki](https://github.com/HTTP-APIs/hydrus/wiki/)
+* [The book of Hydrus](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/)
+* [Hydra Draft](https://www.hydra-cg.com/spec/latest/core/)
 
-* ### Risk Management with OpenRisk
-  We can use the OpenRisk API to create a Hydra Vocabulary that will set up a Hydra based API to use OpenRisk and serve risk management. This is subjective to OpenRisk allowing us to use their API for demo purposes.
+### Potential Mentors
+......
 
-* ### Rail Management System
-  We can have a cool demo about railway management where trains are routed based on available tracks and are assigned platforms and routes based on live information taken from several trains. This could be a good demo to showcase how Hydra can be used as a generic language since not all railway stations would use the same API to convey information to trains. We could have multiple Hydra based APIs running on railway stations and trains and all of them communicating with each other using Hydra and a common Vocabulary. We still need to find a vocabulary for this, or we could also create one.
+## 2. Better API Querying
+### Description
+Right now, we only have no mechanism for searching an instance of a class in the Hydra API. Most APIs implement a search feature where the data is queried using a defined syntax. This is more of an issue with Hydra itself as the mechanism for search is not defined in Hydra yet. It would be great if we can have some advance querying functionality like they have in graph databases.
 
-## Client Implementation
-   We still need to implement a generic Hydra client that can reference an API Documentation and allow users to interact with an API using objects, rather than URIs/paths. The HydraConsole is a good reference client to use, and we could extend functionality and implement a Python version of it. More ideas are welcome on this.
+### Skills
+* Flask
+* Python
+* Sqlalchemy
+* Basic knowledge of graph querying languages
+* PostgreSQL
+* Ability to learn new technologies quickly
+* Basic knowledge of Semantic Web
+* Ability to write test suites
 
+### Difficulty Level - Intermediate
+
+### Related Links
+* [Hydrus Database Design](https://github.com/HTTP-APIs/hydrus/wiki/Design#dbdesign)
+* [The book of Hydrus](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/)
+* [Hydra Draft](https://www.hydra-cg.com/spec/latest/core/)
+* [Graph Querying Languages Overview](https://developer.ibm.com/dwblog/2017/overview-graph-database-query-languages/)
+
+### Potential Mentors
+
+## 3. Python Client Implementation
+### Description
+Implement a generic Hydra client that can reference an API Documentation and allow users to interact with an API using objects, rather than URIs/paths. The HydraConsole is a good reference client to use, and we could extend functionality and implement a Python version of it. More ideas are welcome on this.
+
+### Skills
+* Strong Knowledge of Graphs
+* At least basic knowledge of RDF
+* JSON and JSON-LD
+* Python
+* Basic knowledge of Semantic Web
+* Ability to learn new technologies quickly
+* Ability to write test suites
+
+### Difficulty Level - Intermediate to Hard
+
+### Related Links
+* [Current implementation by @pchampin](https://github.com/pchampin/hydra-py)
+* [RDF overview](https://www.w3.org/RDF/)
+* [JSON-LD wiki](https://en.wikipedia.org/wiki/JSON-LD)
+* [The book of Hydrus](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/)
+* [Hydra Draft](https://www.hydra-cg.com/spec/latest/core/)
+* [Hydra Console](http://www.markus-lanthaler.com/hydra/console/)
+
+### Potential Mentors
+....
+
+## 4. Switch to Python Falcon server: in particular Creating Resources
+### Description
+...
+
+### Skills
+* Python
+* Git
+* Sqlalchemy
+* Falcon Web Framework
+* Basic knowledge of Semantic Web and Graph Databases
+* Ability to learn new technologies quickly
+* Ability to write test suites
+
+### Difficulty Level - Intermediate
+
+### Related Links
+* [Falcon docs](http://falcon.readthedocs.io/en/latest/)
+* [Creating resources with Falcon](http://falcon.readthedocs.io/en/latest/user/tutorial.html#creating-resources)
+
+### Potential Mentors
+.....
+
+## 5. More User defined Controls for the server
+### Description
+There is no way right now to actually change the way the client accesses the server set up by Hydrus. Although there is some support for Authentication/Authorization, the actual implementations are very basic and do not offer much security features. There is also no way to control server access or limit/modify user privilege. There may be APIs that provide different levels of access to different users. There are also bottlenecks in place in REST APIs that limit the number of requests each user can make, such control is not given to users. There needs to be a way to add additional controls to the server, that can be built on top of the original Hydrus app.
+
+### Skills
+* Python
+* Flask
+* Git
+* Strong knowledge of Authentication and Authorization in various APIs
+* Basic Knowledge of Semantic Web
+* Ability to learn new technologies quickly
+* Ability to write test suites
+
+### Difficulty Level - Hard
+
+### Related Links
+* [Hydrus](https://github.com/HTTP-APIs/hydrus/)
+
+### Potential Mentors
+....
+
+
+# Ideas Related to Demos using Hydrus
+
+## 1. Demonstration with Dynamic API paths
+### Description
+If we can create an API whose structure(paths to different kinds of data) is constantly changing only the vocab path stays same. Then we can use a Hydra client to discover the required paths for various kinds of data. This can be a great way to demonstrate the capabilities and use cases of HTTP-APIs and Hydra in general. We can have a UI showing the API structure in real-time and allow users to POST/GET/PUT/DELETE any type of data. We can also show how the client and API server interact with each other ( We had a lot of requests going on in the drone demo and it was very difficult to understand how things are working in the background.) For example: Suppose we have a Student class with basic properties like Name, Id, Class etc. Then the user can request for data say "Students with Id = 1*" without knowing anything about the API structure as it's dynamic. We can also demonstrate advanced querying features with this.
+
+### Skills
+* Python
+* Linux
+* Server management
+* At least basic knowledge of DevOps
+* HTML, CSS, JS
+* Knowledge of any Javascript framework is a plus ( React Js or Vue Js)
+* Basic Knowledge of Semantic Web
+* High problem-solving abilities
+* Ability to write test suites
+
+### Difficulty Level - Intermediate to Hard
+
+### Related Links
+* [Hydrus](https://github.com/HTTP-APIs/hydrus/)
+* [A sample drone simulation](https://github.com/HTTP-APIs/hydra-flock-demo)
+
+### Potential Mentors
+.....
+
+## 2. Satellite and Subsystems Demo
+### Description
+We may finally end up implementing the astronomy/satellites vocabulary as thought in the beginning. We need a way to demonstrate how Hydra can be utilized by Satellites to communicate with each other and get information about each of their subsystems and statuses. The OWL Vocabulary for Subsystems is given [here](https://github.com/chronos-pramantha/RDFvocab). We need to create a Hydra Spec for a demo system that will use these ontologies for a demo.
+
+### Skills
+* Python
+* Linux
+* Server management
+* At least basic knowledge of DevOps
+* HTML, CSS, JS
+* Knowledge of any Javascript framework is a plus ( React Js or Vue Js)
+* Basic Knowledge of Semantic Web
+* High problem-solving abilities
+* Ability to write test suites
+
+### Difficulty Level - Intermediate to Hard
+
+### Related Links
+* [Hydrus](https://github.com/HTTP-APIs/hydrus/)
+* [A sample drone simulation](https://github.com/HTTP-APIs/hydra-flock-demo)
+
+### Potential Mentors
+...
+
+## 3. Rail Management System
+### Description
+We can have a cool demo about railway management where trains are routed based on available tracks and are assigned platforms and routes based on live information taken from several trains. This could be a good demo to showcase how Hydra can be used as a generic language since not all railway stations would use the same API to convey information to trains. We could have multiple Hydra based APIs running on railway stations and trains and all of them communicating with each other using Hydra and a common Vocabulary. We still need to find a vocabulary for this, or we could also create one.
+
+### Skills
+* Python
+* Linux
+* Server management
+* At least basic knowledge of DevOps
+* HTML, CSS, JS
+* Knowledge of any Javascript framework is a plus ( React Js or Vue Js)
+* Basic Knowledge of Semantic Web
+* High problem-solving abilities
+* Ability to write test suites
+
+### Difficulty Level - Intermediate to Hard
+
+### Related Links
+* [Hydrus](https://github.com/HTTP-APIs/hydrus/)
+* [A sample drone simulation](https://github.com/HTTP-APIs/hydra-flock-demo)
+
+### Potential Mentors
+...
+
+
+# Other
+## 1. Create a QGIS plugin
+### Description
+Create a QGIS plugin that works with hydrus. QGIS is an opensource geospatial client, geospatial clients are used to load maps in different formats (images, rasters, vectors). QGIS can work as an HTTP client to fetch data from special Web services called OGC Web Standards (WMS, WMTS, WFS). Plugin for QGIS can be developed in Python, a QGIS-HYDRA plugin may be able to query geospatial data stored in hydrus using the HYDRA vocabulary. The same functionality could be accomplished with a MapBox or LeafLet client app that uses a python-hydra client as middleware and hydrus as a backend.
+
+### Skills
+* Python
+* Git
+* Basic knowledge of Semantic Web and Graph Databases
+* Ability to learn new technologies quickly
+* Ability to write test suites
+* Ability to write test suites
+
+### Difficulty Level - Hard
+
+### Related Links
+...
+### Potential Mentors
+...
