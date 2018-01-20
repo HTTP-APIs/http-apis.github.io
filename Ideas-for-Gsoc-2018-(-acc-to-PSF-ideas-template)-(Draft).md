@@ -1,6 +1,7 @@
 # Project Ideas
 
 # Ideas related to Hydrus Server
+The ideas are arranged in increasing order of difficulty. Feel free to combine several ideas into your proposal.
 
 ## 1. Design a Command line interface for Hydrus
 
@@ -73,6 +74,7 @@ We still need to implement a generic Hydra client that can reference an API Docu
 * [JSON-LD wiki](https://en.wikipedia.org/wiki/JSON-LD)
 * [The book of Hydrus](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/)
 * [Hydra Draft](https://www.hydra-cg.com/spec/latest/core/)
+* [Hydra Console](http://www.markus-lanthaler.com/hydra/console/)
 
 ### Potential Mentors
 ....
