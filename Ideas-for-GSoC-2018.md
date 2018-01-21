@@ -105,9 +105,9 @@ Implement a generic Hydra client that can reference an API Documentation and all
 ### Potential Mentors
 ....
 
-## 4. Switch to Python Falcon server: in particular Creating Resources
+## 4. Switch to Python Falcon server
 ### Description
-...
+Falcon is a minimalist WSGI library for building speedy web APIs and app backends. When it comes to building HTTP APIs, other frameworks weigh you down with tons of dependencies and unnecessary abstractions. Falcon cuts to the chase with a clean design that embraces HTTP and the REST architectural style. Hydrus is currently implemented using Flask, we're thinking about switching to Falcon.
 
 ### Skills
 * Python
@@ -123,6 +123,7 @@ Implement a generic Hydra client that can reference an API Documentation and all
 ### Related Links
 * [Falcon docs](http://falcon.readthedocs.io/en/latest/)
 * [Creating resources with Falcon](http://falcon.readthedocs.io/en/latest/user/tutorial.html#creating-resources)
+* [Hydrus Repo](https://github.com/HTTP-APIs/hydrus)
 
 ### Potential Mentors
 .....
