@@ -1,7 +1,34 @@
+# Our Inspiration
+Building Web APIs seems still more an art than a science. How can we build APIs such that generic clients can easily use them? And how do we build those clients? Current APIs heavily rely on out-of-band information such as human-readable documentation and API-specific SDKs. However, this only allows for very simple and brittle clients that are hardcoded against specific APIs. Hydra, in contrast, is a set of technologies that allow to design APIs in a different manner, in a way that enables smarter clients.
+
+You can read more [here](http://www.hydra-cg.com/)
+
+# About Hydrus
+Hydrus is a set of Python based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilises the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data. Hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and documentation of it's APIs.
+
+## Features
+Hydrus supports the following features:
+* A client that can understand Hydra vocabulary and interacts with a Hydra supporting server to basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data.
+* A generic server that can serve required data and metadata(in the form of API documentation) to a client over HTTP.
+* A middleware that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. **(under developement)**
+
+# How do I get started?
+Getting started is pretty easy. Head over to our [community page](http://www.hydra-cg.com/). There are a lot of demos, presentations, and talks to get you up to speed. Then head over to the [Hydrus repo](https://github.com/HTTP-APIs/hydrus) and clone it. Play with it a little, try to understand how the current implementation works, try to fix some bugs or report any issues you can find [here](https://github.com/HTTP-APIs/hydrus/issues).
+
+Lastly, don't hesitate to reach out if you have any question, we are very friendly people and we'll be more than happy to help you out.
+## Communication Channels
+* [Gitter](https://gitter.im/HTTP-APIs/Lobby)
+* [W3C Group](https://www.w3.org/community/hydra/)
+* Email 
+  * [Lorenzo Moriondo](mailto:tunedconsulting@gmail.com)
+  * [Akshay Dahiya](mailto:xadahiya@gmail.com)
+  * [Chris Andrew](mailto:chris.g14@iiits.in)
+  * [Kristian Koci](mailto:kristian.koci@gmail.com)
+
 # Project Ideas
 
 # Ideas related to Hydrus Server
-The ideas are arranged in increasing order of difficulty. Feel free to combine several ideas into your proposal.
+The ideas are arranged in increasing order of difficulty. Please feel free to combine several ideas into your proposal.
 
 ## 1. Design a Command line interface for Hydrus
 
@@ -213,6 +240,7 @@ Create a QGIS plugin that works with hydrus. QGIS is an opensource geospatial cl
 ### Difficulty Level - Hard
 
 ### Related Links
-...
+* [QGIS Homepage](https://qgis.org/en/site/)
+* [QGIS Github Repo](https://github.com/qgis)
 ### Potential Mentors
 ...
