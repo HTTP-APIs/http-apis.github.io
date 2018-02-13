@@ -17,3 +17,4 @@
 ## Contributing to code
 * Before opening a PR be sure that all the tests pass successfully. If any is failing for non-related reasons, annotate the test failure in the PR comment.
 * Any change should be PRed first in `develop`, `master` can only receive merge from `develop`.
+* Everything should work and be tested for Python 3.5.2 and above.
