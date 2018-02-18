@@ -20,7 +20,7 @@
 * Any change should be PRed first in `develop`, `master` can only receive merge from `develop`.
 * In general,anybody can fork the repo and start working on the fork. Once you have something done we can consider opening a branch in which different people working on the same code/project can collaborate.
 * Everything should work and be tested for Python 3.5.2 and above.
-> In general, no permission is needed to work on the code. Fork master, submit a PR and ask for reviewing. PR is the natural place for code comparison and corrections. Code for issues with multiple PRs will be integrated at reviewing time.
+* In general, no permission is needed to work on the code. Fork master, submit a PR and ask for reviewing. PR is the natural place for code comparison and corrections. Code for issues with multiple PRs will be integrated at reviewing time.
 
 ## Worth knowing in the ecosystem
 * ...
