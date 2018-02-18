@@ -24,6 +24,7 @@ Lastly, don't hesitate to reach out if you have any question, we are very friend
   * [Akshay Dahiya](mailto:xadahiya@gmail.com)
   * [Chris Andrew](mailto:chris.g14@iiits.in)
   * [Kristian Koci](mailto:kristian.koci@gmail.com)
+* [Developer Starter Kit](https://github.com/HTTP-APIs/hydrus/wiki/Starting-Material)
 
 # Project Ideas
 
@@ -105,7 +106,7 @@ Implement a generic Hydra client that can reference an API Documentation and all
 ### Potential Mentors
 ....
 
-## 4. Switch to Python Falcon server
+## 4. Port to Python Falcon server
 ### Description
 Falcon is a minimalist WSGI library for building speedy web APIs and app backends. When it comes to building HTTP APIs, other frameworks weigh you down with tons of dependencies and unnecessary abstractions. Falcon cuts to the chase with a clean design that embraces HTTP and the REST architectural style. Hydrus is currently implemented using Flask, we're thinking about switching to Falcon.
 
