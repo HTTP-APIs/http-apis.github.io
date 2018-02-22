@@ -56,31 +56,7 @@ Although Hydrus is primarily a Python-based library right now, most Hydra users 
 ### Potential Mentors
 ......
 
-## 2. Better API Querying
-### Description
-Right now, we only have no mechanism for searching an instance of a class in the Hydra API. Most APIs implement a search feature where the data is queried using a defined syntax. This is more of an issue with Hydra itself as the mechanism for search is not defined in Hydra yet. It would be great if we can have some advance querying functionality like they have in graph databases.
-
-### Skills
-* Flask
-* Python
-* Sqlalchemy
-* Basic knowledge of graph querying languages
-* PostgreSQL
-* Ability to learn new technologies quickly
-* Basic knowledge of Semantic Web
-* Ability to write test suites
-
-### Difficulty Level - Intermediate
-
-### Related Links
-* [Hydrus Database Design](https://github.com/HTTP-APIs/hydrus/wiki/Design#dbdesign)
-* [The book of Hydrus](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/)
-* [Hydra Draft](https://www.hydra-cg.com/spec/latest/core/)
-* [Graph Querying Languages Overview](https://developer.ibm.com/dwblog/2017/overview-graph-database-query-languages/)
-
-### Potential Mentors
-
-## 3. Python Client Implementation
+## 2. Python Client Implementation
 ### Description
 Implement a generic Hydra client that can reference an API Documentation and allow users to interact with an API using objects, rather than URIs/paths. The HydraConsole is a good reference client to use, and we could extend functionality and implement a Python version of it. More ideas are welcome on this.
 
@@ -106,9 +82,30 @@ Implement a generic Hydra client that can reference an API Documentation and all
 ### Potential Mentors
 ....
 
+
+## 2. Open API to Hydra Parser
+### Description
+The OpenAPI Specification (OAS) defines a standard, programming language-agnostic interface description for REST APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. OpenAPI and Hydra do much of the same thing and it would be great to have an interface to convert OpenAPI definitions to Hydra API Documentation.
+
+### Skills
+* Python
+* REST APIs
+* HYDRA
+* Ability to learn new technologies quickly
+* Ability to write test suites
+
+### Difficulty Level - Intermediate
+
+### Related Links
+* [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification)
+* [Hydra Draft](https://www.hydra-cg.com/spec/latest/core/)
+
+### Potential Mentors
+....
+
 ## 4. Port to Python Falcon server
 ### Description
-Falcon is a minimalist WSGI library for building speedy web APIs and app backends. When it comes to building HTTP APIs, other frameworks weigh you down with tons of dependencies and unnecessary abstractions. Falcon cuts to the chase with a clean design that embraces HTTP and the REST architectural style. Hydrus is currently implemented using Flask, we're thinking about switching to Falcon.
+Falcon is a minimalist WSGI library for building speedy web APIs and app backends. When it comes to building HTTP APIs, other frameworks weigh you down with tons of dependencies and unnecessary abstractions. Falcon cuts to the chase with a clean design that embraces HTTP and the REST architectural style. Hydrus is currently implemented using Flask, we're thinking about creating a port for Falcon.
 
 ### Skills
 * Python
@@ -129,7 +126,54 @@ Falcon is a minimalist WSGI library for building speedy web APIs and app backend
 ### Potential Mentors
 .....
 
-## 5. More User defined Controls for the server
+
+## 5. Port to Python Django server
+### Description
+Django is a high-level Python Web framework that is widely used by a lot of users. Hydrus is currently implemented using Flask, which is a light-weight but functional Python based framework. Porting to Django will increase the number of user using Hydrus.
+
+### Skills
+* Python
+* Django
+* Git
+* Hydrus
+* Ability to learn new technologies quickly
+* Ability to write test suites
+
+### Difficulty Level - Intermediate to Hard
+
+### Related Links
+* [Flask](http://flask.pocoo.org/)
+* [Django](https://www.djangoproject.com/)
+* [Hydrus Repo](https://github.com/HTTP-APIs/hydrus)
+
+### Potential Mentors
+.....
+
+## 6. Add an option to use Redis instead of SQL databases
+### Description
+Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. Right now, Hydrus only supports using SQL Databases via the SQLAlchemy ORM. Redis will allow faster storage and access and also enable non-serialised storage of Hydrus graph objects.
+
+### Skills
+* Python
+* Redis
+* SQLAlchemy
+* Database Design
+* Hydrus
+* Basic knowledge of Semantic Web and Graph Databases
+* Ability to learn new technologies quickly
+* Ability to write test suites
+
+### Difficulty Level - Intermediate
+
+### Related Links
+* [Redis](https://redis.io/)
+* [Hydrus Repo](https://github.com/HTTP-APIs/hydrus)
+
+
+### Potential Mentors
+.....
+
+## 7. More User defined Controls for the server
 ### Description
 There is no way right now to actually change the way the client accesses the server set up by Hydrus. Although there is some support for Authentication/Authorization, the actual implementations are very basic and do not offer much security features. There is also no way to control server access or limit/modify user privilege. There may be APIs that provide different levels of access to different users. There are also bottlenecks in place in REST APIs that limit the number of requests each user can make, such control is not given to users. There needs to be a way to add additional controls to the server, that can be built on top of the original Hydrus app.
 
@@ -225,6 +269,49 @@ We can have a cool demo about railway management where trains are routed based o
 ### Potential Mentors
 ...
 
+
+
+## 4. Improve the flock demo
+### Description
+We had created a demo using drones and a forestry simulation that communicated in real time to measure temperatures in a forest region. There could be a lot of improvements added to this simulation to add more use cases for Hydra/Hydrus and implementing them in the simulation.
+### Skills
+* Python
+* Linux
+* Hydra
+* Hydra-flock-demo
+* HTML, CSS, JS
+* Knowledge of a Javascript framework
+* Basic Knowledge of Semantic Web
+* Ability to write test suites
+
+### Difficulty Level - Intermediate
+
+### Related Links
+* [Hydrus](https://github.com/HTTP-APIs/hydrus/)
+* [Flock demo](https://github.com/HTTP-APIs/hydra-flock-demo)
+
+### Potential Mentors
+...
+
+## 5. Implement demos for early stage API standards
+### Description
+There are many early stage API standards such as WFS-3.0 or Open-EO that are developed for geospatial applications. A cool demo could be developed that uses some geospatial application built using these standards and ports it to Hydrus. This idea is not limited to geo-spatial domains. You could use any API standard that allows two applications to communicate and use Hydra/Hydrus as an interface between them.
+### Skills
+* Python
+* Hydra and Hydrus
+* OpenEO/WFS/Any other API Standard for some application
+* Basic Knowledge of Semantic Web and Hydra
+* Ability to write test suites
+
+### Difficulty Level - Intermediate
+
+### Related Links
+* [Hydrus](https://github.com/HTTP-APIs/hydrus/)
+* [OpenEO](http://r-spatial.org/2016/11/29/openeo.html)
+* [WFS](https://github.com/opengeospatial/WFS_FES)
+
+### Potential Mentors
+...
 
 # Other
 ## 1. Create a QGIS plugin
