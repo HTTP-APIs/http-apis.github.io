@@ -288,7 +288,7 @@ db_session = session = sessionmaker(bind=engine)()
 doc = doc_maker.createDoc(ApiDocumentation)
 
 classes = doc_parse.get_classes(doc.generate())
-properties = doc_parse.get_all_properties(doc.generate())
+properties = doc_parse.get_all_properties(classes)
 
 doc_parse.insert_classes(classes, session=db_session)
 doc_parse.insert_properties(classes, session=db_session)
