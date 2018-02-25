@@ -21,7 +21,8 @@
 * Any change should be PRed first in `develop`, `master` can only receive merge from `develop`.
 * Everything should work and be tested for Python 3.5.2 and above.
 * In general, no permission is needed to work on the code. Fork master, submit a PR and ask for reviewing. PR is the natural place for code comparison and corrections. Code for issues with multiple PRs will be integrated at reviewing time.
-* Code in PRs should be accurately compliant with [PEP-8](https://www.python.org/dev/peps/pep-0008/), checking code with `pylint` is fine. 
+* Code in PRs should be accurately compliant with [PEP-8](https://www.python.org/dev/peps/pep-0008/), checking code with `pylint` is fine.
+* Every module is and should be in future provide type annotations using `mypy`
 
 ## Worth knowing in the ecosystem
 * ...
