@@ -26,6 +26,7 @@
 
 ## Worth knowing in the ecosystem
 * Writing a [proposal for GSOC](https://google.github.io/gsocguides/student/writing-a-proposal)
+* OpenAPI [framework](https://www.openapis.org/)
 
 
 ## Design annotations
