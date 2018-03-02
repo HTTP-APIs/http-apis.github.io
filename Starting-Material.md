@@ -25,7 +25,7 @@
 * Every module is and should in future provide type annotations using `mypy`
 
 ## Worth knowing in the ecosystem
-* ...
+* Writing a [proposal for GSOC](https://google.github.io/gsocguides/student/writing-a-proposal)
 
 
 ## Design annotations
