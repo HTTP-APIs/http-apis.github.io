@@ -1,7 +1,7 @@
 hydrus
 ===================
 
-hydrus (all lowercase) is the flagship tool in the ecosystem. It is a Flask server meant to build and deploy HYDRA-based Web APIs in
+hydrus (fully lowercase) is the flagship tool in the ecosystem. It is a Flask server meant to build and deploy HYDRA-based Web APIs in
  a straightforward and effective way. It uses Docker as virtualization and isolation technology (see Usage). Other tools,
  as dedicated clients for testing, instances running with others frameworks, parsers/translators to other standards, are in the same ecosystem.
 
