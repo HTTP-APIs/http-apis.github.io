@@ -61,9 +61,9 @@ The demo should be up and running on `http://localhost:8080/serverapi/`
 <a name="usage"></a>
 Usage
 -------------
-To understand how to use Hydrus and how things work, head over to the [Usage](Usage) page of the wiki.
+To understand how to use Hydrus and how things work, head over to the [Usage](01-Usage.md) page of the wiki.
 
 <a name="design"></a>
 Design
 -------------
-Head over to the [Design](Design) page to understand the design principles and use cases of Hydrus.
+Head over to the [Design](Design.md) page to understand the design principles and use cases of Hydrus.
