@@ -6,7 +6,6 @@
 4. Read [hydrus WIKI](https://github.com/HTTP-APIs/hydrus/wiki). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
 5. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
 6. There are different rooms in Gitter in which to interact with other contributors:
-* [Study Room: share what you have found!](https://gitter.im/HTTP-APIs/Improving-Hydrus)
 * [Demos room: talk about creating new demo implementations](https://gitter.im/HTTP-APIs/Demos-creation)
 * [Improving hydrus room: issues, solutions and ideas](https://gitter.im/HTTP-APIs/Improving-Hydrus)
 * [Beginners: experienced contributors help newcomers](https://gitter.im/HTTP-APIs/Beginners)

@@ -1,4 +1,4 @@
-This page explains the basic usage and setting up a Hydra server using Hydrus.
+This page explains the basic usage and setting up a Hydra server using hydrus.
 
 Table of contents
 -------------
@@ -15,10 +15,10 @@ Table of contents
 
 <a name="servsetup"></a>
 ## Setting up the server
-Hydrus is a generic server that can serve a REST based API, using the Hydra APIDocumentation to understand the kind of data and the operations supported by the API. Getting a server running in Hydrus is pretty straight forward. All you need to do is create a script that plugs the API Documentation, the database and a few other variables and start a Hydrus app. An example of this is given below, in the following subsections, we will adress each part of the script and teach you how to create your own API using your API Documentation.
+hydrus is a generic server that can serve a REST based API, using the Hydra APIDocumentation to understand the kind of data and the operations supported by the API. Getting a server running in hydrus is pretty straight forward. All you need to do is create a script that plugs the API Documentation, the database and a few other variables and start a hydrus app. An example of this is given below, in the following subsections, we will adress each part of the script and teach you how to create your own API using your API Documentation.
 
 ```python
-"""Demo script for setting up an API using Hydrus."""
+"""Demo script for setting up an API using hydrus."""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -56,7 +56,7 @@ properties = doc_parse.get_all_properties(classes)
 doc_parse.insert_classes(classes, session)
 doc_parse.insert_properties(properties, session)
 
-# Create a Hydrus app with the API name you want, default will be "api"
+# Create a hydrus app with the API name you want, default will be "api"
 app = app_factory(API_NAME)
 
 # Set the name of the API
@@ -67,7 +67,7 @@ with set_api_name(app, API_NAME):
         with set_hydrus_server_url(app, HYDRUS_SERVER_URL):
             # Set the Database session
             with set_session(app, session):
-                # Start the Hydrus app
+                # Start the hydrus app
                 app.run(host='127.0.0.1', debug=True, port=8080)
 ```
 
@@ -75,13 +75,13 @@ We will now break down each of these steps and understand what they really do. L
 
 <a name="apidoc"></a>
 ## The APIDocumentation
-Much of Hydrus is built around the Hydra API Documentation. The API Doc is defined in the Hydra spec [here](http://www.hydra-cg.com/spec/latest/core/).
-The API Doc is the entity that tells Hydrus how the server must be set up, what are the endpoints that must be created, what data needs to be served, the operations supported by the data and so on.
-Hydrus uses Python classes in `hydrus.hydraspec.doc_writer` to create/define API Docs. A description of these classes and their design can be found in the [Design](https://github.com/HTTP-APIs/hydrus/wiki/Design) section.
+Much of hydrus is built around the Hydra API Documentation. The API Doc is defined in the Hydra spec [here](http://www.hydra-cg.com/spec/latest/core/).
+The API Doc is the entity that tells hydrus how the server must be set up, what are the endpoints that must be created, what data needs to be served, the operations supported by the data and so on.
+hydrus uses Python classes in `hydrus.hydraspec.doc_writer` to create/define API Docs. A description of these classes and their design can be found in the [Design](https://github.com/HTTP-APIs/hydrus/wiki/Design) section.
 
 <!-- ![doc_writer](https://image.ibb.co/eWURkQ/doc_writer.png) -->
 
-The `hydurs.hydraspec.doc_writer.HydraDoc` object is crucial for Hydrus to be able to set up the API. There are a number of ways you can create this object from your API Documentation:
+The `hydurs.hydraspec.doc_writer.HydraDoc` object is crucial for hydrus to be able to set up the API. There are a number of ways you can create this object from your API Documentation:
 
 <a name="newdoc"></a>
 ### Create a new API Documentation and a new `HydraDoc` object
@@ -118,7 +118,7 @@ class_title = "dummyClass"  # Title of the Class
 class_description = "A dummyClass for demo"     # Description of the class
 class_ = HydraClass(class_uri, class_title, class_description, endpoint=False)
 # Setting endpoint=True creates an endpoint for the class itself, this is usually for classes that have single instances
-# These classes should not ideally have a Collection, although Hydrus allows creation of such Collections
+# These classes should not ideally have a Collection, although hydrus allows creation of such Collections
 ```
 Classes need to have properties that allow them to store information related to the class, much like attributes in a Python class, these are stored as `supportedProperty` of the `HydraClass`. Properties are defined as `HydraClassProp` objects:
 ```python
@@ -197,7 +197,7 @@ The complete script for this API Documentation can be found in `hydrus/hydraspec
 <a name="olddoc"></a>
 ### Use an existing API Documentation to create a new `HydraDoc` object
 
-In case you already have an API Doc defined in JSON or a Python dict, Hydrus provides a way to turn this API Doc into `doc_writer` classes. This is done using `hydrus.hydraspec.doc_maker` as defined below:
+In case you already have an API Doc defined in JSON or a Python dict, hydrus provides a way to turn this API Doc into `doc_writer` classes. This is done using `hydrus.hydraspec.doc_maker` as defined below:
 ```python
 # Sample to convert the API Doc into doc_writer classes
 
@@ -227,10 +227,10 @@ JSON variables can such as `true`, `false` and `null` can be used as strings. Py
 
 <a name="dbsetup"></a>
 ## Setting up the database
-Now that we have defined the API Documentation, the next thing Hydrus needs to function is a database to store the actual resources of the API. Hydrus has it's own database models that are generic and can be used for most APIs, more information about these can be found in the [Design](https://github.com/HTTP-APIs/hydrus/wiki/Design) section.
+Now that we have defined the API Documentation, the next thing hydrus needs to function is a database to store the actual resources of the API. hydrus has it's own database models that are generic and can be used for most APIs, more information about these can be found in the [Design](https://github.com/HTTP-APIs/hydrus/wiki/Design) section.
 
 The databse models use SQLAlchemy as an ORM Layer mapping relations to Python Classs and Objects. A good reference for the ORM can be found [here](http://docs.sqlalchemy.org/en/rel_1_0/orm/tutorial.html).
-Here is how we can create a new connection and create the necessary models for Hydrus to use.
+Here is how we can create a new connection and create the necessary models for hydrus to use.
 
 A new connection to a database can be created as follows:
 ```python
@@ -240,7 +240,7 @@ engine = create_engine('sqlite:///path/to/database/file')
 ```
 This engine acts as a connection on which we can create sessions to interact with the database. You can use any other database, we have used SQLite for the purpose of this demo. A list of possible database and how to connect to them can be found [here](http://docs.sqlalchemy.org/en/rel_1_0/orm/tutorial.html).
 
-Once we have connected to the database we need to create the necessary models from Hydrus:
+Once we have connected to the database we need to create the necessary models from hydrus:
 
 ```python
 from hydrus.data.db_models import Base
@@ -251,7 +251,7 @@ This will successfully create all required models in the connected database. The
 
 <a name="classprop"></a>
 ## Adding Classes and Properties
-To add the classes and properties to Hydrus, we need the same database `engine` in which we earlier created the models for Hydrus. To this, we will add metadata using the HydraDoc object. This can be done using the `doc_parse` module in Hydrus.
+To add the classes and properties to hydrus, we need the same database `engine` in which we earlier created the models for hydrus. To this, we will add metadata using the HydraDoc object. This can be done using the `doc_parse` module in hydrus.
 
 ```python
 from hydrus.data import doc_parse
@@ -297,23 +297,23 @@ doc_parse.insert_properties(classes, session=db_session)
 
 <a name="urls"></a>
 ## Server URL and the API name
-Hydrus needs to know the server URL defined as `HYDRUS_SERVER_URL` at which it is hosted and the API name defined as `API_NAME`, which also serves as the entrypoint for the API.
+hydrus needs to know the server URL defined as `HYDRUS_SERVER_URL` at which it is hosted and the API name defined as `API_NAME`, which also serves as the entrypoint for the API.
 
-These are used to define IDs for objects/resources that Hydrus serves. For example, a Hydrus server hosted at `https://hydrus.com/api` must return objects with ID `@id: https://hydrus.com/api/dummyClass/1`.
+These are used to define IDs for objects/resources that hydrus serves. For example, a hydrus server hosted at `https://hydrus.com/api` must return objects with ID `@id: https://hydrus.com/api/dummyClass/1`.
 
-It is essential for Hydrus to know this, as the Hydra spec requres IDs for objects to be dereferencable links.
-Since most servers use an interface to link with the actual application or backend process, these things cannot be found out by Hydrus on it's own and must be provided during setup.
+It is essential for hydrus to know this, as the Hydra spec requres IDs for objects to be dereferencable links.
+Since most servers use an interface to link with the actual application or backend process, these things cannot be found out by hydrus on it's own and must be provided during setup.
 
 <a name="appf"></a>
 ## App factory
-The API name, must also be used for Hydrus to actually create an app. The `app_factory` method creates an API with all routes directed at `/[API_NAME]`, for example if you create an app using the `API_NAME` as `"demoapi"`, all operations for the API will be at the route `/demoapi/..`. The API name serves as the entrypoint for the application. We can create an app using the `API_NAME` as follows:
+The API name, must also be used for hydrus to actually create an app. The `app_factory` method creates an API with all routes directed at `/[API_NAME]`, for example if you create an app using the `API_NAME` as `"demoapi"`, all operations for the API will be at the route `/demoapi/..`. The API name serves as the entrypoint for the application. We can create an app using the `API_NAME` as follows:
 
 ```python
 from hydrus.app import app_factory
 
 API_NAME = 'demoapi'
 
-# Create a Hydrus app with the API name you want, default will be "api"
+# Create a hydrus app with the API name you want, default will be "api"
 app = app_factory(API_NAME)
 ```
 <a name="pnp"></a>
@@ -330,10 +330,10 @@ with set_api_name(app, API_NAME):
         with set_hydrus_server_url(app, HYDRUS_SERVER_URL):
             # Set the Database session
             with set_session(app, session):
-                # Start the Hydrus app
+                # Start the hydrus app
                 app.run(host='127.0.0.1', debug=True, port=8080)
 ```
-The Hydrus app is a modified instance of the Flask app with the required operations and routes predefined. All options/operations on the app object will be the same as those done in the Flask app.
+The hydrus app is a modified instance of the Flask app with the required operations and routes predefined. All options/operations on the app object will be the same as those done in the Flask app.
 
 <a name="test"></a>
 ## Running tests

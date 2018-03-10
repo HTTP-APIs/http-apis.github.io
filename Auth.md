@@ -1,4 +1,6 @@
-This page explains the authentication options you can apply to your API.
+# Token Authentication
+
+This page explains the authentication options you can apply to your API deployed with hydrus.
 
 ### How to enable authentication?
 
