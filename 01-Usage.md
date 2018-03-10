@@ -12,6 +12,7 @@ Table of contents
 * [App factory](#appf)
 * [Plug and Play](#pnp)
 * [Running tests](#test)
+* [API Authentication](Auth.md)
 
 <a name="servsetup"></a>
 ## Setting up the server
