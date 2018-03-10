@@ -1,4 +1,4 @@
-This page explains the design, architecture and the implementation of Hydrus along with a few use cases for the same.
+This page explains the design, architecture and the implementation of hydrus along with a few use cases for the same.
 
 Table of contents
 -------------
@@ -24,7 +24,7 @@ Below is the schema diagram for our database design:
 
 <a name="dataflow"></a>
 ### Data Flow
-Here is a small illustration as to how data flows in Hydrus.
+Here is a small illustration as to how data flows in hydrus.
 
 Hydra API Documentation to server endpoints:
 
@@ -36,10 +36,10 @@ RDF/OWL declarations to server endpoints:
 
 <a name="usecase"></a>
 ### Use cases
-This section explains Hydrus's design and a use case for the same.
+This section explains hydrus's design and a use case for the same.
 For the demonstration, the server has the [Subsystems](http://ontology.projectchronos.eu/documentation/subsystems) and [Spacecraft](http://ontology.projectchronos.eu/documentation/spacecraft) vocabularies.
 
-Here is an example of a system used to serve data using the components of Hydrus:
+Here is an example of a system used to serve data using the components of hydrus:
 
 ![Use case](https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true "Use case")
 
@@ -73,7 +73,7 @@ instance = {
 }
 
 ```
-Once we have defined such an `instance`, we can use the built-in CRUD operations of Hydrus to add these instances.
+Once we have defined such an `instance`, we can use the built-in CRUD operations of hydrus to add these instances.
 ```python
 from hydrus.data import crud
 
