@@ -21,6 +21,19 @@
 * Everything should work and be tested for Python 3.5.2 and above.
 * In general, no permission is needed to work on the code. Fork `develop` branch and keep your downstream branch updated; when done submit a PR and ask for reviewing. PR is the natural place for code comparison and corrections. Code for issues with multiple PRs will be integrated at reviewing time.
 * Code in PRs should be accurately compliant with [PEP-8](https://www.python.org/dev/peps/pep-0008/), checking code with `pylint` is fine.
+* Every method in the PR should have a compelling docstring in the format:
+```
+def test_method(arg1, arg2, ...):
+    """
+    Description of what the method performs.
+
+    Generic Notes to consider when running the method if any
+
+   :param arg1: what kind of value is expected
+   :param arg2: what kind of value is expected
+   :return : what is returned or `None`
+   """
+```
 * Every module is and should in future provide type annotations using `mypy`
 
 ## Worth knowing in the ecosystem
