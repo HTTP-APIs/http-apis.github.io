@@ -10,18 +10,20 @@
 * [Improving hydrus room: issues, solutions and ideas](https://gitter.im/HTTP-APIs/Improving-Hydrus)
 * [Beginners: experienced contributors help newcomers](https://gitter.im/HTTP-APIs/Beginners)
 
-## General guidelines to contributing 
+## General guidelines to contributing
+
+### About OpenSource and Github
 * Read this [how-to about Github workflow here](https://guides.github.com/introduction/flow/) if you are not familiar with
 * Read all the texts related to [contributing for an OS community](https://github.com/HTTP-APIs/hydrus/tree/master/.github)
 * Read this [how-to about writing a PR](https://github.com/blog/1943-how-to-write-the-perfect-pull-request) and this [other how-to about writing a issue](https://wiredcraft.com/blog/how-we-write-our-github-issues/)
+
+### Asking for help
 * If you find a problem, first ask for [help in the chat](https://gitter.im/HTTP-APIs/Lobby), then consider opening a issue.
 * Please check existing or closed issues or PRs when thinking about opening a new one.
-* Before opening a PR be sure that all the tests pass successfully. If any is failing for non-related reasons, annotate the test failure in the PR comment.
-* Any change should be PRed first in `develop`, `master` can only receive merge from `develop`.
-* Everything should work and be tested for Python 3.5.2 and above.
-* In general, no permission is needed to work on the code. Fork `develop` branch and keep your downstream branch updated; when done submit a PR and ask for reviewing. PR is the natural place for code comparison and corrections. Code for issues with multiple PRs will be integrated at reviewing time.
-* Code in PRs should be accurately compliant with [PEP-8](https://www.python.org/dev/peps/pep-0008/), checking code with `pylint` is fine.
-* Every method in the PR should have a compelling docstring in the format:
+
+### Opening a Pull Request
+* Code in PRs should be accurately **compliant** with [PEP-8](https://www.python.org/dev/peps/pep-0008/), checking code with `pylint` is fine.
+* Every method in the PR should have a compelling **docstring** in the format:
 ```
 def test_method(arg1, arg2, ...):
     """
@@ -34,9 +36,15 @@ def test_method(arg1, arg2, ...):
    :return : what is returned or `None`
    """
 ```
-* Every module is and should in future provide type annotations using `mypy`
+* Every module is and should in future provide **type annotations** using `mypy`
+* Before opening a PR be sure that all the **tests** pass successfully. If any is failing for non-related reasons, annotate the test failure in the PR comment.
+* Any change should be PRed first in `develop`, `master` can only receive merge from `develop`.
+* Everything should work and be tested for Python 3.5.2 and above.
 
-## Worth knowing in the ecosystem
+### Others
+* In general, no permission is needed to work on the code. Fork `develop` branch and keep your downstream branch updated; when done submit a PR and ask for reviewing. PR is the natural place for code comparison and corrections. Code for issues with multiple PRs will be integrated at reviewing time.
+
+## Worth knowing
 * Writing a [proposal for GSOC](https://google.github.io/gsocguides/student/writing-a-proposal)
 * OpenAPI [framework](https://www.openapis.org/)
 
