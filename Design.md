@@ -1,6 +1,6 @@
 # Design
 
-This page explains the design, architecture and the implementation of hydrus along with a few use cases for the same.
+This page explains the design, architecture and the implementation of **hydrus** along with a few use cases for the same.
 
 ## REST to Hydra to hydrus
 To understand how hydrus represents REST resources and how the developer is helped to work with Hydra, it is possible to
@@ -14,21 +14,53 @@ hydrus multi=layered architecture is described below from its foundationals clas
 
 Table of contents
 -------------
-* [Database Design](#dbdesign)
+* [RDF](#rdf)
+* [Multi-layered Database Design](#dbdesign)
 * [Data flow](#dataflow)
 * [Use cases](#usecase)
-<a name="dbdesign"></a>
-### Database Design
-The design of the Database takes into account the different types of representations possible using the triple format.
-Typically, there are 4 types of triples that are stored in a `Graph`:
-* **`Class >> Property >> Class` [`GraphCAC`]**
-* **`Resource >> Property >> Class` [`GraphIAC`]**
-* **`Resource >> Property >> Resource` [`GraphIII`]**
-* **`Resource >> Property >> Value` [`GraphIIT`]**
 
-For a distinction between the different types of `Value`, we created a `Terminal` class, which contains a `value` and it's `unit`.
-There is also a distinction between properties that map to `Resource`s and `Terminals` and those that map to Classes.
-We call Properties that map from Classes to Classes as `AbstractProperty` and the other as `InstanceProperty`.
+<a name="rdf"></a>
+### RDF
+For a short overview of RDF see [Home](00-Home.md).
+
+<a name="dbdesign"></a>
+### Multi-layered Database Design
+The design of the Database takes into account some of the different layers of representations possible using RDF.
+Typically, statements (triples) are stored in hydrus' `Graph` according to 4 different types of layers. These layers make up the Knowledge Base that the REST layer queries.
+
+NOTE: for the sake of this text, the following tuple of words are synonims:
+* statement is triple
+* predicate is property
+
+There are names assigned to different classes and properties in the different layers according to their level of abstraction. The most abstract level considered is the one most related to generic most popular RDF ontologies/vocabularies. Getting closer to the REST interface, the levels become less abstract until representing relationships between entities that are instances or proper objects. This layout is closed, as in any definite Tree-like representation, by terminals or values, that store the quantitative values themselves (strings, numbers, any data types). We call properties that relate "classes" to "classes" (like the ones at the most abstract level) as `AbstractProperty` and the others (relating less abstract kind of entities) as `InstanceProperty`.
+
+
+#### `Class` >> `Property` >> `Class` [`GraphCAC`]
+A statement that links two abstract classes is a "CAC" statement. This is the most abstract level of relationship stored. Two classes are related by a `AbstractProperty` that describes how they relate. 
+For example:
+* the class of `Fish`es relates with the property `liveHabitat` to the class `WateryHabitat`. 
+* Furthermore, if we walk up the the hierarchy in which this relation may be included, the `WateryHabitat` could be in a relation of `rdf:SubclassOf` with `Habitat` as a generic class for all the habitats.
+* Furthermore, `HighPressureSubMarineHabitat` could be a `rdf:subClass` of `MarineHabitat` that is itself a subclass of `WateryHabitat`, and so on.
+The one above are all considered as `AbstractProperty` for the sake of storing them in hydrus' datastore.
+
+This is a generic overview of how RDF works to relate classes of objects. This logic works also with instances of objects (the fish named Joy is of kind Meuschenia hippocrepis); also families and kinds of objects can be represented as classes. Very generic kind of classes (like classes of relations) are described in vocabularies called "upper-ontologies". Paragraphs below describe less abstract statements.
+
+
+#### `Resource` >> `Property` >> `Class` [`GraphIAC`]
+A statement that links a Resource to an abstract class is a "IAC" statement. A Resource can be also seen as an instance representing a collection of instances (not a class in the abstract, but a more concrete set/group of objects). In the REST layer a Resource is addrressed as `Items`. This kind of entity relates to an abstract class as the ones described in the "CAC" group. This class of statements are stored in the "Graph IAC".
+For example:
+* the Resource that is the collection of `Fish` and the Resource that is the collection of `Mollusca` have both a property `liveHabitat` that points to `WateryHabitat`
+
+#### `Resource` >> `Property` >> `Resource` [`GraphIII`]
+A statement that relates two instances or collections of items is a "III" statement. 
+For example:
+* an instance of Resource/Class `Fish` can have a property `sameHabitat` with an instance of Resource/Class `Mollusca` because they both lives in the Sargasso Sea. In other words, the fish Joy has the same habitat as the mollusca Rachel. In the same database Joy may also be part of another statement, Joy is of a kind Teleost (an infraclass/family of fishes according to marine biologists).
+
+#### `Resource` >> `Property` >> `Value` [`GraphIIT`]
+A statement that relates an instance to a constant is an "IIT" statement. A `Value` can be a string or a number or any other kind of RDF-supported data types. Usually a value is also a `Terminal` in the sense that it is an entity that state itself and is not related furthermore to an object. Some values are not terminals as may contain a unit of measurement ("2.3 kilos"), in that case the unit of measurement can be itself semantically linked to an entity outside of the instance ("kilos" can be semantically linked to the vocabulary describing Weights and Measures).
+
+
+#### Diagram
 
 Below is the schema diagram for our database design:
 
