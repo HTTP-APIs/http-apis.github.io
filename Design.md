@@ -32,7 +32,7 @@ NOTE: for the sake of this text, the following tuple of words are synonims:
 * statement is triple
 * predicate is property
 
-There are names assigned to different classes and properties in the different layers according to their level of abstraction. The most abstract level considered is the one most related to generic most popular RDF ontologies/vocabularies. Getting closer to the REST interface, the levels become less abstract until representing relationships between entities that are instances or proper objects. This layout is closed, as in any definite Tree-like representation, by terminals or values, that store the quantitative values themselves (strings, numbers, any data types). We call properties that relate "classes" to "classes" (like the ones at the most abstract level) as `AbstractProperty` and the others (relating less abstract kind of entities) as `InstanceProperty`.
+Entities and properties are assigned to different layers according to their level of abstraction. The most abstract level considered is the one most related to generic most popular RDF ontologies/vocabularies. Getting closer to the REST interface, the levels become less abstract until representing relationships between entities that are instances or proper objects. This layout is closed, as in any definite Tree-like representation, by terminals or values, that store the quantitative values themselves (strings, numbers, any data types). We call properties that relate "classes" to "classes" (like the ones at the most abstract level) as `AbstractProperty` and the others (relating less abstract kind of entities) as `InstanceProperty`.
 
 
 #### Abstract Layer
