@@ -25,10 +25,10 @@ Table of contents
 <a name="features"></a>
 Features
 -------------
-hydrus supports the following features:
-- A client that can understand Hydra vocabulary and interacts with a Hydra supporting server to basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data.
-- A generic server that can serve required data and metadata(in the form of API documentation) to a client over HTTP.
-- A middleware that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. **(under developement)**
+Every hydrus instance provides the following tools:
+- A generic server that can serve required data and metadata (in the form of API documentation) to a client over HTTP.
+- A client (`hydra-py`) that can understand Hydra vocabulary and interact autonomously with a Hydra supporting server to basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data.
+- A Web interface that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. **(under developement)**
 
 <a name="req"></a>
 Requirements
@@ -38,11 +38,12 @@ The system is built over the following standards and tools:
 - [JSON-LD](http://json-ld.org/spec/latest/json-ld/) as the prefered data format.
 - [Hydra](http://www.hydra-cg.com/) as the API standard.
 - [SQLAlchemy](http://www.sqlalchemy.org/) as the backend database connector for storage and related operations.
+- [hydra-py](https://github.com/pchampin/hydra-py)
 
-Apart from this, there are also various Python packages that hydrus uses. A list of all these packages can be found in the [requirements.txt](https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt) file. It would be advisable to run **`pip install -r requirements.txt`** before setting up other things.
+Apart from these, there are also various Python packages that hydrus leverages. A list of all these packages can be found in the [requirements.txt](https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt) file.
 
 
-**NOTE:** You'll need to use `python3` not `python2`.
+**NOTE:** hydrus supports only Python 3.5 and above
 
 <a name="demo"></a>
 Demo
