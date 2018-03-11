@@ -62,7 +62,7 @@ For example:
 
 A statement that relates two instances or collections of items is a "III" statement. In this layer and in the ones described below, properties are meant to be of kind `InstanceProperty`.
 For example:
-* an instance of Resource/Class `Fish` can have a property `sameHabitat` with an instance of Resource/Class `Mollusca` because they both lives in the Sargasso Sea. In other words, the fish Joy has the same habitat as the mollusca Rachel. In the same database Joy may also be part of another statement, Joy is of a kind Teleost (an infraclass/family of fishes according to marine biologists).
+* an instance of Resource/Class `Fish` can have a property `sameHabitat` pointing to an instance of Resource/Class `Mollusca` because they both lives in the Sargasso Sea. In other words, the fish Joy has the same habitat as the mollusca Rachel. The Knowledge Base express its power as in the same datastore Joy may also be part of multiple statements, like: Joy is of a kind Teleost (an infraclass/family of fishes according to marine biologists).
 
 #### Values layer
 **`Resource` >> `Property` >> `Value` [`GraphIIT`]**
