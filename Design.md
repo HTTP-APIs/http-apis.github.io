@@ -32,7 +32,7 @@ NOTE: for the sake of this text, the following tuple of words are synonims:
 * statement is triple
 * predicate is property
 
-Entities and properties are assigned to different layers according to their level of abstraction. The most abstract level considered is the one most related to generic most popular RDF ontologies/vocabularies. Getting closer to the REST interface, the levels become less abstract until representing relationships between entities that are instances or proper objects. This layout is closed, as in any definite Tree-like representation, by terminals or values, that store the quantitative values themselves (strings, numbers, any data types). We call properties that relate "classes" to "classes" (like the ones at the most abstract level) as `AbstractProperty` and the others (relating less abstract kind of entities) as `InstanceProperty`.
+Entities and properties are assigned to different layers according to their level of abstraction. The most abstract level considered is the one most related to generic most popular RDF ontologies/vocabularies. Getting closer to the REST interface, the levels become less abstract until it is possible to represent relationships between instances or proper objects. This layout is closed, as in any definite Tree-like representation, by terminals or values that store the quantitative values themselves (strings, numbers, any data types). We call properties that relate "classes" to "classes" (like the ones at the most abstract level) as `AbstractProperty` and the others (relating less abstract kind of entities) as `InstanceProperty`.
 
 
 #### Abstract Layer
@@ -50,7 +50,7 @@ This is a generic overview of how RDF works to relate classes of objects. This l
 
 #### Infralayer between resources and classes
 **`Resource` >> `Property` >> `Class` [`GraphIAC`]**
-A statement that links a Resource to an abstract class is a "IAC" statement. A Resource can be also seen as an instance representing a collection of instances (not a class in the abstract, but a more concrete set/group of objects). In the REST layer a Resource is addrressed as `Items`. This kind of entity relates to an abstract class as the ones described in the "CAC" group. This class of statements are stored in the "Graph IAC".
+A statement that links a Resource to an abstract class is a "IAC" statement. A Resource can be also seen as an instance representing a collection of instances (not a class in the abstract, but a more concrete set/group of objects). In the REST layer a Resource is addrressed as `Items`. This kind of entity relates to an abstract class as the ones described in the "CAC" group. This class of statements are stored in the "Graph IAC". In this layer and in the ones described below, properties are meant to be of kind `InstanceProperty`.
 For example:
 * the Resource that is the collection of `Fish` and the Resource that is the collection of `Mollusca` have both a property `liveHabitat` that points to `WateryHabitat`
 
