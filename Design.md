@@ -45,23 +45,28 @@ For example:
 * Furthermore, `HighPressureSubMarineHabitat` could be a `rdf:subClass` of `MarineHabitat` that is itself a subclass of `WateryHabitat`, and so on.
 The one above are all considered as `AbstractProperty` for the sake of storing them in hydrus' datastore.
 
-This is a generic overview of how RDF works to relate classes of objects. This logic works also with instances of objects (the fish named Joy is of kind Meuschenia hippocrepis); also families and kinds of objects can be represented as classes. Very generic kind of classes (like classes of relations) are described in vocabularies called "upper-ontologies". Paragraphs below describe less abstract statements.
+This is a generic overview of how RDF works to relate classes of objects. This logic works also with instances of objects (the fish named Joy is of kind Acanthurus coeruleus); also families and kinds of objects can be represented as classes. Very generic kind of classes (like classes of relations) are described in vocabularies called "upper-ontologies".
+
+Paragraphs below describe less abstract statements.
 
 
 #### Infralayer between resources and classes
 **`Resource` >> `Property` >> `Class` [`GraphIAC`]**
-A statement that links a Resource to an abstract class is a "IAC" statement. A Resource can be also seen as an instance representing a collection of instances (not a class in the abstract, but a more concrete set/group of objects). In the REST layer a Resource is addrressed as `Items`. This kind of entity relates to an abstract class as the ones described in the "CAC" group. This class of statements are stored in the "Graph IAC". In this layer and in the ones described below, properties are meant to be of kind `InstanceProperty`.
+
+A statement that links a Resource to an abstract class is a "IAC" statement. A Resource can be also seen as an instance representing a collection of instances (not a class in the abstract, but a more concrete set/group of objects). In the REST layer a Resource is addrressed as `Items`. This kind of entity relates to an abstract class as the ones described in the "CAC" group. This class of statements are stored in the "Graph IAC".
 For example:
 * the Resource that is the collection of `Fish` and the Resource that is the collection of `Mollusca` have both a property `liveHabitat` that points to `WateryHabitat`
 
 #### Resources layer
 **`Resource` >> `Property` >> `Resource` [`GraphIII`]**
-A statement that relates two instances or collections of items is a "III" statement. 
+
+A statement that relates two instances or collections of items is a "III" statement. In this layer and in the ones described below, properties are meant to be of kind `InstanceProperty`.
 For example:
 * an instance of Resource/Class `Fish` can have a property `sameHabitat` with an instance of Resource/Class `Mollusca` because they both lives in the Sargasso Sea. In other words, the fish Joy has the same habitat as the mollusca Rachel. In the same database Joy may also be part of another statement, Joy is of a kind Teleost (an infraclass/family of fishes according to marine biologists).
 
 #### Values layer
 **`Resource` >> `Property` >> `Value` [`GraphIIT`]**
+
 A statement that relates an instance to a constant is an "IIT" statement. A `Value` can be a string or a number or any other kind of RDF-supported data types. Usually a value is also a `Terminal` in the sense that it is an entity that state itself and is not related furthermore to an object. Some values are not terminals as may contain a unit of measurement ("2.3 kilos"), in that case the unit of measurement can be itself semantically linked to an entity outside of the instance ("kilos" can be semantically linked to the vocabulary describing Weights and Measures).
 
 
