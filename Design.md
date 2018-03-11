@@ -91,7 +91,7 @@ RDF/OWL declarations to server endpoints:
 <a name="usecase"></a>
 ### Use cases
 This section explains hydrus's design and a use case for the same.
-For the demonstration, the server has the [Subsystems](http://ontology.projectchronos.eu/documentation/subsystems) and [Spacecraft](http://ontology.projectchronos.eu/documentation/spacecraft) vocabularies.
+For the demonstration, the server has the [Subsystems](https://github.com/chronos-pramantha/RDFvocab/blob/master/ld%2Bjson/SubSystems.json) and [Spacecraft](https://github.com/chronos-pramantha/RDFvocab/blob/master/ld%2Bjson/Spacecraft.json) vocabularies.
 
 Here is an example of a system used to serve data using the components of hydrus:
 
