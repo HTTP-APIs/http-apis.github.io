@@ -382,6 +382,16 @@ As shown in the example above, member items can either consist of solely a link 
 In some cases embedding member properties directly in the collection is beneficial as it may reduce the number of HTTP 
 requests necessary to get enough information to process the result.
 
+### How hydrus use rdf via hydra to make data exchanges automated
+
+To understand how hydrus represents REST resources and how the developer is helped to work with Hydra, it is possible to start from thinking at Hydra as generic framework that describes REST API resources to make data exchanges automated.
+
+Instances (objects) belonging to a Resource are named Items in hydrus. It is possible to perform HTTP operations over Items. At a lower layer the REST Resource is of a kind of an hydra:Resource, all the objects of the same kind are members of an hydra:Collection. Hydrus use Hydra specified API documentaton and as Hydra inherits from RDF, thanks to the framework it is possible to represent the API as a RDF graph.
+
+hydrus allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer. This multi-layered architecture allows REST APIs to work with automated clients and leverage new powerful ways of querying the data.
+
+To learn more about hydrus's multi-layered database design follow [Database Design](https://github.com/HTTP-APIs/hydra-ecosystem-wiki/blob/master/Design.md)
+
 This document is modified version of [Markus Lanthaler](https://github.com/lanthaler)'s original document describing how
 to create Hydra specified APIs.For more info follow [hydra core vocabulary specification](https://www.hydra-cg.com/spec/latest/core/)
 
