@@ -1,9 +1,15 @@
 hydrus
 ===================
 
-hydrus (fully lowercase) is the flagship tool in the ecosystem. It is a Flask server meant to build and deploy HYDRA-based Web APIs in
- a straightforward and effective way. It uses Docker as virtualization and isolation technology (see Usage). Other tools,
- as dedicated clients for testing, instances running with others frameworks, parsers/translators to other standards, are in the same ecosystem.
+### RDF
+RDF is widely known as the technology which makes possible the [Semantic Web](https://en.wikipedia.org/wiki/Semantic_Web) by allowing the representation of data as [Linked Data](https://en.wikipedia.org/wiki/Linked_data).
+[RDF is a W3C standard](https://www.w3.org/RDF/) that allows the representation of Knowledge in specific Domain as Knowledge Graphs. Quanta of information are represented as "triples": statements that relate a subject to an object by a predicate. Triples can be stored in different formats, the format used in Hydra and hydrus is [JSON-LD](https://json-ld.org/). 
+
+### Hydra
+Hydra is a framework to enable REST API to be described semantically. It is based on JSON-LD and proposed as [W3C draft](https://www.hydra-cg.com/spec/latest/core/).
+
+
+**hydrus** (fully lowercase) is the flagship server in the ecosystem. It is a Flask server meant to build and deploy Hydra-based Web APIs in a straightforward and effective way. It uses Docker as virtualization and isolation technology (see Usage). Other tools, as dedicated clients for testing, instances running with others frameworks, parsers/translators to other standards, are in the same ecosystem.
 
 hydrus is a set of **Python** based tools for easier and efficient creation of Hypermedia driven REST-APIs. hydrus utilises the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data.
 hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and documentation of it's APIs.
