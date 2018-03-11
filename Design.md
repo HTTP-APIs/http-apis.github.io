@@ -10,7 +10,7 @@ Instances (objects) belonging to a Resource are named `Item`s in hydrus. It is p
 
 hydrus allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer. This multi-layered architecture allows REST APIs to work with automated clients and leverage new powerful ways of querying the data.
 
-hydrus multi=layered architecture is described below from its foundationals classes in the ORM to the interface layer.
+hydrus multi-layered architecture is described below from its foundationals classes in the ORM to the interface layer.
 
 Table of contents
 -------------
