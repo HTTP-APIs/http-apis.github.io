@@ -6,12 +6,11 @@ This page explains the design, architecture and the implementation of hydrus alo
 To understand how hydrus represents REST resources and how the developer is helped to work with Hydra, it is possible to
  start from thinking at Hydra as generic framework that describes REST API resources to make data exchanges automated.
 
-Instances (objects) belonging to a Resource are named `Item`s in hydrus. It is possible to perform HTTP operations over
- `Item`s. At a lower layer the REST Resource is of a kind of an `hydra:Resource`, all the objects of the same kind are members
- of an `hydra:Collection`. As Hydra inherits from RDF, thanks to the framework it is possible to represent the API as a RDF graph.
- hydrus allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and
- to work on the REST layer. This multi-layered architecture allows REST APIs to work with automated clients and leverage
- new powerful ways of querying the data.
+Instances (objects) belonging to a Resource are named `Item`s in hydrus. It is possible to perform HTTP operations over `Item`s. At a lower layer the REST Resource is of a kind of an `hydra:Resource`, all the objects of the same kind are members of an `hydra:Collection`. As Hydra inherits from RDF, thanks to the framework it is possible to represent the API as a RDF graph.
+
+hydrus allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer. This multi-layered architecture allows REST APIs to work with automated clients and leverage new powerful ways of querying the data.
+
+hydrus multi=layered architecture is described below from its foundationals classes in the ORM to the interface layer.
 
 Table of contents
 -------------
@@ -28,8 +27,8 @@ Typically, there are 4 types of triples that are stored in a `Graph`:
 * **`Resource >> Property >> Value` [`GraphIIT`]**
 
 For a distinction between the different types of `Value`, we created a `Terminal` class, which contains a `value` and it's `unit`.
-There is also a distinction between properties that map to `Resources` and `Terminals` and those that map to `Classes`.
-We call `Properties` that map to `Classes` as `AbstractProperty` and the other as `InstanceProperty`.
+There is also a distinction between properties that map to `Resource`s and `Terminals` and those that map to Classes.
+We call Properties that map from Classes to Classes as `AbstractProperty` and the other as `InstanceProperty`.
 
 Below is the schema diagram for our database design:
 
@@ -58,7 +57,7 @@ Here is an example of a system used to serve data using the components of hydrus
 
 **A simple example explaining the use of the above architecture would be:**
 * User types in the query “What is the cost of a Thermal Subsystem?”.
-* Middleware uses NLP to extract keywords `Thermal Subsystem` and `cost` and maps it to the Hydra instances and properties present at the server.
+* Middleware uses NLP to extract keywords "Thermal Subsystem" and "cost" and maps it to the Hydra instances and properties present at the server.
 * Middleware passes these instances and the underlying query to the client.
 * Client models a request and uses the API endpoints to extract the given information from the server.
 * Server replies with the required value.
@@ -98,11 +97,11 @@ crud.insert(object_=instance, id_=1)    #This will insert 'instance' with ID = 1
 
 <a name="moddata"></a>
 ## Manipulating data
-We already saw how `insert` work in the Adding instance section, we will now see how the other crud operations work and what are the errors and exceptions for each of them.
+We already saw how insertion works in the "Adding instance" section, we will now see how the other crud operations work and what are the errors and exceptions for each of them.
 
 <a name="crud"></a>
 ### CRUD opertions
-Apart from `insert`, the CRUD operations also support `get`, `delete` and `update` opertions. Here are examples for all three:
+Apart from insertion (create/insert), the CRUD operations also support get (read), delete and update operations. Here are examples for all three:
 
 GET
 ```python
@@ -182,7 +181,7 @@ GET
 
 ```
 
-INSERT
+INSERT/CREATE
 ```python
 # A 400 error is returned when an instance with a given ID already exists
 {
@@ -219,5 +218,5 @@ DELETE
 }
 ```
 
-The `update` operation is a combination of a `delete` and an `insert` operation. All exceptions for both the operation are inherited by update.
+The update operation is a combination of a delete and an insert operation. All exceptions for both the operation are inherited by update.
  -->
