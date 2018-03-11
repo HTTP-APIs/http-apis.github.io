@@ -381,3 +381,7 @@ A hydra:Collection can be used to reference a set of resources as follows:
 As shown in the example above, member items can either consist of solely a link or also include some properties. 
 In some cases embedding member properties directly in the collection is beneficial as it may reduce the number of HTTP 
 requests necessary to get enough information to process the result.
+
+This document is modified version of [Markus Lanthaler](https://github.com/lanthaler)'s original document describing how
+to create Hydra specified APIs.For more info follow [hydra core vocabulary specification](https://www.hydra-cg.com/spec/latest/core/)
+
