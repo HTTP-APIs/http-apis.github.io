@@ -1,5 +1,7 @@
 # Token Authentication
 
+*hydrus* provides an Authorization/Authentication procedure that can be put in place for allowing operations on endpoints based on a simple Two-Factor Authentication method.
+
 This page explains the authentication options you can apply to your API deployed with hydrus.
 
 ### How to enable authentication?
