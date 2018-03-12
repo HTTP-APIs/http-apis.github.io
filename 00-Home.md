@@ -34,8 +34,8 @@ Features
 -------------
 Every hydrus instance provides the following tools:
 - A generic server that can serve required data and metadata (in the form of API documentation) to a client over HTTP.
-- A client (`hydra-py`) that can understand Hydra vocabulary and interact autonomously with a Hydra supporting server to basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data.
-- A Web interface that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. **(under developement)**
+- A client (`hydra-py`) that can understand Hydra vocabulary and interact autonomously with a Hydra supporting server via basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data.
+- A Web interface that allows users to use the client to interact with the server/infrastructure using Natural Language which is processed machine consumable language. **(under developement)**
 
 <a name="req"></a>
 Requirements
