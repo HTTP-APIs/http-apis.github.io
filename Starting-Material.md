@@ -47,6 +47,7 @@ def test_method(arg1, arg2, ...):
 ## Worth knowing
 * Writing a [proposal for GSOC](https://google.github.io/gsocguides/student/writing-a-proposal)
 * OpenAPI [framework](https://www.openapis.org/)
+* [A Web API ecosystem through feature-based reuse](https://arxiv.org/abs/1609.07108)
 
 
 ## Design annotations
