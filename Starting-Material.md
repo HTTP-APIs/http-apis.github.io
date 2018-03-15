@@ -22,6 +22,7 @@
 * Please check existing or closed issues or PRs when thinking about opening a new one.
 
 ### Opening a Pull Request
+* Every PR should follow the PR template. PR template for [hydrus](https://github.com/HTTP-APIs/hydrus) can be found [here](https://github.com/HTTP-APIs/hydrus/blob/master/.github/PULL_REQUEST_TEMPLATE.md).
 * Code in PRs should be accurately **compliant** with [PEP-8](https://www.python.org/dev/peps/pep-0008/), checking code with `pylint` is fine.
 * Every method in the PR should have a compelling **docstring** in the format:
 ```
