@@ -11,8 +11,6 @@
 * [Improving hydrus room: issues, solutions and ideas](https://gitter.im/HTTP-APIs/Improving-Hydrus)
 * [Beginners: experienced contributors help newcomers](https://gitter.im/HTTP-APIs/Beginners)
 
-List of useful papers [here](https://arxiv.org/find/all/1/all:+verborgh/0/1/0/all/0/1)
-
 ## General guidelines to contributing
 
 ### About OpenSource and Github
@@ -52,6 +50,7 @@ def test_method(arg1, arg2, ...):
 * Writing a [proposal for GSOC](https://google.github.io/gsocguides/student/writing-a-proposal)
 * OpenAPI [framework](https://www.openapis.org/)
 * [A Web API ecosystem through feature-based reuse](https://arxiv.org/abs/1609.07108)
+* List of useful papers [here](https://arxiv.org/find/all/1/all:+verborgh/0/1/0/all/0/1)
 
 
 ## Design annotations
