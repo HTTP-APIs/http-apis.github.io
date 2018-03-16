@@ -8,9 +8,10 @@ hydrus provides a full-stack architecture that makes it the basic building block
 * a Hydra-powered server, with the possibilities of being self-deployable and accepting on-the-fly configuration changes
 * a Hydra-powered generic client, a generic client that can connect to any Hydra-based APIs without hard-coding its behaviour
 
-### RDF
+### RDF and Linked Data
 Hydra is an extension of W3C's Resource Description Framework. RDF is widely known as the technology which makes possible the [Semantic Web](https://en.wikipedia.org/wiki/Semantic_Web) by allowing the representation of data as [Linked Data](https://en.wikipedia.org/wiki/Linked_data).
-[RDF is a W3C standard](https://www.w3.org/RDF/) that allows the representation of Knowledge in specific Domain as Knowledge Graphs. Quanta of information are represented as "triples": statements that relate a subject to an object by a predicate. Triples can be stored in different formats, the format used in Hydra and hydrus is [JSON-LD](https://json-ld.org/). 
+[RDF is a W3C standard](https://www.w3.org/RDF/) that allows the representation of Knowledge in specific Domain as Knowledge Graphs. Quanta of information are represented as "triples": statements that relate a subject to an object by a predicate. Triples can be stored in different formats, the format used in Hydra and hydrus is [JSON-LD](https://json-ld.org/).
+For a little more detailed explanation of triples you can [read this document](http://www.hydra-cg.com/spec/latest/linked-data-fragments/#interfaces-to-linked-data).
 
 ### Hydra
 Hydra is a framework to enable REST API to be described semantically using RDF. It is based on JSON-LD and proposed as [W3C draft](https://www.hydra-cg.com/spec/latest/core/).
