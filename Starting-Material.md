@@ -50,6 +50,7 @@ def test_method(arg1, arg2, ...):
 * Writing a [proposal for GSOC](https://google.github.io/gsocguides/student/writing-a-proposal)
 * OpenAPI [framework](https://www.openapis.org/)
 * [A Web API ecosystem through feature-based reuse](https://arxiv.org/abs/1609.07108)
+* [Triple Pattern Fragments](https://biblio.ugent.be/publication/8050661/file/8050671.pdf)
 * List of useful papers [here](https://arxiv.org/find/all/1/all:+verborgh/0/1/0/all/0/1)
 
 
