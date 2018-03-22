@@ -32,9 +32,7 @@ For a short overview of RDF and Hydra see [Home](00-Home.md).
 hydrus servers are highly decoupled web servers that allows installation of multiple services in parallel. This is possible
 by-design as every hydrus instance is both a server and an agent/client that can query others of the same kind for data by
 using its built-in smart client (e.g. hydra-agent). An hydrus system can be composed of single server or a multiplicity.
-Whatever is the system's layout, a superuser/developer that carries on the activities of engineering and developing the system
-can managed access privileges to the APIs in the system. External smart clients can query the APIs in the systems in the
-very same way the hydrus instances interacts, according to the privileges defined by the superuser. Here a simple diagram
+Whatever is the system's layout, a superuser/developer that carries on the activities of engineering and developing the system can manage access privileges to the APIs in the system. External smart clients can query the APIs in the systems in the very same way the hydrus instances do, according to the privileges defined by the superuser. Here a simple diagram
 of a cloud deployment with three hydrus "module-servers" and three external smart clients:
 
 ![hydrus as a cloud system](static/hydrus_cloud_system.png)
