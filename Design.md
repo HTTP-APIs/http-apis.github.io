@@ -15,6 +15,7 @@ hydrus multi-layered architecture is described below from its foundationals clas
 Table of contents
 -------------
 * [RDF](#rdf)
+* [hydrus-based cloud system](#cloudsystem)
 * [Multi-layered Database Design](#dbdesign)
 * [Data flow](#dataflow)
 * [Use cases](#usecase)
@@ -22,6 +23,20 @@ Table of contents
 <a name="rdf"></a>
 ### RDF
 For a short overview of RDF see [Home](00-Home.md).
+
+
+<a name="cloudsystem"></a>
+
+### hydrus as a cloud system
+
+hydrus servers are highly decoupled web servers that allows installation of multiple services in parallel. This is possible
+by-design as every hydrus instance is both a server and an agent/client that can query other of the same kind for data by
+using its built-in smart-clients. A multiplicity of these services can create a cloud system managed by a superuser/developer
+that carries on the activities of engineering and developing on the system. External smart-clients can query the APIs in the
+systems in the very same way the hydrus instances interacts, according to the privileges defined by the superuser.
+
+![hydrus as a cloud](static/hydrus_cloud_system.png)
+
 
 <a name="dbdesign"></a>
 ### Multi-layered Database Design
