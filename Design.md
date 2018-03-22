@@ -44,7 +44,7 @@ of a cloud deployment with three hydrus "module-servers" and three external smar
 The different hydrus "modules" that build up an hydrus cloud deployment are designed to be highly decoupled Hydra-aware APIs
 backed by a modern graph-based datastore (our first supported datastore will be Redis, but support will be extended).
 Design of the APIs follows the Hydra draft and its embedded querying capabilities that are translated into different querying
-languages (in the case of Redis: CYPHER as it supported by Redis Graph, but support will be extended). Here the full hydrus
+languages (in the case of Redis: CYPHER as it is supported by Redis Graph, but support will be extended). Here the full hydrus
 module stack in a simple diagram:
 
 ![hydrus stack](static/hydrus_stack.png)
