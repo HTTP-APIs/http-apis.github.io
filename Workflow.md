@@ -8,11 +8,9 @@ In general, the workflow is made up of these basic steps:
 1. The Developer defines an API description in the shape of an RDF-compliant or Hydra-compliant JSON-LD (Hydra is an RDF vocabulary itself) or in
 shape of an OpenAPI data structure (yet to be implemented). Any shape that is supplied it is parsed into an Hydra-compliant JSON-LD that
 becomes the API documentation (in Hydra slang, the `ApiDoc`). Every REST resource is an `HydraClass`.
-2. hydrus toolkit parses the `ApiDoc` and defines handlers to support the pusblishing of the resources as described. It put in place
+2. [hydrus](https://github.com/HTTP-APIs/hydrus) toolkit parses the `ApiDoc` and defines handlers to support the pusblishing of the resources as described. It put in place
 a system for credentials management to secure the endpoints with Two-factors token authentication. Every `HydraClass` has its
 endpoint and HTTP methods and related operations as defined by the documentation.
-3. hydra-agent reads the `ApiDoc` via the entrypoint and parses the JSON-LD into an internal representation (RDF graph) that allows
-the client to proceed to query the endpoints for its searching, storing or retrieving necessities. The internal representation
-may change depending from the different `ApiDoc` that the clients reaches.
+3. [hydra-agent](https://github.com/HTTP-APIs/python-hydra-agent) reads the `ApiDoc` via the entrypoint and parses the JSON-LD into an internal representation (RDF graph) that allows the client to proceed to query the endpoints for its searching, storing or retrieving necessities. The internal representation may change on-the-fly or grow depending from the different `ApiDoc` that the clients reaches. The official Hydra client implementation is [Heracles.ts](https://github.com/HydraCG/Heracles.ts).
 
 <under construction>
