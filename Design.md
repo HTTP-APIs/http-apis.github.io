@@ -1,6 +1,6 @@
 # Design
 
-This page explains the design, architecture and the implementation of [**hydrus**](https://github.com/HTTP-APIs/hydrus) along with a few use cases for the same.
+This page explains the design, architecture and the implementation of [**hydrus**](https://github.com/HTTP-APIs/hydrus)'s toolkit along with a few use cases for the same.
 
 ## REST to Hydra to hydrus
 To understand how [hydrus](https://github.com/HTTP-APIs/hydrus) represents REST resources and how the developer is helped to work with Hydra, it is possible to
