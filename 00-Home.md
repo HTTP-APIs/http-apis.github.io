@@ -27,6 +27,7 @@ Table of contents
 * [Features](#features)
 * [Requirements](#req)
 * [Demo](#demo)
+* [Workflow](#workflow)
 * [Usage](#usage)
 * [Design](#design)
 
@@ -77,6 +78,11 @@ python main.py
 ```
 
 The demo should be up and running on `http://localhost:8080/serverapi/`
+
+<a name="workflow"></a>
+Workflow
+-------------
+For a generic overview of the Development workflow, head over to [Workflow](Workflow.md) page.
 
 <a name="usage"></a>
 Usage
