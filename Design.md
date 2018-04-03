@@ -52,7 +52,7 @@ module stack in a simple diagram:
 
 <a name="dbdesign"></a>
 ### Multi-layered Database Design
-The design of the Database takes into account some of the different layers of representations possible using RDF.
+The design of the Database (that stores the internal representation of the RDF graph) takes into account some of the different layers of representations possible using RDF.
 Typically, statements (triples) are stored in hydrus' `Graph` according to 4 different types of layers. These layers make up the Knowledge Base that the REST layer queries.
 
 NOTE: for the sake of this text, the following tuple of words are synonims:
