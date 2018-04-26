@@ -47,7 +47,7 @@ Design of the APIs follows the Hydra draft and its embedded querying capabilitie
 languages (in the case of Redis: CYPHER as it is supported by Redis Graph, but support will be extended). Here the full hydrus
 module stack in a simple diagram:
 
-![hydrus stack](static/hydrus_stack.png)
+![hydrus stack](static/hydrus_stackpng)
 
 
 <a name="dbdesign"></a>
