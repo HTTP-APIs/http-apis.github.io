@@ -8,9 +8,12 @@ To understand how [hydrus](https://github.com/HTTP-APIs/hydrus) represents REST 
 
 Instances (objects) belonging to a Resource are named `Item`s in [hydrus](https://github.com/HTTP-APIs/hydrus). It is possible to perform HTTP operations over `Item`s. At a lower layer the REST Resource is of a kind of an `hydra:Resource`, all the objects of the same kind are members of an `hydra:Collection`. As Hydra inherits from RDF, thanks to the framework it is possible to represent the API as a RDF graph.
 
-[hydrus](https://github.com/HTTP-APIs/hydrus) allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer. This multi-layered architecture allows REST APIs to work with automated clients and leverage new powerful ways of querying the data.
+[hydrus](https://github.com/HTTP-APIs/hydrus) allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer.
 
-[hydrus](https://github.com/HTTP-APIs/hydrus)'s multi-layered architecture is described below from its foundationals classes in the ORM to the interface layer.
+The tools in the ecosystem works on top of a multi-layered architecture that is described below from its foundationals classes in the ORM to the interface layer.
+
+## Hydra Smart Clients
+The client-side tools in the ecosystem are basically any client that complies with [Hydra's specs](https://github.com/HydraCG/Specifications), starting from the [official Typescript implementation Heracles.ts](https://github.com/HydraCG/Heracles.ts) and the [python-hydra-agent](https://github.com/HTTP-APIs/python-hydra-agent).
 
 Table of contents
 -------------
