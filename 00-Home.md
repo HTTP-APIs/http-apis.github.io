@@ -22,6 +22,9 @@ Hydra is a framework to enable REST API to be described semantically using RDF. 
 hydrus is a set of **Python** based tools for easier and efficient creation of Hypermedia driven REST-APIs. hydrus utilises the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data.
 hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and documentation of it's APIs.
 
+
+**Hydra smart client** (`python-hydra-agent`) is a Python implementation of a client based on the Hydra Community Group specifications. It can navigate a network of hydrus servers autonomously by reading their API documentation. It is a generic client in the sense that can query and retrieve data from any Hydra-aware server (like hydrus). 
+
 Table of contents
 -------------
 * [Features](#features)
