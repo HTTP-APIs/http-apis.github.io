@@ -30,9 +30,8 @@ For a short overview of RDF and Hydra see [Home](00-Home.md).
 ### hydrus as a cloud system
 
 [hydrus](https://github.com/HTTP-APIs/hydrus) servers are highly decoupled web servers that allows installation of multiple services in parallel. This is possible
-by-design as every hydrus instance is both a server and an agent/client that can query others of the same kind for data by
-using its built-in smart client (e.g. hydra-agent). An hydrus system can be composed of single server or a multiplicity.
-Whatever is the system's layout, a superuser/developer that carries on the activities of engineering and developing the system can manage access privileges to the APIs in the system. External smart clients can query the APIs in the systems in the very same way the hydrus instances do, according to the privileges defined by the superuser. Here a simple diagram
+by-design as every hydrus instance is automatically querable by Hydra smart client (e.g. python-hydra-agent). An hydrus system can be composed of single server or a multiplicity.
+Whatever is the system's layout, a superuser/developer that carries on the activities of engineering and developing the system can manage access privileges to the APIs in the system. External smart clients can query the APIs in the system, according to the privileges defined by the superuser. Here a simple diagram
 of a cloud deployment with three hydrus "module-servers" and three external smart clients:
 
 ![hydrus as a cloud system](static/hydrus_cloud_system.png)
@@ -41,11 +40,8 @@ of a cloud deployment with three hydrus "module-servers" and three external smar
 <a name="fullstack"></a>
 ### hydrus as a full stack module
 
-The different [hydrus](https://github.com/HTTP-APIs/hydrus) "modules" that build up an hydrus cloud deployment are designed to be highly decoupled Hydra-aware APIs
-backed by a modern graph-based datastore (our first supported datastore will be Redis, but support will be extended).
-Design of the APIs follows the Hydra draft and its embedded querying capabilities that are translated into different querying
-languages (in the case of Redis: CYPHER as it is supported by Redis Graph, but support will be extended). Here the full hydrus
-module stack in a simple diagram:
+The different [hydrus](https://github.com/HTTP-APIs/hydrus) "modules" that build up an hydrus cloud deployment are designed to be highly decoupled Hydra-aware APIs.
+Design of the APIs follows the Hydra draft so that smart clients querying capabilities can be deployed on the hydrus-powered services. Here the full hydrus module stack in a simple diagram:
 
 ![hydrus stack](static/hydrus_stack.png)
 
