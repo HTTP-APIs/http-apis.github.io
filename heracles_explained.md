@@ -1,2 +1,2 @@
-#Analysis of Heracles.ts 
+## Analysis of Heracles.ts 
 
