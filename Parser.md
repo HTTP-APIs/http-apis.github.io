@@ -21,9 +21,9 @@ Finally we add all the classes with or without operations defined on them to the
 Doc Writer module is being used at serveral places to form the Hydra Api Documentation . The following classes have been used :  <br><br>
     1.  HydraClass : 
         Hydra Class is being used to create hydra class after parsing the object referred in the 'path' object .<br>
-    2.  HydraDoc : HydraDoc is being used to initialise     Api Documentation using name , title ,              description , api name and base url.  
-    3.  HydraClassProp: HydraClassProp is used to add       "SupportedProperty" to the Hydra Class. <br>
-    4.  HydraClassOp: HydraClassOp is used to add           "SupportedOperation" to the Hydra Class <br>
+    2.  HydraDoc : HydraDoc is being used to initialise     Api Documentation using name , title ,              description , api name and base url from the 'info' block of the OAS spec . <br>
+    3.  HydraClassProp: HydraClassProp is used to add       "SupportedProperty" to the Hydra Class. The properties are extracted from the object definition in the OAS spec and parsed to check type , required flag . <br>
+    4.  HydraClassOp: HydraClassOp is used to add           "SupportedOperation" to the Hydra Class . The operations on a Hydra Class are basically the paths obtained by parsing the 'paths' object of the OAS spec . Information like what expected input vocab, expected output vocab , status codes and the corresponding message as well as the collection flag is used to add the property to the Hydra Class<br>
 
 ![Scr](https://user-images.githubusercontent.com/19390504/41200793-fce5cace-6cc8-11e8-9956-5155fd94cfab.png)
 
