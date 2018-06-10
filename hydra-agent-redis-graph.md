@@ -25,6 +25,7 @@ The graph structure have five types of nodes in graph with five different labels
 3. label = "collection"    (it is used for collection_endpoints nodes ex- DroneCollection)
 4. label = "objects"     (it is used for the endpoint or member of collection endpoint ex-Drone11)
 5. label = "object"     (It is used for the non-endpoint objects ex- State or Drone State)
+
 All the same label nodes have different alias or key which gives them identity with the group also.
 The redis graph has an edge between different label and in the same label also
 example- every classes label or collection label should have an edge with id label and every objects label has an edge with collection label and now objects label can has an edge with object label as well as with the classes label and there is also a chance that classes label can has an edge with the classes label as well as with the object label.
