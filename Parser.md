@@ -16,3 +16,6 @@ When all of this is done we parse the method to obtain details like class_expect
 
 Finally we add all the classes with or without operations defined on them to the api doc and we generate entrypoint for system .
 
+
+![Scr](https://user-images.githubusercontent.com/19390504/41200793-fce5cace-6cc8-11e8-9956-5155fd94cfab.png)
+
