@@ -16,3 +16,11 @@ When all of this is done we parse the method to obtain details like class_expect
 
 Finally we add all the classes with or without operations defined on them to the api doc and we generate entrypoint for system .
 
+## Usage of Doc Writer Module 
+
+Doc Writer module is being used at serveral places to form the Hydra Api Documentation . The following classes have been used :  <br><br>
+    1.  HydraClass : 
+        Hydra Class is being used to create hydra class after parsing the object referred in the 'path' object .<br>
+    2.  HydraDoc : HydraDoc is being used to initialise     Api Documentation using name , title ,              description , api name and base url.  
+    3.  HydraClassProp: HydraClassProp is used to add       "SupportedProperty" to the Hydra Class. <br>
+    4.  HydraClassOp: HydraClassOp is used to add           "SupportedOperation" to the Hydra Class <br>
