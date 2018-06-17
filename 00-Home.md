@@ -37,27 +37,26 @@ Table of contents
 <a name="features"></a>
 Features
 -------------
-Every hydrus instance provides the following tools:
+Every **hydrus instance** provides the following tools:
 - A generic server that can serve required data and metadata (in the form of API documentation) to a client over HTTP.
 - A Web interface that allows users to use the client to interact with the server/infrastructure using Natural Language which is processed machine consumable language. **(under developement)**
 
-Every Hydra smart client instance provides:
-- A client (`hydra-py`) that can understand Hydra vocabulary and interact autonomously with a Hydra supporting server via basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data. The contributors are actively developing a fork of `hydra-py` for the sake of creating a generic [Hydra Agent](https://github.com/HTTP-APIs/python-hydra-agent) 
+Every **Hydra smart client** instance provides:
+- A client (`hydra-py`) that can understand Hydra vocabulary and interact autonomously with a Hydra supporting server via basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data. The contributors are actively developing a fork of `hydra-py` for the sake of creating a generic [Hydra Agent](https://github.com/HTTP-APIs/python-hydra-agent). 
 
 <a name="req"></a>
 Requirements
 -------------
-The system is built over the following standards and tools:
+The hydrus system is built over the following standards and tools:
 - [Flask](http://flask.pocoo.org/) a Python based micro-framework for handling server requests and responses.
 - [JSON-LD](http://json-ld.org/spec/latest/json-ld/) as the prefered data format.
 - [Hydra](http://www.hydra-cg.com/) as the API standard.
 - [SQLAlchemy](http://www.sqlalchemy.org/) as the backend database connector for storage and related operations.
-- [hydra-py](https://github.com/pchampin/hydra-py)
-
 Apart from these, there are also various Python packages that hydrus leverages. A list of all these packages can be found in the [requirements.txt](https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt) file.
 
+The smart client system is a fork of [hydra-py](https://github.com/pchampin/hydra-py), named `python-hydra-agent`, under development [here]((https://github.com/HTTP-APIs/python-hydra-agent)).
 
-**NOTE:** hydrus supports only Python 3.5 and above
+**NOTE:** hydrus and Hydra Agent supports only Python 3.5 and above
 
 <a name="demo"></a>
 Demo
