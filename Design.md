@@ -43,13 +43,14 @@ of a cloud deployment with three hydrus "module-servers" and three external smar
 
 
 <a name="fullstack"></a>
-### Hydr-based data networks
+### Hydra-based data networks
 
 The different [hydrus](https://github.com/HTTP-APIs/hydrus) "modules" that build up an hydrus cloud deployment are designed to be highly decoupled Hydra-aware APIs.
-Design of the APIs follows the Hydra draft so that smart clients querying capabilities can be deployed on the hydrus-powered services. Here the full hydrus module stack in a simple diagram:
+Design of the APIs follows the Hydra draft so that smart clients querying capabilities can be deployed on the hydrus-powered services. Here an example of a Hydra network in a simple diagram:
 
 ![hydrus stack](static/hydrus_stack.png)
 
+The different hydrus instances-servers are desgined in the same cloud, any Hydra-aware client with the right privileges can access the `ApiDoc` and the data in the servers and build its own representation of the data cloud.
 
 <a name="dbdesign"></a>
 ### Data storage layers
