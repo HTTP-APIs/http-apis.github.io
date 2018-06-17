@@ -73,7 +73,7 @@ NOTE: for the sake of this text, the following tuple of words are synonims:
 Entities and properties are assigned to different layers according to their level of abstraction. The most abstract level considered is the one most related to generic most popular RDF ontologies/vocabularies. Getting closer to the REST interface, the levels become less abstract until it is possible to represent relationships between instances or proper objects. This layout is closed, as in any definite Tree-like representation, by terminals or values that store the quantitative values themselves (strings, numbers, any data types). We call properties that relate "classes" to "classes" (like the ones at the most abstract level) as `AbstractProperty` and the others (relating less abstract kind of entities) as `InstanceProperty`.
 
 
-#### Abstract Layer
+##### Abstract Layer
 **`Class` >> `Property` >> `Class` [`GraphCAC`]**
 
 A statement that links two abstract classes is a "CAC" statement. This is the most abstract level of relationship stored. Two classes are related by a `AbstractProperty` that describes how they relate. 
@@ -88,31 +88,35 @@ This is a generic overview of how RDF works to relate classes of objects. This l
 Paragraphs below describe less abstract statements.
 
 
-#### Infralayer between resources and classes
+##### Infralayer between resources and classes
 **`Resource` >> `Property` >> `Class` [`GraphIAC`]**
 
 A statement that links a Resource to an abstract class is a "IAC" statement. A Resource can be also seen as an instance representing a collection of instances (not a class in the abstract, but a more concrete set/group of objects). In the REST layer a Resource is addrressed as `Items`. This kind of entity relates to an abstract class as the ones described in the "CAC" group. This class of statements are stored in the "Graph IAC".
 For example:
 * the Resource that is the collection of `Fish` and the Resource that is the collection of `Mollusca` have both a property `liveHabitat` that points to `WateryHabitat`
 
-#### Resources layer
+##### Resources layer
 **`Resource` >> `Property` >> `Resource` [`GraphIII`]**
 
 A statement that relates two instances or collections of items is a "III" statement. In this layer and in the ones described below, properties are meant to be of kind `InstanceProperty`.
 For example:
 * an instance of Resource/Class `Fish` can have a property `sameHabitat` pointing to an instance of Resource/Class `Mollusca` because they both lives in the Sargasso Sea. In other words, the fish Joy has the same habitat as the mollusca Rachel. The Knowledge Base express its power as in the same datastore Joy may also be part of multiple statements, like: Joy is of a kind Teleost (an infraclass/family of fishes according to marine biologists).
 
-#### Values layer
+##### Values layer
 **`Resource` >> `Property` >> `Value` [`GraphIIT`]**
 
 A statement that relates an instance to a constant is an "IIT" statement. A `Value` can be a string or a number or any other kind of RDF-supported data types. Usually a value is also a `Terminal` in the sense that it is an entity that state itself and is not related furthermore to an object. Some values are not terminals as may contain a unit of measurement ("2.3 kilos"), in that case the unit of measurement can be itself semantically linked to an entity outside of the instance ("kilos" can be semantically linked to the vocabulary describing Weights and Measures).
 
 
-#### Diagram
+#### hydrus diagram
 
-Below is the schema diagram for our database design:
+Below is the schema diagram for hydrus database design, instances are stored in tables representing their hierarchical representation:
 
 ![DB Schema](https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/db_schema.png?raw=true "Schema")
+
+#### graph-store diagram
+(WIP: add diagram for data representation used in `python-hydra-agent`)
+...
 
 <a name="dataflow"></a>
 ### Data Flow
