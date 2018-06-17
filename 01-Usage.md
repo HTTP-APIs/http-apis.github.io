@@ -1,4 +1,4 @@
-# How to set up and Hydra server using hydrus
+# How to set up an Hydra server using hydrus
 
 Table of contents
 -------------
