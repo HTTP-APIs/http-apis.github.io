@@ -54,7 +54,7 @@ The hydrus system is built over the following standards and tools:
 - [SQLAlchemy](http://www.sqlalchemy.org/) as the backend database connector for storage and related operations.
 Apart from these, there are also various Python packages that hydrus leverages. A list of all these packages can be found in the [requirements.txt](https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt) file.
 
-The smart client system is a fork of [hydra-py](https://github.com/pchampin/hydra-py), named `python-hydra-agent`, under development [here]((https://github.com/HTTP-APIs/python-hydra-agent).
+The smart client system is a fork of [hydra-py](https://github.com/pchampin/hydra-py), named `python-hydra-agent`, under development [here](https://github.com/HTTP-APIs/python-hydra-agent).
 
 **NOTE:** hydrus and Hydra Agent supports only Python 3.5 and above
 
