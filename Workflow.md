@@ -1,5 +1,3 @@
-**DRAFT**
-
 # Workflow
 
 A Developer wishing to design and deploy his/her own data services with Hydra, hydrus (the server) and hydra-agent (the client)
@@ -12,6 +10,8 @@ In general, the workflow is made up of these basic steps:
 3. [hydra-agent](https://github.com/HTTP-APIs/python-hydra-agent) reads the `ApiDoc` via the entrypoint and parses the JSON-LD into an internal representation (RDF graph) that allows the client to proceed to query the endpoints for its searching, storing or retrieving necessities. The internal representation may change on-the-fly or grow depending from the different `ApiDoc` that the clients reaches. The official Hydra client implementation is [Heracles.ts](https://github.com/HydraCG/Heracles.ts).
 
 In general, an Hydra network is made up by the interaction of the functionalities of an instance of hydra-agent with a self-deployable Hydra-based HTTP server as hydrus. An hydra-agent is an HTTP client with capabilities of translating REST queries from-to a graph query language, so to allow efficient navigation of the graph's internal representation (see [this paragraph](Design.md#hydrus-as-a-full-stack-module) in Design).
+
+Follow on to [Example](Example.md) for a more in depth explanation.
 
 ---
 
