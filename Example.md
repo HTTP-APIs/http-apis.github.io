@@ -11,7 +11,7 @@ And much more, head over to [demo wiki](https://github.com/HTTP-APIs/hydra-flock
 
 The exemplary Web API has to expose representations for drones, datastreams, commands, states, messages, log entries and areas. To enable interaction with those resources, a client has to know which operations the server supports. In human-facing websites such affordances are typically exposed by links and forms and described in natural language, Machines cannot interpret such information easily. The solution is to reduce the language to a small number of unambiguous concepts which are easily recognizable by Web API client. Hydra formalizes such concepts.
 
-## Hperlinks and semnatic annotations
+## Hyperlinks and semantic annotations
 The simplest and most important affordance on the Web are *hyperlinks*. Without them, it would be impossible to browse the Web. Users typically select the link based on the text it is labeled with. To give machines a similar understanding, links can be *annotated with a link relation* type — a registered token or a URI identifying the semantics of the link. 
 The following example shows how such a typed link is used in HTML to reference a stylesheet.
 
