@@ -15,14 +15,14 @@ The exemplary Web API has to expose representations for drones, datastreams, com
 The simplest and most important affordance on the Web are *hyperlinks*. Without them, it would be impossible to browse the Web. Users typically select the link based on the text it is labeled with. To give machines a similar understanding, links can be *annotated with a link relation* type — a registered token or a URI identifying the semantics of the link. 
 The following example shows how such a typed link is used in HTML to reference a stylesheet.
 
-### EXAMPLE 1: A typed link referencing a stylesheet as used in HTML
+#### EXAMPLE 1: A typed link referencing a stylesheet as used in HTML
 Here a basic example of an hyperlink to another resource very common in every Web page:
 ```
 <link rel="stylesheet" href="http://www.example.com/styles.css" />
 ```
 Linked Data allows to annotate the "quality" or "type" or "kind" of the objet referenced by using the link. An example in JSON-LD would thus look as follows.
 
-### EXAMPLE 2: Referencing a stylesheet in JSON-LD
+#### EXAMPLE 2: Referencing a stylesheet in JSON-LD
 ```
 {
   "urn:iana:link-relations:stylesheet": { "@id": "http://www.example.com/styles.css" }
@@ -33,7 +33,7 @@ Generally, a client decides whether to follow a link or not based on the link re
 
 Since in RDF serializations no such distinction exists, the best a client can do is to blindly try to dereference all URIs. It would thus be beneficial to describe in a machine-readable manner if a property represents a link intended to be dereferenced or solely an identifier. Hydra's Link class does just that. It can be used to define properties that represent dereferenceable links. In the exemplary Web API used throughout this section, it can be used to define a property linking entrypoint to different collections as follows.
 
-### EXAMPLE 3: Defining properties representing hyperlinks using Hydra's Link class
+#### EXAMPLE 3: Defining properties representing hyperlinks using Hydra's Link class
 ```
 {
   "context":
@@ -66,7 +66,7 @@ understand what to expect when invoking an operation. This information has, howe
 it is merely a hint. Developers should, e.g., expect that other HTTP status codes might be returned and program their clients
 accordingly.
 
-### EXAMPLE 4: A representation of a drone augmented with a post(update) operation
+#### EXAMPLE 4: A representation of a drone augmented with a post(update) operation
 ```
 {     
        "context": link_to_context_object,
@@ -115,7 +115,7 @@ Hydra describes a API by giving it a title, a short description, and documenting
 classes known to be supported by the Web API and additional information about status codes that might be returned can be 
 documented. This information may be used to automatically generate documentations in natural language.
 
-### EXAMPLE 5: The overall structure of a Hydra API documentation
+#### EXAMPLE 5: The overall structure of a Hydra API documentation
 ```
 {
   "@context": {...},
@@ -153,7 +153,7 @@ describe the properties known to be supported by a class. The following example 
 referencing properties directly, `supportedPropert`y references an intermediate data structure, namely instances of the 
 `SupportedProperty` class. This makes it possible to define whether a specific property is required or whether it is read-only or write-only depending on the class it is associated with.
 
-### EXAMPLE 6: Defining a class and documenting its supported properties
+#### EXAMPLE 6: Defining a class and documenting its supported properties
 ```
 {
   "@context": {...},
@@ -209,7 +209,7 @@ referencing properties directly, `supportedPropert`y references an intermediate 
 All instances of a specific class typically support the same operations. Hydra therefore features a `supportedOperation` 
 property which defines the operations supported by all instances of a class.
 
-### EXAMPLE 7: Defining a class and documenting its supported operations
+#### EXAMPLE 7: Defining a class and documenting its supported operations
 ```
 {
 "@id": "vocab:Command",
@@ -256,7 +256,7 @@ property which defines the operations supported by all instances of a class.
  if the current user has the permission to delete the resource. Otherwise, the link would simply be hidden in the 
  representation.
 
-### EXAMPLE 8: Documenting the supported operations of link properties
+#### EXAMPLE 8: Documenting the supported operations of link properties
 
 ```
 {
@@ -311,7 +311,7 @@ two classes `hydra:Collection` and `hydra:PartialCollectionView`.
 
 A `hydra:Collection` can be used to reference a set of resources as follows:
 
-### EXAMPLE 9: Referencing related resources using a Hydra Collection
+#### EXAMPLE 9: Referencing related resources using a Hydra Collection
 ```
 {
     "@id": "vocab:DroneCollection",
