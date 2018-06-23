@@ -1,30 +1,26 @@
-## Understanding basics of Hydra
+# Understanding basics of Hydra with an example
 
-In this section, a Web API featuring a flock of drones will be used to illustrate how Hydra Documentaion can
+## Small simulation
+A *Web API featuring a flock of drones* will be used to illustrate how Hydra Documentaion can
 be created for hydrus.
-Flock of drones have as objective to detect the presence
-of fires or abnormal heat spots in a given geographical area using an infrared sensors.
-Central controller will be able to start or off drones and can cantrol their speed and direction.
-All active drones submit their status updates every 15 seconds to the central controller.
+Basic rules for this simulation are:
+* a flock of drones have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using an infrared sensors;
+* a central controller will be able to start or stop drones and send orders to them;
+* all active drones submit their status updates every 15 seconds to the central controller.
 And much more, head over to [demo wiki](https://github.com/HTTP-APIs/hydra-flock-demo/wiki) for more information about the demo.
 
-The exemplary Web API has to expose representations of drones,datastreams,commands,states,messages,log entries and area.
-To enable interaction with those resources, 
-a client has to know which operations the server supports. In human-facing websites such affordances are typically exposed
-by links and forms and described in natural language. Unfortunately, machines can not interpret such information easily. 
-The solution that presents itself is to reduce the language to a small number of unambiguous concepts which are easily 
-recognizable by a machine client. Hydra formalizes such concepts.
+The exemplary Web API has to expose representations for drones, datastreams, commands, states, messages, log entries and areas. To enable interaction with those resources, a client has to know which operations the server supports. In human-facing websites such affordances are typically exposed by links and forms and described in natural language, Machines cannot interpret such information easily. The solution is to reduce the language to a small number of unambiguous concepts which are easily recognizable by Web API client. Hydra formalizes such concepts.
 
-The simplest and most important affordance on the Web are hyperlinks. Without them, it would be impossible to browse the Web.
-Users typically select the link based on the text it is labeled with. To give machines a similar understanding, links can be 
-annotated with a link relation type—a registered token or a URI identifying the semantics of the link. 
+## Hperlinks and semnatic annotations
+The simplest and most important affordance on the Web are *hyperlinks*. Without them, it would be impossible to browse the Web. Users typically select the link based on the text it is labeled with. To give machines a similar understanding, links can be *annotated with a link relation* type — a registered token or a URI identifying the semantics of the link. 
 The following example shows how such a typed link is used in HTML to reference a stylesheet.
 
 ### EXAMPLE 1: A typed link referencing a stylesheet as used in HTML
+Here a basic example of an hyperlink to another resource very common in every Web page:
 ```
 <link rel="stylesheet" href="http://www.example.com/styles.css" />
 ```
-In Linked Data, the link relation type corresponds to the property itself. An example in JSON-LD would thus look as follows.
+Linked Data allows to annotate the "quality" or "type" or "kind" of the objet referenced by using the link. An example in JSON-LD would thus look as follows.
 
 ### EXAMPLE 2: Referencing a stylesheet in JSON-LD
 ```
@@ -33,14 +29,9 @@ In Linked Data, the link relation type corresponds to the property itself. An ex
 }
 ```
 
-Generally, a client decides whether to follow a link or not based on the link relation (or property in the case of Linked Data)
-which defines its semantics. There are however also clients such as Web crawlers which simply follow every link intended to be 
-dereferenced. In HTML this usually means that all links in anchor elements (the <a> tag) are followed but most references in 
-link elements (the <link> tag), such as used in the example above, are ignored. Since in RDF serializations no such
-distinction exists, the best a client can do is to blindly try to dereference all URIs. It would thus be beneficial to 
-describe in a machine-readable manner if a property represents a link intended to be dereferenced or solely an identifier.
-Hydra's Link class does just that. It can be used to define properties that represent dereferenceable links. In the exemplary
-Web API used throughout this section, it can be used to define a property linking entrypoint to different collections:
+Generally, a client decides whether to follow a link or not based on the link relation (or property in the case of Linked Data) which defines its semantics (its meaning or "quality" in the sense of "what it is"). There are however also clients such as Web crawlers which simply follow every link intended to be dereferenced. In HTML this usually means that all links in anchor elements (the `<a>` tag) are followed but most references in link elements (the `<link>` tag), such as used in the example above, are ignored. 
+
+Since in RDF serializations no such distinction exists, the best a client can do is to blindly try to dereference all URIs. It would thus be beneficial to describe in a machine-readable manner if a property represents a link intended to be dereferenced or solely an identifier. Hydra's Link class does just that. It can be used to define properties that represent dereferenceable links. In the exemplary Web API used throughout this section, it can be used to define a property linking entrypoint to different collections as follows.
 
 ### EXAMPLE 3: Defining properties representing hyperlinks using Hydra's Link class
 ```
@@ -64,16 +55,13 @@ Web API used throughout this section, it can be used to define a property linkin
       }
 }
 ```
-In the example above
-`vocab:EntryPoint/DroneCollection` will resolve to `http://localhost:8080/api/vocab#EntryPoint/DroneCollection`
-and a property identified with this is defined to be of the type Link. This is enough information for a client understanding 
-Hydra to know that the value of the DroneCollection property in the following example is intended to be dereferenced.
+In the example above `vocab:EntryPoint/DroneCollection` will resolve to `http://localhost:8080/api/vocab#EntryPoint/DroneCollection` and a property identified with this is defined to be of the type Link. This is enough information for a client understanding Hydra to know that the value of the `DroneCollection` property in the following example is intended to be dereferenced.
 
 While links are enough to build read-only Web APIs, more powerful affordances are required to build read-write Web APIs. 
-Thus, Hydra introduces the notion of operations. Simply speaking, an Operation represents the information necessary for a 
+Thus, Hydra introduces the notion of operations. Simply speaking, an operation represents the information necessary for a 
 client to construct valid HTTP requests in order to manipulate the server's resource state. As such, the only required
-property of an Operation is its HTTP method. Optionally, it is also possible to describe what information the server expects 
-or returns, including additional information about HTTP status codes that might be returned. This helps a developer to 
+property of an operation is its HTTP method. Optionally, it is also possible to describe what information the server expects 
+or returns, including additional information about HTTP status codes that might be returned. This helps developers to 
 understand what to expect when invoking an operation. This information has, however, not to be considered as being complete;
 it is merely a hint. Developers should, e.g., expect that other HTTP status codes might be returned and program their clients
 accordingly.
@@ -108,7 +96,7 @@ accordingly.
 }
 ```
 
-The example above references Hydra's context to map properties such as operation and method and values like UpdateAction
+The example above references Hydra's context to map properties such as operation and method and values like `UpdateAction`
 to URLs that unambiguously identify these concepts. It would be similarly valid JSON-LD if these mappings would be directly 
 embedded into the representation or if the full URLs would be used instead. Typically, however, the context is the same for
 a lot of representations in a Web API and it thus makes sense to reduce the response size by leveraging a remote context 
@@ -120,9 +108,9 @@ In Web APIs, most representations are typically very similar. Furthermore, resou
 It thus makes sense, to collect this information in a central documentation. Traditionally, this has been done in natural 
 language which forces developers to hardcode that knowledge into their clients. Hydra addresses this issue by making the 
 documentation completely machine-processable. The fact that all definitions can be identified by URLs enables reuse at 
-unprecedented granularity.
+unprecedented granularity (some sort of intermediate tool is OpenAPI which allows human-readable documentation to be automatically generated by well-formatted data structures).
 
-Hydra's ApiDocumentation class builds the foundation for the description of a Web API. As shown in the following example, 
+Hydra's `ApiDocumentation` class builds the foundation for the description of a Web API. As shown in the following example, 
 Hydra describes a API by giving it a title, a short description, and documenting its main entry point. Furthermore, the 
 classes known to be supported by the Web API and additional information about status codes that might be returned can be 
 documented. This information may be used to automatically generate documentations in natural language.
@@ -145,12 +133,7 @@ documented. This information may be used to automatically generate documentation
 }
 ```
 
-Hydra's ApiDocumentation class builds the foundation for the description of a Web API. As shown in the following example,
-Hydra describes a API by giving it a title, a short description, and documenting its main entry point. Furthermore, 
-the classes known to be supported by the Web API and additional information about status codes that might be returned can 
-be documented. This information may be used to automatically generate documentations in natural language.
-
-In Linked Data, properties are, just as everything else, identified by IRIs and thus have global scope which implies that 
+In Linked Data properties are, just as everything else, identified by IRIs and thus have global scope which implies that 
 they have independent semantics. In contrast, properties in data models as used in common programming languages are 
 class-dependent. Their semantics depend on the class they belong to. In data models classes are typically described by the 
 properties they expose whereas in Linked Data properties define to which classes they belong. If no class is specified, it
@@ -163,13 +146,12 @@ whereas data models used by programmers typically work under a closed-world assu
 world is assumed, everything that is not known to be true is false or vice-versa. With an open-world assumption the failure
 to derive a fact does not automatically imply the opposite; it embraces the fact that the knowledge is incomplete.
 
-Hydra classes are dereferenceable resources.
+Hydra classes are dereferenceable resources (see [definition](http://dbpedia.org/page/Dereference_operator)).
 
 Since Hydra uses classes to describe the information expected or returned by an operation, it also defines a concept to 
 describe the properties known to be supported by a class. The following example illustrates this feature. Instead of 
-referencing properties directly, supportedProperty references an intermediate data structure, namely instances of the 
-SupportedProperty class. This makes it possible to define whether a specific property is required or whether it is read-only 
-or write-only depending on the class it is associated with.
+referencing properties directly, `supportedPropert`y references an intermediate data structure, namely instances of the 
+`SupportedProperty` class. This makes it possible to define whether a specific property is required or whether it is read-only or write-only depending on the class it is associated with.
 
 ### EXAMPLE 6: Defining a class and documenting its supported properties
 ```
@@ -224,7 +206,7 @@ or write-only depending on the class it is associated with.
 }
 ```
 
-All instances of a specific class typically support the same operations. Hydra therefore features a supportedOperation 
+All instances of a specific class typically support the same operations. Hydra therefore features a `supportedOperation` 
 property which defines the operations supported by all instances of a class.
 
 ### EXAMPLE 7: Defining a class and documenting its supported operations
@@ -319,17 +301,15 @@ property which defines the operations supported by all instances of a class.
 }
 ```
 
-Keep in mind that operations specified in an ApiDocumentation may fail at runtime as either resources or the ApiDocumentation
-itself have changed since they have been retrieved.A simple strategy to try to recover from such an error is to reload the 
-ApiDocumentation.
+Keep in mind that operations specified in an `ApiDocumentation` may fail at runtime as either resources or the `ApiDocumentation` itself have changed since they have been retrieved. A simple strategy to try to recover from such an error is to reload the `ApiDocumentation`. The feature of being able to know any change in the API in real-time by reading the documentation file is a typical advantage of using Hydra-aware cliens/servers networks. This implies the possibility of updating the behaviour of clients by simply updating the servers' documentation, without the need of any hard-coding on the client side.
 
 ### Collections
 
-In many situations, it makes sense to expose resources that reference a set of somehow related resources. 
+In many situations, it makes sense to expose *resources that reference a set* of somehow related resources. 
 Results of a search query or entries of an address book are just two examples. To simplify such use cases, Hydra defines the
-two classes hydra:Collection and hydra:PartialCollectionView.
+two classes `hydra:Collection` and `hydra:PartialCollectionView`.
 
-A hydra:Collection can be used to reference a set of resources as follows:
+A `hydra:Collection` can be used to reference a set of resources as follows:
 
 ### EXAMPLE 9: Referencing related resources using a Hydra Collection
 ```
@@ -382,16 +362,17 @@ As shown in the example above, member items can either consist of solely a link 
 In some cases embedding member properties directly in the collection is beneficial as it may reduce the number of HTTP 
 requests necessary to get enough information to process the result.
 
-### How hydrus use rdf via hydra to make data exchanges automated
+### How hydrus uses RDF via hydrus to make data exchanges automated
 
-To understand how hydrus represents REST resources and how the developer is helped to work with Hydra, it is possible to start from thinking at Hydra as generic framework that describes REST API resources to make data exchanges automated.
+To understand how [hydrus](https://github.com/HTTP-APIs/hydrus)(our official Web server implementation) represents REST resources and how developers are helped to work with Hydra, it is possible to start from thinking at Hydra as generic framework that describes REST API resources to make data exchanges automated.
 
 Instances (objects) belonging to a Resource are named Items in hydrus. It is possible to perform HTTP operations over Items. At a lower layer the REST Resource is of a kind of an hydra:Resource, all the objects of the same kind are members of an hydra:Collection. Hydrus use Hydra specified API documentaton and as Hydra inherits from RDF, thanks to the framework it is possible to represent the API as a RDF graph.
 
 hydrus allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer. This multi-layered architecture allows REST APIs to work with automated clients and leverage new powerful ways of querying the data.
 
-To learn more about hydrus's multi-layered database design follow [Database Design](https://github.com/HTTP-APIs/hydra-ecosystem-wiki/blob/master/Design.md)
+To learn more about ecosystem design, follow [this document](https://github.com/HTTP-APIs/hydra-ecosystem-wiki/blob/master/Design.md)
 
+---
 This document is modified version of [Markus Lanthaler](https://github.com/lanthaler)'s original document describing how
 to create Hydra specified APIs.For more info follow [hydra core vocabulary specification](https://www.hydra-cg.com/spec/latest/core/)
 
