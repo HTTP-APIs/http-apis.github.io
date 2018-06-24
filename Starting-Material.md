@@ -52,8 +52,12 @@ def test_method(arg1, arg2, ...):
 * [A Web API ecosystem through feature-based reuse](https://arxiv.org/abs/1609.07108)
 * [Triple Pattern Fragments](https://biblio.ugent.be/publication/8050661/file/8050671.pdf)
 * List of useful papers [here](https://arxiv.org/find/all/1/all:+verborgh/0/1/0/all/0/1)
+* Python [design patterns](https://github.com/crista/exercises-in-programming-style)
 
 
 ## Design annotations
 * `hydrus` is developed in `flask` because the applications we had in mind were mostly related to IoT and sensors, so it was supposed to be lightweight and functional. By the way we can consider also more structured options like having versions that works with Django or Pyramid.
 * Read the [issues labeled as "wiki"](https://github.com/HTTP-APIs/hydrus/issues?q=is%3Aissue+is%3Aopen+label%3Awiki)
+
+---
+* [Back to Index](README.md)
