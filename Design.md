@@ -1,4 +1,4 @@
-# Design
+# Hydra Network Walkthrough
 
 This page explains the design, architecture and the implementation of [**hydrus**](https://github.com/HTTP-APIs/hydrus) toolkit along with a few use cases for the same. Also the interactions and internals of a smart client ([**hydra-agent**](https://github.com/HTTP-APIs/python-hydra-agent)) connecting to the server are considered.
 
@@ -304,3 +304,6 @@ DELETE
 
 The update operation is a combination of a delete and an insert operation. All exceptions for both the operation are inherited by update.
  -->
+
+---
+* [Back to Index](README.md)
