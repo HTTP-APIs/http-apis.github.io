@@ -1,4 +1,4 @@
-# Workflow
+# Developing APIs with Hydra: Workflow
 
 A Developer wishing to design and deploy his/her own data services with Hydra, hydrus (the server) and hydra-agent (the client)
 has to go through a workflow that is defined by multiple steps: from defining the best Hydra/RDF/OpenAPI description of the
@@ -15,5 +15,4 @@ Follow on to [Example](Example.md) for a more in depth explanation.
 
 ---
 
-* [Back to Design](Design.md)
-* [Back to Home](00-Home.md)
+* [Back to Index](Readme.md)
