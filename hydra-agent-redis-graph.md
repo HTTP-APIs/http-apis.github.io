@@ -1,4 +1,4 @@
-# Redis as a graph database for Hydra Client
+# Redis as a graph database for Hydra Agent
 
 The aim is to implement Redis as a graph database for fast querying process for the hydra client.
 
@@ -33,3 +33,11 @@ Above is an idea that how graph nodes can be connected in the graph
 
 Here is a [documentation of graph implementation](https://medium.com/@sandeepsajan0/documentation-for-hydra-graph-cd9b2bd84884). There is a good explanation, how data and other properties are stored in the graph and how the graph is stored in Redis.
 
+## Secondary index
+...
+
+## Faceted index
+...
+
+---
+* [Back to Index](README.md)
