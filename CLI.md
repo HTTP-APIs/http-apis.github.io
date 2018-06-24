@@ -134,3 +134,6 @@ Setting up a server with custom options can be done as follows:
 ```bash
 hydrus serve --api hydrus --port 9000 --adduser 1 test2
 ```
+
+---
+* [Back to Index](README.md)
