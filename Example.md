@@ -1,4 +1,4 @@
-# Understanding basics of Hydra with an example
+# Explained by example
 
 ## Small simulation
 A *Web API featuring a flock of drones* will be used to illustrate how Hydra Documentaion can
@@ -372,7 +372,7 @@ hydrus allows the developer to take advantage of this powerful description by ab
 
 To learn more about ecosystem design, follow [this document](https://github.com/HTTP-APIs/hydra-ecosystem-wiki/blob/master/Design.md)
 
----
-This document is modified version of [Markus Lanthaler](https://github.com/lanthaler)'s original document describing how
-to create Hydra specified APIs.For more info follow [hydra core vocabulary specification](https://www.hydra-cg.com/spec/latest/core/)
+NOTE: This document is modified version of [Markus Lanthaler](https://github.com/lanthaler)'s original document describing how to create Hydra specified APIs.For more info follow [hydra core vocabulary specification](https://www.hydra-cg.com/spec/latest/core/)
 
+---
+* [Back to Index](README.md)
