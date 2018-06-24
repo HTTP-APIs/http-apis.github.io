@@ -107,3 +107,6 @@ And this the sample format of a user request to access any protected endpoint:
  Accept: */*
  X-Authorization:cb6a897d9d47608fcf75c11b59f6ab
 ```
+
+---
+* [Back to Index](README.md)
