@@ -1,4 +1,4 @@
-# Intro: Hydra Ecosystem
+# Foundations: Hydra Ecosystem
 
 ## Generics
 Beside all the other tools in the ecosystem, **hydrus** (lowercase) is the basic module from which API designers/engineers/developers can build up their own automated infrastructure that leverages smart clients. hydrus is the server-side tool that allows REST data to be published as Hydra-aware data. An **Hydra network** is made up of one or more hydrus instances that can receive requests from **Hydra smart clients** (or agents, see `python-hydra-agent` repository). The interaction of hydrus and Hydra smart clients is how Hydra ecosystem realizes the Client-Server pattern.
@@ -97,3 +97,7 @@ To understand how to use hydrus and how things work, head over to the [Usage](01
 Design
 -------------
 Head over to the [Design](Design.md) page to understand the design principles and use cases of hydrus.
+
+---
+
+* [Back to Index](README.md)
