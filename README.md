@@ -10,7 +10,8 @@ For a general introduction you may want to follow the index:
     * [Explained by example](Example.md)
     * [Hydra Network Walkthrough](Design.md)
 * **Getting started**
-    * [Deploying hydrus server](01-Usage.md)
+    * [hydrus server](hydrus-demo.md)
+    * [Developing with hydrus](01-Usage.md)
     * [Authentication](Auth.md)
     * [Command-line interface](CLI.md)
 * **Explained**
