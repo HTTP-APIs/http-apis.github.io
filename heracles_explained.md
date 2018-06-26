@@ -34,13 +34,18 @@ Interface are divided in:
 * IResource
 * IWebResource
 
-    
+Classes of Client is the implementation of the Interfaces, there are so many interfaces like IProperty, IOperation and etc. And there is a folder Collection which contain the implementation of all collection interface like FilterableCollection, LinkCollection and OperationCollection where FilterableCollection returns numbers of items ni collection, members of collection, and LinkCollection returns the collection of link for given type, and OperationCollection returns the operations for given type and so on. So, that's client have functionality to shows the operation, members, no. of items, links and type and etc.
+
+And Some interface for Collection is like IHypermediaContainer which have the track for members, operation, links for a given type of collection.
+
+For Classes, IClass simply have displayname, description, supporetdOperation and supportedProperty. And for supportedOperation there is an interface IOperation which returns methods for operations and for supportedProperty there is an interface ISupportedProperty which have properties like writeable, readable and property contains one more interface in it IProperty which able to return display name, description and other properties. 
+
 
 ### Design Patters of Client 
 
 #### Design for HydraClient Class:
 
-HydraClient is using for getting Url, ApiDocumentationUrl, and after that ApiDocumentation and also check there is an entry point exists or not.
+HydraClient is using for getting Url, ApiDocumentationUrl, and after that ApiDocumentation and also check there is an entry point exists or not. It simply works with the IHyadraClient interface which working to obtain ApiDocumentation, representation of Resource.
 
 HydraClient Methods(simply functions):
 * getApiDocumentation
@@ -80,6 +85,12 @@ ResourceEnrichmentProvider provides IWebResource enrichment routines. It enriche
 ResourceEnrichmentProvider Methods:
 * enrichHypermedia
 
+
+Actually, There are many interfaces which have track on the objects as well as its properties as we have disussed above and with the implementation of the interface(called Class above) means accessing the members or properties of interface that client can get a lot of knowledge about its given url or server.
+
+So, Load on server and speed can be limitation for that's client.
+
+But In hydra-py agent we are dicsussing mainly about to reduce the load on server and tying to fast querying for the client. For that's type of problem, We are using Redis to reduce load of server and we can implement indexing(specially secondary/faceted indexing) of objects and its properties in Redis with a good querying mechanism which can make the Redis more fast and efficient. But we can take an idea from there, what should be stored in Redis and how it can be show to client.
 
 Ref:
 
