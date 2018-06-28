@@ -1,4 +1,4 @@
-# hydra-ecosystem-wiki
+# Hydra ecosystem
 
 **Hydra** is a documentation framework that bases on top of established **Linked Data** (Semantic Web) tools to build the next generation of connected Web APIs. The team of developers in the *HTTP-APIs* community aims to establish an ecosystem of tools to make Hydra framework operational using Python. A list of tools under development can be found [at this link](https://github.com/HTTP-APIs).
 
