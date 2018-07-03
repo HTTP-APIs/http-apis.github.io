@@ -45,6 +45,78 @@ User:
             "@id": "vocab:User",
             "@type": "hydra:Class",
             "description": "User",
+            "supportedProperty": [
+                {
+                    "@type": "SupportedProperty",
+                    "property": "vocab:id",
+                    "readonly": "true",
+                    "required": "false",
+                    "title": "id",
+                    "writeonly": "true"
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "vocab:username",
+                    "readonly": "true",
+                    "required": "false",
+                    "title": "username",
+                    "writeonly": "true"
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "vocab:firstName",
+                    "readonly": "true",
+                    "required": "false",
+                    "title": "firstName",
+                    "writeonly": "true"
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "vocab:email",
+                    "readonly": "true",
+                    "required": "false",
+                    "title": "email",
+                    "writeonly": "true"
+                },
+            ],
+            "title": "User"
+        },
+```
+
+### Open Api paths to Hydra Suported operations
+
+Endpoint are defined in the OAS under the key `paths` , each endpoint has operations allowed at that endpoint defined under it. The parser parses these methods and adds them to corresponding classes. The classes are already defined and stored in dictionary `classAndClassDefinition` , the methods are simply added to the definition and the dictionary is updated again. The class to which these methods have to be added is found by looking under the keys `parameters` or `responses` , here we will find a reference to an object definition defined in the document itself or an external definition . The class is the object that is referred in the method . 
+
+#### Open Api Snippet
+```
+/user:
+    post:
+      tags:
+        - user
+      summary:                    Create user
+      description:                This can only be done by the logged in user.
+      operationId:                createUser
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in:                     body
+          name:                   body
+          description:            Created user object
+          required:               true
+          schema:
+            $ref:                 '#/definitions/User'
+      responses:
+        default:
+          description:            successful operation
+```
+
+#### Hydra Api Documentation Snippet 
+```
+{
+            "@id": "vocab:User",
+            "@type": "hydra:Class",
+            "description": "User",
             "supportedOperation": [
                 {
                     "@type": "http://schema.org/UpdateAction",
@@ -95,7 +167,7 @@ User:
                 },
             ],
             "title": "User"
-        },
+        }
 ```
 
 
