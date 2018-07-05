@@ -19,7 +19,7 @@ For a general introduction you may want to follow the index:
     * [Parser](Parser.md)
     * [Parser-Examples](Parser-Usage.md)
     * [Official client design: Heracles](heracles_explained.md)
-    * [Python client, leveraging Redis](hydra-agent-redis-graph.md)
+    * [Python+Redis client](hydra-agent-redis-graph.md)
     * [GSOC-2018](GSoC-2018.md)
 
 Hydra is currently a draft created by [**World Wide Web Consortium's Hydra Community Group**](https://www.w3.org/community/hydra/). Official documentation available [here](http://hydra-cg.com) and development is open [here](https://github.com/HydraCG).
