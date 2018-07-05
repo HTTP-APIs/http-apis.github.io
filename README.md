@@ -1,4 +1,4 @@
-# hydra-ecosystem-wiki
+# Hydra ecosystem
 
 **Hydra** is a documentation framework that bases on top of established **Linked Data** (Semantic Web) tools to build the next generation of connected Web APIs. The team of developers in the *HTTP-APIs* community aims to establish an ecosystem of tools to make Hydra framework operational using Python. A list of tools under development can be found [at this link](https://github.com/HTTP-APIs).
 
@@ -22,3 +22,5 @@ For a general introduction you may want to follow the index:
     * [GSOC-2018](GSoC-2018.md)
 
 Hydra is currently a draft created by [**World Wide Web Consortium's Hydra Community Group**](https://www.w3.org/community/hydra/). Official documentation available [here](http://hydra-cg.com) and development is open [here](https://github.com/HydraCG).
+
+This development community is part of [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/5502406444449792/). 
