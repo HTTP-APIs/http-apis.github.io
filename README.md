@@ -7,7 +7,7 @@ For a general introduction you may want to follow the index:
 * **Introduction**
     * [Foundations](00-Home.md)
     * [Developing APIs with Hydra](Workflow.md)
-    * [Explained by example](Example.md)
+    * [Hydra by example](Example.md)
     * [Hydra Network Walkthrough](Design.md)
 * **Getting started**
     * [hydrus server](hydrus-demo.md)
@@ -17,6 +17,7 @@ For a general introduction you may want to follow the index:
 * **Explained**
     * [To start contributing to codebase](Starting-Material.md)
     * [Parser](Parser.md)
+    * [Parser-Examples](Parser-Usage.md)
     * [Official client design: Heracles](heracles_explained.md)
     * [Python client, leveraging Redis](hydra-agent-redis-graph.md)
     * [GSOC-2018](GSoC-2018.md)
