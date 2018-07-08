@@ -37,9 +37,9 @@ Here is a [documentation of graph implementation](https://medium.com/@sandeepsaj
 
 Querying mechanism is used for retrieve the data from the Redis memory. OpenCypher is using as a querying language to retrieve data from the graph stored in Redis.
 
-Actually here, graph is loaded by parts. At first, initial sub-graph should be load with the help of url provided by user which contains only the endpoints, class endpoints and collection endpoints in it. But if user wants to access the members of any collection or value of properties of class and collection endpoints then other part of graph should be load Ex:
+Actually here, graph is loaded by parts. At first, initial sub-graph should be load with the help of url provided by user which contains only the endpoints, class endpoints and collection endpoints in it. But if user wants to access the members of any collection or value of properties of class and collection endpoints then other part of graph should be load 
 
-At first user gives `url`, and initial sub-graph should be load in Redis. Now, if user query for `DroneCollection members` then another part of graph should be load which contains all the members and properties of members of DroneCollection endpoint.
+Ex: At first user gives `url`, and initial sub-graph should be load in Redis. Now, if user query for `DroneCollection members` then another part of graph should be load which contains all the members and properties of members of DroneCollection endpoint.
 
 Similarly, other parts of graph should be load in Redis. And user can query for that in [querying format](https://github.com/sandeepsajan0/python-hydra-agent/blob/ffde51eaf5979c94c68fbeb7a727560649e2002c/hydra-redis/querying_mechanism.py#L514).
 
