@@ -1,7 +1,7 @@
 # Explained by example
 
 ## Small simulation
-A *Web API featuring a flock of drones* will be used to illustrate how Hydra Documentaion can
+A *Web API featuring a flock of drones* will be used to illustrate how Hydra Documentation can
 be created for hydrus.
 Basic rules for this simulation are:
 * a flock of drones have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using an infrared sensors;
