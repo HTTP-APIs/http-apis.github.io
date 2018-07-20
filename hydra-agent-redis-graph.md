@@ -9,7 +9,7 @@ The graph structure is the important part of implementing Redis because graph st
 Redisgraph is using to create the nodes and edges. Required data is stored in the node properties.
 
 The graph structure is based on the endpoints of the server.
-The creation of entire graph structure starts from the `Entrypoint` and it considers every object ( endpoint or non-endpoint both) as a node.
+The creation of entire graph structure starts from the `Hydra:Entrypoint` and it considers every object (both endpoint or non-endpoint) as a node.
 
 The graph structure has two types of endpoints:
 - `collection_endpoint`
@@ -35,7 +35,7 @@ Here is a [documentation of graph implementation](https://medium.com/@sandeepsaj
 
 ## Querying Mechanism
 
-Querying mechanism is used for retrieve the data from the Redis memory. OpenCypher is using as a querying language to retrieve data from the graph stored in Redis.
+Querying mechanism is used for retrieve the data from the Redis memory. OpenCypher is the querying language to retrieve data from the graph.
 
 Actually here, graph is loaded by parts. At first, initial sub-graph should be load with the help of url provided by user which contains only the endpoints, class endpoints and collection endpoints in it. But if user wants to access the members of any collection or value of properties of class and collection endpoints then other part of graph should be load 
 
