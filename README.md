@@ -9,7 +9,7 @@ For a general introduction you may want to follow the index:
     * [Developing APIs with Hydra](Workflow.md)
     * [Hydra by example](Example.md)
     * [Hydra Network Walkthrough](Design.md)
-    * [Blogging about Hydra and Google Summer Of Code](https://medium.com/w3c-hydra-development-community)
+    * <a href="https://medium.com/w3c-hydra-development-community" target="_blank">Blogging about Hydra and Google Summer Of Code</a>
 * **Getting started**
     * [hydrus server](hydrus-demo.md)
     * [Developing with hydrus](01-Usage.md)
