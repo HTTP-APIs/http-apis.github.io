@@ -17,7 +17,7 @@ The graph structure has two types of endpoints:
 
 Every collection endpoint contains the collections of endpoints("members") which stores as a node in Redis graph and the "members" of collection endpoint are stored in a dictionary(Python `dict`), every member contains the data that we have fetched from the server. Ex: In a `DroneCollection` node, label is "collection" and alias is "DroneCollection"; and properties is a dictionary(Python `dict`) which stores all the members for the endpoint named `DroneCollection`.
 
-Hydrus(`Hydrus.hydraspec.doc_maker`) is using for seperating the endpoints("collection" and "classes" endpoints) and finding its  `supportedProperty` or `supportedOperations` and all the other things which can get from API documentation.
+hydrus(`Hydrus.hydraspec.doc_maker`) functionality is used for seperating the endpoints("collection" and "classes" endpoints) and finding its  `supportedProperty` or `supportedOperations` and all the other things which can get from API documentation.
 
 The graph structure have five types of nodes in graph with five different labels:
 - label = "id"   (it is used for Entrypoint node)
@@ -50,7 +50,7 @@ Actually here, graph is loaded by parts. At first, initial sub-graph should be l
 
 Ex: At first user gives `url`, and initial sub-graph should be load in Redis. Now, if user query for `DroneCollection members` then another part of graph should be load which contains all the members and properties of members of DroneCollection endpoint.
 
-Similarly, other parts of graph should be load in Redis. And user can query for that in [querying format](https://github.com/HTTP-APIs/python-hydra-agent/blob/develop/hydra_redis/querying_mechanism.py#L617).
+Similarly, other parts of graph should be loaded in Redis. The user can query for that in [querying format](https://github.com/HTTP-APIs/python-hydra-agent/blob/develop/hydra_redis/querying_mechanism.py#L617).
 
 ### How to query
 
@@ -63,7 +63,7 @@ There are several types of queries:
 - User also can query with property and value or by comparision in properties. Ex: name Drone1 and model xyz, here name and model are properties and Drone1 and xyz are these values.
 
 Example for the complex query(type: comparison of properties):
-User should use brackets in these type of query in which both `and` and `or` operations are present, for differentiate between the `and` and `or` operations like: `a and b and ((c or d or e) and f)`.
+User should use brackets in these type of query in which both `and` and `or` operations are present, to differentiate between the `and` and `or` operations like: `a and b and ((c or d or e) and f)`.
 
 ### How agent execute query
 
@@ -90,7 +90,7 @@ After second step, query becomes simple and have only a type of operation `and`.
 
 ### Faceted index
 
-Faceted Indexing is using for handle the complex queries like `and` and `or` queries or the queries which can be done only with the help of properties. Example how faceted indexing helps the agent:
+Faceted Indexing is used to handle complex queries like `and` and `or` queries or the queries which can be done only with the help of properties. Example how faceted indexing helps the agent:
 
 Let a "DroneCollection" member `/api/DroneCollection1` have `properties: {name:Drone1, model:xyz, MaxSpeed:250}` then agent storing these using faceted indexing like: `fs:name:Drone1 = /api/DroneCollection1`, `fs:model:xyz = /api/DroneCollection1` and `fs:MaxSpeed:250 = /api/DroneCollection1`(where `fs:{key}:{value}` is a set which can have the many values like `/api/DroneCollection1`,`/api/DroneCollection2`...). And the same method is use for the other member's properties.
 
