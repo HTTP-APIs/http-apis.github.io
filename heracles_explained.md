@@ -18,21 +18,21 @@ and it also contain a vaiable called `hydra` like `hydra:{any_string("http://www
 ### Components Of Client 
 
 Classes are further divides in:
-* HydraClient
-* ApiDocumentation
-* JsonLdHypermediaProcessor
-* ResourceEnrichmentProvider
+* `HydraClient`
+* `ApiDocumentation`
+* `JsonLdHypermediaProcessor`
+* `ResourceEnrichmentProvider`
 
 Interface are divided in:
-* IClass
-* IApiDocumentation
-* IHydraResource
-* IHypermedia
-* IHypermediaContainer
-* IHypermediaProcessor
-* IOperation
-* IResource
-* IWebResource
+* `IClass`
+* `IApiDocumentation`
+* `IHydraResource`
+* `IHypermedia`
+* `IHypermediaContainer`
+* `IHypermediaProcessor`
+* `IOperation`
+* `IResource`
+* `IWebResource`
 
 Classes of Client are the implementation of the Interfaces, there are so many interfaces like `IProperty`, `IOperation` and etc. And there is a folder Collection which contain the implementation of all collection interface like `FilterableCollection`, `LinkCollection` and `OperationCollection` where `FilterableCollection` returns numbers of items in collection, members of collection, and `LinkCollection` returns the collection of link for given type, and `OperationCollection` returns the operations for given type and so on. So, that's client have functionality to shows the operation, members, no. of items, links and type, etc. for a given resource.
 
