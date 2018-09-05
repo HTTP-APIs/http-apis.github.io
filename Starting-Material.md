@@ -10,6 +10,7 @@
 * [Demos room: talk about creating new demo implementations](https://gitter.im/HTTP-APIs/Demos-creation)
 * [Improving hydrus room: issues, solutions and ideas](https://gitter.im/HTTP-APIs/Improving-Hydrus)
 * [Beginners: experienced contributors help newcomers](https://gitter.im/HTTP-APIs/Beginners)
+7. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
 
 ## General guidelines to contributing
 
