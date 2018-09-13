@@ -25,7 +25,7 @@ hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and
 
 **Hydra smart client** (`python-hydra-agent`) is a Python implementation of a client based on the Hydra Community Group specifications. It can navigate a network of hydrus servers autonomously by reading their API documentation. It is a generic client in the sense that can query and retrieve data from any Hydra-aware server (like hydrus).
 
-### What is the difference
+### What makes the difference
 
 How does Hydra compare to other API documentation standards? Hydra is generally better rooted than other projects (i.e. OpenAPI) as it leverages the experience of now thirty-years-old Linked Data ecosystem. This makes Hydra:
 * a 100% Semantic Web tool as requested by W3C; 
