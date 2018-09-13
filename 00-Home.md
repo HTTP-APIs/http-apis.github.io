@@ -30,7 +30,7 @@ hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and
 How does Hydra compare to other API documentation standards? Hydra is generally better rooted than other projects (i.e. OpenAPI) as it leverages the experience of now thirty-years-old Linked Data ecosystem. This makes Hydra:
 * a 100% Semantic Web tool as requested by W3C; 
 * directly interoperable with any existing RDF/OWL repository ([have a look](https://en.wikipedia.org/wiki/Linked_data#Linking_Open_Data_community_project));
-* easily parsable into less fluent API documentation standards. As RDF is, by design and for its engineered purpose, semantically highly descriptive, it is much easier to parse documents into a less rich standard flawlessly. While the opposite, parsing for example an OpenAPI document to make its API interoperable with existing Semantic repositories, can take a lot of time.
+* easily parsable into less fluent API documentation standards. As RDF is, by design and nature, semantically highly descriptive, it is much easier to parse documents into a less rich standard flawlessly. While the opposite, parsing for example an OpenAPI document to make its API interoperable with existing Semantic repositories, can take a lot of time.
 
 These points add up to all the advantages mentioned in previous paragraphs. Finally Linked Data is, by [Berners-Lee's design](https://www.w3.org/wiki/LinkedData), the tool to distribute data on the Web; Hydra adheres to this path of evolution to keep the Web open as wished by its creators and developers during the last decades. 
 
