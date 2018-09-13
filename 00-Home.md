@@ -23,7 +23,16 @@ hydrus is a set of **Python** based tools for easier and efficient creation of H
 hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and documentation of its APIs.
 
 
-**Hydra smart client** (`python-hydra-agent`) is a Python implementation of a client based on the Hydra Community Group specifications. It can navigate a network of hydrus servers autonomously by reading their API documentation. It is a generic client in the sense that can query and retrieve data from any Hydra-aware server (like hydrus). 
+**Hydra smart client** (`python-hydra-agent`) is a Python implementation of a client based on the Hydra Community Group specifications. It can navigate a network of hydrus servers autonomously by reading their API documentation. It is a generic client in the sense that can query and retrieve data from any Hydra-aware server (like hydrus).
+
+### What is the difference
+
+How does Hydra compare to other API documentation standards? Hydra is generally better rooted than other projects (i.e. OpenAPI) as it leverages the experience of now thirty-years-old Linked Data ecosystem. This makes Hydra:
+* a 100% Semantic Web tool as requested by W3C; 
+* directly interoperable with any existing RDF/OWL repository ([have a look](https://en.wikipedia.org/wiki/Linked_data#Linking_Open_Data_community_project));
+* easily parsable into less fluent API documentation standards. As RDF is, by design and for its engineered purpose, semantically highly descriptive, it is much easier to parse documents into a less rich standard flawlessly. While the opposite, parsing for example an OpenAPI document to make its API interoperable with existing Semantic repositories, can take a lot of time.
+
+These points add up to all the advantages mentioned in previous paragraphs. Finally Linked Data is, by [Berners-Lee's design](https://www.w3.org/wiki/LinkedData), the tool to distribute data on the Web; Hydra adheres to this path of evolution to keep the Web open as wished by its creators and developers during the last decades. 
 
 Table of contents
 -------------
