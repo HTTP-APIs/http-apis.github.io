@@ -5,7 +5,7 @@
 3. Having a general understanding of [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html)
 4. Having a general understanding of [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827)
 5. Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
-6. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108)
+6. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
 7. Read [hydrus WIKI](https://github.com/HTTP-APIs/hydrus/wiki). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
 8. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
 9. There are different rooms in Gitter in which to interact with other contributors:
