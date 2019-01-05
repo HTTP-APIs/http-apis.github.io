@@ -1,3 +1,9 @@
+---
+layout: page
+title: Usage | Hydraecosystem.org
+permalink: 01-Usage
+---
+
 # How to set up an Hydra server using hydrus
 
 Table of contents
@@ -12,7 +18,7 @@ Table of contents
 * [App factory](#appf)
 * [Plug and Play](#pnp)
 * [Running tests](#test)
-* [API Authentication](Auth.md)
+* [API Authentication](/Auth)
 
 <a name="servsetup"></a>
 ## Setting up the server
@@ -341,4 +347,4 @@ The hydrus app is a modified instance of the Flask app with the required operati
 Will be added once dynamic tests are in place
 
 ---
-* [Back to Index](README.md)
+

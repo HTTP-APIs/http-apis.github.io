@@ -1,3 +1,9 @@
+---
+layout: page
+title: Redis as a graph database for Hydra Agent | Hydraecosystem.org
+permalink: /hydra-agent-redis-graph
+---
+
 # Redis as a graph database for Hydra Agent
 
 The aim is to implement Redis as a graph database for fast querying process for the hydra client.
@@ -97,4 +103,4 @@ Let a "DroneCollection" member `/api/DroneCollection1` have `properties: {name:D
 So, now if user query for all `model` with value `xyz` then agent will return the value of set `fs:model:xyz`. And similarly, agent works for other these type of queries.
 
 ---
-* [Back to Index](README.md)
+

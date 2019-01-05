@@ -1,3 +1,9 @@
+---
+layout: page
+title: Authentication | Hydraecosystem.org
+permalink: /Auth
+---
+
 # Token Authentication
 
 *hydrus* provides an Authorization/Authentication procedure that can be put in place for allowing operations on endpoints based on a simple Two-Factor Authentication method.
@@ -109,4 +115,4 @@ And this the sample format of a user request to access any protected endpoint:
 ```
 
 ---
-* [Back to Index](README.md)
+

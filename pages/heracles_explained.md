@@ -1,3 +1,9 @@
+---
+layout: page
+title: Analysis of Heracles.ts | Hydraecosystem.org
+permalink: /heracles_explained
+---
+
 ## Analysis of Heracles.ts 
 
 HydraClient, also known as Heracles.ts, is a generic client for Hydra-powered Web APIs. You can find the code at this repository [here](https://github.com/HydraCG/Heracles.ts).
@@ -93,5 +99,5 @@ Refs:
 * https://github.com/HydraCG/Heracles.ts/tree/master/docs
 
 ---
-* [Back to Index](README.md)
+
 

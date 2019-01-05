@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>{% if page.title %}{{ page.title }} {% else %} {{ site.name }} – {{ site.description }} {% endif %}</title>
+
+  {% include meta.html %}
+
+  <!--[if lt IE 9]>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <meta name="google-site-verification" content="6ADAo9Ij5vEut5Jw6CsvR_s8Rx_mWw3WwUe_CsTDDMc" />
+  <!-- Created with Jekyll Now - https://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+<a href="{{ site.baseurl }}/" class="site-avatar"><img class="site-avatar" alt="avatar image" src="https://www.hydra-cg.com/img/logo.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
+          <p class="site-description">{{ site.description }}</p>
+        </div>
+
+        <nav>
+          <a href="{{ site.baseurl }}/gsoc-19">GSoC'19</a>
+          <a href="{{ site.baseurl }}/blog/tags">Tags</a>
+          <a href="{{ site.baseurl }}/blog">Blog</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container entry-index">
+    {{ content }}
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        <span class="footer-text">Get in Touch!</span>
+        {% include svg-icons.html %}
+      </footer>
+    </div>
+  </div>
+
+  {% include analytics.html %}
+
+{% include lazyload.html %}
+</body>
+
+</html>

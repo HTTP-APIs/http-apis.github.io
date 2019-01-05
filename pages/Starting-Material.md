@@ -1,3 +1,9 @@
+---
+layout: page
+title: Starting Material | Hydraecosystem.org
+permalink: /Starting-Material
+---
+
 ## Starting contributing
 
 1. Read the blog posts from GSOC 2017: [Lorenzo](https://www.linkedin.com/pulse/gsoc-2017-python-hydra-making-summer-great-hacking-web-moriondo/) [Chris](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/) [Akshay](https://xadahiya.github.io/Gsoc-Summary/)
@@ -63,4 +69,4 @@ def test_method(arg1, arg2, ...):
 * Read the [issues labeled as "wiki"](https://github.com/HTTP-APIs/hydrus/issues?q=is%3Aissue+is%3Aopen+label%3Awiki)
 
 ---
-* [Back to Index](README.md)
+

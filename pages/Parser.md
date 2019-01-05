@@ -1,3 +1,9 @@
+---
+layout: post
+title: Open API parser | Hydraecosystem.org
+permalink: /Coding-Begins/
+---
+
 # Open API to Hydra Parser 
 
 The aim is to obtain the most accurate representation of API's defined using Open API specification to Hydra Specifications. 
@@ -27,4 +33,4 @@ Doc Writer module is being used at several places to form the Hydra API Document
 ![Scr](https://user-images.githubusercontent.com/19390504/41200793-fce5cace-6cc8-11e8-9956-5155fd94cfab.png)
 
 ---
-* [Back to Index](README.md)
+

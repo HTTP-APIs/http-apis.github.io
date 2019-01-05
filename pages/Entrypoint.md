@@ -1,3 +1,9 @@
+---
+layout: page
+title: Entrypoint | Hydraecosystem.org
+permalink: /Entrypoint
+---
+
 # Ecosystem Summary
 
 ## List of repositories

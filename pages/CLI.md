@@ -1,3 +1,9 @@
+---
+layout: page
+title: Command Line Utility - Hydrus | Hydraecosystem.org
+permalink: /CLI
+---
+
 # Command Line Utility - Hydrus
 
 This page explains in detail the usage of the command line utility of hydrus.
@@ -136,4 +142,4 @@ hydrus serve --api hydrus --port 9000 --adduser 1 test2
 ```
 
 ---
-* [Back to Index](README.md)
+
