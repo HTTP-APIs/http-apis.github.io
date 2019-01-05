@@ -1,3 +1,8 @@
+---
+layout: page
+title: Foundations - Hydra Ecosystem | Hydraecosystem.org
+---
+
 # Foundations: Hydra Ecosystem
 
 ## Generics
@@ -95,18 +100,18 @@ The demo should be up and running on `http://localhost:8080/serverapi/`
 <a name="workflow"></a>
 Workflow
 -------------
-For a generic overview of the Development workflow, head over to [Workflow](Workflow.md) page.
+For a generic overview of the Development workflow, head over to [Workflow](/Workflow) page.
 
 <a name="usage"></a>
 Usage
 -------------
-To understand how to use hydrus and how things work, head over to the [Usage](01-Usage.md) page of the wiki.
+To understand how to use hydrus and how things work, head over to the [Usage](/01-Usage) page of the wiki.
 
 <a name="design"></a>
 Design
 -------------
-Head over to the [Design](Design.md) page to understand the design principles and use cases of hydrus.
+Head over to the [Design](/Design) page to understand the design principles and use cases of hydrus.
 
 ---
 
-* [Back to Index](README.md)
+

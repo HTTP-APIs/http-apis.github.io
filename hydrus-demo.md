@@ -1,3 +1,9 @@
+---
+layout: page
+title: Hydrus Demo | Hydraecosystem.org
+---
+
+
 <a name="req"></a>
 Requirements
 -------------
@@ -17,30 +23,30 @@ Demo
 To run a demo for Hydrus using the sample API, just do the following:
 
 Clone Hydrus:
-```bash
+`bash
 git clone https://github.com/HTTP-APIs/hydrus
-```
+`
 Change directory and switch to the develop branch:
-```bash
+`bash
 cd hydrus
 
 git checkout -b develop origin/develop
-```
+`
 
 Install hydrus using:
-```bash
+`bash
 pip install .
-```
+`
 or
-```bash
+`bash
 python setup.py install
-```
+`
 
 and run the server using:
 
-```bash
+`bash
 hydrus serve
-```
+`
 
 The demo should be up and running on `http://localhost:8080/serverapi/`.
 

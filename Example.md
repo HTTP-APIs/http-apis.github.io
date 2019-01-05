@@ -1,3 +1,8 @@
+---
+layout: page
+title: Explained by example | Hydraecosystem.org
+---
+
 # Explained by example
 
 ## Small simulation
@@ -375,4 +380,4 @@ To learn more about ecosystem design, follow [this document](https://github.com/
 NOTE: This document is modified version of [Markus Lanthaler](https://github.com/lanthaler)'s original document describing how to create Hydra specified APIs.For more info follow [hydra core vocabulary specification](https://www.hydra-cg.com/spec/latest/core/)
 
 ---
-* [Back to Index](README.md)
+
