@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Hydrus Demo | Hydraecosystem.org
+permalink: hydrus-demo
 ---
 
 

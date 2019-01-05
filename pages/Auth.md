@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Authentication | Hydraecosystem.org
+permalink: /Auth
 ---
 
 # Token Authentication

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Starting Material | Hydraecosystem.org
+permalink: /Starting-Material
 ---
 
 ## Starting contributing

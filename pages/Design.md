@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Design | Hydraecosystem.org
+permalink: /Design
 ---
 
 # Hydra Network Walkthrough

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Workflow | Hydraecosystem.org
+permalink: /Workflow
 ---
 
 # Developing APIs with Hydra: Workflow

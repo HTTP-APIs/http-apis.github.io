@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Analysis of Heracles.ts | Hydraecosystem.org
+permalink: /heracles_explained
 ---
 
 ## Analysis of Heracles.ts 

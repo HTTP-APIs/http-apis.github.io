@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Foundations - Hydra Ecosystem | Hydraecosystem.org
+permalink: /00-Home
 ---
 
 # Foundations: Hydra Ecosystem

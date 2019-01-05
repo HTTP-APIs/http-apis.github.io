@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Redis as a graph database for Hydra Agent | Hydraecosystem.org
+permalink: /hydra-agent-redis-graph
 ---
 
 # Redis as a graph database for Hydra Agent

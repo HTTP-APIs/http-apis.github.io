@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Explained by example | Hydraecosystem.org
+permalink: /Example
 ---
 
 # Explained by example

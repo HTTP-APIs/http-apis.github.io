@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Command Line Utility - Hydrus | Hydraecosystem.org
+permalink: /CLI
 ---
 
 # Command Line Utility - Hydrus
