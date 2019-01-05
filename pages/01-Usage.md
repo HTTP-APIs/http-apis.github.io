@@ -346,5 +346,3 @@ The hydrus app is a modified instance of the Flask app with the required operati
 ## Running tests
 Will be added once dynamic tests are in place
 
----
-
