@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Usage | Hydraecosystem.org
-permalink: 01-Usage
+permalink: /01-Usage
 ---
 
 # How to set up an Hydra server using hydrus
@@ -345,6 +345,4 @@ The hydrus app is a modified instance of the Flask app with the required operati
 <a name="test"></a>
 ## Running tests
 Will be added once dynamic tests are in place
-
----
 

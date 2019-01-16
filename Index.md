@@ -28,7 +28,7 @@ For a general introduction you may want to follow the index:
     * [Parser](/Parser)
     * [Parser-Examples](/Parser-Usage)
     * [Official client design: Heracles](/heracles_explained)
-    * [Python+Redis client](/hydra-agent-redis-graph)
+    * [Python Hydra agent](/hydra-agent-redis-graph)
     * [GSOC-2018](/GSoC-2018)
 
 This development community is part of [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/5502406444449792/). 

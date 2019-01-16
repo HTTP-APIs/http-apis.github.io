@@ -4,17 +4,9 @@ version: 1.0.0
 nav:
   Home:
     - '/'
-  Blog:
-    - '/blog/'
-    - { Categories: '/blog/categories/' }
-    - '/projects/'
-
 # Where are tags and categories displayed
-tag_page: '/blog/tags/'
-category_page: '/blog/categories/'
-
+tag_page: '/tags/'
 # This file contains configuration flags to customize your site
-#
 
 # Name of your site (displayed in the header)
 name: Python HYDRA
@@ -31,12 +23,12 @@ avatar: https://www.hydra-cg.com/img/logo.png
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email: xadahiya@gmail.com
+  email: public-hydra@w3.org
   facebook:
   flickr:
   github: HTTP-APIs
   instagram:
-  linkedin: xadahiya
+  linkedin:
   pinterest:
   rss: /feed.xml # just type anything here for a working RSS icon
   twitter: 
@@ -84,7 +76,7 @@ sass:
   style: :compressed # You might prefer to minify using :compressed
 
 # Use the following gems
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-paginate
