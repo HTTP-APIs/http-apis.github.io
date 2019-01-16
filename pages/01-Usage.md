@@ -135,11 +135,11 @@ from hydrus.hydraspec.doc_writer import HydraClassProp
 # Create new properties for the class
 prop1_uri = "http://hydrus.com/prop1"   # The URI of the class of the property
 prop1_title = "Prop1"   # Title of the property
-dummyProp1 = HydraClassProp(prop1_uri, prop1_title , required=False, read=False, write=True)
+prop1 = HydraClassProp(prop1_uri, prop1_title , required=False, read=False, write=True)
 
 prop2_uri = "http://hydrus.com/prop2"
 prop2_title = "Prop2"
-dummyProp2 = HydraClassProp(prop1_uri, prop2_title, required=False, read=False, write=True)
+prop2 = HydraClassProp(prop1_uri, prop2_title, required=False, read=False, write=True)
 
 # Properties that are required=True must be added during class object creation
 # Properties that are read=True are read only
@@ -157,7 +157,7 @@ op_expects = "vocab:dummyClass"  # URI of the object that is expected for the op
 op_returns = None   # URI of the object that is returned by the operation
 op_status = [{"statusCode": 200, "description": "dummyClass updated"}]   # List of statusCode for the operation
 
-op1 = HydraClassOp(op_name
+op1 = HydraClassOp(op_name,
                    op_method,
                    op_expects,
                    op_returns,
@@ -298,7 +298,7 @@ classes = doc_parse.get_classes(doc.generate())
 properties = doc_parse.get_all_properties(classes)
 
 doc_parse.insert_classes(classes, session=db_session)
-doc_parse.insert_properties(classes, session=db_session)
+doc_parse.insert_properties(properties, session=db_session)
 ```
 **NOTE:** You can use the `ApiDocumentation` dictionary directly to get the classes and properties, but it is advised that the `HydraDoc` object be used to generate the ApiDocumentation, as there may be unwanted errors in the dictionary that maybe permanently added to the database.
 
