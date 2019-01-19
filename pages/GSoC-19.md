@@ -40,9 +40,9 @@ Writing a good proposal can be a really challenging task. We have curated a list
 - [Slack](https://httpapis.slack.com)
 - [Mailing List](public-hydra@w3.org)
 - Email
-    - [Lorenzo Moriondo](mailto:tunedconsulting@gmail.com)
-    - [Akshay Dahiya](mailto:xadahiya@gmail.com)
-    - [Chris Andrew](mailto:chrisandrew119@gmail.com)
+    - [Lorenzo Moriondo](mailto:tunedconsulting[AT]gmail[DOT]com)
+    - [Akshay Dahiya](mailto:xadahiya[AT]gmail[DOT]com)
+    - [Chris Andrew](mailto:chrisandrew119[AT]gmail[DOT]com)
 
 ## Potential Mentors - TBD
 ----
