@@ -72,7 +72,7 @@ Annotations: the complete data of every instance reached by the client is still 
 The design of both database and datastore takes into account some of the different layers of representations possible using RDF. This multi-layered data layout tries to give tools to fashion representations using metadata and data concepts as useful abstractions.  
 Typically, statements (triples) are stored in the Graph according to 4 different types of layers. These layers make up the Knowledge Base that the REST layer queries.
 
-NOTE: for the sake of this text, the following tuple of words are synonims:
+NOTE: for the sake of this text, the following tuple of words are synonyms:
 * statement is triple
 * predicate is property
 
