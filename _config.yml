@@ -9,13 +9,13 @@ tag_page: '/tags/'
 # This file contains configuration flags to customize your site
 
 # Name of your site (displayed in the header)
-name: Python HYDRA
+name: Hydra Ecosystem
 
 # Short bio or description (displayed in the header)
 description: 'Automate REST APIs. Next generation API clients.'
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://www.hydra-cg.com/img/logo.png
+avatar: 
 #
 # Flags below are optional
 #
