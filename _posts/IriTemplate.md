@@ -119,9 +119,9 @@ From the reponse data above and the client-side code given above we can see that
 
 #### Further related reading
 
-(URI Templates)[https://tools.ietf.org/html/rfc6570]
+* [URI Templates](https://tools.ietf.org/html/rfc6570)
 
-(Hydra Templated Links)[http://www.hydra-cg.com/spec/latest/core/#templated-links]
+* [Hydra Templated Links](http://www.hydra-cg.com/spec/latest/core/#templated-links)
 
-(Filterig or Searching use case of hydra)[https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/7.searching-events.md]
+* [Filterig or Searching use case of hydra](https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/7.searching-events.md)
 
