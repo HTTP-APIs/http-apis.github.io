@@ -52,7 +52,7 @@ You can find more details related to this example [here](https://github.com/Hydr
 As explained above, in tiled maps when we open a map the client side code uses some formula(the formula may vary according to the tile numbering convention used by the service provider) which uses latitude, longitude and zoom to get tile identifiers(here x and y). When it has value of x and y to identify a tile it makes request to the server for that individual tile.
 
 For example https://c.tile.openstreetmap.org/15/22994/14232.png will return the tile identified by x = 22994 and y = 14232 with zoom 15.
-For x = 22990 and y = 14232 and zoom = 15 the uri will be https://c.tile.openstreetmap.org/15/22990/14232.png, same way we can construct uris for different comibnations of X, Y and zoom. To represent such range of URIs we can use an URI template(IRI template) https://c.tile.openstreetmap.org/{z}/{x}/{y}.
+For x = 22990 and y = 14232 and zoom = 15 the URI will be https://c.tile.openstreetmap.org/15/22990/14232.png, same way we can construct URIs for different comibnations of X, Y and zoom. To represent such range of URIs we can use an URI template(IRI template) https://c.tile.openstreetmap.org/{z}/{x}/{y}.
 
 Such IRI templates can be put in use with help of Hydra `IriTemplate` class. It consists of a literal `template` and a set of mappings(`IriTemplateMapping`). `template` holds the IRI template, here "https://c.tile.openstreetmap.org/{z}/{x}/{y}.examplejsonld" and `IriTemplateMapping` maps varibles in the `template` with properties and may specify whether the variable is required or not.
 
@@ -60,7 +60,9 @@ In the example above variables x, y and z maps to `tiles:longiudeTile`, `tiles:l
 
 As the name suggests `variableRepresenation` specifies how the IRI template will be expanded and serialized when values of variables are provided.
 As of now it can possibly have one of two values either `BasicRepresentation` or `ExplicitRepresentation`.
-`BasicRepresentation` does not differentiate between literals and IRIs, it simple omits data-type and language information of literals. While `ExplicitRepresentation` diffrentiates between literals and IRIs by surrounding literals with double quotes(")  and it also explicitly specifies language and data-type information of literals, for more see detailed [example](http://www.hydra-cg.com/spec/latest/core/#ex-16-the-different-variable-representations).
+`BasicRepresentation` does not differentiate between literals and IRIs, it simple omits data-type and language information of
+literals. While `ExplicitRepresentation` diffrentiates between literals and IRIs by surrounding literals with double quotes(")
+and it also explicitly specifies language and data-type information of literals, for more see detailed [example](http://www.hydra-cg.com/spec/latest/core/#ex-16-the-different-variable-representations).
 The client side code might look like this
 ```js
 var client = new HydraClient();
