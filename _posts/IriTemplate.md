@@ -4,8 +4,11 @@ title: IriTemplate explained with an example
 category: Blog
 tags: [Hydra, Semantic Web, IriTemplate]
 ---
+>**Note**: *This article uses term URI and IRI interchangebly, IRIs being genaralized form of URIs supporting Unicode. (For 
+ more information see [rfc for URI](https://tools.ietf.org/html/rfc3986) and [rfc for IRI](https://www.ietf.org/rfc/rfc3987.txt) )*
+
 IRI Templates provide an easy and elegant way to describe a range of IRIs with help of variable expansion.
-In context of hypermedia driven APIs IRI templates are particularly useful when the server can't construct a URL by itself; only 
+In context of hypermedia driven APIs IRI templates are particularly useful when the server can't construct a URI by itself; only 
 the client possess the required information to construct desired IRI.
 
 Hydra provides `IriTemplate` class which can be used to provide IRI template to smart clients, which can be used by those clients 
