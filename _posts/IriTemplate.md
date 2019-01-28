@@ -5,8 +5,8 @@ category: Blog
 tags: [Hydra, Semantic Web, IriTemplate]
 ---
 IRI Templates provide an easy and elegant way to describe a range of IRIs with help of variable expansion.
-In context of hypermedia driven APIs IRI templates are particularly useful when the server can't construct a URL by itself; only the
-client possess the required information to construct desired IRI.
+In context of hypermedia driven APIs IRI templates are particularly useful when the server can't construct a URL by itself; only 
+the client possess the required information to construct desired IRI.
 
 Hydra provides `IriTemplate` class which can be used to provide IRI template to smart clients, which can be used by those clients 
 to construct valid IRIs. As the title of this article suggest we will use an example to explain working of `IriTemplate` in detail.
@@ -49,7 +49,7 @@ You can find more details related to this example [here](https://github.com/Hydr
 As explained above, in tiled maps when we open a map the client side code uses some formula(the formula may vary according to the tile numbering convention used by the service provider) which uses latitude, longitude and zoom to get tile identifiers(here x and y). When it has value of x and y to identify a tile it makes request to the server for that individual tile.
 
 For example https://c.tile.openstreetmap.org/15/22994/14232.png will return the tile identified by x = 22994 and y = 14232 with zoom 15.
-for x = 22990 and y = 14232 and zoom = 15 the uri will be https://c.tile.openstreetmap.org/15/22990/14232.png, same way we can construct uris for different comibnations of X, Y and zoom. To represent such range of URIs we can use an URI template(IRI template) https://c.tile.openstreetmap.org/{z}/{x}/{y}.
+For x = 22990 and y = 14232 and zoom = 15 the uri will be https://c.tile.openstreetmap.org/15/22990/14232.png, same way we can construct uris for different comibnations of X, Y and zoom. To represent such range of URIs we can use an URI template(IRI template) https://c.tile.openstreetmap.org/{z}/{x}/{y}.
 
 Such IRI templates can be put in use with help of Hydra `IriTemplate` class. It consists of a literal `template` and a set of mappings(`IriTemplateMapping`). `template` holds the IRI template, here "https://c.tile.openstreetmap.org/{z}/{x}/{y}.examplejsonld" and `IriTemplateMapping` maps varibles in the `template` with properties and may specify whether the variable is required or not.
 
@@ -77,7 +77,7 @@ if (colletion.search) {
     }
 }
 ```
-With help of all these a Hydra enabled client can expand the IRI template with provided values of variables. If in future the URL is changed from https://c.tile.openstreetmap.org/{z}/{x}/{y} to https://c.tile.openstreetmap.org/{z}/{y}/{x} the client won't have any difficulty adjusting to it. Client will receive following kind of response from the server
+With help of all these a Hydra enabled client can expand the IRI template with provided values of variables. If in future the URI is changed from https://c.tile.openstreetmap.org/{z}/{x}/{y} to https://c.tile.openstreetmap.org/{z}/{y}/{x} the client won't have any difficulty adjusting to it. Client will receive following kind of response from the server
 ```
 {
     "@context": "/serverapi/context.jsonld",
@@ -110,7 +110,7 @@ With help of all these a Hydra enabled client can expand the IRI template with p
     }
 }
 ``` 
-From the reponse data above and the client-side code given above we can see that the client side code won't require any changes and keep functioning normally. For x = 22990 and y = 14232 and zoom = 15 the uri constucted by the client will be https://c.tile.openstreetmap.org/15/14232/22990.png.
+From the reponse data above and the client-side code given above we can see that the client side code won't require any changes and keep functioning normally. For x = 22990 and y = 14232 and zoom = 15 the URI constucted by the client will be https://c.tile.openstreetmap.org/15/14232/22990.png.
 
 #### Further related reading
 
