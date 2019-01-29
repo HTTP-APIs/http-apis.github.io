@@ -22,7 +22,7 @@ Table of contents
 
 <a name="servsetup"></a>
 ## Setting up the server
-hydrus is a generic server that can serve a REST based API, using the Hydra APIDocumentation to understand the kind of data and the operations supported by the API. Getting a server running in hydrus is pretty straight forward. All you need to do is create a script that plugs the API Documentation, the database and a few other variables and start a hydrus app. An example of this is given below, in the following subsections, we will adress each part of the script and teach you how to create your own API using your API Documentation.
+hydrus is a generic server that can serve a REST based API, using the Hydra APIDocumentation to understand the kind of data and the operations supported by the API. Getting a server running in hydrus is pretty straight forward. All you need to do is create a script that plugs the API Documentation, the database and a few other variables and start a hydrus app. An example of this is given below, in the following subsections, we will address each part of the script and teach you how to create your own API using your API Documentation.
 
 ```python
 """Demo script for setting up an API using hydrus."""
