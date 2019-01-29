@@ -1,9 +1,9 @@
 ---
-layout: post
-title: IriTemplate explained with an example
-category: Blog
-tags: [Hydra, Semantic Web, IriTemplate]
+layout: page
+title: IriTemplate explanation with an example | Hydraecosystem.org
+permalink: /IriTemplate
 ---
+
 >**Note**: *This article uses term URI and IRI interchangebly, IRIs being genaralized form of URIs supporting Unicode. (For 
  more information see [rfc for URI](https://tools.ietf.org/html/rfc3986) and [rfc for IRI](https://www.ietf.org/rfc/rfc3987.txt))*
 
