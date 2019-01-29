@@ -24,5 +24,6 @@ For a general introduction you may want to follow the index:
     * [Official client design: Heracles](heracles_explained.md)
     * [Python Hydra agent](hydra-agent-redis-graph.md)
     * [GSOC-2018](GSoC-2018.md)
+    * [IriTemplate example](IriTemplate.md)
 
 This development community is part of [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/5502406444449792/). 
