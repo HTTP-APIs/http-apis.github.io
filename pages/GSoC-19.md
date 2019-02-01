@@ -9,44 +9,6 @@ Welcome to Hydra Ecosystem's ideas page for [GSoC 2019](https://summerofcode.wit
 and candidates can present projects to fulfill multiple ideas in this page and issues listed at our Github [organization page](https://github.com/HTTP-APIs/).
 
 
-# [How do I get started ?](#getting-started)
- Getting started is pretty easy. Head over to our [homepage](http://hydraecosystem.org/) or [community page](https://www.hydra-cg.com/). There are a lot of demos, presentations, and talks to get you up to speed. Then head over to the [hydrus repo](https://github.com/HTTP-APIs/hydrus) and clone it. Play with it a little, try to understand how the current implementation works, try to fix some bugs or report any issues you can find [here](https://github.com/HTTP-APIs/hydrus/issues).
-Lastly, don't hesitate to reach out in the [Gitter channel](https://gitter.im/HTTP-APIs/Lobby) if you have any question, we are very friendly people and we'll be more than happy to help you out.
-
-As a general entry point to understand the repositories, there is our [Wiki](http://hydraecosystem.org/) and related links. Having a clear insight of [Resource Description Framework](https://goo.gl/TCdYG3) is quite necessary, Mentors will give full support to catch up with it.
-
-## FAQ
-
-- ## What is Google Summer of Code?
-Google Summer of Code (GSoC) is a global program that matches students up with open source, free software, and technology-related organizations to write code and get paid to do it! The organizations provide mentors who act as guides through the entire process, from learning about the community to contributing code. The idea is to get students involved in and familiar with the open source community and help them to put their summer break to good use.
-
-    You can read Google [Student Manual](https://developers.google.com/open-source/gsoc/resources/guide#student_manual) for more info.
-
-
-- ## How to write a proposal?
-Writing a good proposal can be a really challenging task. We have curated a list of helpful resources to help you get started.
-    - [5 Tips to get your Google Summer of Code proposal accepted](http://people.csail.mit.edu/baghdadi/TXT_blog/5_advices_to_get_your_proposal_accepted.lyx.html)
-    - [How to write a good GSoC proposal (Quora)?](https://www.quora.com/How-to-write-a-good-GSoC-proposal)
-    - [How to write a kick-ass proposal for Google Summer of Code](http://teom.org/blog/kde/how-to-write-a-kick-ass-proposal-for-google-summer-of-code/)
-
-    **Proposals can contain anything that can be valuable according to [GSoC guidelines for students](https://google.github.io/gsocguides/student/writing-a-proposal)**
-
-- ## Proposal template
-[Here](https://docs.google.com/document/d/1qPR02o6jY4uFBdCf3S0ous4LG32YCe6ZJuDGojXH2JY/edit)'s a proposal template for you to get started.
-
-## Communication Channels
-- [Gitter](https://gitter.im/HTTP-APIs/Lobby)
-- [W3C Group](https://www.w3.org/community/hydra/)
-- [Slack](https://httpapis.slack.com)
-- [Mailing List](public-hydra@w3.org)
-- Email
-    - [Lorenzo Moriondo](mailto:tunedconsulting[AT]gmail[DOT]com)
-    - [Akshay Dahiya](mailto:xadahiya[AT]gmail[DOT]com)
-    - [Chris Andrew](mailto:chrisandrew119[AT]gmail[DOT]com)
-
-## Potential Mentors - TBD
-----
-
 
 # [Ideas for GSoC 2019](#Ideas)
 
@@ -151,3 +113,46 @@ hydrus is developed in Flask because the applications we had in mind were mostly
 - Ability to write test suites in Django
 
 **Difficulty Level**: *Intermediate*
+
+----
+
+
+# [How do I get started ?](#getting-started)
+ Getting started is pretty easy. Head over to our [homepage](http://hydraecosystem.org/) or [community page](https://www.hydra-cg.com/). There are a lot of demos, presentations, and talks to get you up to speed. Then head over to the [hydrus repo](https://github.com/HTTP-APIs/hydrus) and clone it. Play with it a little, try to understand how the current implementation works, try to fix some bugs or report any issues you can find [here](https://github.com/HTTP-APIs/hydrus/issues).
+Lastly, don't hesitate to reach out in the [Gitter channel](https://gitter.im/HTTP-APIs/Lobby) if you have any question, we are very friendly people and we'll be more than happy to help you out.
+
+As a general entry point to understand the repositories, there is our [Wiki](http://hydraecosystem.org/) and related links. Having a clear insight of [Resource Description Framework](https://goo.gl/TCdYG3) is quite necessary, Mentors will give full support to catch up with it.
+
+## FAQ
+
+- ## What is Google Summer of Code?
+Google Summer of Code (GSoC) is a global program that matches students up with open source, free software, and technology-related organizations to write code and get paid to do it! The organizations provide mentors who act as guides through the entire process, from learning about the community to contributing code. The idea is to get students involved in and familiar with the open source community and help them to put their summer break to good use.
+
+    You can read Google [Student Manual](https://developers.google.com/open-source/gsoc/resources/guide#student_manual) for more info.
+
+
+- ## How to write a proposal?
+Writing a good proposal can be a really challenging task. We have curated a list of helpful resources to help you get started.
+    - [5 Tips to get your Google Summer of Code proposal accepted](http://people.csail.mit.edu/baghdadi/TXT_blog/5_advices_to_get_your_proposal_accepted.lyx.html)
+    - [How to write a good GSoC proposal (Quora)?](https://www.quora.com/How-to-write-a-good-GSoC-proposal)
+    - [How to write a kick-ass proposal for Google Summer of Code](http://teom.org/blog/kde/how-to-write-a-kick-ass-proposal-for-google-summer-of-code/)
+
+    **Proposals can contain anything that can be valuable according to [GSoC guidelines for students](https://google.github.io/gsocguides/student/writing-a-proposal)**
+
+- ## Proposal template
+[Here](https://docs.google.com/document/d/1qPR02o6jY4uFBdCf3S0ous4LG32YCe6ZJuDGojXH2JY/edit)'s a proposal template for you to get started.
+
+## Communication Channels
+- [Gitter](https://gitter.im/HTTP-APIs/Lobby)
+- [W3C Group](https://www.w3.org/community/hydra/)
+- [Slack](https://httpapis.slack.com)
+- [Mailing List](public-hydra@w3.org)
+- Email
+    - [Lorenzo Moriondo](mailto:tunedconsulting[AT]gmail[DOT]com)
+    - [Akshay Dahiya](mailto:xadahiya[AT]gmail[DOT]com)
+    - [Chris Andrew](mailto:chrisandrew119[AT]gmail[DOT]com)
+
+## Potential Mentors - TBD
+
+
+
