@@ -8,6 +8,8 @@ permalink: /
 
 Hydra is currently a draft created by [**World Wide Web Consortium's Hydra Community Group**](https://www.w3.org/community/hydra/). Official documentation available [here](http://hydra-cg.com) and development is open [here](https://github.com/HydraCG).
 
+**Hydra Ecosystem** promotes and facilitates the adoption of Hydra.
+
 For a general introduction you may want to follow the index:
 
 * **Introduction**
