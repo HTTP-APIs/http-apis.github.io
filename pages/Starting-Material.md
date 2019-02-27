@@ -12,13 +12,14 @@ permalink: /Starting-Material
 4. Having a general understanding of [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827)
 5. Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
 6. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
-7. Read [hydrus WIKI](https://github.com/HTTP-APIs/hydrus/wiki). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
-8. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
-9. There are different rooms in Gitter in which to interact with other contributors:
+7. Read [Hydra-CG gitbook](https://github.com/HydraCG/gitbook)
+8. Read [hydrus WIKI](https://github.com/HTTP-APIs/hydrus/wiki). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
+9. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
+10. There are different rooms in Gitter in which to interact with other contributors:
 * [Demos room: talk about creating new demo implementations](https://gitter.im/HTTP-APIs/Demos-creation)
 * [Improving hydrus room: issues, solutions and ideas](https://gitter.im/HTTP-APIs/Improving-Hydrus)
 * [Beginners: experienced contributors help newcomers](https://gitter.im/HTTP-APIs/Beginners)
-10. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
+11. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
 
 ## General guidelines to contributing
 

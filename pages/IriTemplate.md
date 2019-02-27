@@ -142,5 +142,5 @@ will be [https://c.tile.openstreetmap.org/15/14232/22990.png](https://c.tile.ope
 
 * [Hydra Templated Links](http://www.hydra-cg.com/spec/latest/core/#templated-links)
 
-* [Filterig or Searching use case of hydra](https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/7.searching-events.md)
+* [Filtering or Searching use case of hydra](https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/7.searching-events.md)
 
