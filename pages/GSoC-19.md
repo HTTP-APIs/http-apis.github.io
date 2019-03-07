@@ -93,6 +93,12 @@ This is a high-profile demo implementation that requires infrastructural, backen
 ## 5. A Demo API of a publicly available database.
 ### Main Idea:
 We want to demonstrate usage by leveraging some publicly available/open sourced databases. Design a Hydra backend for it running in our GCloud installation. One example could be the [MusicBrainz](https://musicbrainz.org/) database. We can set up a pipeline that automatically downloads and publishes the data using hydrus. We will need to come up with use cases wherein a Hydra endpoint would be useful for the database as compared to a simple REST endpoint.
+
+The full project implies:
+* analyze the deploying scenario for the data
+* research the specific domain to understand the data
+* create a hydra documentation (RDF description) for the service
+* develop and deploy the service in GCLOUD
     
 **Skill Required**:
 - Python
