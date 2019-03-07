@@ -9,7 +9,9 @@ permalink: /gsoc-19
 Welcome to Hydra Ecosystem's ideas page for [GSoC 2019](https://summerofcode.withgoogle.com/). We would like to receive proposals that encompass different aspects of the development. Different tools are under development
 and candidates can present projects to fulfill multiple ideas in this page and issues listed at our Github [organization page](https://github.com/HTTP-APIs/).
 
-
+To get in touch with the Community:
+* [Gitter chat Lobby](https://gitter.im/HTTP-APIs/Lobby)
+* [Gitter chat Beginners](https://gitter.im/HTTP-APIs/Beginners)
 
 # [Ideas for GSoC 2019](#Ideas)
 
