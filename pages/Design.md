@@ -6,7 +6,7 @@ permalink: /Design
 
 # Hydra Network Walkthrough
 
-This page explains the design, architecture and the implementation of [**hydrus**](https://github.com/HTTP-APIs/hydrus) toolkit along with a few use cases for the same. Also the interactions and internals of a smart client ([**hydra-agent**](https://github.com/HTTP-APIs/python-hydra-agent)) connecting to the server are considered.
+This page explains the design, architecture and the implementation of [**hydrus**](https://github.com/HTTP-APIs/hydrus) toolkit along with a few use cases for the same. Also the interactions and internals of a smart client ([**hydra-agent**](https://github.com/HTTP-APIs/hydra-python-agent)) connecting to the server are considered.
 
 ## REST to Hydra to hydrus
 To understand how [hydrus](https://github.com/HTTP-APIs/hydrus) represents REST resources and how the developer is helped to work with Hydra, it is possible to
@@ -18,7 +18,7 @@ Instances belonging to a Resource are named `Item`s in [hydrus](https://github.c
 ### the ecosystem: servers and smart clients
 [hydrus](https://github.com/HTTP-APIs/hydrus) allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer.
 
-[hydra-agent](https://github.com/HTTP-APIs/python-hydra-agent) interacts with one or more hydrus instances to represent and navigate resources for the sake of data consumption. The client-side tools in the ecosystem are basically any client that complies with [Hydra's specs](https://github.com/HydraCG/Specifications), starting from the [official Typescript implementation Heracles.ts](https://github.com/HydraCG/Heracles.ts) and the [python-hydra-agent](https://github.com/HTTP-APIs/python-hydra-agent).
+[hydra-agent](https://github.com/HTTP-APIs/hydra-python-agent) interacts with one or more hydrus instances to represent and navigate resources for the sake of data consumption. The client-side tools in the ecosystem are basically any client that complies with [Hydra's specs](https://github.com/HydraCG/Specifications), starting from the [official Typescript implementation Heracles.ts](https://github.com/HydraCG/Heracles.ts) and the [hydra-python-agent](https://github.com/HTTP-APIs/hydra-python-agent).
 
 The tools in the ecosystem works on top of a distributed architecture that is described below from its foundationals classes in the ORM to the interface layer.
 
