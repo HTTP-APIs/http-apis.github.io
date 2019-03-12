@@ -13,7 +13,7 @@ permalink: /Entrypoint
 * [hydra-ecosystem-wiki](https://github.com/HTTP-APIs/hydra-ecosystem-wiki): The main documentation endpoint for HYDRA-based applications
 * django-http-hydra: A porting of hydrus to Django framework
 * falcon-http-hydra: A porting of hydrus to Falcon framework
-* python-hydra-agent: In-house HYDRA client, test console , api-doc maker
+* hydra-python-agent: In-house HYDRA client, test console , api-doc maker
 * documentation-hydrus: Sphinx documentation, for deploying in readthedocs.org
 * qgis-hydra-plugin: A QGIS plugin to load data from HYDRA-based APIs, it will act as a http-client to interact with hydra based api's.
 
