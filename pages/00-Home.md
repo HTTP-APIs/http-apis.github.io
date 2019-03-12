@@ -7,7 +7,7 @@ permalink: /00-Home
 # Foundations: Hydra Ecosystem
 
 ## Generics
-Beside all the other tools in the ecosystem, **hydrus** (lowercase) is the basic module from which API designers/engineers/developers can build up their own automated infrastructure that leverages smart clients. hydrus is the server-side tool that allows REST data to be published as Hydra-aware data. An **Hydra network** is made up of one or more hydrus instances that can receive requests from **Hydra smart clients** (or agents, see `python-hydra-agent` repository). The interaction of hydrus and Hydra smart clients is how Hydra ecosystem realizes the Client-Server pattern.
+Beside all the other tools in the ecosystem, **hydrus** (lowercase) is the basic module from which API designers/engineers/developers can build up their own automated infrastructure that leverages smart clients. hydrus is the server-side tool that allows REST data to be published as Hydra-aware data. An **Hydra network** is made up of one or more hydrus instances that can receive requests from **Hydra smart clients** (or agents, see `hydra-python-agent` repository). The interaction of hydrus and Hydra smart clients is how Hydra ecosystem realizes the Client-Server pattern.
 
 hydrus provides a full-stack architecture that makes it the basic building block for a machine that is a node in a wider network of Web APIs. Generic components of the network are:
 * on hydrus, a REST interface
@@ -29,7 +29,7 @@ hydrus is a set of **Python** based tools for easier and efficient creation of H
 hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and documentation of its APIs.
 
 
-**Hydra smart client** (`python-hydra-agent`) is a Python implementation of a client based on the Hydra Community Group specifications. It can navigate a network of hydrus servers autonomously by reading their API documentation. It is a generic client in the sense that can query and retrieve data from any Hydra-aware server (like hydrus).
+**Hydra smart client** (`hydra-python-agent`) is a Python implementation of a client based on the Hydra Community Group specifications. It can navigate a network of hydrus servers autonomously by reading their API documentation. It is a generic client in the sense that can query and retrieve data from any Hydra-aware server (like hydrus).
 
 ### What makes the difference
 
