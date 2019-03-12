@@ -30,7 +30,7 @@ Currently, the client is a proof of concept and only implements GET requests. We
 **Difficulty Level** : *Intermediate/Hard*
     
 **Issues**<br/>
-Some issues are already open for this idea, please [check this list](https://github.com/HTTP-APIs/python-hydra-agent/issues?q=is%3Aissue+is%3Aopen+label%3AGSOC-2019):
+Some issues are already open for this idea, please [check this list](https://github.com/HTTP-APIs/hydra-python-agent/issues?q=is%3Aissue+is%3Aopen+label%3AGSOC-2019):
 
 ## 2. General Improvements in hydrus.
 ### Main Idea:
