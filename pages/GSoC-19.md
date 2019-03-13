@@ -10,6 +10,7 @@ Welcome to Hydra Ecosystem's ideas page for [GSoC 2019](https://summerofcode.wit
 and candidates can present projects to fulfill multiple ideas in this page and issues listed at our Github [organization page](https://github.com/HTTP-APIs/).
 
 To get in touch with the Community:
+* [Google Group](https://groups.google.com/d/forum/hydraecosystem)
 * [Gitter chat Lobby](https://gitter.im/HTTP-APIs/Lobby)
 * [Gitter chat Beginners](https://gitter.im/HTTP-APIs/Beginners)
 
@@ -158,7 +159,7 @@ Writing a good proposal can be a really challenging task. We have curated a list
 - [Gitter](https://gitter.im/HTTP-APIs/Lobby)
 - [W3C Group](https://www.w3.org/community/hydra/)
 - [Slack](https://httpapis.slack.com)
-- [Mailing List](public-hydra@w3.org)
+- [Mailing List](hydraecosystem@@googlegroups.com)
 - Email
     - [Lorenzo Moriondo](mailto:tunedconsulting[AT]gmail[DOT]com)
     - [Akshay Dahiya](mailto:xadahiya[AT]gmail[DOT]com)
