@@ -165,7 +165,8 @@ Writing a good proposal can be a really challenging task. We have curated a list
     - [Akshay Dahiya](mailto:xadahiya[AT]gmail[DOT]com)
     - [Chris Andrew](mailto:chrisandrew119[AT]gmail[DOT]com)
 
-## Potential Mentors - TBD
+## Potential Mentors
+- Sandeep Chauhan
 
 
 
