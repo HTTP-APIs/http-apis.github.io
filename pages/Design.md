@@ -6,19 +6,18 @@ permalink: /Design
 
 # Hydra Network Walkthrough
 
-This page explains the design, architecture and the implementation of [**hydrus**](https://github.com/HTTP-APIs/hydrus) toolkit along with a few use cases for the same. Also the interactions and internals of a smart client ([**hydra-agent**](https://github.com/HTTP-APIs/hydra-python-agent)) connecting to the server are considered.
+This page explains the design, architecture and the implementation of [**hydrus**](https://github.com/HTTP-APIs/hydrus) server along with a few use cases for the same. Also the interactions and internals of a smart client ([**Hydra agent**](https://github.com/HTTP-APIs/hydra-python-agent)) connecting to the server are considered. See [Home](/00-Home) for a general intro.
 
 ## REST to Hydra to hydrus
-To understand how [hydrus](https://github.com/HTTP-APIs/hydrus) represents REST resources and how the developer is helped to work with Hydra, it is possible to
- start from thinking at Hydra as generic framework that describes REST API resources to make data exchanges automated.
+To understand how [hydrus](https://github.com/HTTP-APIs/hydrus) represents REST resources and how the developer is helped to work with Hydra, it is possible to start from thinking at Hydra as generic framework that describes REST API resources to make data exchanges automated.
 
 ### An instance and its classes
-Instances belonging to a Resource are named `Item`s in [hydrus](https://github.com/HTTP-APIs/hydrus). It is possible to perform HTTP operations over `Item`s. At a slightly more abstract layer, the REST Resource is of a kind of an `hydra:Resource`, all the instances of the same resource are members of an `hydra:Collection`. As Hydra inherits from RDF, thanks to the framework it is possible to represent the API as a RDF graph.
+Instances belonging to a Resource are named `Item`s in [hydrus](https://github.com/HTTP-APIs/hydrus). It is possible to perform CRUD operations (via HTTP) over `Item`s. At a slightly more abstract layer, the REST Resource is of a kind of an `hydra:Resource`, all the instances of the same resource are members of a `hydra:Collection`. As Hydra inherits from RDF, thanks to the framework it is possible to represent the API as a graph.
 
 ### the ecosystem: servers and smart clients
 [hydrus](https://github.com/HTTP-APIs/hydrus) allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer.
 
-[hydra-agent](https://github.com/HTTP-APIs/hydra-python-agent) interacts with one or more hydrus instances to represent and navigate resources for the sake of data consumption. The client-side tools in the ecosystem are basically any client that complies with [Hydra's specs](https://github.com/HydraCG/Specifications), starting from the [official Typescript implementation Heracles.ts](https://github.com/HydraCG/Heracles.ts) and the [hydra-python-agent](https://github.com/HTTP-APIs/hydra-python-agent).
+[Hydra agent](https://github.com/HTTP-APIs/hydra-python-agent) interacts with one or more hydrus instances to represent and navigate resources for the sake of data consumption. The client-side tools in the ecosystem are basically any client that complies with [Hydra's specs](https://github.com/HydraCG/Specifications), starting from the [official Typescript implementation Heracles.ts](https://github.com/HydraCG/Heracles.ts) but also [hydra-python-agent](https://github.com/HTTP-APIs/hydra-python-agent).
 
 The tools in the ecosystem works on top of a distributed architecture that is described below from its foundationals classes in the ORM to the interface layer.
 
@@ -40,12 +39,10 @@ For a short overview of RDF and Hydra see [Home](/00-Home).
 <a name="cloudsystem"></a>
 ### Example: hydrus as a cloud system
 
-[hydrus](https://github.com/HTTP-APIs/hydrus) servers are highly decoupled web servers that allows installation of multiple services in parallel. This is possible
-by-design as every hydrus instance is automatically querable by Hydra smart client (e.g. python-hydra-agent). An hydrus system can be composed of single server or a multiplicity.
-Whatever is the system's layout, a superuser/developer that carries on the activities of engineering and developing the system can manage access privileges to the APIs in the system. External smart clients can query the APIs in the system, according to the privileges defined by the superuser. Here a simple diagram
-of a cloud deployment with three hydrus "module-servers" and three external smart clients:
+[hydrus](https://github.com/HTTP-APIs/hydrus) servers are highly decoupled web servers that allows installation of multiple services in parallel. This is possible by-design as every hydrus instance is automatically querable by Hydra smart client (e.g. Hydra agent). A hydrus system can be composed of single server or a multiplicity.
+Whatever is the system's layout, a superuser/developer that carries on the activities of engineering and developing the system can manage access privileges to the APIs in the system. External smart clients can query the APIs in the system, according to the privileges defined by the superuser. Here a simple diagram of a cloud deployment with three hydrus "module-servers" and three external smart clients:
 
-![hydrus as a cloud system](static/hydrus_cloud_system.png)
+![FIG. 1 - hydrus as a cloud system](static/hydrus_cloud_system.png)
 
 
 <a name="fullstack"></a>
@@ -54,19 +51,20 @@ of a cloud deployment with three hydrus "module-servers" and three external smar
 The different [hydrus](https://github.com/HTTP-APIs/hydrus) "modules" that build up an hydrus cloud deployment are designed to be highly decoupled Hydra-aware APIs.
 Design of the APIs follows the Hydra draft so that smart clients querying capabilities can be deployed on the hydrus-powered services. Here an example of a Hydra network in a simple diagram:
 
-![hydrus stack](static/hydrus_stack.png)
+![FIG. 2 - hydrus stack](static/hydrus_stack.png)
 
-The different hydrus instances-servers are designed in the same cloud, any Hydra-aware client with the right privileges can access the `ApiDoc` and the data in the servers and build its own representation of the data cloud. hydrus instances may or may not have  attached a client as well, to provide routing or connectivity to data stored in another instance. 
+The different hydrus instances-servers are designed in the same cloud, any Hydra-aware client with the right privileges can access the `ApiDoc` and the data in the servers, so to build its own representation of the data cloud. hydrus instances may or may not have  attached a client as well, to provide routing or connectivity to data stored in another instance. 
 
 <a name="dbdesign"></a>
 ### Data storage
 
 #### Server-client data segregation
-Data storage capabilities are provided both in the server (hydrus) and in the smart client (hydra-agent) for different puproses:
-1. hydrus and its database (the grey box in figure above) hold what we can call the data itsef. The instances of the resources the system is serving. The `ApiDoc` is a JSON-LD string published by the server that describes classes of resources and their relationships (intsances' metadata or schema). This database is a relational database with tables for every class, the schema of the database is generated by the parsing of the `ApiDoc`.
-2. hydra-agent (the green box) and its datastore (the red component) hold the (meta-)data necessary for the client to know where to access and fetch the data. Initially, the datastore is a *graph-store* in which the resources classes and their relationships are stored as a graph. As the smart client discovers the servers in the network, the graph is enriched by the resources found in other `ApiDoc` (metadata is stored by parsing documentation strings). When the smart client starts fetching instances it can add to the graph the relationships between instances as described by their metadata, acting as a store for triples.
+Data storage capabilities are provided both in the server (hydrus) and in the smart client (Hydra agent) for different puproses:
+1. hydrus and its database (the grey box in figure 2) hold what we can call, in common use, the "data" itsef (as opposed to the abstract layer that instead describes how data types/classes are interconnected, commonly the "metadata"): data are simply instances of the resources/classes the system is serving. The `ApiDoc` is a JSON-LD string published by the server (via a proper HTTP header as per Hydra spec) that describes classes of resources and their relationships (as above,
+"metadata"). hydrus's database is a relational database with tables for every resource/class, the schema of the database is generated by the parsing of the `ApiDoc`.
+2. Hydra agent (the green box in figure 2) and its datastore (the red component in figure 2) hold the (meta)data necessary for the client to know where to access and fetch the data. Initially, the datastore is a *graph-store* in which the resources classes and their relationships are stored as a graph. As the smart client discovers the servers in the network, the graph is enriched by the resources found in other `ApiDoc` (metadata is stored by parsing documentation strings, properties of data instances are stored by fetching resources via CRUD operations). When the smart client starts fetching instances it can add to the graph the relationships between instances as described by their metadata and data, acting as a store for triplets of nodes (as per RDF triples, a node subject with an predicate and an object).
 
-Annotations: the complete data of every instance reached by the client is still only in the server, the client holds its own representation of the state of the metadata. This creates great challenges in terms of data integrity and representations' synchronization. For an overview of the challenge of distributed data networks see [here](https://en.wikipedia.org/wiki/Distributed_data_store). The Hydra ecosystem does not aim to develop a solution for distributed storage but to implement the W3C Hydra Draft, focusing on defining tools for servers-clients or also clients-clients interactions via HTTP leveraging the REST paradigm.
+Annotations: the complete data of every instance reached by the client is still only in the server, the client holds its own representation of the state of the data. This creates great challenges in terms of data integrity and representations' synchronization. For an overview of the challenge of distributed data networks see [here](https://en.wikipedia.org/wiki/Distributed_data_store). The Hydra ecosystem does not aim to develop a solution for distributed storage but to implement the W3C Hydra Draft, focusing on defining tools for servers-clients or also clients-clients interactions via HTTP leveraging the REST paradigm; with this scope, a synchronisation mechanism is under development with [issue #300](https://github.com/HTTP-APIs/hydrus/issues/300).
 
 #### A multi-layered data abstraction
 The design of both database and datastore takes into account some of the different layers of representations possible using RDF. This multi-layered data layout tries to give tools to fashion representations using metadata and data concepts as useful abstractions.  
