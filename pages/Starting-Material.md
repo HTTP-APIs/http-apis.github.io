@@ -63,6 +63,9 @@ def test_method(arg1, arg2, ...):
 * [Triple Pattern Fragments](https://biblio.ugent.be/publication/8050661/file/8050671.pdf)
 * List of useful papers [here](https://arxiv.org/find/all/1/all:+verborgh/0/1/0/all/0/1)
 * Python [design patterns](https://github.com/crista/exercises-in-programming-style)
+* [Problem solving with algorithms in Python](https://runestone.academy/runestone/static/pythonds/index.html)
+* [Inside Python Virtual Machine](https://leanpub.com/insidethepythonvirtualmachine/read)
+* [How to design programs](https://htdp.org/2018-01-06/Book/index.html)
 
 
 ## Design annotations
