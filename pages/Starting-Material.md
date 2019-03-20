@@ -20,6 +20,7 @@ permalink: /Starting-Material
 * [Improving hydrus room: issues, solutions and ideas](https://gitter.im/HTTP-APIs/Improving-Hydrus)
 * [Beginners: experienced contributors help newcomers](https://gitter.im/HTTP-APIs/Beginners)
 11. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
+12. Get familiar with [Docker container engine](https://docker-curriculum.com/) and its best practices to deploy virtualized environments.
 
 ## General guidelines to contributing
 
