@@ -6,6 +6,8 @@ permalink: /Starting-Material
 
 ## Starting contributing
 
+A general introduction: [What does it mean to be a Open Source Maintainer](https://mozilla.github.io/maintainer-cohort/).
+
 1. Read the blog posts from GSOC 2017: [Lorenzo](https://www.linkedin.com/pulse/gsoc-2017-python-hydra-making-summer-great-hacking-web-moriondo/) [Chris](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/) [Akshay](https://xadahiya.github.io/Gsoc-Summary/)
 2. Having a general understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples.
 3. Having a general understanding of [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html)
