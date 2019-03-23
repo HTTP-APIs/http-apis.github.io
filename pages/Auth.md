@@ -6,13 +6,13 @@ permalink: /Auth
 
 # Token Authentication
 
-*hydrus* provides an Authorization/Authentication procedure that can be put in place for allowing operations on endpoints based on a simple Two-Factor Authentication method.
+*hydrus* provides an Authorization/Authentication procedure that allow operations on endpoints using a simple Two-Factor Authentication method.
 
-This page explains the authentication options you can apply to your API deployed with hydrus.
+This page explains the authentication options that can be applied to any hydrus-deployed API.
 
 ### How to enable authentication?
 
-Authentication can be enabled using two simple commands in the following manner while setting up your API:
+Authentication can be enabled while setting up the API using two simple commands:
 
 ```python
     # Add authorised users to the API.
@@ -22,29 +22,28 @@ Authentication can be enabled using two simple commands in the following manner 
         with set_token(app, True):
         #Add token based authorization
 ```
-- `add_user(id_=1, paraphrase="test", session=session)` function allows you to add authorized user
-   credentials in the database.
+- `add_user(id_=1, paraphrase="test", session=session):` This function adds authorized user credentials in the database.
 - `with set_authentication(app, True):` This function sets the authentication appcontext variable 
-   to use authentication for each request. You cen set it to `False` if you don't need authentication
-   for your endpoints.
-- `with set_token(app, True):` Once authentication is set for endpoints this function allows you to enable    a basic token based authorization for the users.
+   to use authentication for each request. Set it to `False` if authentication
+   is not needed for the endpoints.
+- `with set_token(app, True):` Once authentication is set for endpoints, this function can enable a basic token based authorization for the users.
 
 ### Authentication system of the API
 
-Currently the API uses a basic **two factor authentication** to authenticate the users to the API
-using **user nonce** and **credentials**.
-Here is a step by step detailed explanation of the authentication system :
+Currently, the API uses a basic **two factor authentication** to authenticate the users to the API.
+**user nonce** and **credentials** are used during this process.
+Here is a step by step explanation of the authentication system :
 
 - The user requests the server for a protected resource.
 - The server responds with a `401 response` along with a nonce-value in the `X-Authentication` header
-  as `X-Authentication: nonce-value` and a `basic authentication` challange.
+  as `X-Authentication: nonce-value` and a `basic authentication` challenge.
 - The client has to provide the user credentials in the `Authorization header` encoded in the basic 
-  authentication format i.e base64 as `Authorization: Basic encoded-credentials` where the `encoded-credentials` string is generated as
+  authentication format (i.e base64) as `Authorization: Basic encoded-credentials` where the `encoded-credentials` string is generated as
    ``` python
         b64encode(b"username:password").decode("ascii")
    ```
-- Along with the credentials, the client has to provide the nonce value obtained from the server in          previous response in the `X-Authentication` header. The **nonce** is **valid for 1 min** and is valid      for **1 request only**, i.e the client shall get a unique nonce everytime the server sends a 401           response.
-- After succesful authentication the server responds with the user token(if enabled) or the response data. 
+- Along with the credentials, the client has to provide the nonce value obtained from the server in         the `X-Authentication` header of the previous response. The **nonce** is **valid for 1 min** and for **1 request only**. The client shall get a unique nonce everytime the server sends a 401           response.
+- After successful authentication, the server responds with the user token(if enabled) or the response data. 
 
 
 Here is an example of server `failed authentication response`:
@@ -63,7 +62,7 @@ Here is an example of server `failed authentication response`:
 }
 ```
 
-And here is the corresponding user request to succesfully authenticate with the server:
+Here is the corresponding user request to successfully authenticate with the server:
 
 ``` bash
  GET /serverapi/DroneCollection HTTP/1.1
@@ -79,16 +78,16 @@ And here is the corresponding user request to succesfully authenticate with the 
 Once the client is authenticated, the API assigns a **unique time-bound token** to the client.
 This token can now be used by the client to access any protected endpoint within the token-expiry time
 which is set to **45 min**.
-The user can request for the token by successfully authenticating with the server and the token alone 
+The user can request for the token by successfully authenticating with the server, and the token alone 
 can be used to access any resource without any further authentication.
 
-Here is a step by step explanation to the token based authorisation system:
+Here is a step by step explanation to the token-based authorisation system:
 
 - The server sends a `200` response with the token value in the `X-Authorization` header.
 - The client can now request any resource just by adding the token in the `X-Authorization` request
   header.
 
-Here is the token generation response after client succesfully authenticates in the above request:
+Here is the token generation response after client successfully authenticates in the above request:
 
 ``` bash
  HTTP/1.1 200 OK
@@ -104,7 +103,7 @@ Here is the token generation response after client succesfully authenticates in 
 }
 ``` 
 
-And this the sample format of a user request to access any protected endpoint:
+This is the sample format of a user request to access any protected endpoint:
 
 ``` bash
  GET /serverapi/DroneCollection HTTP/1.1
@@ -115,4 +114,3 @@ And this the sample format of a user request to access any protected endpoint:
 ```
 
 ---
-
