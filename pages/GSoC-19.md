@@ -16,6 +16,8 @@ To get in touch with the Community:
 
 # [Ideas for GSoC 2019](#Ideas)
 
+We prepared an overview of the general objectives for this GSOC, you can read it in these [Github projects](https://github.com/orgs/HTTP-APIs/projects).
+
 ## 1. Work on the Hydra Agent
 ### Main Idea:
 Currently, the client is a proof of concept and only implements GET requests. We need a full-fledged client that is in compliance with the Hydra Spec. We also need to make sure that the client syncs with the server to keep its data updated, this is not currently handled by the client. The client must also contain a battery of tests to ensure that a server is in compliance with the Spec or not.
