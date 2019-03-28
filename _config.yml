@@ -76,10 +76,11 @@ sass:
   style: :compressed # You might prefer to minify using :compressed
 
 # Use the following gems
-plugins:
+plugins_dir:
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-paginate
+
+gems: [jekyll-paginate]
 
 # Exclude these files from your production _site
 exclude:
