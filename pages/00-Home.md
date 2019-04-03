@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Foundationsm | Hydraecosystem.org
+title: Foundations | Hydraecosystem.org
 permalink: /00-Home
 ---
 
