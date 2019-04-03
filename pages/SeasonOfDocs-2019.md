@@ -77,7 +77,7 @@ This project will help you learn and demonstrate your documentation tooling, inf
 
 ## Contacts
 
-Mentor: ... add email ...
+Students can reach mentors by writing at _hydra-ecosystem-documentation[snail-here]googlegroups.com_
 
 Join the Development Community: [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/HTTP-APIs/Lobby)
 
