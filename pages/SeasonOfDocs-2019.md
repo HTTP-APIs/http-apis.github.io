@@ -1,3 +1,9 @@
+---
+layout: page
+title: Google Season of Docs 2019 | Hydraecosystem.org
+permalink: /seasonofdocs-2019
+---
+
 # Project Ideas
 
 ## Writing the conceptual and architectural overviews for the project
