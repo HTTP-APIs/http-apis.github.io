@@ -6,7 +6,7 @@ permalink: /seasonofdocs-2019
 
 # Project Ideas
 
-These are our initial ideas, students can create their proposals by combining these ideas and/or adding their own. New ideas always welcome!
+These are our initial ideas. Technical writers can create their proposals by combining these ideas and/or adding their own. New ideas always welcome!
 
 ## 1. Writing the conceptual and architectural overviews for the project
 
@@ -77,7 +77,7 @@ This project will help you learn and demonstrate your documentation tooling, inf
 
 ## Contacts
 
-Students can reach mentors by writing at _hydra-ecosystem-documentation[snail-here]googlegroups.com_
+Technical writers can reach mentors by writing at _hydra-ecosystem-documentation[snail-here]googlegroups.com_
 
 Join the Development Community: [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/HTTP-APIs/Lobby)
 
