@@ -73,7 +73,7 @@ def test_method(arg1, arg2, ...):
 
 ## Design annotations
 * `hydrus` is developed in `flask` because the applications we had in mind were mostly related to IoT and sensors, so it was supposed to be lightweight and functional. By the way we can consider also more structured options like having versions that works with Django or Pyramid.
-* Read the [issues labeled as "wiki"](https://github.com/HTTP-APIs/hydrus/issues?q=is%3Aissue+is%3Aopen+label%3Awiki)
+* Read the [issues labeled as "wiki"](https://github.com/HTTP-APIs/hydrus/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Awiki+)
 
 ---
 
