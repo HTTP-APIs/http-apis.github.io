@@ -58,6 +58,7 @@ def test_method(arg1, arg2, ...):
 
 ### Others
 * In general, no permission is needed to work on the code. Fork `develop` branch and keep your downstream branch updated; when done submit a PR and ask for reviewing. PR is the natural place for code comparison and corrections. Code for issues with multiple PRs will be integrated at reviewing time.
+* If you are working on a new idea/core modification it's important that it adhere to the [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/). We don't add anything to the API documentation that is not defined in the Hydra spec.
 
 ## Worth knowing
 * Writing a [proposal for GSOC](https://google.github.io/gsocguides/student/writing-a-proposal)
