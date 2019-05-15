@@ -12,6 +12,7 @@
 /**************/
 /* BASE RULES */
 /**************/
+$headers-color: #686868;
 
 html {
   font-size: 100%;
@@ -31,8 +32,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
-  color: $darkerGray;
-  // font-weight: bold;
+  color: $headers-color;
+  font-weight: bold;
 
   line-height: 1.7;
   margin: 1em 0 15px;
