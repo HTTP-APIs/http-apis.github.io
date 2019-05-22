@@ -32,6 +32,6 @@ For a general introduction you may want to follow the index:
     * [GSOC-2018](/GSoC-2018)
     * [IriTemplate example](/IriTemplate)
 
-This development community is part of [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/6557492048297984/) and [**Google Season of Docs**](https://developers.google.com/season-of-docs/docs/participants/#hydra-ecosystem-documentation).
+This development community is part of [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/6557492048297984/) and [**Season of Docs**](https://developers.google.com/season-of-docs/docs/participants/#hydra-ecosystem-documentation).
 
 <a class="twitter-timeline"  href="https://twitter.com/HydraEcosystem?ref_src=twsrc%5Etfw">Tweets by HydraEcosystem</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
