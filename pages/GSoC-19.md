@@ -14,6 +14,8 @@ To get in touch with the Community:
 * [Gitter chat Lobby](https://gitter.im/HTTP-APIs/Lobby)
 * [Gitter chat Beginners](https://gitter.im/HTTP-APIs/Beginners)
 
+<div id="Ideas"></div>
+
 # [Ideas for GSoC 2019](#Ideas)
 
 We prepared an overview of the general objectives for this GSOC, you can read it in these [Github projects](https://github.com/orgs/HTTP-APIs/projects).
