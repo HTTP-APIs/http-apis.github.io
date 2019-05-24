@@ -12,17 +12,20 @@ A general introduction: [What does it mean to be a Open Source Maintainer](https
 2. Having a general understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples.
 3. Having a general understanding of [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html)
 4. Having a general understanding of [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827)
-5. Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
-6. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
-7. Read [Hydra-CG gitbook](https://github.com/HydraCG/gitbook)
-8. Read [hydrus WIKI](https://www.hydraecosystem.org/00-Home). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
-9. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
-10. There are different rooms in Gitter in which to interact with other contributors:
+5. Read these two papers [Hydra: A Vocabulary for Hypermedia-Driven Web APIs
+(Markus Lanthaler, Christian Gütl (2013))](http://www.markus-lanthaler.com/research/hydra-a-vocabulary-for-hypermedia-driven-web-apis.pdf) and [Creating 3rd Generation Web APIs with Hydra
+(Markus Lanthaler (2013))](http://www.markus-lanthaler.com/research/creating-3rd-generation-web-apis-with-hydra.pdf)
+6. Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
+7. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
+8. Read [Hydra-CG gitbook](https://github.com/HydraCG/gitbook)
+9. Read [hydrus WIKI](https://www.hydraecosystem.org/00-Home). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
+10. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
+11. There are different rooms in Gitter in which to interact with other contributors:
 * [Demos room: talk about creating new demo implementations](https://gitter.im/HTTP-APIs/Demos-creation)
 * [Improving hydrus room: issues, solutions and ideas](https://gitter.im/HTTP-APIs/Improving-Hydrus)
 * [Beginners: experienced contributors help newcomers](https://gitter.im/HTTP-APIs/Beginners)
-11. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
-12. Get familiar with [Docker container engine](https://docker-curriculum.com/) and its best practices to deploy virtualized environments.
+12. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
+13. Get familiar with [Docker container engine](https://docker-curriculum.com/) and its best practices to deploy virtualized environments.
 
 ## General guidelines to contributing
 
@@ -66,6 +69,7 @@ def test_method(arg1, arg2, ...):
 * [A Web API ecosystem through feature-based reuse](https://arxiv.org/abs/1609.07108)
 * [Triple Pattern Fragments](https://biblio.ugent.be/publication/8050661/file/8050671.pdf)
 * List of useful papers [here](https://arxiv.org/find/all/1/all:+verborgh/0/1/0/all/0/1)
+* List of publication by Markus Lanthaler [here](http://www.markus-lanthaler.com/publications)
 * Python [design patterns](https://github.com/crista/exercises-in-programming-style)
 * [Problem solving with algorithms in Python](https://runestone.academy/runestone/static/pythonds/index.html)
 * [Inside Python Virtual Machine](https://leanpub.com/insidethepythonvirtualmachine/read)
