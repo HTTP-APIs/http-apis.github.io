@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Open API parser | Hydraecosystem.org
-permalink: /Coding-Begins/
+permalink: /Parser/
 ---
 
 # Open API to Hydra Parser 

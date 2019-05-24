@@ -4,10 +4,10 @@ title: Hydrus Demo | Hydraecosystem.org
 permalink: hydrus-demo
 ---
 
-
 <a name="req"></a>
-Requirements
--------------
+
+## Requirements
+
 The system is built over the following standards and tools:
 - [Flask](http://flask.pocoo.org/) a Python based micro-framework for handling server requests and responses.
 - [JSON-LD](http://json-ld.org/spec/latest/json-ld/) as the preferred data format.
@@ -19,8 +19,9 @@ Apart from this, there are also various Python packages that Hydrus uses. Using 
 **NOTE:** You'll need to use `python3` not `python2`.
 
 <a name="demo"></a>
-Demo
--------------
+
+## Demo
+
 To run a demo for Hydrus using the sample API, just do the following:
 
 Clone Hydrus:
@@ -52,6 +53,13 @@ hydrus serve
 The demo should be up and running on `http://localhost:8080/serverapi/`.
 
 <a name="usage"></a>
-Usage
--------------
-For more info, head to the [Usage](https://github.com/HTTP-APIs/hydrus/wiki/Usage) section of the [wiki](https://github.com/HTTP-APIs/hydra-ecosystem-wiki/blob/master/01-Usage.md).
+
+## Usage
+
+For more info, head to the [Usage](https://github.com/HTTP-APIs/hydra-ecosystem-wiki/blob/master/01-Usage.md) section of the [wiki](https://github.com/HTTP-APIs/hydra-ecosystem-wiki/).
+
+<a name="troubleshooting"></a>
+
+## Troubleshooting
+
+**If you run into any error** try the [Github search mechanism](https://github.com/HTTP-APIs/hydrus/issues?utf8=%E2%9C%93&q=) or the search tool at [our Gitter](https://gitter.im/HTTP-APIs/Lobby) or send a message.

@@ -26,7 +26,7 @@ Here a basic example of an hyperlink to another resource very common in every We
 ```
 <link rel="stylesheet" href="http://www.example.com/styles.css" />
 ```
-Linked Data allows to annotate the "quality" or "type" or "kind" of the objet referenced by using the link. An example in JSON-LD would thus look as follows.
+Linked Data allows to annotate the "quality" or "type" or "kind" of the object referenced by using the link. An example in JSON-LD would thus look as follows.
 
 #### EXAMPLE 2: Referencing a stylesheet in JSON-LD
 ```
@@ -156,7 +156,7 @@ Hydra classes are dereferenceable resources (see [definition](http://dbpedia.org
 
 Since Hydra uses classes to describe the information expected or returned by an operation, it also defines a concept to 
 describe the properties known to be supported by a class. The following example illustrates this feature. Instead of 
-referencing properties directly, `supportedPropert`y references an intermediate data structure, namely instances of the 
+referencing properties directly, `supportedProperty` references an intermediate data structure, namely instances of the 
 `SupportedProperty` class. This makes it possible to define whether a specific property is required or whether it is read-only or write-only depending on the class it is associated with.
 
 #### EXAMPLE 6: Defining a class and documenting its supported properties
