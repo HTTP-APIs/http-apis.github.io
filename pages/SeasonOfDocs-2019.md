@@ -69,7 +69,7 @@ This project will allow you to demonstrate the following technical writing skill
 The current site design and information architecture can be improved in the following ways:
 
 - Currently, [hydraecosystem.org](https://www.hydraecosystem.org/) serves as the landing page. But the lack of a sidebar/topbar nav makes it difficult to navigate the content. Implementing a navigation bar would solve this problem.
-- The API docs ([https://hydrus.readthedocs.io/en/latest/hydrus.html#submodules](https://hydrus.readthedocs.io/en/latest/hydrus.html#submodules)) need to be linked from the main site. If time permits, the API docs can be restructured to make them user-friendly.
+- The API docs ([hydrus submodules](https://hydrus.readthedocs.io/en/latest/hydrus.html#submodules)) need to be linked from the main site. If time permits, the API docs can be restructured to make them user-friendly.
 - The existing pages from different authors can be edited to make the content flow better and appear more homogeneous in the style of writing. 
 
 ### Tech writer's takeaways:
@@ -80,5 +80,3 @@ This project will help you learn and demonstrate your documentation tooling, inf
 Technical writers can reach mentors by writing at _hydra-ecosystem-documentation[snail-here]googlegroups.com_
 
 Join the Development Community: [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/HTTP-APIs/Lobby)
-
-
