@@ -1,10 +1,10 @@
-# Hydra Ecosystem Documentation Website
+# Hydra Ecosystem Documentation
 
 This is the source-code behind [hydraecosystem.org](https://hydraecosystem.org), the official documentation of the Hydra Ecosystem toolset.
 
-## Running the website locally:
+## Viewing the documentation offline
 
-The documentation is hosted on [GitHub Pages](https://pages.github.com) and uses the static site generator named [Jekyll](https://jekyllrb.com). If you want to see what your modifications look like, before you make a PR, please run the following commands:
+The documentation is hosted on [GitHub Pages](https://pages.github.com) and uses the static site generator named [Jekyll](https://jekyllrb.com). If you want to see what your modifications to the documentation would look like, before you make a PR, please run the following commands:
 
 - Check if you have Jekyll installed. if not, follow the [installation guide](https://jekyllrb.com/docs)
 ```bash
