@@ -4,13 +4,13 @@ title: Open API parser | Hydraecosystem.org
 permalink: /Parser/
 ---
 
-# Open API to Hydra Parser 
+# Open API to [Hydra Parser](https://github.com/HTTP-APIs/hydra-openapi-parser/) 
 
 The aim is to obtain the most accurate representation of API's defined using Open API specification to Hydra Specifications. 
 
 ## Parsing Structure 
 
-The parser starts parsing from the "paths" object of the OpenAPI spec from where it parses every path and method to check if the "parameter" or "responses" block is referring to an object definition defined in the spec itself, if found the parser goes to whatever location is defined to parse the object defined there. 
+The [parser](https://github.com/HTTP-APIs/hydra-openapi-parser/) starts parsing from the "paths" object of the OpenAPI spec from where it parses every path and method to check if the "parameter" or "responses" block is referring to an object definition defined in the spec itself, if found the [parser](https://github.com/HTTP-APIs/hydra-openapi-parser/) goes to whatever location is defined to parse the object defined there. 
 
 From the object definition, it gets details like class name, description etc. It also gets the properties of the object defined from there. All this information is used to define a class and its `supported_props`. 
 
