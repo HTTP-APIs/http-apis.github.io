@@ -25,6 +25,7 @@ For a general introduction you may want to follow the index:
     * [Command-line interface](/CLI)
 * **Explained**
     * [To start contributing to codebase](/Starting-Material)
+    * [Hydra Core](/Core)
     * [Parser](/Parser)
     * [Parser-Examples](/Parser-Usage)
     * [Official client design: Heracles](/heracles_explained)
