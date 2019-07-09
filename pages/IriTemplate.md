@@ -136,6 +136,83 @@ From the reponse data above and the client-side code given above we can see that
 any changes and keep functioning normally. For x = 22990 and y = 14232 and zoom = 15 the URI constucted by the client
 will be [https://c.tile.openstreetmap.org/15/14232/22990.png](https://c.tile.openstreetmap.org/15/14232/22990.png).
 
+### Searching interface supported by hydrus
+hydrus utilizes above explained `IriTemplate` to provide a searching interface over collection of items.
+To every collection response it attaches an IriTempale. This `IriTemplate` has template mapping defined for all the properties of the objects contained by the collection.
+For illustration the `IriTemplate` generated for DroneCollection(defined in our [flock-vocab](https://github.com/HTTP-APIs/hydra-flock-vocab)) is attached below.
+```js
+{
+ "@type":"IriTemplate",
+ "mapping":[
+ {
+  "@type":"IriTemplateMapping",
+  "property":"http://auto.schema.org/speed",
+  "required":false,
+  "variable":"DroneState[Speed]"
+ },
+ {
+  "@type":"IriTemplateMapping",
+  "property":"http://schema.org/geo",
+  "required":false,
+  "variable":"DroneState[Position]"
+ },
+ {
+  "@type":"IriTemplateMapping",
+  "property":"http://schema.org/Property",
+  "required":false,
+  "variable":"DroneState[Direction]"
+ },
+ {
+  "@type":"IriTemplateMapping",
+  "property":"http://schema.org/fuelCapacity",
+  "required":false,
+  "variable":"DroneState[Battery]"
+ },
+ {
+  "@type":"IriTemplateMapping",
+  "property":"https://schema.org/status",
+  "required":false,
+  "variable":"DroneState[SensorStatus]"
+ },
+ { 
+  "@type":"IriTemplateMapping",
+  "property":"vocab:Drone",
+  "required":false,
+  "variable":"DroneState[DroneURI]"
+ },
+ {
+  "@type":"IriTemplateMapping",
+  "property":"http://schema.org/name",
+  "required":false,
+  "variable":"name"
+ },
+ {
+  "@type":"IriTemplateMapping",
+  "property":"http://schema.org/model",
+  "required":false,
+  "variable":"model"
+ },
+ {
+  "@type":"IriTemplateMapping",
+  "property":"http://auto.schema.org/speed",
+  "required":false,
+  "variable":"MaxSpeed"
+ },
+ {
+  "@type":"IriTemplateMapping",
+  "property":"http://schema.org/device",
+  "required":false,
+  "variable":"Sensor"
+  }],
+"template":"/serverapi/DroneCollection(DroneState[Speed], DroneState[Position], DroneState[Direction], DroneState[Battery],
+           DroneState[SensorStatus], DroneState[DroneURI], name, model, MaxSpeed, Sensor)",
+"variableRepresentation":"hydra:BasicRepresentation"
+}
+```
+
+hydrus also provides suppport for searching over sub-properties of properties. Variable names of such properties are formed as `
+MainProperty[subProperty]`. For example to search for all the Drones going in some particular direction, client can use the `DroneState[Direction]` variable.
+
 #### Further related reading
 
 * [URI Templates](https://tools.ietf.org/html/rfc6570)
