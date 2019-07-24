@@ -620,7 +620,7 @@ padding: 0 15px;
   padding-bottom: 15px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
 :target::before {
   display: block;
   Content: " ";
@@ -629,6 +629,18 @@ padding: 0 15px;
   height: 120px; // Set the Appropriate Height
   visibility: hidden;
 }
+}
+
+
+@media (min-width: 800px) and (max-width:999px) {
+  :target::before {
+    display: block;
+    Content: " ";
+    position: relative;
+    top: -150px;
+    height: 150px; // Set the Appropriate Height
+    visibility: hidden;
+  }
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
