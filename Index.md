@@ -32,6 +32,7 @@ For a general introduction you may want to follow the index:
     * [GSOC-2018](/GSoC-2018)
     * [GSOC-2019](/GSoC-19)
     * [IriTemplate example](/IriTemplate)
+    * [Pagination](/Pagination)
 
 This development community is part of [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/6557492048297984/) and [**Season of Docs**](https://developers.google.com/season-of-docs/docs/participants/#hydra-ecosystem-documentation).
 
