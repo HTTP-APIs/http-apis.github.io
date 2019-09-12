@@ -4,7 +4,7 @@ This is the source-code behind [hydraecosystem.org](https://hydraecosystem.org),
 
 ## Viewing the Documentation Offline
 
-The documentation is hosted on [GitHub Pages](https://pages.github.com) and uses the static site generator named [Jekyll](https://jekyllrb.com). If you want to see what your modifications to the documentation would look like, before you make a PR, please run the following commands:
+The documentation is hosted on [GitHub Pages](https://pages.github.com) and uses the static site generator named [Jekyll](https://jekyllrb.com). You may see [this video](https://www.youtube.com/watch?v=iWowJBRMtpc) to get started with jekyll. If you want to see what your modifications to the documentation would look like, before you make a PR, please run the following commands:
 
 - Check if you have Jekyll installed. if not, follow the [installation guide](https://jekyllrb.com/docs)
 ```bash
@@ -12,7 +12,7 @@ jekyll -v
 ```
 - Start a live-server which serves statically generated content, changes made will make real-time changes to it.
 ```bash
-bundle exec jekyll serve
+jekyll serve --incremental
 ```
 
 **Note:** Just running the `jekyll` command without any arguments, might build a static website in html form with-in the `public` directory, please make sure not to include this in your PR.
