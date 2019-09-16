@@ -1,0 +1,22 @@
+<!-- <nav> -->
+<span class="sidebar-heading">Introduction</span>
+{% for item in site.data.introduction-nav %}
+<a href="{{ item.link }}" {% if page.url == item.link %} style="color: red;" {% endif %}>
+  {{ item.name }}
+</a>
+{% endfor %}
+
+<span class="sidebar-heading">Getting Started</span>
+{% for item in site.data.getting-started-nav %}
+<a href="{{ item.link }}" {% if page.url == item.link %} style="color: red;" {% endif %}>
+  {{ item.name }}
+</a>
+{% endfor %}
+
+<span class="sidebar-heading">Explained</span>
+{% for item in site.data.introduction-nav %}
+<a href="{{ item.link }}" {% if page.url == item.link %} style="color: red;" {% endif %}>
+  {{ item.name }}
+</a>
+{% endfor %}
+<!-- </nav> -->

@@ -1,0 +1,8 @@
+- name: To start contributing to codebase
+  link: /Starting-Material
+- name: Parser 
+  link: /01-Usage
+- name: Authentication
+  link: /Auth
+- name: Command-line interface
+  link: /CLI

@@ -80,6 +80,12 @@ plugins_dir:
   - jekyll-sitemap
   - jekyll-feed
 
+# Enable Live Reload
+livereload: true
+
+# Enable Incremental Reload
+# incremental: true
+
 # gems: [jekyll-paginate]
 
 # Exclude these files from your production _site
