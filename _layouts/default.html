@@ -54,6 +54,15 @@
       </header>
     </div>
   </div>
+
+  <div class="m-sidebar move_m_sidebar_up">
+    <div class="container">
+      {% include m-sidebar.html %}
+    </div>
+  </div>
+
+  <button onclick="handleSidebarToggleBtn()" id="sidebar-toggle-btn"></button>
+
   <div id="main" role="main" style="position: relative" class="container entry-index flex-simple">
     <div class="container">
       {{ content }}
@@ -61,9 +70,6 @@
     <div class="sidebar">
       {% include sidebar.html %}
     </div>
-    <div class="m-sidebar">
-        {% include m-sidebar.html %}
-      </div>
   </div>
 
   <div class="wrapper-footer">
@@ -74,6 +80,8 @@
       </footer>
     </div>
   </div>
+
+  <script src="{{ site.baseurl }}/index.js"/>
 
   {% include analytics.html %}
 
