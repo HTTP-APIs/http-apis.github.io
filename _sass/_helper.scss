@@ -50,7 +50,7 @@
 	top: 0;
 	position: fixed;
 	height: 100%;
-	width: 100%;
+	width: 100vw;
 	z-index: 2;
 	background: #fff;
   padding: 20px;
@@ -65,7 +65,7 @@
 		align-items: center;
 
 		& > * {
-			margin-bottom: 0.5vh;
+			margin-bottom: 3px;
 		}
 	}
 
@@ -87,7 +87,7 @@
 }
 
 .move_m_sidebar_up{
-  transform: translateY(-100vh) !important;
+	transform: translateY(-100%) !important;
 }
 
 .sidebar-toggle-btn-clicked{
