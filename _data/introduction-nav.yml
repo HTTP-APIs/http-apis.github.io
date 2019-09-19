@@ -1,8 +1,8 @@
 - name: Foundations
-  link: /00-Home
+  link: 00-Home
 - name: Developing APIs with Hydra
-  link: /Workflow
+  link: Workflow
 - name: Hydra by example
-  link: /Example
+  link: Example
 - name: Hydra Network Walkthrough
-  link: /Design
+  link: Design

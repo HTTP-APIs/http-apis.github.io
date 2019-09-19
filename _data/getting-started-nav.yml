@@ -1,8 +1,8 @@
 - name: Hydrus Server
-  link: /hydrus-demo
+  link: hydrus-demo
 - name: Developing with hydrus 
-  link: /01-Usage
+  link: 01-Usage
 - name: Authentication
-  link: /Auth
+  link: Auth
 - name: Command-line interface
-  link: /CLI
+  link: CLI
