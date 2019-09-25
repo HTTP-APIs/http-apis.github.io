@@ -1,5 +1,3 @@
-- name: To start contributing to codebase
-  link: Starting-Material
 - name: Parser 
   link: Parser
 - name: Parser-Examples
@@ -8,10 +6,6 @@
   link: heracles_explained
 - name: Python Hydra agent
   link: hydra-agent-redis-graph
-- name: GSOC-2018
-  link: GSoC-2018
-- name: GSOC-2019
-  link: GSoC-2019
 - name: IriTemplate example
   link: IriTemplate
 - name: Pagination
