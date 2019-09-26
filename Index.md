@@ -10,7 +10,7 @@ Hydra is currently a draft created by [**World Wide Web Consortium's Hydra Commu
 
 **Hydra Ecosystem** promotes and facilitates the adoption of Hydra.
 
-For a general introduction you may want to follow the index:
+<!-- For a general introduction you may want to follow the index:
 
 * **Introduction**
     * [Foundations](/00-Home)
@@ -32,9 +32,11 @@ For a general introduction you may want to follow the index:
     * [GSOC-2018](/GSoC-2018)
     * [GSOC-2019](/GSoC-19)
     * [IriTemplate example](/IriTemplate)
-    * [Pagination](/Pagination)
+    * [Pagination](/Pagination) -->
 
 This development community is part of [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/6557492048297984/) and [**Season of Docs**](https://developers.google.com/season-of-docs/docs/participants/#hydra-ecosystem-documentation).
+
+# News
 
 <a class="twitter-timeline" data-width="500" data-height="500" data-link-color="#FAB81E" href="https://twitter.com/HydraEcosystem?ref_src=twsrc%5Etfw">Tweets by HydraEcosystem</a> 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
