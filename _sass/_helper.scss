@@ -1,0 +1,142 @@
+.flex-simple {
+	display: flex;
+	align-items: flex-start;
+	position: relative;
+
+	// .container{
+	//   width: 100%;
+	// }
+}
+
+.sidebar {
+	position: sticky;
+	top: 125px;
+	flex-shrink: 0;
+	// flex-grow: 0;
+	width: 300px;
+	// background: #eee;
+	border-left: 1px solid #ddd;
+	padding: 10px 0px 10px 25px;
+	margin-left: 10px;
+	// box-shadow: 0 0 10px #ccc;
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+
+	& > * {
+		margin-bottom: 3px;
+	}
+
+	a {
+		color: #aaa;
+
+		&:hover {
+			color: #555555;
+		}
+	}
+
+	.sidebar-heading {
+		font-weight: 900;
+	}
+
+	.sidebar-white-space {
+		height: 1em;
+	}
+}
+
+.m-sidebar {
+	display: none;
+	// position: absolute;
+	top: 0;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	background: #fff;
+  padding: 20px;
+  font-size: 16px;
+  transition: all 0.3s;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+
+		& > * {
+			margin-bottom: 0.5vh;
+		}
+	}
+
+	a {
+		color: #aaa;
+
+		&:hover {
+			color: #555555;
+		}
+	}
+
+	.sidebar-heading {
+		font-weight: 900;
+	}
+
+	.sidebar-white-space {
+		height: 1em;
+	}
+}
+
+.move_m_sidebar_up{
+  transform: translateY(-100vh) !important;
+}
+
+.sidebar-toggle-btn-clicked{
+  &::after{
+    width: 70% !important;
+    height: 70% !important;
+    background: #373737 !important;
+  }
+}
+
+#sidebar-toggle-btn {
+  display: none;
+  z-index: 10;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #222;
+	position: fixed;
+	top: 10px;
+  left: 10px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  border: 0;
+  transition: all 0.3s;
+
+  &::after{
+    content: "";
+    display: inline-block;
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    background: #555;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s;
+  }
+}
+
+@media (max-width: 1024px) {
+	.sidebar {
+		display: none;
+	}
+
+	.m-sidebar {
+		display: block;
+	}
+
+	#sidebar-toggle-btn {
+		display: inline-block;
+	}
+}

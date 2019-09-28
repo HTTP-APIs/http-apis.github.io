@@ -9,6 +9,9 @@
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
 
+@import "helper";
+// scss for sidebar and layout overrides
+
 /**************/
 /* BASE RULES */
 /**************/
@@ -250,8 +253,6 @@ img {
   .entry-index{
     padding-top:125px;
   }
-
-
 
 }
 
