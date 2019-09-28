@@ -79,4 +79,4 @@ This project will help you learn and demonstrate your documentation tooling, inf
 
 Technical writers can reach mentors by writing at _hydra-ecosystem-documentation[snail-here]googlegroups.com_
 
-Join the Development Community: [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/HTTP-APIs/Lobby)
+Join the Development Community. Visit our [Slack channel](https://app.slack.com/client/TMGNKBP5X/CMR0C8WJ3)
