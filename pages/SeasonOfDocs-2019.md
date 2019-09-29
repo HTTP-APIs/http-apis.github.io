@@ -77,6 +77,6 @@ This project will help you learn and demonstrate your documentation tooling, inf
 
 ## Contacts
 
-Technical writers can reach mentors by writing at _hydra-ecosystem-documentation[snail-here]googlegroups.com_
+Technical writers can reach mentors by writing at _mentors@hydraecosystem.org_ and _collective@hydraecosystem.org_
 
-Join the Development Community. Visit our [Slack channel](https://app.slack.com/client/TMGNKBP5X/CMR0C8WJ3)
+Join the Development Community. Visit our [Slack channel](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzI1NzAzNzUxMTg3LWJlMDU1MjI5YzNlYTIyZDVkODllN2ZlNjk1MjQzN2RiYzcxNzE4OGM2MzlkZTI5Y2JhNGQ3NmFlZWIxN2I1ZTg)

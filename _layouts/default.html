@@ -69,14 +69,17 @@
 
   <!-- <button onclick="handleSidebarToggleBtn()" id="sidebar-toggle-btn"></button> -->
 
-  <div id="main" role="main" style="position: relative" class="container entry-index flex-simple">
-    <div class="container">
-      {{ content }}
-    </div>
-    <div class="sidebar">
-      {% include sidebar.html %}
+  <div class="container">
+    <div class="flex-simple">
+      <div id="main" role="main" style="position: relative; overflow-x: scroll;" class="container entry-index">
+        {{ content }}
+      </div>
+      <div class="sidebar">
+        {% include sidebar.html %}
+      </div>
     </div>
   </div>
+
 
   <div class="wrapper-footer">
     <div class="container">
@@ -87,7 +90,7 @@
     </div>
   </div>
 
-  <script src="{{ site.baseurl }}/index.js"/>
+  <script src="{{ site.baseurl }}/index.js" />
 
   {% include analytics.html %}
 
