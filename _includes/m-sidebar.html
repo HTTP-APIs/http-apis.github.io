@@ -1,8 +1,9 @@
 <!-- <nav> -->
 <span class="sidebar-heading">Introduction</span>
 {% for item in site.data.introduction-nav %}
-<a href="{{ item.link }}" {% if page.url == item.link %} style="color: #4183C4;" {% endif %}>
-  {{ item.name }}
+{% assign url = page.url | remove: "/" %}
+<a href="{{ item.link }}">
+  <span {% if url == item.link %} class="selected-link" {% endif %}>{{item.name}}</span>
 </a>
 {% endfor %}
 
@@ -10,8 +11,9 @@
 
 <span class="sidebar-heading">Getting Started</span>
 {% for item in site.data.getting-started-nav %}
-<a href="{{ item.link }}" {% if page.url == item.link %} style="color: #4183C4;" {% endif %}>
-  {{ item.name }}
+{% assign url = page.url | remove: "/" %}
+<a href="{{ item.link }}">
+  <span {% if url == item.link %} class="selected-link" {% endif %}>{{item.name}}</span>
 </a>
 {% endfor %}
 
@@ -19,8 +21,19 @@
 
 <span class="sidebar-heading">Explained</span>
 {% for item in site.data.explained-nav %}
-<a href="{{ item.link }}" {% if page.url == item.link %} style="color: #4183C4;" {% endif %}>
-  {{ item.name }}
+{% assign url = page.url | remove: "/" %}
+<a href="{{ item.link }}">
+  <span {% if url == item.link %} class="selected-link" {% endif %}>{{item.name}}</span>
+</a>
+{% endfor %}
+
+<div class="sidebar-white-space"></div>
+
+<span class="sidebar-heading">Archives</span>
+{% for item in site.data.archive-nav %}
+{% assign url = page.url | remove: "/" %}
+<a href="{{ item.link }}">
+  <span {% if url == item.link %} class="selected-link" {% endif %}>{{item.name}}</span>
 </a>
 {% endfor %}
 <!-- </nav> -->
