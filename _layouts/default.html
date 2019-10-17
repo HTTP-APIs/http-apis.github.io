@@ -61,22 +61,26 @@
     </div>
   </div>
 
+  {% if page.url != "/" %}
   <button class="hamburger hamburger--vortex" id="menu-toggle-btn" onclick="handleSidebarToggleBtn()" type="button">
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
     </span>
   </button>
+  {% endif %}
 
   <!-- <button onclick="handleSidebarToggleBtn()" id="sidebar-toggle-btn"></button> -->
 
   <div class="container">
     <div class="flex-simple">
-      <div id="main" role="main" style="position: relative; overflow-x: scroll;" class="container entry-index">
+      <div id="main" role="main" style="position: relative; overflow-x: scroll" class="entry-index">
         {{ content }}
       </div>
+      {% if page.url != "/" %}
       <div class="sidebar">
         {% include sidebar.html %}
       </div>
+      {% endif %}
     </div>
   </div>
 

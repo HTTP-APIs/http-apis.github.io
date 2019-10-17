@@ -1,5 +1,6 @@
 let $menu_toggle_button = document.getElementById("menu-toggle-btn");
 let $m_sidebar = document.querySelector(".m-sidebar");
+let $sidebar = document.querySelector(".sidebar");
 
 const handleSidebarToggleBtn = function(){
   console.log($m_sidebar.style.transform);
@@ -15,17 +16,6 @@ let widgetCSS = "" +
     ".timeline-Tweet-text{color: #ffffff;}" +
     ".timeline-tweetList-tweet, .timeline-LoadMore, .timeline-Footer{background-color: rgba(0, 0, 0, 0.8);}" +
     ".TweetAuthor-name{color:#ffffff;}";
-
-const paintTwitterCss = function paint(){
-  // var w = document.getElementById("twitter-widget-0").contentDocument;
-
-  console.log(document.getElementById("twitter-widget-0"));
-  
-  var s = document.createElement("style");
-  // s.innerHTML = widgetCSS;
-  // s.type = "text/css";
-  // w.head.appendChild(s);
-};
 
 document.addEventListener("DOMContentLoaded", function(){
   // Function that changes background of twitter widget
@@ -62,5 +52,5 @@ document.addEventListener("DOMContentLoaded", function(){
   
   // Run function every second until it will terminate setinterval by itself
   var myInterval = setInterval(populateIframe, 1000);
-  
+    
   });
