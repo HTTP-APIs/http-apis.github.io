@@ -1,8 +1,10 @@
-- name: Foundations
+- name: Prerequisites
+  link: Prerequisites
+- name: What is Hydra?
+  link: Hydra
+- name: Hydra Ecosystem basics
   link: 00-Home
-- name: Developing APIs with Hydra
+- name: Workflow
   link: Workflow
-- name: Hydra by example
-  link: Example
-- name: Hydra Network Walkthrough
+- name: Hydra Network 101
   link: Design
