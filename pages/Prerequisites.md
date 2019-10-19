@@ -15,3 +15,14 @@ Below some information is listed, which is important to be known. If you know th
 * **RDFa :** _RDFa is an extension to HTML5 that helps you markup things like People, Places, Events, Recipes and Reviews._ Search Engines and Web Services use this markup to generate better search listings and give you better visibility on the Web, so that people can find your website more easily. RDFa is based on triplets. An eg triplet can be Amit > knows > Chris. You may find more about it [here](https://www.w3.org/RDF/)
 
 * **JSON-LD :** _JSON-LD (JavaScript Object Notation for Linked Data), is a method of encoding Linked Data using JSON._ It was a goal to require as little effort as possible from developers to transform their existing JSON to JSON-LD. You may find more about it [here](https://en.wikipedia.org/wiki/JSON-LD). 
+
+* **Next-Gen APIs :** Modified version of APIs (currently in use which are not understandable by computers) whose data can be interpreted by computers.
+
+* **Hypermedia-Driven Web APIs :** A rest API that contains links, You can navigate by clicking on these links just like you do in a web browser. 
+
+* **Shema.org :** Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, email messages, and beyond.
+Schema.org vocabulary can be used with many different encodings, including RDFa, Microdata and JSON-LD. These vocabularies cover entities, relationships between entities and actions, and can easily be extended through a well-documented extension model. Over 10 million sites use Schema.org to markup their web pages and email messages. Many applications from Google, Microsoft, Pinterest, Yandex and others already use these vocabularies to power rich, extensible experiences.
+
+**Note :** Hydra and Schema.org both provides vocabulary to create Next Gen Web APIs, But we use Hydra because it provides much more vocabulary as compared to schema.org.
+
+Now that you have some basic knowledge about terms shown above, You can move ahead to <a href="/Hydra">next</a> section
