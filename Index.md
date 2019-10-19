@@ -12,6 +12,8 @@ Hydra is currently a draft created by [**World Wide Web Consortium's Hydra Commu
 
 This development community is part of [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/6557492048297984/) and [**Season of Docs**](https://developers.google.com/season-of-docs/docs/participants/#hydra-ecosystem-documentation).
 
+<a id="explore-more" href="/Prerequisites"><span class="btn-text">Explore more</span><span class="arrow">→</span></a>
+
 # News
 
 <a class="twitter-timeline" data-width="500" data-height="500" data-link-color="#FAB81E" href="https://twitter.com/HydraEcosystem?ref_src=twsrc%5Etfw">Tweets by HydraEcosystem</a> 
