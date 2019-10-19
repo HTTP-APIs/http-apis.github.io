@@ -5,12 +5,16 @@ permalink: /Hydra
 ---
 
 # What is Hydra?
-
-It's basically a documentation framework based on Linked Data which provides vocabulary (similar to schema.org) which aids in the creation of Next Generation Web APIs.
+Hydra is a framework that enables REST APIs to be described semantically using RDF. It is based on JSON-LD and proposed as <a href="https://www.hydra-cg.com/spec/latest/core/">W3C draft</a>. It can also be formulated as a documentation framework based on Linked Data which provides vocabulary (similar to schema.org) that aids in the creation of Next Generation Web APIs.
 
 # What's so unique about it?
 
-Hydra in a nutshell is an extension of RDFa technology. As you might already know that our current web is transitioning to Semantic web. In order to acheive that we need to use RDFa based tools (which takes concepts of semantic web in regard) where ever possible. As hydra is just an extension of RDFa, you can imagine it as the closest relative of RDFa when we talk of documentation frameworks. This makes hydra nearly 100% semantic. That's the thing unique about it and also justification for _why we should use it?_. 
+Hydra in a nutshell is just an extension of JSON-LD technology. As you might already know that our current web is transitioning to Semantic web. In order to acheive that we need to use semantic web tools where ever possible. We can confidently say that Hydra is the most semantically sound tool at the moment when we talk of documentation frameworks. 
+* It is 100% Semantic Web tool as requested by W3C. 
+* It is also directly interoperable with any existing RDF/OWL repository, [(have a look)](https://en.wikipedia.org/wiki/Linked_data#Linking_Open_Data_community_project). 
+* It is easily parsable into less fluent API documentation standards. As RDF is semantically highly descriptive, it is much easier to parse documents into a less rich standard flawlessly. While the opposite, such as parsing an OpenAPI document to make its API interoperable with existing Semantic repositories, can take a long time. 
+
+These are some of the things which makes hydra unique and also justify _why we should use it?_. 
 
 # Why do we even need a documentation framework?
 
