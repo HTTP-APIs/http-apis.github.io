@@ -1,7 +1,7 @@
 - name: Start contributing
   link: Starting-Material
-- name: Hydrus Server
-  link: hydrus-demo
+# - name: Hydrus Server
+#   link: hydrus-demo
 - name: Developing with hydrus 
   link: 01-Usage
 - name: Authentication

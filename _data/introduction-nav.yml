@@ -2,9 +2,11 @@
   link: Prerequisites
 - name: What is Hydra?
   link: Hydra
+- name: Hydra By Example
+  link: Example
 - name: Hydra Ecosystem Generics
   link: 00-Home
-- name: Workflow & Design
+- name: Workflow
   link: Workflow
 - name: Hydra Network 101
   link: Design

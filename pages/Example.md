@@ -4,19 +4,6 @@ title: Explained by example | Hydraecosystem.org
 permalink: /Example
 ---
 
-# Explained by example
-
-## Small simulation
-A *Web API featuring a flock of drones* will be used to illustrate how Hydra Documentation can
-be created for hydrus.
-Basic rules for this simulation are:
-* a flock of drones have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using an infrared sensors;
-* a central controller will be able to start or stop drones and send orders to them;
-* all active drones submit their status updates every 15 seconds to the central controller.
-And much more, head over to [demo wiki](https://github.com/HTTP-APIs/hydra-flock-demo/wiki) for more information about the demo.
-
-The exemplary Web API has to expose representations for drones, datastreams, commands, states, messages, log entries and areas. To enable interaction with those resources, a client has to know which operations the server supports. In human-facing websites such affordances are typically exposed by links and forms and described in natural language, machines cannot interpret such information easily. The solution is to reduce the language to a small number of unambiguous concepts which are easily recognizable by Web API client. Hydra formalizes such concepts.
-
 ## Hyperlinks and semantic annotations
 The simplest and most important affordance on the Web are *hyperlinks*. Without them, it would be impossible to browse the Web. Users typically select the link based on the text it is labeled with. To give machines a similar understanding, links can be *annotated with a link relation* type — a registered token or a URI identifying the semantics of the link. 
 The following example shows how such a typed link is used in HTML to reference a stylesheet.

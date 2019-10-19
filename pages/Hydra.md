@@ -58,6 +58,6 @@ Okay, now let's say that I give you data from any one response, Would you be abl
 
 But as mentioned in <a href="/Prerequisites">prerequisites</a> section, The range of vocabulary provded by schema.org is not enough for API development therefore we use Hydra framework. 
 
-Okay So I think by now you must have got a broad idea of Hydra and Documentation frameworks in general. Now let's move forth to next section and study some <a href="00-Home">hydra-ecosystem basics</a>
+Okay So I think by now you must have got a broad idea of Hydra and Documentation frameworks in general. Now let's move forth to next section and study hydra by some <a href="Example">Examples</a>
 
 

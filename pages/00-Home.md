@@ -43,12 +43,12 @@ Generic components of the network are:
 
 **NOTE:** hydrus and Hydra Agent supports only Python 3.5 and above.
 
-# Demo
+## Demo - Hydrus
 It is advised to *use `docker-compose` to run the demo server*. See [README here](https://github.com/HTTP-APIs/hydrus/blob/master/README.md#start-up-the-demo).
 
 Otherwise, to run a demo for hydrus using the sample API, do the following:
 
-Clone hydrus:
+Clone Hydrus:
 ```bash
 git clone https://github.com/HTTP-APIs/hydrus
 ```
@@ -59,24 +59,32 @@ cd hydrus
 git checkout -b develop origin/develop
 ```
 
-Install requirements and run the `main.py` script:
+Install hydrus using:
 ```bash
-pip install -r requirements.txt
-
-python main.py
+pip install .
+```
+or
+```bash
+python setup.py install
 ```
 
-The demo should be now be running on `http://localhost:8080/serverapi/`.
+and run the server using:
+
+```bash
+hydrus serve
+```
+
+The demo should be up and running on `http://localhost:8080/serverapi/`.
 
 <a name="workflow"></a>
-Workflow
--------------
-For a generic overview of the Development workflow and to understand design prinicples and use cases of hyrus, head over to [Workflow & Design](/Workflow) page.
+For a generic overview of the Development workflow, head over to [Workflow](/Workflow) page.
 
 <a name="usage"></a>
-Usage
--------------
 Head over to the [Usage](/01-Usage) page of the wiki to understand how hydrus works and how to use it. 
 
+<a name="design"></a>
+Head over to the [Design](/Design) page to understand the design principles and use cases of hydrus.
+
+---
 
 
