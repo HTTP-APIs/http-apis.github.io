@@ -23,14 +23,26 @@ Follow [Example](Example.md) shown below for a more in depth explanation.
 
 # Flock Demo
 
-Assume a small simulation which consists of a Web API featuring a flock of drones. You can find demo [here](http://flockdemo.hydraecosystem.org). It basically consists of 3 major things.
-GUI: It’s the first thing you see when you open the demo (and also the only thing which you can see). You can use it to interact with the server. We also refer to it as hydra python agent.
-Controller: It’s a central hydra server which has the powers of starting, stopping drones and also giving instructions to them.
-Flock of drones: A group of drones which aim to detect fire or abnormal heat spots in a given geographical area, each drone can be active or not active at a given moment. They receive instructions from Controller and update controller every 15 sec.
+Assume a small simulation consisting of 5 different Web APIs featuring a flock of drones. 5 different APIs are-
+* Central Controller: `http://127.0.0.1:8080/api`
+* Drone 1: `http://127.0.0.1:8081/api`
+* Drone 2: `http://127.0.0.1:8081/api`
+* Drone 3: `http://127.0.0.1:8081/api`
+* Drone 4: `http://127.0.0.1:8081/api`
 
-Assuming that you have already visited the demo. You might have come across various sections and should be curious what each one of them really means. So let’s study them one by one. We’ll go from left to right, would first study all the sections at left side to the map and then would study sections right to it. So here we go!
+You can find demo [here](http://flockdemo.hydraecosystem.org). It basically consists of 3 major things.
+GUI: It’s the first thing you see when you open the demo. You can use it to interact with the server.
+Controller: It’s a central hydra server which will start, stop drones and also send orders to them.
+Flock of drones: A group of drones which aim to detect fire or abnormal heat spots in a given geographical area, each drone can be active or not active at a given moment. They receive instructions from Controller and report back in every 15 sec.
 
-First up there is input field which you can use to give instructions to individual drone, for eg you can change the speed of the drone by writing Set Drone 1 speed 10. As you might have already guessed. This message is first sent to controller via GUI and then controller takes some action depending on input supplied to it. 
+Assuming that you have already visited the demo. You might have came across various sections and might be curious what each one of them really means. So let’s study each one of them. We’ll go from left to right, would first study all the sections at left side and then would study sections right to it. So here we go!
+
+First up there is an input field which you can use to give instructions to an individual drone, for eg you can change the speed of any drone by writing `Set Drone 1 speed 10`. As you might have already figured out. This message is first sent to controller via GUI and then controller takes some action depending on input supplied to it. Action can be change in speed of a particular drone(eg input: `Set Drone 2 speed 100`), It can be change in direction of a particular drone (eg input: `Set Drone 8 direction N`). It can be change in status (eg input: 13 status off or 8 status active). 
+
+ (Change the speed of drone with id 2 to 100 Km/h.)
+Set Drone 8 direction N (Change the direction of drone with id 8 to North.)
+Set Drone 13 status off (Turn drone with id 13 off.)
+Set Drone 8 status active (Turn drone with id 8 on.)
 
 Next up is the Refresh Button, which you can use to reload active drones at any moment.
 

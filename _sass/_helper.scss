@@ -311,14 +311,15 @@
 	.btn-text{
 		transform: scale(1);
 		transform-origin: left;
-		transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+		backface-visibility: hidden;
+		transition: transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
 	}
 
 	.arrow {
 		position: absolute;
 		right: 15px;
 		opacity: 0;
-		transform: translateX(10px);
+		transform: translate(10px, -4px);
 		transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
 	}
 
@@ -328,7 +329,7 @@
 		}
 		.arrow {
 			opacity: 1;
-			transform: translateX(0px);
+			transform: translate(0, -4px);
 		}
 	}
 }

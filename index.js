@@ -52,9 +52,5 @@ document.addEventListener("DOMContentLoaded", function(){
   
   // Run function every second until it will terminate setinterval by itself
   var myInterval = setInterval(populateIframe, 1000);
-<<<<<<< HEAD
     
-=======
-  
->>>>>>> e944c1eee8d0fc5b9df90cd29460d83e79e8e55b
   });

@@ -5,23 +5,15 @@ permalink: /Hydra
 ---
 
 # What is Hydra?
-Hydra is a framework that enables REST APIs to be described semantically using RDF. It is based on JSON-LD and proposed as <a href="https://www.hydra-cg.com/spec/latest/core/">W3C draft</a>. It can also be formulated as a documentation framework based on Linked Data which provides vocabulary (similar to schema.org) that aids in the creation of Next Generation Web APIs.
 
-# What's so unique about it?
+As per the <a href="https://www.hydra-cg.com/spec/latest/core/">draft</a> proposed here, Hydra describes a lightweight vocabulary which aids in creation of hyper-media driven APIs. Vocabulary described by Hydra is based on linked data which helps machines to understand semantics behind the data they send or receive.
 
-Hydra in a nutshell is just an extension of JSON-LD technology. As you might already know that our current web is transitioning to Semantic web. In order to acheive that we need to use semantic web tools where ever possible. We can confidently say that Hydra is the most semantically sound tool at the moment when we talk of documentation frameworks. 
-* It is 100% Semantic Web tool as requested by W3C. 
-* It is also directly interoperable with any existing RDF/OWL repository, [(have a look)](https://en.wikipedia.org/wiki/Linked_data#Linking_Open_Data_community_project). 
-* It is easily parsable into less fluent API documentation standards. As RDF is semantically highly descriptive, it is much easier to parse documents into a less rich standard flawlessly. While the opposite, such as parsing an OpenAPI document to make its API interoperable with existing Semantic repositories, can take a long time. 
+# What's the big deal?
 
-These are some of the things which makes hydra unique and also justify _why we should use it?_. 
-
-# Why do we even need a documentation framework?
-
-Okay, so by now you know that _What is hydra?_ and _Why do we need it?_ But hold on for a moment. Why do we even need a documentation framework in the first place? or Why do we need semantics to be added to a already working Rest API? Okay, let's clear all the mist and try to find answers to these questions. Let's imagine a couple of simple rest APIs. First API provides information about school and second one provides information about students studying in that school. Sample responses of respective web APIs are given below. 
+Hydra is a set of vocabularies that can be used to document REST APIs so that users don't need to go through the additional API documentation (which is sometimes too complex) in order to understand working of the API. You might be wondering that “what’s so special about it?”, A direct answer is that it helps us document APIs such that they are readable by machines. One of the biggest problems faced by the programmers right now is that when they use APIs which are not readable by machines, we generally tend to hardcode API structure/links on client side in order to display data we received via response from server. So in case you are using an API (suppose weather API) in your application, and there is a change in API URL/Structure for some unknown reason. 
 
 ```
-# API 1
+# API (Old)
 {
   name: "ABC School",
   address: "Abc Street 10/6, City, Country",
@@ -31,7 +23,7 @@ Okay, so by now you know that _What is hydra?_ and _Why do we need it?_ But hold
   }
 }
 
-# API 2
+# API (updated)
 {
   name: "Laura",
   roll_no: 15,
@@ -42,21 +34,8 @@ Okay, so by now you know that _What is hydra?_ and _Why do we need it?_ But hold
 }
 ```
 
-Okay, now let's say that I give you data from any one response, Would you be able to recognize if the _name_ (you got in response) refers to school name or student name? Most probable answer would be no. We are humans so there can be a slight chance that may be we could tell the difference as all the information is in natural language. But for a computer there is no difference. Computer doesn't understand natural langauge there's no way it can find context related to that information. Till now we are able to make working web API interactions because we hardcode how to represent the output at the client side. Computer doesn't use any intelligence it just obeys set of instructions which are hardcoded by the programmer for individual responses. There is nothing wrong with these approach, but only till you handle few responses. When we are required to handle more number of responses, then hardcoding clientside would not pose to be a viable option (Large codebase poses many problems like maintenance issues, fnding bug difficulties, etc), If we are able to create some generic solution to handle all the problems at once. It would lead to a much smaller codebase, which is easy to maintain and bug tracking is also very fast. But in order to make generic solutions we need to customize APIs such that they can be understood by machines. In short we need to add context to JSON response. So that computer can recognize whether this particular _name_ key refers to school name or student name. Here JSON-LD comes to rescue and provides a very elegant solution with the help of schema.org vocabulary. JSON-LD provides `@context` key which solves the context problem. 
+You would need to make changes every where you used that API/link. Which might not seem to be any major problem when you  are mainaining a small codebase and you have used API at very few places, but when codebase is large and you have used API at lots of places then updating links at every place can be a severe headache for the developer. And should you forgot to update even one API/link, your app would definitely crash and result in huge loses of both time and resources. I am sure nobody want's that to happen that's where hydra comes handy and playes very important role. By using hydra you can create an API documentation which can be understood by machines. So what does it really mean? It means that the task that were supposed to be done at developers end can now be automated. Which is essentially a lifesaver for any developer. Developers can create generic clients which are completely independent of server's API structure/link (provided that Server is using hydra documented API). Functionality of these generic clients can be manipulated by making changes in API documentaion and that too without crashing the program (Atleast I hope so ;)). One thing to note is that it's not only a livesaver for developer but also for any company, which can save lots of money by using this approach. 
 
-```
-{
-  @context:{...},
-  name: "ABC School",
-  address: "Abc Street 10/6, City, Country",
-  contact: {
-    email: "abc@schooldomain.com",
-    phone: "+1-202-555-0198"
-  }
-}
-```
-
-But as mentioned in <a href="/Prerequisites">prerequisites</a> section, The range of vocabulary provded by schema.org is not enough for API development therefore we use Hydra framework. 
 
 Okay So I think by now you must have got a broad idea of Hydra and Documentation frameworks in general. Now let's move forth to next section and study hydra by some <a href="Example">Examples</a>
 
