@@ -1,3 +1,5 @@
+- name: Hydra Flock Demo
+  link: flock-demo
 - name: Parser 
   link: Parser
 - name: Parser-Examples

@@ -8,7 +8,7 @@ permalink: /00-Home
 
 ## Hydrus
 
-**Hydrus** is a set of Python based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of Linked Data to create a powerful REST APIs to serve data. Hydrus uses the Hydra(W3C) standard for creation and documentation of it’s APIs. It is a project created from scratch with minimal requirements, so that anyone can use it in their project without any difficulties. Lets's simplify things a bit and try to find what is hydrus and how does it work actually? So it's a python based library, which enables us to create (smart) APIs which can be interpreted by machines. And for that to happen we just need to supply hydrus a API doc (created with the help of Hydra vocabulary) to it. So now you might be wondering that how does it all actually happens?. Let's clear the mist around it and discuss it's working. In order to leverage benefit of hydrus library apart from dependent python libraries we don't need much apart from an API doc. Actually hydrus exptects hydraDoc object, but when we pass a API Doc to it. It internally uses the Doc Maker tool create a HydraDoc object for it. After receiving hydraDoc object, hydrus parses the data into `Classes`, `Properties`, `Collections`. Which are then utilized to create smart APIs.  
+**Hydrus** is a set of Python based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of Linked Data to create a powerful REST APIs to serve data. Hydrus uses the Hydra(W3C) standard for creation and documentation of it’s APIs. It is a project created from scratch with minimal requirements, so that anyone can use it in their project without any difficulties. Lets's simplify things a bit and try to find what is hydrus and how does it work actually? So it's a python based library, which enables us to create (smart) APIs which can be interpreted by machines. And for that to happen we just need to supply hydrus a API doc (created with the help of Hydra vocabulary) to it. So now you might be wondering that how does it all actually happens? Let's clear the mist around it and discuss it's working. In order to leverage benefit of hydrus library apart from dependent python libraries we don't need much apart from an API doc. Actually hydrus exptects hydraDoc object, but when we pass a API Doc to it. It internally uses the Doc Maker tool create a HydraDoc object for it. After receiving hydraDoc object, hydrus parses the data into `Classes`, `Properties`, `Collections`. Which are then utilized to create smart APIs.  
 
 Diagram shown below should make things more clear. 
 
@@ -39,7 +39,7 @@ I hope this brief description must have given you a broad Idea of hydrus. If you
 * `on_modification_table_diff()`: Used when client has to update multiple rows.
 * `on_broadcast_event()`: Triggered when the agent recieves a "broadcast" event.
 
-I am positive that this short description might not be enough to satisfy your curosity, You can explore the [codebase](https://github.com/HTTP-APIs/hydra-python-agent) in order to know more.
+I am positive that this short description might not be enough to satisfy your curosity, You can explore the [codebase](https://github.com/HTTP-APIs/hydra-python-agent) in order to know more. In case the codebase is a bit complex, you may want to checkout [hyrda-python-agent-gui](https://github.com/HTTP-APIs/hydra-python-agent-gui). I am sure it would make things more clear.
 
 **NOTE:** hydrus and Hydra Agent only supports Python 3.5 and above.
 
