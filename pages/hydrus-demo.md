@@ -62,4 +62,4 @@ For more info, head to the [Usage](https://github.com/HTTP-APIs/hydra-ecosystem-
 
 ## Troubleshooting
 
-**If you run into any error** try the [Github search mechanism](https://github.com/HTTP-APIs/hydrus/issues?utf8=%E2%9C%93&q=) or the search tool at [our Gitter](https://gitter.im/HTTP-APIs/Lobby) or send a message.
+**If you run into any error** try the [Github search mechanism](https://github.com/HTTP-APIs/hydrus/issues?utf8=%E2%9C%93&q=) or the search tool at [our Gitter]((https://app.slack.com/client/TMGNKBP5X/CMR9RFB0E) or send a message.

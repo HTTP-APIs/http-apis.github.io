@@ -11,8 +11,7 @@ and candidates can present projects to fulfill multiple ideas in this page and i
 
 To get in touch with the Community:
 * [Google Group](https://groups.google.com/d/forum/hydraecosystem)
-* [Gitter chat Lobby](https://gitter.im/HTTP-APIs/Lobby)
-* [Gitter chat Beginners](https://gitter.im/HTTP-APIs/Beginners)
+* [Slack channel](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU)
 
 <div id="Ideas"></div>
 
@@ -136,7 +135,7 @@ hydrus is developed in Flask because the applications we had in mind were mostly
 
 # [How do I get started ?](#getting-started)
  Getting started is pretty easy. Head over to our [homepage](http://hydraecosystem.org/) or [community page](https://www.hydra-cg.com/). There are a lot of demos, presentations, and talks to get you up to speed. Then head over to the [hydrus repo](https://github.com/HTTP-APIs/hydrus) and clone it. Play with it a little, try to understand how the current implementation works, try to fix some bugs or report any issues you can find [here](https://github.com/HTTP-APIs/hydrus/issues).
-Lastly, don't hesitate to reach out in the [Gitter channel](https://gitter.im/HTTP-APIs/Lobby) if you have any question, we are very friendly people and we'll be more than happy to help you out.
+Lastly, don't hesitate to reach out in the [Gitter channel](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU) if you have any question, we are very friendly people and we'll be more than happy to help you out.
 
 As a general entry point to understand the repositories, there is our [Wiki](http://hydraecosystem.org/) and related links. Having a clear insight of [Resource Description Framework](https://goo.gl/TCdYG3) is quite necessary, Mentors will give full support to catch up with it.
 
@@ -160,7 +159,7 @@ Writing a good proposal can be a really challenging task. We have curated a list
 [Here](https://docs.google.com/document/d/1qPR02o6jY4uFBdCf3S0ous4LG32YCe6ZJuDGojXH2JY/edit)'s a proposal template for you to get started.
 
 ## Communication Channels
-- [Gitter](https://gitter.im/HTTP-APIs/Lobby)
+- [Gitter](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU)
 - [W3C Group](https://www.w3.org/community/hydra/)
 - [Slack](https://httpapis.slack.com)
 - [Mailing List](hydraecosystem@@googlegroups.com)
