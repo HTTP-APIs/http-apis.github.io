@@ -159,9 +159,8 @@ Writing a good proposal can be a really challenging task. We have curated a list
 [Here](https://docs.google.com/document/d/1qPR02o6jY4uFBdCf3S0ous4LG32YCe6ZJuDGojXH2JY/edit)'s a proposal template for you to get started.
 
 ## Communication Channels
-- [Gitter](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU)
+- [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU)
 - [W3C Group](https://www.w3.org/community/hydra/)
-- [Slack](https://httpapis.slack.com)
 - [Mailing List](hydraecosystem@@googlegroups.com)
 - Email
     - [Lorenzo Moriondo](mailto:tunedconsulting[AT]gmail[DOT]com)
