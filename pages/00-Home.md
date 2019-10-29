@@ -19,7 +19,7 @@ Hydrus supports following features-
 * A generic server that can serve required data and metadata(in the form of API documentation) to a client over HTTP.
 * A middleware that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. __(under development)__.
 
-I hope this brief description must have given you a broad Idea of hydrus. If you wish to know more, I would definitely recommend you to try it yourself, Play with it. You can find codebase [here](https://github.com/HTTP-APIs/hydrus). Have fun!
+I hope this brief description must have given you a broad Idea of hydrus. If you wish to know more, I would definitely recommend you to try it yourself, Play with it. You can find codebase [here](https://github.com/HTTP-APIs/hydrus). And in case you want to use hydrus, then these [docs](https://hydrus.readthedocs.io/en/latest/hydrus.html#) should be quite helpful. Have fun!
 
 
 ## Hydra Python Agent
