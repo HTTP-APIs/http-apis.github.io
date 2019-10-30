@@ -6,8 +6,8 @@
   link: Parser-Usage
 - name: Official client design - Heracles
   link: heracles_explained
-- name: Python Hydra agent
-  link: hydra-agent-redis-graph
+- name: Hydra Python agent
+  link: hydra-python-agent
 - name: IriTemplate example
   link: IriTemplate
 - name: Pagination
