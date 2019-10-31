@@ -3,7 +3,6 @@ layout: page
 title: Starting Material | Hydraecosystem.org
 permalink: /Starting-Material
 ---
-
 ## Starting contributing
 
 A general introduction: [What does it mean to be a Open Source Maintainer](https://mozilla.github.io/maintainer-cohort/).
