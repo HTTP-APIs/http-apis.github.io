@@ -6,7 +6,7 @@ permalink: /Design
 
 # Hydra Network Walkthrough
 
-This page explains the design, architecture and the implementation of [**hydrus**](https://github.com/HTTP-APIs/hydrus) server along with a few use cases for the same. Also the interactions and internals of a smart client ([**Hydra agent**](https://github.com/HTTP-APIs/hydra-python-agent)) connecting to the server are considered. See [Home](/00-Home) for a general intro.
+This page explains the design, architecture and the implementation of [**hydrus**](https://github.com/HTTP-APIs/hydrus) server along with a few use cases for the same. Also the interactions and internals of a smart client ([**Hydra agent**](https://github.com/HTTP-APIs/hydra-python-agent)) connecting to the server are considered. See [Hydra Ecosystem Tools](/hydra-ecosystem-tools) for a general intro.
 
 ## REST to Hydra to hydrus
 To understand how [hydrus](https://github.com/HTTP-APIs/hydrus) represents REST resources and how the developer is helped to work with Hydra, it is possible to start from thinking at Hydra as generic framework that describes REST API resources to make data exchanges automated.

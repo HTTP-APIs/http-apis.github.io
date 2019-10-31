@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Tools | Hydraecosystem.org
-permalink: /00-Home
+permalink: /hydra-ecosystem-tools
 ---
 
 # Generics
@@ -39,7 +39,7 @@ A brief description of Hydrus must have given you a broad Idea of Hydrus. If you
 * `on_modification_table_diff()`: Used when client has to update multiple rows.
 * `on_broadcast_event()`: Triggered when the agent recieves a "broadcast" event.
 
-In case this short description might not be enough to satisfy your curosity, you can explore the [codebase](https://github.com/HTTP-APIs/hydra-python-agent) in order to know more. In case the codebase is a bit complex, you may want to have a look at [hyrda-python-agent-gui](https://github.com/HTTP-APIs/hydra-python-agent-gui) to improve your understanding.
+In case this short description might not be enough to satisfy your curosity, you may visit [Hydra Python Agent](/hydra-python-agent) or you can explore the [codebase](https://github.com/HTTP-APIs/hydra-python-agent) in order to know more. In case the codebase is a bit complex, you may want to have a look at [hyrda-python-agent-gui](https://github.com/HTTP-APIs/hydra-python-agent-gui) to improve your understanding.
 
 **NOTE:** hydrus and Hydra Agent only supports Python 3.5 and above.
 

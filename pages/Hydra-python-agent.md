@@ -186,7 +186,7 @@ That's all for the basic walkthrough over the code. If you want to know more. It
 
 ## Redis as a graph based storage
 
-The main motive behind using redis was to implement it as a graph database for fast querying process for the hydra client.
+The main motive behind using redis was to implement it as a graph database to establish fast querying process for the hydra client.
 
 ### Graph Structure
 
@@ -250,7 +250,7 @@ There are several types of queries:
 Example for the complex query(type: comparison of properties):
 User should use brackets in these type of query in which both `and` and `or` operations are present, to differentiate between the `and` and `or` operations like: `a and b and ((c or d or e) and f)`.
 
-__How agent execute query__
+__How agent executes query?__
 
 To query 1 & 2, the agent uses the OpenCypher and simply fetches the data from the Redis because that data has stored at the time URL was provided by the user.
 
