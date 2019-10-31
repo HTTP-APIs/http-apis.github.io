@@ -14,10 +14,13 @@ To understand how [hydrus](https://github.com/HTTP-APIs/hydrus) represents REST 
 ### An instance and its classes
 Instances belonging to a Resource are named `Item`s in [hydrus](https://github.com/HTTP-APIs/hydrus). It is possible to perform CRUD operations (via HTTP) over `Item`s. At a slightly more abstract layer, the REST Resource is of a kind of an `hydra:Resource`, all the instances of the same resource are members of a `hydra:Collection`. As Hydra inherits from RDF, thanks to the framework it is possible to represent the API as a graph.
 
-### the ecosystem: servers and smart clients
-[hydrus](https://github.com/HTTP-APIs/hydrus) allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer.
+### The ecosystem: Generic servers and smart clients
 
-[Hydra agent](https://github.com/HTTP-APIs/hydra-python-agent) interacts with one or more hydrus instances to represent and navigate resources for the sake of data consumption. The client-side tools in the ecosystem are basically any client that complies with [Hydra's specs](https://github.com/HydraCG/Specifications), starting from the [official Typescript implementation Heracles.ts](https://github.com/HydraCG/Heracles.ts) but also [hydra-python-agent](https://github.com/HTTP-APIs/hydra-python-agent).
+[Hydrus](https://github.com/HTTP-APIs/hydrus) allows the developer to establish a generic server. The Developer just need to provide a well written API description (visit [Workflow](/workflow) to see acceptable API description inputs). Thus, abstracting all the complexities of RDF and to work on REST interface layer from the developer.
+
+<!-- [hydrus](https://github.com/HTTP-APIs/hydrus) allows the developer to take advantage of this powerful description by abstracting away the complexity of RDF and to work on the REST interface layer. -->
+
+[Hydra agent](https://github.com/HTTP-APIs/hydra-python-agent) is a smart client which interacts with one or more hydrus instances by the means of `GET`, `POST`, `PUT`, `DELETE` requests to represent and navigate resources. The client-side tools in this ecosystem are basically any client that complies with [Hydra's specs](https://github.com/HydraCG/Specifications), starting from the [official Typescript implementation Heracles.ts](https://github.com/HydraCG/Heracles.ts) but also [hydra-python-agent](https://github.com/HTTP-APIs/hydra-python-agent).
 
 The tools in the ecosystem works on top of a distributed architecture that is described below from its foundationals classes in the ORM to the interface layer.
 

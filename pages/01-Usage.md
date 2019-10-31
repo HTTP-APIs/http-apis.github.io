@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Usage | Hydraecosystem.org
-permalink: /01-Usage
+title: Hydrus | Beginner's Guide | Hydraecosystem.org
+permalink: getting-started-with-hydrus
 ---
 
 # How to set up an Hydra server using hydrus

@@ -118,7 +118,7 @@ def get(self, url: str = None, resource_type: str = None,
 
 ### PUT
 
-Code shown below is used to make a PUT request to hydrus server. We use `PUT` request to create a new object.
+Code shown below is used to make a PUT request to hydrus server. We use `PUT` request to create a new resource.
 
 ```python
 def put(self, url: str, new_object: dict) -> Tuple[dict, str]:
@@ -142,7 +142,7 @@ def put(self, url: str, new_object: dict) -> Tuple[dict, str]:
 
 ### POST
 
-Code shown below is used to make POST request. We use `POST` request to update any existing object.
+Code shown below is used to make POST request. We use `POST` request to update any existing resource.
 
 ```python
 def post(self, url: str, updated_object: dict) -> dict:

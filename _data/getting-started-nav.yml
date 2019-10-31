@@ -2,9 +2,9 @@
   link: Starting-Material
 # - name: Hydrus Server
 #   link: hydrus-demo
-- name: Developing with hydrus 
-  link: 01-Usage
-- name: Authentication
-  link: Auth
-- name: Command-line interface
+- name: Hydrus | Beginner's Guide  
+  link: getting-started-with-hydrus
+- name: Hyrdus | CLI
   link: CLI
+- name: Hydra Agent | Beginner's Guide
+  link: getting-started-hydra-python-agent

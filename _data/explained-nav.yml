@@ -1,3 +1,5 @@
+- name: Authentication
+  link: Auth
 - name: Hydra Flock Demo
   link: flock-demo
 - name: Parser 
