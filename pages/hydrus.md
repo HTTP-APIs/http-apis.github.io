@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Hydrus | Beginner's Guide | Hydraecosystem.org
-permalink: getting-started-with-hydrus
+title: Hydrus | Hydraecosystem.org
+permalink: hydrus
 ---
 
 # How to set up an Hydra server using hydrus
@@ -88,7 +88,7 @@ hydrus uses Python classes in `hydrus.hydraspec.doc_writer` to create and define
 
 <!-- ![doc_writer](https://image.ibb.co/eWURkQ/doc_writer.png) -->
 
-The `hydurs.hydraspec.doc_writer.HydraDoc` object is crucial for hydrus to be able to set up the API. There are various ways you can create this object from your API Documentation:
+The `hydurs.hydraspec.doc_writer.HydraDoc` object is crucial for hydrus to be able to set up the API. There are various ways someone can create this object from your API Documentation:
 
 <a name="newdoc"></a>
 ### Create a new API Documentation and a new `HydraDoc` object
@@ -204,7 +204,7 @@ The complete script for this API Documentation can be found in `hydrus/hydraspec
 <a name="olddoc"></a>
 ### Use an existing API Documentation to create a new `HydraDoc` object
 
-In case you already have an API Doc defined in JSON or in a Python dict, hydrus provides a way to turn this API Doc into `doc_writer` classes. This is done using `hydrus.hydraspec.doc_maker` as defined below:
+In case someone already has an API Doc defined in JSON or in a Python dict, hydrus provides a way to turn this API Doc into `doc_writer` classes. This is done using `hydrus.hydraspec.doc_maker` as defined below:
 ```python
 # Sample to convert the API Doc into doc_writer classes
 
@@ -300,7 +300,7 @@ properties = doc_parse.get_all_properties(classes)
 doc_parse.insert_classes(classes, session=db_session)
 doc_parse.insert_properties(properties, session=db_session)
 ```
-**NOTE:** You can use the `ApiDocumentation` dictionary directly to get the classes and properties, but it is advised to use the `HydraDoc` object to generate the ApiDocumentation. Otherwise, there may be unwanted errors in the dictionary that are permanently added to the database.
+**NOTE:** `ApiDocumentation` dictionary can be used directly directly to get the classes and properties, but it is advised to use the `HydraDoc` object to generate the ApiDocumentation. Otherwise, there may be unwanted errors in the dictionary that are permanently added to the database.
 
 <a name="urls"></a>
 ## Server URL and the API name

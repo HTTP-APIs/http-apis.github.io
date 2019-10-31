@@ -1,3 +1,7 @@
+- name: Hydrus
+  link: hydrus
+- name: Hydra Python agent
+  link: hydra-python-agent
 - name: Authentication
   link: Auth
 - name: Hydra Flock Demo
@@ -8,9 +12,7 @@
   link: Parser-Usage
 - name: Official client design - Heracles
   link: heracles_explained
-- name: Hydra Python agent
-  link: hydra-python-agent
 - name: IriTemplate example
   link: IriTemplate
 - name: Pagination
-  link: Pagination
+  link: Pagination 

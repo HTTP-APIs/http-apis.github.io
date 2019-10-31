@@ -6,7 +6,7 @@ permalink: /hydra-python-agent
 
 # Hydra Python Agent
 
-Hydra Python Agent is a python based Smart Client used to interact with Hydrus by providing a CRUD interface. It has a very elegant and user-friendly GUI Demo, It may help you understand the tool much better, you can find it [here](https://github.com/HTTP-APIs/hydra-python-agent-gui). Reference implementation is [Heracles.ts](https://github.com/HydraCG/Heracles.ts). Redis is used to store the graphical representation of content in a Data API. To query the stored data OpenCypher is employed. Below you'll find the in-depth analysis of Hydra Python Agent.
+Hydra Python Agent is a python based Smart Client used to interact with Hydrus by providing a CRUD interface. It has a very elegant and user-friendly GUI Demo, It might be helpful to understand the tool much better, It can be found [here](https://github.com/HTTP-APIs/hydra-python-agent-gui). Reference implementation is [Heracles.ts](https://github.com/HydraCG/Heracles.ts). Redis is used to store the graphical representation of content in a Data API. To query the stored data OpenCypher is employed. Next secions focuses on the in-depth analysis of Hydra Python Agent.
 
 ## Agent Code Analysis
 
@@ -73,7 +73,7 @@ def initialize_graph(self) -> None:
 
 ### GET
 
-The Code shown below is used to make a `GET` request to Hydrus server/ cached Redis. Actually, the graph is loaded in parts. When we query all the endpoints or class/collection endpoints they are generally loaded directly from Redis cached memory at the time request is made with the help of resource URL. But when we query members or member's property they are first fetched from server to Redis memory and then exact same process is followed. In order to query data from redis memory OpenCypher is used. In case you want to know more about `querying`, Below you will find a full section dedicated to it. Hope it will clear your doubts, in case you have any.
+The Code shown below is used to make a `GET` request to Hydrus server/ cached Redis. Actually, the graph is loaded in parts. When we query all the endpoints or class/collection endpoints they are generally loaded directly from Redis cached memory at the time request is made with the help of resource URL. But when we query members or member's property they are first fetched from server to Redis memory and then exact same process is followed. In order to query data from redis memory OpenCypher is used. In case someone want's to know more about `querying`, below a full section dedicated to it is given. Hope it will clear all doubts, in case there are any.
 
 ```python
 def get(self, url: str = None, resource_type: str = None,
@@ -182,7 +182,7 @@ def delete(self, url: str) -> dict:
         return response.text
 ```
 
-That's all for the basic walkthrough over the code. If you want to know more. It is recommended that you visit the [codebase](https://github.com/HTTP-APIs/hydra-python-core) and [GUI implementation](https://github.com/HTTP-APIs/hydra-python-agent-gui) for even better understanding.
+That's all for the basic walkthrough over the code. If someone want's to know more. It is recommended to visit the [codebase](https://github.com/HTTP-APIs/hydra-python-core) and [GUI implementation](https://github.com/HTTP-APIs/hydra-python-agent-gui) for even better understanding.
 
 ## Redis as a graph based storage
 

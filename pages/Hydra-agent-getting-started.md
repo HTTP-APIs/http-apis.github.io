@@ -8,10 +8,10 @@ permalink: getting-started-hydra-python-agent
 
 ## Quick Start
 
-This Hydra Agent implementation has three different interfaces at the moment that you can try:
+This Hydra Agent implementation has three different interfaces at the moment:
 
-- [A Web-based GUI](https://github.com/HTTP-APIs/hydra-python-agent-gui/tree/agent-gui-1.0/console-frontend) - It provides a user-friendly user interface for hydra python agent, Using which we can interact with currently running Hydrus server utilizing supported actions which can be`GET`, `POST`, `PUT` or `DELETE`. If you want to understand how smart agent is generic and how can it automatically build requests. This can be a good place to improve your understanding of those topics.
-- [A Python package](https://github.com/HTTP-APIs/hydra-python-agent/#user-content-agent-package) - So that you can use it in your code whenever you feel there is a need to communicate with the Hydrus server.
+- [A Web-based GUI](https://github.com/HTTP-APIs/hydra-python-agent-gui/tree/agent-gui-1.0/console-frontend) - It provides a user-friendly user interface for hydra python agent, Using which we can interact with currently running Hydrus server utilizing supported actions which can be`GET`, `POST`, `PUT` or `DELETE`. In case understanding generic behaviour of Smart client and it's automatic request building are some of your aims, Web Based GUI might be a good place for you to improve your understanding.  
+- [A Python package](https://github.com/HTTP-APIs/hydra-python-agent/#user-content-agent-package) - So that one can use it in his code whenever he feel there is a need to communicate with the Hydrus server.
 - [Natural-language-like command line tool](#natural-language-like-command-line-tool) - At the moment it is just a proof-of-concept. It is still a `GET` only implementation. 
 
 ## Installation
@@ -36,7 +36,7 @@ Setup Redis which is used as caching layer(if permission denied use `sudo`):
     ./redis_setup.sh
 
 **Setup hydrus**
-Since this is an API Client, we need an appropriate Hydra Server to make quieries. To setup a localhost follow the instructions at https://github.com/HTTP-APIs/hydrus#demo. You might want to run `hydrus serve --no-auth` to skip setting up headers.
+Since this is an API Client, we need an appropriate Hydra Server to make quieries. To setup a localhost follow the instructions at [Hydrus | Beginner's Guide](/getting-started-with-hydrus).`hydrus serve --no-auth` can be run to skip setting up headers.
 
 #### Agent package 
 After installing the Agent and running Redis, [as per instructions above](https://github.com/HTTP-APIs/hydra-python-agent/#user-content-installation), you can do something like:
