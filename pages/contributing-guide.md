@@ -13,7 +13,7 @@ Below is the list of blogs/articles which you must read before contributing to a
 * Having general understanding of [semantic web](https://www.youtube.com/watch?v=OGg8A2zfWKg).
 * Having a general understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples. A [video](https://www.youtube.com/watch?v=6geSpcUJjBA) for RDF in general.
 * Having a general understanding of [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html). good [source](http://www.linkeddatatools.com/semantic-web-basics) to study linked data.
-* Having a general understanding of [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827). A [video](https://www.youtube.com/watch?v=vioCbTo3C-4&t=702s) for intuitive introduction of JSON.
+* Having a general understanding of [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827). A [video](https://www.youtube.com/watch?v=vioCbTo3C-4) for intuitive introduction of JSON.
 * Read these two papers [Hydra: A Vocabulary for Hypermedia-Driven Web APIs
 (Markus Lanthaler, Christian Gütl (2013))](http://www.markus-lanthaler.com/research/hydra-a-vocabulary-for-hypermedia-driven-web-apis.pdf) and [Creating 3rd Generation Web APIs with Hydra
 (Markus Lanthaler (2013))](http://www.markus-lanthaler.com/research/creating-3rd-generation-web-apis-with-hydra.pdf)
