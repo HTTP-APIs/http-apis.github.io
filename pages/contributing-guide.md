@@ -9,24 +9,25 @@ The Hydra Ecosystem can only grow through the contributions of this community. T
 A general introduction: [What does it mean to be a Open Source Maintainer](https://mozilla.github.io/maintainer-cohort/).
 Below is the list of blogs/articles which you must read before contributing to any project.
 
-1. Read the blog posts from GSOC 2017: [Lorenzo](https://www.linkedin.com/pulse/gsoc-2017-python-hydra-making-summer-great-hacking-web-moriondo/) [Chris](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/) [Akshay](https://xadahiya.github.io/Gsoc-Summary/)
-2. Having a general understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples.
-3. Having a general understanding of [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html)
-4. Having a general understanding of [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827)
-5. Read these two papers [Hydra: A Vocabulary for Hypermedia-Driven Web APIs
+* Read the blog posts from GSOC 2017: [Lorenzo](https://www.linkedin.com/pulse/gsoc-2017-python-hydra-making-summer-great-hacking-web-moriondo/) [Chris](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/) [Akshay](https://xadahiya.github.io/Gsoc-Summary/)
+* Having general understanding of [semantic web](https://www.youtube.com/watch?v=OGg8A2zfWKg).
+* Having a general understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples. A [video](https://www.youtube.com/watch?v=6geSpcUJjBA) for RDF in general.
+* Having a general understanding of [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html). good [source](http://www.linkeddatatools.com/semantic-web-basics) to study linked data.
+* Having a general understanding of [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827). A [video](https://www.youtube.com/watch?v=vioCbTo3C-4&t=702s) for intuitive introduction of JSON.
+* Read these two papers [Hydra: A Vocabulary for Hypermedia-Driven Web APIs
 (Markus Lanthaler, Christian Gütl (2013))](http://www.markus-lanthaler.com/research/hydra-a-vocabulary-for-hypermedia-driven-web-apis.pdf) and [Creating 3rd Generation Web APIs with Hydra
 (Markus Lanthaler (2013))](http://www.markus-lanthaler.com/research/creating-3rd-generation-web-apis-with-hydra.pdf)
-6. Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
-7. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
-8. Read [Hydra-CG gitbook](https://github.com/HydraCG/gitbook)
-9. Read [hydrus WIKI](https://www.hydraecosystem.org/00-Home). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
-10. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
-11. Join us on [slack](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU). There are different channels in Slack in which to interact with other contributors:
-* [#general: talk about anything related to Hydra Ecosystem](https://app.slack.com/client/TMGNKBP5X/CMR9RFB0E)
-* [#hydrus: discuss issues, solutions and ideas for hydrus](https://app.slack.com/client/TMGNKBP5X/CMR0C8WJ3)
-* [#tech-writing: suggestions related to documentation, website content can be shared here](https://app.slack.com/client/TMGNKBP5X/CNBS844FL)
-12. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
-13. Get familiar with [Docker container engine](https://docker-curriculum.com/) and its best practices to deploy virtualized environments.
+* Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
+* Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
+* Read [Hydra-CG gitbook](https://github.com/HydraCG/gitbook)
+* Read [hydrus WIKI](https://www.hydraecosystem.org/00-Home). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
+* If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
+* Join us on [slack](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU). There are different channels in Slack in which to interact with other contributors:
+    - [#general](https://app.slack.com/client/TMGNKBP5X/CMR9RFB0E): talk about anything related to Hydra Ecosystem
+    - [#hydrus](https://app.slack.com/client/TMGNKBP5X/CMR0C8WJ3): discuss issues, solutions and ideas for hydrus
+    - [#tech-writing](https://app.slack.com/client/TMGNKBP5X/CNBS844FL): suggestions related to documentation, website content can be shared here
+* Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
+* Get familiar with [Docker container engine](https://docker-curriculum.com/) and its best practices to deploy virtualized environments.
 
 ## Community values
 
