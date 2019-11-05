@@ -92,13 +92,16 @@ cd hydrus
 git checkout -b develop origin/develop
 ```
 
-Install requirements and run the `main.py` script:
+Install hydrus:
 ```bash
 pip install -r requirements.txt
 
-python main.py
+python3 setup.py install
 ```
-
+Run the server using:
+```bash
+hydrus serve
+```
 The demo should be now be running on `http://localhost:8080/serverapi/`.
 
 <a name="workflow"></a>
