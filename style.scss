@@ -9,6 +9,9 @@
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
 
+@import "helper";
+// scss for sidebar and layout overrides
+
 /**************/
 /* BASE RULES */
 /**************/
@@ -20,7 +23,7 @@ html {
 
 body {
 	background: $white;
-  font: 20px/1.4 $helvetica;
+  font: 20px/1.4 $-apple-system;
   color: $black;
 }
 
@@ -250,8 +253,6 @@ img {
   .entry-index{
     padding-top:125px;
   }
-
-
 
 }
 
