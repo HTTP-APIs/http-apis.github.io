@@ -15,11 +15,12 @@
 }
 
 .sidebar {
-	position: sticky;
-    margin-top: 150px;
-    max-height: calc(100vh - 150px);
+	position: fixed;
+    top: 120px;
+    max-height: calc(85vh - 150px);
     overflow-y: scroll;
     flex-shrink: 0;
+    max-width: 25%;
     background: #eeeeee4a;
     border-left: 2px solid #cccccc6b;
     padding: 10px 0px 10px 25px;
@@ -27,7 +28,7 @@
     display: flex;
     flex-direction: column;
     font-size: 0.8em;
-	border-radius: 20px;
+    border-radius: 20px;
 	
 	a {
 		margin-bottom: 0px;
