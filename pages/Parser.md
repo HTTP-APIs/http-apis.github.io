@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Open API parser | Hydraecosystem.org
 permalink: /Parser
 ---

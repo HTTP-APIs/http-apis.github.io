@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Ideas page for GSoC 2019 | Hydraecosystem.org
 comments: true
 permalink: /gsoc-19
