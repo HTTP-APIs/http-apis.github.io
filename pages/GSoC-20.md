@@ -10,7 +10,6 @@ Welcome to Hydra Ecosystem's ideas page for [GSoC 2020](https://summerofcode.wit
 and candidates can present projects to fulfill multiple ideas on this page and issues listed at our Github [organization page](https://github.com/HTTP-APIs/).
 
 To get in touch with the Community:
-* [Google Group](https://groups.google.com/d/forum/hydraecosystem)
 * [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU)
 
 ## A gentle note for beginners
@@ -43,15 +42,15 @@ The parser should call for the deployment of a hydrus instance for each class in
 ## 2. General Improvements in hydrus.
 ### Main Idea:
 There is always room from improvement in our flagship server, hydrus:
-- implementation of a search mechanism (use of `hydra:search` and IRITemplates, and possibly Triple Pattern Fragments)
-- updating the server according to the Hydra Spec. A lot of changes have been made to the spec from when hydrus was first developed.
-- creation of dynamic endpoints. Users need to be able to define endpoints that have some functionality. Right now hydrus can only serve static data and users are unable to define how incoming data is processed in a hydrus server.
-- general improvements in code and optimizing the server functionality, refactoring.
-- keep up with the development of the querying system for the agent
-- creating a Youtube channel with developers walkthrough to deploying hydrus and also using the agent GUI
-- add to Youtube channel short presentations to introduce graphs Linked Data and RDF
+- Implementation of a search mechanism (use of `hydra:search` and IRITemplates, and possibly Triple Pattern Fragments)
+- Updating the server according to the Hydra Spec. A lot of changes have been made to the spec from when hydrus was first developed.
+- Creation of dynamic endpoints. Users need to be able to define endpoints that have some functionality. Right now hydrus can only serve static data and users are unable to define how incoming data is processed in a hydrus server.
+- General improvements in code and optimizing the server functionality, refactoring.
+- Keep up with the development of the querying system for the agent
+- Creating a Youtube channel with developers walkthrough to deploying hydrus and also using the agent GUI, demo walk-through [here](https://www.youtube.com/watch?v=J1YO5IGaTlQ)
+- Add to Youtube channel short presentations to introduce graphs Linked Data and RDF
 - Measure the performance of the current implementation and improve security aspects and test coverage.
-- **bonus**: anything suggested by students and approved by the mentors
+- **bonus**: Anything suggested by students and approved by the mentors
 **Skills Required**:
 - Python
 - Hydra
@@ -126,19 +125,8 @@ The full project implies:
 **NOTE**-<br/>
 This is a high-profile demo implementation that will run in production, It requires infrastructural and backend. It implies working with the Organisation's cloud installation on Google Cloud.
 
-## 6. Django port for hydrus.
-### Main Idea:
-hydrus is developed in Flask because the applications we had in mind were mostly related to IoT and sensors, so it was supposed to be lightweight and functional. But if we may want to look for more traditional applications and the wider public, we may like to have a [Django library](http://hirokiky.org/tech/create_django_library.html) that does have the same features as hydrus but works with Django. As Django has already a well-established REST library (Django-rest) it would be probably useful to extend it and create something like Django-rest-hydra, a library that lets Django developers deploy hydra server in Django as now hydrus does with a flask (starting from an API Documentation or an OpenAPI definition).
-### Skill Required:
-- Python
-- Django
-- hydrus
-- Hydra
-- Ability to write test suites in Django
 
-**Difficulty Level**: *Intermediate*
-
-## 7. Get Creative
+## 6. Get Creative
 We encourage creativity a lot and understand it is very important for you to work on the things you're really interested in. If you want, you can choose subparts from the ideas listed above or even come up with your own (discussing new ideas with mentors first is highly encouraged) to create the proposal best suited to your interests.
 
 ### Skills Required:
@@ -176,7 +164,6 @@ Writing a good proposal can be a really challenging task. We have curated a list
 - [Gitter](https://gitter.im/HTTP-APIs/Lobby) [Archived]
 - [W3C Group](https://www.w3.org/community/hydra/)
 - [Slack](https://hydraecosystem.slack.com)
-- [Mailing List](hydraecosystem@@googlegroups.com)
 - Email
     - [Lorenzo Moriondo](mailto:tunedconsulting[AT]gmail[DOT]com)
     - [Akshay Dahiya](mailto:xadahiya[AT]gmail[DOT]com)
