@@ -51,6 +51,8 @@ There is always room from improvement in our flagship server, hydrus:
 - Add to Youtube channel short presentations to introduce graphs Linked Data and RDF
 - Measure the performance of the current implementation and improve security aspects and test coverage.
 - **bonus**: Anything suggested by students and approved by the mentors
+
+
 **Skills Required**:
 - Python
 - Hydra
