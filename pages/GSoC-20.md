@@ -12,9 +12,17 @@ and candidates can present projects to fulfill multiple ideas on this page and i
 To get in touch with the Community:
 * [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU)
 
-## A gentle note for beginners
-- It is a good practice to search the history of the issues for similar problems before creating a new issue on GitHub, this will avoid the creation of duplicated issues.
-- Most of the ideas contain domain-specific terms like `hydrus` and `agent`, if you don't know what they mean, it is okay, head over to our [Starting Material](https://www.hydraecosystem.org/Starting-Material) page and if you have any doubts, ask questions in our super friendly slack community. We'll try our best to answer all your questions.
+## Application Instructions
+- Students wanting to apply to the org must familarise themselves with the Github workflow.
+- Working on open issues is the best way for your skill to be recognised.
+- It is a good practice to search the history of issues for similar problems before creating a new issue on GitHub, this will avoid the creation of duplicated issues.
+- Try running our tools and going through the demos to get a better understanding of how things work.
+- Hang around on the Slack channel and talk to people about any problems or issues.
+- Make sure that any issue your create is verified before beginning to work on it.
+- Use the provided [template](https://docs.google.com/document/d/1qPR02o6jY4uFBdCf3S0ous4LG32YCe6ZJuDGojXH2JY/edit?usp=sharing) for writing your proposals.
+- Discuss your ideas with the mentors and get your proposals reviewed before submitting. [Note: Due to the large number of proposals we receive, we only review a proposal once per student, so make it count.]
+- A list of prerequisites and concepts needed to understand Hydra and the tools developed by Hydra Ecosystem can be found [here](https://www.hydraecosystem.org/Starting-Material).
+- If you have any doubts, ask questions in our super friendly Slack community. We'll try our best to answer all your questions.
 
 <div id="Ideas"></div>
 
