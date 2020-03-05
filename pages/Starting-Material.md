@@ -9,23 +9,21 @@ permalink: /Starting-Material
 A general introduction: [What does it mean to be a Open Source Maintainer](https://mozilla.github.io/maintainer-cohort/).
 
 1. Read the blog posts from GSOC 2017: [Lorenzo](https://www.linkedin.com/pulse/gsoc-2017-python-hydra-making-summer-great-hacking-web-moriondo/) [Chris](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/) [Akshay](https://xadahiya.github.io/Gsoc-Summary/)
-2. Having a general understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples.
-3. Having a general understanding of [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html)
-4. Having a general understanding of [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827)
-5. Read these two papers [Hydra: A Vocabulary for Hypermedia-Driven Web APIs
+2. [What is a graph](https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-12-graphs-networks-incidence-matrices/) and how it relates to linear algebra
+3. Having a general understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples.
+4. Having a general understanding of [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html)
+5. Having a general understanding of [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827)
+6. Read these two papers [Hydra: A Vocabulary for Hypermedia-Driven Web APIs
 (Markus Lanthaler, Christian Gütl (2013))](http://www.markus-lanthaler.com/research/hydra-a-vocabulary-for-hypermedia-driven-web-apis.pdf) and [Creating 3rd Generation Web APIs with Hydra
 (Markus Lanthaler (2013))](http://www.markus-lanthaler.com/research/creating-3rd-generation-web-apis-with-hydra.pdf)
-6. Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
-7. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
-8. Read [Hydra-CG gitbook](https://github.com/HydraCG/gitbook)
-9. Read [hydrus WIKI](https://www.hydraecosystem.org/00-Home). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
-10. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
-11. There are different rooms in Gitter in which to interact with other contributors:
-* [Demos room: talk about creating new demo implementations](https://gitter.im/HTTP-APIs/Demos-creation)
-* [Improving hydrus room: issues, solutions and ideas](https://gitter.im/HTTP-APIs/Improving-Hydrus)
-* [Beginners: experienced contributors help newcomers](https://gitter.im/HTTP-APIs/Beginners)
-12. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
-13. Get familiar with [Docker container engine](https://docker-curriculum.com/) and its best practices to deploy virtualized environments.
+7. Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
+8. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
+9. Read [Hydra-CG gitbook](https://github.com/HydraCG/gitbook)
+10. Read [hydrus WIKI](https://www.hydraecosystem.org/00-Home). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
+11. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
+12. All the [conversations take place on Organization's Slack](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU), check the appropriate *#channel*
+13. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
+14. Get familiar with [Docker container engine](https://docker-curriculum.com/) and its best practices to deploy virtualized environments.
 
 ## General guidelines to contributing
 
@@ -33,6 +31,8 @@ A general introduction: [What does it mean to be a Open Source Maintainer](https
 * Read this [how-to about Github workflow here](https://guides.github.com/introduction/flow/) if you are not familiar with
 * Read all the texts related to [contributing for an OS community](https://github.com/HTTP-APIs/hydrus/tree/master/.github)
 * Read this [how-to about writing a PR](https://github.com/blog/1943-how-to-write-the-perfect-pull-request) and this [other how-to about writing a issue](https://wiredcraft.com/blog/how-we-write-our-github-issues/)
+* In general, *no permission is needed to work on the code*. Fork `develop` branch and keep your downstream branch updated; when done submit a PR and ask for reviewing. PR is the natural place for code comparison and corrections. Code for issues with multiple PRs will be integrated at reviewing time.
+* If you are working on a new idea/core modification it's important that it adhere to the [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/). We don't add anything to the API documentation that is not defined in the Hydra spec.
 
 ### Asking for help
 * If you find a problem, first ask for [help in the chat](https://gitter.im/HTTP-APIs/Lobby), then consider opening a issue.
@@ -58,10 +58,6 @@ def test_method(arg1, arg2, ...):
 * Before opening a PR be sure that all the **tests** pass successfully. If any is failing for non-related reasons, annotate the test failure in the PR comment.
 * Any change should be PRed first in `develop`, `master` can only receive merge from `develop`.
 * Everything should work and be tested for Python 3.5.2 and above.
-
-### Others
-* In general, no permission is needed to work on the code. Fork `develop` branch and keep your downstream branch updated; when done submit a PR and ask for reviewing. PR is the natural place for code comparison and corrections. Code for issues with multiple PRs will be integrated at reviewing time.
-* If you are working on a new idea/core modification it's important that it adhere to the [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/). We don't add anything to the API documentation that is not defined in the Hydra spec.
 
 ## Worth knowing
 * Writing a [proposal for GSOC](https://google.github.io/gsocguides/student/writing-a-proposal)
