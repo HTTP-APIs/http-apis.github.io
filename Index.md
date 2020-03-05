@@ -4,7 +4,7 @@ title: Hydra Ecosystem | Hydraecosystem.org
 permalink: /
 ---
 
-**Hydra** is a documentation framework that bases on top of established **Linked Data** (Semantic Web) tools to build the next generation of connected Web APIs. The team of developers in the *HTTP-APIs* community aims to establish an ecosystem of tools to make Hydra framework operational. A list of tools under development can be found [at this link](https://github.com/HTTP-APIs).
+**Hydra** is a documentation framework that bases on top of established **Linked Data** (Semantic Web) tools to build the next generation of connected Web APIs. The team of developers in the community aims to establish an ecosystem of tools to make Hydra framework operational. A list of tools under development can be found [at this link](https://github.com/HTTP-APIs).
 
 Hydra is currently a draft created by [**World Wide Web Consortium's Hydra Community Group**](https://www.w3.org/community/hydra/). Official documentation available [here](http://hydra-cg.com) and development is open [here](https://github.com/HydraCG).
 
