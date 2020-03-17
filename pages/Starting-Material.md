@@ -9,21 +9,22 @@ permalink: /Starting-Material
 A general introduction: [What does it mean to be a Open Source Maintainer](https://mozilla.github.io/maintainer-cohort/).
 
 1. Read the blog posts from GSOC 2017: [Lorenzo](https://www.linkedin.com/pulse/gsoc-2017-python-hydra-making-summer-great-hacking-web-moriondo/) [Chris](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/) [Akshay](https://xadahiya.github.io/Gsoc-Summary/)
-2. [What is a graph](https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-12-graphs-networks-incidence-matrices/) and how it can be represented with linear algebra. Watch [this video about Graph structures](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/lecture-6-graph-theory-and-coloring/)
-3. General understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples.
-4. What are [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html)
-5. What is [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827)
-6. Read these two papers [Hydra: A Vocabulary for Hypermedia-Driven Web APIs
+2. What is a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API; how is it different from an [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) API
+3. [What is a graph](https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-12-graphs-networks-incidence-matrices/) and how it can be represented with linear algebra. Watch [this video about Graph structures](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/lecture-6-graph-theory-and-coloring/)
+4. General understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples.
+5. What are [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html)
+6. What is [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827)
+7. Read these two papers [Hydra: A Vocabulary for Hypermedia-Driven Web APIs
 (Markus Lanthaler, Christian Gütl (2013))](http://www.markus-lanthaler.com/research/hydra-a-vocabulary-for-hypermedia-driven-web-apis.pdf) and [Creating 3rd Generation Web APIs with Hydra
 (Markus Lanthaler (2013))](http://www.markus-lanthaler.com/research/creating-3rd-generation-web-apis-with-hydra.pdf)
-7. Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
-8. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
-9. Read [Hydra-CG gitbook](https://github.com/HydraCG/gitbook)
-10. Read [hydrus WIKI](https://www.hydraecosystem.org/00-Home). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
-11. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
-12. All the [conversations take place on Organization's Slack](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU), check the appropriate *#channel*
-13. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
-14. Get familiar with [Docker container engine](https://docker-curriculum.com/) and its best practices to deploy virtualized environments.
+8. Read the old [HYDRA Draft](https://www.hydra-cg.com/spec/latest/core/) and [updated specifications](https://github.com/HydraCG). *Very important* is the current work done for [Draft's use-cases](https://github.com/HydraCG/Specifications/tree/master/drafts/use-cases)
+9. Read this seminal [paper about Web APIs](https://arxiv.org/abs/1609.07108). This [other paper](https://arxiv.org/pdf/1809.01622.pdf) explains different use cases for graphs applied to databases.
+10. Read [Hydra-CG gitbook](https://github.com/HydraCG/gitbook)
+11. Read [hydrus WIKI](https://www.hydraecosystem.org/00-Home). Run `hydrus` and try to set up a basic API. Read the [documentation](http://hydrus.readthedocs.io/en/latest/)
+12. If you want to have fun with a more dynamic demo, run [hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo)
+13. All the [conversations take place on Organization's Slack](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU), check the appropriate *#channel*
+14. Read the other blogposts in our [Medium Publication](https://medium.com/w3c-hydra-development-community)
+15. Get familiar with [Docker container engine](https://docker-curriculum.com/) and its best practices to deploy virtualized environments.
 
 ## General guidelines to contributing
 
