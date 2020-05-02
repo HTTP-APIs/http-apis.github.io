@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Google Season of Docs 2020 | Hydraecosystem.org
-permalink: /season-of-docs-2020
+permalink: /sod-20
 ---
 
 Welcome to Hydra Ecosystem’s project page for  [Season of Docs 2020](https://developers.google.com/season-of-docs)!
