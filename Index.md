@@ -8,36 +8,11 @@ permalink: /
 
 Hydra is currently a draft created by [**World Wide Web Consortium's Hydra Community Group**](https://www.w3.org/community/hydra/). Official documentation available [here](http://hydra-cg.com) and development is open [here](https://github.com/HydraCG).
 
-<!-- **Hydra Ecosystem** promotes and facilitates the adoption of Hydra.
+**Hydra Ecosystem** promotes and facilitates the adoption of Hydra.
 
-<!-- For a general introduction you may want to follow the index:
-
-* **Introduction**
-    * [Foundations](/00-Home)
-    * [Developing APIs with Hydra](/Workflow)
-    * [Hydra by example](/Example)
-    * [Hydra Network Walkthrough](/Design)
-    * <a href="https://medium.com/w3c-hydra-development-community" target="_blank">Blogging about Hydra and Google Summer Of Code</a>
-* **Getting started**
-    * [hydrus server](/hydrus-demo)
-    * [Developing with hydrus](/01-Usage)
-    * [Authentication](/Auth)
-    * [Command-line interface](/CLI)
-* **Explained**
-    * [To start contributing to codebase](/Starting-Material)
-    * [Parser](/Parser)
-    * [Parser-Examples](/Parser-Usage)
-    * [Official client design: Heracles](/heracles_explained)
-    * [Python Hydra agent](/hydra-agent-redis-graph)
-    * [GSOC-2018](/GSoC-2018)
-    * [GSOC-2019](/GSoC-19)
-    * [IriTemplate example](/IriTemplate)
-    * [Pagination](/Pagination) -->
-
-This development community is part of [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/6557492048297984/) and [**Season of Docs**](https://developers.google.com/season-of-docs/docs/participants/#hydra-ecosystem-documentation).
+This development community participates in [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/6557492048297984/) and [**Season of Docs**](https://developers.google.com/season-of-docs/docs/participants/#hydra-ecosystem-documentation).
 
 
-<hr/>
 <div style="text-align:center;">
 <a class="twitter-timeline" data-width="500" data-height="500" href="https://twitter.com/HydraEcosystem?ref_src=twsrc%5Etfw">Tweets by HydraEcosystem</a> 
 </div>
