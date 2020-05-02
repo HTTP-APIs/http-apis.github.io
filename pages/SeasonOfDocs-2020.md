@@ -4,11 +4,43 @@ title: Google Season of Docs 2019 | Hydraecosystem.org
 permalink: /sod-20
 ---
 
-# Project Ideas
+Welcome to Hydra Ecosystem’s project page for  [Season of Docs 2020](https://developers.google.com/season-of-docs)!
+We are excited for this opportunity to welcome technical writers to our open source community and help them gain experience in contributing docs to open source projects. 
+Our goal for this collaboration is to improve the onboarding experience for new developers, thereby making it easy for them to start contributing to the project.
+
+## What we are looking for
+**Skills**: Self-motivation, collaboration, and a willingness to learn are absolutely crucial skills for a tech writer. We expect the tech writer to demonstrate these skills by proactive participation in the weekly Slack standups, writing a short biweekly blog of their progress, engaging with our Slack community, and being receptive to guidance. We are aware that contributing to a technical project can be daunting and overwhelming and we are here to help you out in any way we can.
+
+**Time commitments**: The Season of Docs official website [states](https://developers.google.com/season-of-docs/docs/faq#how_much_time_does_participation_take) that the tech writer is expected to put in 10-20 hours per week on average. While we think that's a fair expectation, we are open to discussing the time estimates for the selected project.
+
+## Documentation project plan
+Following is the project plan and timeline we want to adhere to:
+Community bonding period (August 17 - September 13):
+- Get to know the mentors, the project, the users, and the community.
+- From a technical writing perspective, you will conduct self-study and research, user-test the project, analyze the audience, and learn basic GitHub workflows and Markdown syntax.
+- By the end of this phase, you should be familiar with the project and the audience and determine the best documentation type for the project.
+
+*Doc development phase 1* (September 14 - October 13):
+First drafts of the deliverables.
+*Doc development phase 2* (October 14 - November 30):
+Edits, reviews, and revisions. Publish the deliverables.
+
+## Meet the team
+**Technical mentors**: [Akshay Dahiya](https://www.linkedin.com/in/xadahiya/), [Chris Andrew](https://www.linkedin.com/in/chrizandr/), [Lorenzo Moriondo](https://www.linkedin.com/in/lorenzomoriondo/)
+
+**Technical Writing mentor**: [Amruta Ranade](https://www.linkedin.com/in/amrutaranade/)
+
+### Tips for writing a good proposal
+- Carefully read all the guides in the "For Technical Writers" section on the Season of Docs website: [https://developers.google.com/season-of-docs/docs/tech-writer-guide](https://developers.google.com/season-of-docs/docs/tech-writer-guide)
+- Select a project idea from the section below or propose your own project. Feel free to contact us over Slack to discuss your project idea(s) and gauge their viability.
+- Write the proposal! Your proposal is not only a communication medium for your project idea but also a demonstration of your documentation skills. Make sure your proposal is clear, concise, comprehensive, and grammatically correct.
+
+
+## Project Ideas
 
 These are our initial ideas. Technical writers can create their proposals by combining these ideas and/or adding their own. New ideas always welcome!
 
-## 1. Writing the conceptual and architectural overviews for the project
+## 1. Write the conceptual and architectural overview for the project
 
 ### Project Description:
 

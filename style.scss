@@ -25,6 +25,7 @@ body {
 	background: $white;
   font: 20px/1.4 $-apple-system;
   color: $black;
+  font-family: $helvetica;
 }
 
 .container {
@@ -256,7 +257,7 @@ img {
 
   .entry{
     margin-left:300px;
-    padding-left:25px;
+    padding-left: 50px;
 
   }
 }
