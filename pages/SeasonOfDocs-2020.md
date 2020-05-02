@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Google Season of Docs 2019 | Hydraecosystem.org
+title: Google Season of Docs 2020 | Hydraecosystem.org
 permalink: /sod-20
 ---
 
