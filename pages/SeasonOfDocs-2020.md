@@ -18,7 +18,7 @@ Self-motivation, collaboration, and a willingness to learn are crucial skills fo
 
 *Time commitments*: 
 
-The Season of Docs official website [states](https://developers.google.com/season-of-docs/docs/faq#how_much_time_does_participation_take) that the tech writer is expected to put in 10-20 hours per week on average. While we think that's a fair expectation, we are open to discussing the time estimates for the selected project.
+The Season of Docs official website [states](https://developers.google.com/season-of-docs/docs/faq#how_much_time_does_participation_take) that the tech writer is expected to put in 20-30 hours per week on average. While we think that's a fair expectation, we are open to discussing the time estimates for the selected project.
 
 ### Tech writer’s takeaways:
 
@@ -62,11 +62,12 @@ Following is the project plan and timeline we want to adhere to:
 
 Here are a few ideas to get the discussion started but feel free to propose your own ideas!
 
-## 1. Write the conceptual and architectural overview for the project
+## 1. Refactoring of Documentation.
 
 ### Project Description:
 
-We need to refactor the existing information to provide a conceptual and architectural overview of the project. The overview needs to be user-friendly and (as far as possible) jargon-free and should include real-world use-cases of the project.
+The porject documentation for the tools developed by Hydra Ecosystem is scattered around many links and resources. We need a centralized documentation system and a documentation workflow that is regularly updated by contributors as the project further progresses. We already have readthedocs documentation for our major tools. These documents need to be improved with updations and proper references. We need a centralized location linking the documentation from individual project documents, preferably hosted on our current website. This project involves updating the documentation and of our major tools and refactoring it to be more easily accesible. We need to refactor the existing information to provide a conceptual and architectural overview of each project. The overview needs to be user-friendly and (as far as possible) jargon-free and should include real-world use-cases of the project. This might be a large undertaking and we would be open to extending this project into a long term one based on the proposals.
+
 
 *Resources:*
 
@@ -78,6 +79,7 @@ Currently, the conceptual and architectural overview of the project is scattered
 - [Usage](https://www.hydraecosystem.org/01-Usage)
 - [Workflow](https://www.hydraecosystem.org/Workflow)
 - [Auth](https://www.hydraecosystem.org/Auth)
+- [hydrus](https://hydrus.readthedocs.io/en/latest/)
 - [Client](https://www.hydraecosystem.org/heracles_explained)
 - [Building Next-Generation Web APIs](https://youtu.be/tRTD2W4W8G4)
 
@@ -86,7 +88,7 @@ Currently, the conceptual and architectural overview of the project is scattered
 
 ### Project Description:
 
-As the project evolves through the pre-alpha and alpha phases, we would like to generate interest among developers/users for the purpose of testing initially and eventually adoption. We need a guide to help contributors set up the testing environment and know what workflows/use-cases to test. This guide could also include contribution guidelines (how to open issues, whom to assign issues to, how to open PRs, and so on).
+As the project evolves through the pre-alpha and alpha phases, we would like to generate interest among developers/users for the purpose of testing initially and eventually adoption. We need a guide to help contributors set up the testing environment and know what workflows/use-cases to test. This guide could also include contribution guidelines (how to open issues, whom to assign issues to, how to open PRs, and so on). Another addition that we would like to have as part of this project are tutorials and code examples to help users inderstand the inner workings of each tool. The basic gist is to make people easier understand the tools and code so it is easier to contribute.
 
 *Resources:*
 
@@ -103,7 +105,10 @@ The information in the following documents can be used to create this guide:
 
 
 ## Contacts
+Please do get in touch with our community to discuss ideas and projects with members. The projects are not limited to these ideas but they are a good starting point for us.
 
-Technical writers can reach mentors by writing at _mentors@hydraecosystem.org_ and _collective@hydraecosystem.org_
-
+The best way to get in touch with mentors is to join the #tech-writing channel on our Slack.
 Join the Development Community. Visit our [Slack channel](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzI1NzAzNzUxMTg3LWJlMDU1MjI5YzNlYTIyZDVkODllN2ZlNjk1MjQzN2RiYzcxNzE4OGM2MzlkZTI5Y2JhNGQ3NmFlZWIxN2I1ZTg)
+
+Technical writers can also reach mentors by writing at _mentors@hydraecosystem.org_ and _collective@hydraecosystem.org_
+
