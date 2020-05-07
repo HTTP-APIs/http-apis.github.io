@@ -30,12 +30,12 @@ hydrus is a generic server that can serve a REST-based API using Hydra APIDocume
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from hydrus.app import app_factory
+from hydrus.app_factory import app_factory
 from hydrus.utils import set_session, set_doc, set_hydrus_server_url, set_api_name
 from hydrus.data import doc_parse
-from hydrus.hydraspec import doc_maker
+from hydra_python_core import doc_maker
 from hydrus.data.db_models import Base
-from hydrus.metadata.doc import doc     # Can be replaced by any API Documentation
+from hydrus.conf import APIDOC_OBJ     # Can be replaced by any API Documentation
 
 # Define the server URL, this is what will be displayed on the Doc
 HYDRUS_SERVER_URL = "http://localhost:8080/"
@@ -46,7 +46,7 @@ API_NAME = "serverapi"
 # Define the Hydra API Documentation
 # NOTE: You can use your own API Documentation and create a HydraDoc object using doc_maker
 #       Or you may create your own HydraDoc Documentation using doc_writer [see hydrus/hydraspec/doc_writer_sample]
-apidoc = doc_maker.createDoc(doc, HYDRUS_SERVER_URL, API_NAME)
+apidoc = doc_maker.create_doc(APIDOC_OBJ, HYDRUS_SERVER_URL, API_NAME)
 
 # Define the database connection
 engine = create_engine('sqlite:///path/to/database/file')
@@ -84,11 +84,14 @@ We will now break down each of these steps and understand what they do. Let's be
 ## The APIDocumentation
 Much of hydrus is built around the Hydra API Documentation. The API Doc is defined in the Hydra spec [here](http://www.hydra-cg.com/spec/latest/core/).
 The API Doc is the entity that tells hydrus the way to set the server up, the endpoints that must be created, the data needs to be served, the operations supported by the data and so on.
-hydrus uses Python classes in `hydrus.hydraspec.doc_writer` to create and define API Docs. A description of these classes and how they are designed can be found in the [Design](https://github.com/HTTP-APIs/hydrus/wiki/Design) section.
+
+A companion library called `hydra_python_core` provides all the core functions to hydrus which are important for making an API Doc. This is an internal dependency of hydrus so you do not need to install it separately. 
+
+hydrus uses Python classes in `hydra_python_core.doc_writer` to create and define API Docs. A description of these classes and how they are designed can be found in the [Design](https://github.com/HTTP-APIs/hydrus/wiki/Design) section.
 
 <!-- ![doc_writer](https://image.ibb.co/eWURkQ/doc_writer.png) -->
 
-The `hydurs.hydraspec.doc_writer.HydraDoc` object is crucial for hydrus to be able to set up the API. There are various ways you can create this object from your API Documentation:
+The `hydra_python_core.doc_writer.HydraDoc` object is crucial for hydrus to be able to set up the API. There are various ways you can create this object from your API Documentation:
 
 <a name="newdoc"></a>
 ### Create a new API Documentation and a new `HydraDoc` object
@@ -98,7 +101,7 @@ The first step is to create a new `HydraDoc` object
 ```python
 # Sample to create Hydra APIDocumentation using doc_writer
 
-from hydrus.hydraspec.doc_writer import HydraDoc
+from hydra_python_core.doc_writer import HydraDoc
 
 API_NAME = "demoapi"
 BASE_URL = "https://hydrus.com/"
@@ -117,7 +120,7 @@ The API Documentation has been created, but it is not yet complete. Classes, pro
 
 We will now define a class for this API Documentation, which is of the type `HydraClass`
 ```python
-from hydrus.hydraspec.doc_writer import HydraClass
+from hydra_python_core.doc_writer import HydraClass
 
 # Creating classes for the API
 class_uri = "http://hydrus.com/dummyClass"  # URI of class for the HydraClass
@@ -130,7 +133,7 @@ class_ = HydraClass(class_uri, class_title, class_description, endpoint=False)
 Classes need to have properties that allow them to store information related to the class. Similar to attributes in a Python class, these are stored as `supportedProperty` of the `HydraClass`. Properties are defined as `HydraClassProp` objects:
 ```python
 
-from hydrus.hydraspec.doc_writer import HydraClassProp
+from hydra_python_core.doc_writer import HydraClassProp
 
 # Create new properties for the class
 prop1_uri = "http://hydrus.com/prop1"   # The URI of the class of the property
@@ -142,20 +145,20 @@ prop2_title = "Prop2"
 prop2 = HydraClassProp(prop1_uri, prop2_title, required=False, read=False, write=True)
 
 # Properties that are required=True must be added during class object creation
-# Properties that are read=True are read only
+# Properties that are read=True are readable
 # Properties that are write=True are writable
 ```
 Besides these properties, classes also need to have operations that can modify the data stored within their instances. These operation are defined as `HydraClassOp` and are stored in `supportedOperation` of the `HydraClass`.
 
 ```python
-from hydrus.hydraspec.doc_writer import HydraClassOp
+from hydra_python_core.doc_writer import HydraClassOp, HydraStatus
 
 # Create operations for the class
 op_name = "UpdateClass"  # The name of the operation
 op_method = "POST"  # The method of the Operation [GET, POST, PUT, DELETE]
 op_expects = "vocab:dummyClass"  # URI of the object that is expected for the operation
 op_returns = None   # URI of the object that is returned by the operation
-op_status = [{"statusCode": 200, "description": "dummyClass updated"}]   # List of statusCode for the operation
+op_status = [HydraStatus(code=200, title="dummyClass updated.")]   # List of statusCode for the operation
 
 op1 = HydraClassOp(op_name,
                    op_method,
@@ -199,16 +202,16 @@ The final API Documentation can be viewed by calling the `generate` method which
 ```python
 doc = apidoc.generate()  # Returns the entire API Documentation as a Python dict
 ```
-The complete script for this API Documentation can be found in `hydrus/hydraspec/doc_writer_sample.py`, and the generated ApiDocumentation can be found in `hydrus/hydraspec/doc_writer_sample_output.py`.
+The complete script for this API Documentation can be found in `hydrus/samples/doc_writer_sample.py`, and the generated ApiDocumentation can be found in `hydrus/samples/doc_writer_sample_output.py`.
 
 <a name="olddoc"></a>
 ### Use an existing API Documentation to create a new `HydraDoc` object
 
-In case you already have an API Doc defined in JSON or in a Python dict, hydrus provides a way to turn this API Doc into `doc_writer` classes. This is done using `hydrus.hydraspec.doc_maker` as defined below:
+In case you already have an API Doc defined in JSON or in a Python dict, hydrus provides a way to turn this API Doc into `doc_writer` classes. This is done using `hydra_python_core.doc_maker` as defined below:
 ```python
 # Sample to convert the API Doc into doc_writer classes
 
-from hydrus.hydraspec.doc_maker import createDoc
+from hydra_python_core.doc_maker import create_doc
 
 # Note: It would be better to use json.loads from the python json library to create 'doc'
 doc = {
@@ -226,7 +229,7 @@ doc = {
   ]
 }
 
-APIDoc = createDoc(doc, HYDRUS_SERVER_URL="https://hydrus.com", API_NAME="demoapi")
+APIDoc = create_doc(doc, HYDRUS_SERVER_URL="https://hydrus.com", API_NAME="demoapi")
 # HYDRUS_SERVER_URL and API_NAME are optional parameters. If not defined, the default values from the doc object are used.
 ```
 Make sure that `doc` is a Python dictionary and all objects defined are according to the Hydra [spec](www.hydra-cg.com/spec/latest/core/).
@@ -236,7 +239,7 @@ JSON variables can such as `true`, `false` and `null` can be used as strings. Py
 ## Setting up the database
 Now that the API Documentation has been defined, the next thing hydrus needs to function is a database to store the resources of the API. hydrus has its own database models that are generic and can be used for most APIs. More information about these can be found in the [Design](https://github.com/HTTP-APIs/hydrus/wiki/Design) section.
 
-The databse models use SQLAlchemy as an ORM Layer mapping relations to Python Classs and Objects. A good reference for the ORM can be found [here](http://docs.sqlalchemy.org/en/rel_1_0/orm/tutorial.html).
+The databse models use SQLAlchemy as an ORM Layer mapping relations to Python Classes and Objects. A good reference for the ORM can be found [here](http://docs.sqlalchemy.org/en/rel_1_0/orm/tutorial.html).
 Here is how to create a new connection and the necessary models for hydrus to use:
 
 A new connection to a database can be created as follows:
@@ -262,7 +265,7 @@ To add the classes and properties to hydrus, we need the same database `engine` 
 
 ```python
 from hydrus.data import doc_parse
-from hydrus.hydraspec import doc_maker
+from hydra_python_core import doc_maker
 from sqlalchemy.orm import sessionmaker
 
 ApiDocumentation = {
@@ -292,7 +295,7 @@ ApiDocumentation = {
 
 db_session = session = sessionmaker(bind=engine)()
 
-doc = doc_maker.createDoc(ApiDocumentation)
+doc = doc_maker.create_doc(ApiDocumentation)
 
 classes = doc_parse.get_classes(doc.generate())
 properties = doc_parse.get_all_properties(classes)
@@ -316,7 +319,7 @@ Since most servers use an interface to link with the application or backend proc
 The API name must also be used for hydrus to create an app. The `app_factory` method creates an API with all routes directed at `/[API_NAME]`. For example, if an app is created using the `API_NAME` as `"demoapi"`, all operations for the API will be at the route `/demoapi/..`. The API name serves as the entrypoint for the application. Create an app using the `API_NAME` as follows:
 
 ```python
-from hydrus.app import app_factory
+from hydrus.app_factory import app_factory
 
 API_NAME = 'demoapi'
 
