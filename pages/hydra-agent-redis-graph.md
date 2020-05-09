@@ -23,7 +23,7 @@ The graph structure has two types of endpoints:
 
 Every collection endpoint contains the collections of endpoints("members") which stores as a node in Redis graph and the "members" of collection endpoint are stored in a dictionary(Python `dict`), every member contains the data that we have fetched from the server. Ex: In a `DroneCollection` node, label is "collection" and alias is "DroneCollection"; and properties is a dictionary(Python `dict`) which stores all the members for the endpoint named `DroneCollection`.
 
-hydrus(`Hydrus.hydraspec.doc_maker`) functionality is used for seperating the endpoints("collection" and "classes" endpoints) and finding its  `supportedProperty` or `supportedOperations` and all the other things which can get from API documentation.
+Hydra python core's (`hydra_python_core.doc_maker`) functionality is used for seperating the endpoints("collection" and "classes" endpoints) and finding its  `supportedProperty` or `supportedOperations` and all the other things which can get from API documentation.
 
 The graph structure have five types of nodes in graph with five different labels:
 - label = "id"   (it is used for Entrypoint node)

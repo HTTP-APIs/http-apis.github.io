@@ -26,7 +26,7 @@ Finally, we add all the classes with or without operations defined on them to th
 
 Doc Writer module is being used at several places to form the Hydra API Documentation. The following classes have been used:
 - `HydraClass` is being used to create Hydra class after parsing the object referred in the "path" object.
-- `HydraDoc` is being used to initialize API Documentation using name, title, description, API name and base URL from the "info" block of the OPenAPI spec.
+- `HydraDoc` is being used to initialize API Documentation using name, title, description, API name and base URL from the "info" block of the OpenAPI spec.
 - `HydraClassProp` is used to add `SupportedProperty` to the Hydra Class. The properties are extracted from the object definition in the OpenAPI spec and parsed to check type, required flag.
 - `HydraClassOp` is used to add `SupportedOperation` to the Hydra class. The operations of a Hydra class are basically the paths obtained by parsing the "paths" object of the OpenAPIS spec. Information like what expected input vocab, expected output vocab, status codes and the corresponding message, as well as the collection flag, is used to add the property to the Hydra class.
 

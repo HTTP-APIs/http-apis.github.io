@@ -17,7 +17,7 @@ Heracles.ts defines mainly two type of Index:
 * Classes
 * Interface
 
-and it also contain a vaiable called `hydra` like `hydra:{any_string("http://www.w3.org/ns/hydra/core#")}`.
+and it also contain a variable called `hydra` like `hydra:{any_string("http://www.w3.org/ns/hydra/core#")}`.
 
 
 
