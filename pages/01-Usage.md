@@ -18,6 +18,7 @@ Table of contents
 * [App factory](#appf)
 * [Plug and Play](#pnp)
 * [Running tests](#test)
+* [Common operations with hydrus](/Operations)
 * [API Authentication](/Auth)
 
 <a name="servsetup"></a>
