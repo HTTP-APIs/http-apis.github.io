@@ -36,8 +36,62 @@ If the above command executed successfully, then you should have a *hydrus* serv
 }
 ```
  
-### Retrieving resource instances from database
+### Supported operations on a Resource
+The supported operations (GET/PUT/POST/DELETE) can be found at by *supportedOperation* key in the ApiDoc for the required resource.
+For example, the operations supported by **MessageCollection** resource can be found [here](https://github.com/HTTP-APIs/hydrus/blob/72b4cda49ab9cfe0fb775146e8d5113f5d6869e0/hydrus/samples/hydra_doc_sample.py#L780-L807).
+```python
+...
+"@id": "vocab:MessageCollection",
+"@type": "hydra:Class",
+"description": "A collection of message",
+"subClassOf": "http://www.w3.org/ns/hydra/core#Collection",
+"supportedOperation": [
+    {
+        "@id": "_:message_collection_retrieve",
+        "@type": "http://schema.org/FindAction",
+        "description": "Retrieves all Message entities",
+        "expects": "null",
+        "method": "GET",
+        "returns": "vocab:MessageCollection",
+        "expectsHeader": [],
+        "returnsHeader": [],
+        "possibleStatus": []
+    },
+    {
+        "@id": "_:message_create",
+        "@type": "http://schema.org/AddAction",
+        "description": "Create new Message entity",
+        "expects": "vocab:Message",
+        "method": "PUT",
+        "returns": "vocab:Message",
+        "expectsHeader": [],
+        "returnsHeader": [],
+        "possibleStatus": [
+            {
+                "title": "If the Message entity was created successfully.",
+                "statusCode": 201,
+                "description": ""
+            }
+        ]
+    }
+],
+"supportedProperty": [
+    {
+        "@type": "SupportedProperty",
+        "description": "The message",
+        "property": "http://www.w3.org/ns/hydra/core#member",
+        "readable": "true",
+        "required": "false",
+        "title": "members",
+        "writeable": "true"
+    }
+],
+"title": "MessageCollection"
+...
+```
+From the above part of the [ApiDoc](https://github.com/HTTP-APIs/hydrus/blob/master/hydrus/samples/hydra_doc_sample.py), we can see that only retrieving(GET) instances and adding instances(PUT) to the database is allowed for the **MessageCollection** resource.
 
+### Retrieving resource instances from database
 The above response shows all the resources with a collection endpoint served by *hydrus*. To explore more about any resource, visit the resource endpoint as described in the above reponse.
 For example, for more information on the **MessageCollecion** resource, visit `http://localhost:8080/serverapi/MessageCollection`.
 Therefore, making a **GET** request to `http://localhost:8080/serverapi/MessageCollection` endpoint, leads to response:
@@ -187,6 +241,29 @@ Now, if a request is made to `http://localhost:8080/serverapi/MessageCollection`
 ```
 - The key `hydra:totalItems` has value is now one(`1`) which shows that database has `1` item(which was inserted with the PUT request).
 - The key `members` is does not have an empty array as value. It now contains information(`@id`) fn the members of that resource in the database.
+
+### Updating a single resource instance from the database
+Updating a single object from the database is very similar to the way to retrieve that single resource instance.
+We need to make a POST request to `endpoint_on_which_object_added/uniqueID`.
+Therefore, to update this specific Message which that was just inserted into the database, make a POST request to `http://localhost:8080/serverapi/MessageCollection/b7551d4f-cc91-484e-91b1-3b527b4899e0`.
+You should get response as:
+```json
+{
+    "message": "The method is not allowed for the requested URL."
+}
+```
+This is not wrong. As we had seen earlier that only GET and PUT operation is allowed on MessageCollection. But to update a resource which has POST operation allowed, we will need to make a exactly similar request as we did for adding the object(PUT) but with just the body of the request with updated values. For example, if we did this on a Datastream object, we would get a response similar to:
+```json
+{
+    "@context": "http://www.w3.org/ns/hydra/context.jsonld",
+    "@type": "Status",
+    "description": "Object with ID 933d72ee-1cf9-4245-9a94-80cbcb548539 successfully updated",
+    "statusCode": 200,
+    "title": "Object updated"
+}
+```
+
+To confirm that the object was updated, making a GET request to `http://localhost:8080/serverapi/DatastreamCollections/933d72ee-1cf9-4245-9a94-80cbcb548539` returns the object details with updated values, which shows that the object from the database has been updated.
 
 ### Deleting a single resource instance from the database
 Deleting a single object from the database is very similar to the way to retrieve that single resource instance.
