@@ -58,7 +58,7 @@ def test_method(arg1, arg2, ...):
 * Every module is and should in future provide **type annotations** using `mypy`
 * Before opening a PR be sure that all the **tests** pass successfully. If any is failing for non-related reasons, annotate the test failure in the PR comment.
 * Any change should be PRed first in `develop`, `master` can only receive merge from `develop`.
-* Everything should work and be tested for Python 3.5.2 and above.
+* Everything should work and be tested for Python 3.6.0 and above.
 
 ## Worth knowing
 * Writing a [proposal for GSOC](https://google.github.io/gsocguides/student/writing-a-proposal)

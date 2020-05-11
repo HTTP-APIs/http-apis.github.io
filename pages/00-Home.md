@@ -7,7 +7,7 @@ permalink: /00-Home
 # Foundations
 
 ## Generics
-Besides all the other tools in the ecosystem, **hydrus** (lowercase) is the basic module from which API designers/engineers/developers can build up their own automated infrastructure to leverage smart clients. hydrus is the server-side tool that allows REST data to be published as Hydra-aware data. A **Hydra network** is made up of one or more hydrus instances that receives requests from **Hydra smart clients** (or agents, see [`hydra-python-agent`](https://github.com/HTTP-APIs/hydra-python-agent) repository). The interaction of hydrus and Hydra smart clients is how the Hydra ecosystem realizes the Client-Server pattern.
+Besides all the other tools in the ecosystem, **hydrus** (lowercase) is the basic module from which API designers/engineers/developers can build up their automated infrastructure to leverage smart clients. hydrus is the server-side tool that allows REST data to be published as Hydra-aware data. A **Hydra network** is made up of one or more hydrus instances that receive  requests from **Hydra smart clients** (or agents, see [`hydra-python-agent`](https://github.com/HTTP-APIs/hydra-python-agent) repository). The interaction of hydrus and Hydra smart clients is how the Hydra ecosystem realizes the Client-Server pattern.
 
 hydrus provides a full-stack architecture that makes it the basic building block for a machine that is a node in a wider network of Web APIs. Generic components of the network are:
 * on hydrus, a REST interface
@@ -23,9 +23,9 @@ For a more detailed explanation of triples, you can [read this document](http://
 Hydra is a framework that enables REST APIs to be described semantically using RDF. It is based on JSON-LD and proposed as [W3C draft](https://www.hydra-cg.com/spec/latest/core/).
 
 
-**hydrus** (lowercase) is the flagship server in the ecosystem. It is a Flask server meant to build and deploy Hydra-based Web APIs in a straightforward and effective way. It uses Docker as its virtualization and isolation technology (see Usage). Other tools, such as dedicated clients for testing, instances running with others frameworks, parsers/translators to other standards, are in the same ecosystem.
+**hydrus** (lowercase) is the flagship server in the ecosystem. It is a Flask server meant to build and deploy Hydra-based Web APIs in a straightforward and effective way. It uses Docker as its virtualization and isolation technology (see Usage). Other tools, such as dedicated clients for testing, instances running with other frameworks, parsers/translators to other standards, are in the same ecosystem.
 
-hydrus is a set of **Python**-based tools for an easier and more efficient creation of hypermedia-driven REST APIs. hydrus utilises the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST server to serve data.
+hydrus is a set of **Python**-based tools for easier and more efficient creation of hypermedia-driven REST APIs. hydrus utilises the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST server to serve data.
 hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard-to-be for creation and documentation of data servers.
 
 
@@ -54,7 +54,7 @@ Features
 -------------
 Every **hydrus instance** provides the following tools:
 - A generic server that can serve the required data and metadata (in the form of API documentation) to a client over HTTP.
-- A Web interface that interacts with the server or infrastructure through the client using Natural Language which is processed machine consumable language. **(under developement)**
+- A Web interface that interacts with the server or infrastructure through the client using Natural Language which is processed machine consumable language. **(under development)**
 
 Every **Hydra smart client** instance provides:
 - A client that can understand Hydra vocabulary and interact autonomously with a Hydra-supporting server via basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data. The contributors are actively developing a fork of `hydra-py` to create a generic [Hydra Agent](https://github.com/HTTP-APIs/hydra-python-agent). 

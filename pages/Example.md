@@ -157,7 +157,7 @@ Hydra classes are dereferenceable resources (see [definition](http://dbpedia.org
 Since Hydra uses classes to describe the information expected or returned by an operation, it also defines a concept to 
 describe the properties known to be supported by a class. The following example illustrates this feature. Instead of 
 referencing properties directly, `supportedProperty` references an intermediate data structure, namely instances of the 
-`SupportedProperty` class. This makes it possible to define whether a specific property is required or whether it is read-only or write-only depending on the class it is associated with.
+`SupportedProperty` class. This makes it possible to define whether a specific property is required or whether it is readable or writeable by client depending on the class it is associated with.
 
 #### EXAMPLE 6: Defining a class and documenting its supported properties
 ```
@@ -170,42 +170,42 @@ referencing properties directly, `supportedProperty` references an intermediate 
         {
             "@type": "SupportedProperty",
             "property": "vocab:State",
-            "readonly": "false",
+            "readable": "false",
             "required": "true",
             "title": "DroneState",
-            "writeonly": "false"
+            "writeable": "false"
         },
         {
             "@type": "SupportedProperty",
             "property": "http://schema.org/name",
-            "readonly": "false",
+            "readable": "false",
             "required": "true",
             "title": "name",
-            "writeonly": "false"
+            "writeable": "false"
         },
         {
             "@type": "SupportedProperty",
             "property": "http://schema.org/model",
-            "readonly": "false",
+            "readable": "false",
             "required": "true",
             "title": "model",
-            "writeonly": "false"
+            "writeable": "false"
         },
         {
             "@type": "SupportedProperty",
             "property": "http://auto.schema.org/speed",
-            "readonly": "false",
+            "readable": "false",
             "required": "true",
             "title": "MaxSpeed",
-            "writeonly": "false"
+            "writeable": "false"
         },
         {
             "@type": "SupportedProperty",
             "property": "http://schema.org/device",
-            "readonly": "false",
+            "readable": "false",
             "required": "true",
             "title": "Sensor",
-            "writeonly": "false"
+            "writeable": "false"
         }
     ],
     "title": "Drone"
