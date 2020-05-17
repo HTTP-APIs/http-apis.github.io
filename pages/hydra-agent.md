@@ -1,8 +1,21 @@
 ---
 layout: page
-title: Redis as a graph database for Hydra Agent | Hydraecosystem.org
-permalink: /hydra-agent-redis-graph
+title: Python Hydra Agent | Hydraecosystem.org
+permalink: /hydra-agent
 ---
+- [Redis as a graph database for Hydra Agent](#redis-as-a-graph-database-for-hydra-agent)
+  - [Graph structure](#graph-structure)
+  - [Querying Mechanism](#querying-mechanism)
+    - [How to query](#how-to-query)
+    - [How agent execute query](#how-agent-execute-query)
+    - [Faceted index](#faceted-index)
+- [Synchronization Mechanism for client server updates](#synchronization-mechanism-for-client-server-updates)
+  - [Implementation](#implementation)
+      - [HYDRUS](#hydrus)
+      - [AGENT](#agent)
+        - [The agent finds a JOB ID referring to an outdated resource](#the-agent-finds-a-job-id-referring-to-an-outdated-resource)
+        - [The agent finds a JOB ID to a nonexisting resource internally](#the-agent-finds-a-job-id-to-a-nonexisting-resource-internally)
+        - [The agent finds a JOB ID made by itself on the table](#the-agent-finds-a-job-id-made-by-itself-on-the-table)
 
 # Redis as a graph database for Hydra Agent
 
@@ -103,4 +116,91 @@ Let a "DroneCollection" member `/api/DroneCollection1` have `properties: {name:D
 So, now if user query for all `model` with value `xyz` then agent will return the value of set `fs:model:xyz`. And similarly, agent works for other these type of queries.
 
 ---
+
+# Synchronization Mechanism for client server updates
+
+The synchronization between Hydrus and hydra powered agents takes place in the following manner. If the data is modified on the Hydrus, the server broadcasts all the agents in the network about the update. The agents receive this update in their ‘inbox’ by the Hydrus through a message-passing protocol. This message-passing protocol is implemented on web sockets. The agents maintain an internal state of data in the network, in the graph database, i.e. Redis. In this way, the agents can keep track of the changes in Hydrus. 
+
+The server has an outbox table. The table contains columns like job_id, method, and resourceURL. The agent keeps track of modifications to make using the last updated job_id. 
+
+
+<table>
+  <tr>
+   <td><strong>JOB_ID </strong>
+   </td>
+   <td><strong>METHOD </strong>
+   </td>
+   <td><strong>RESOURCE_URL</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>fece6d5e….
+   </td>
+   <td> POST<a href="http://server.com/Collection/98e8e272-e5ae-4f1a-a0b2-117fb052ca50"> </a>
+   </td>
+   <td><a href="http://server.com/Collection/98e8e272-e5ae-4f1a-a0b2-117fb052ca50">http://server.com/Collection/98e8e272-e5ae-4f1a-a0b2-117fb052ca50</a>
+   </td>
+  </tr>
+  <tr>
+   <td>aaa49974... 
+   </td>
+   <td>DELETE<a href="http://server.com/Collection/f1404e8d-0a52-4359-88c3-29ec9f208525"> </a>
+   </td>
+   <td><a href="http://server.com/Collection/f1404e8d-0a52-4359-88c3-29ec9f208525">http://server.com/Collection/f1404e8d-0a52-4359-88c3-29ec9f208525</a>
+   </td>
+  </tr>
+</table>
+
+
+When modifications are done on hydrus, which can be done by any one of the agents, hydrus simply emits an event saying, there’s an update. Agents after being informed, query the endpoint ‘/modification_table_diff’  to fetch new rows. They send hydrus the last job id they had processed i.e fece6d5e in this case, and will get all the new rows above fece6d5e and process them. After that, the agent will update its last_job_id variable with the new last_job_id on the server. 
+
+
+## Implementation
+
+
+#### HYDRUS
+
+Hydrus implements the mechanism using these components:
+
+
+
+1. A socket connection that broadcasts that there were new events to all agents.
+2. The limited size table that should contain modifications made to resources.
+3. An endpoint for the agents to fetch the modifications table difference: '/modification-table-diff’
+
+This ‘/modification-table-diff’ takes in a parameter with a **Job ID** and sends the table diff according to the last updated resource the Agent had.
+
+GET Example:[ https://localhost:5000/modification-table-diff?agent_job_id=2](https://localhost:5000/modification-table-diff?agent_job_id=2) 
+
+(If empty parameter, the endpoint returns the full table(For initialization purposes))
+
+Only POST and DELETE operations are tracked as they are the only ones that can lead to integrity issues. GET requests from other clients do not change the server state and PUT requests are new resources that the Client hasn't queried yet, so they aren't yet cached and thus ignored.
+
+
+#### AGENT
+
+The agent when connecting for the first time, through web sockets, copy the table to their internal state. There are three situations that have to be addressed when dealing with new rows at the modification table: 
+
+
+
+1. The agent has internally an outdated resource that needs an update.
+2. The agent never queried that resource.
+3. The agent was the one who made a transaction.
+
+
+##### The agent finds a JOB ID referring to an outdated resource
+
+The agent finds a new JOB ID, it queries it's Redis graph to check if it already has that specific resource if finding it, it will compare both the internal resource date and the one provided by the server. If the resource provided by the server is more recent, it will call itself internally to query that resource again from the hydrus server and update it internally accordingly.
+
+
+##### The agent finds a JOB ID to a nonexisting resource internally
+
+The agent finds a new JOB ID, it queries its Redis graph to check if it already has that specific resource, if not finding, meaning that the agent hasn't yet queried for that resource, the agent can ignore the modification and simply add the row to its internal table since it's not relevant for the agent.
+
+
+##### The agent finds a JOB ID made by itself on the table
+
+When the agent finds a new job that isn't on its table, the first thing it has to do is to check if its internal resource has a Date signature after or similar to the one in the server table, if the internal agent representation is more recent, basically the agent adds that transaction to the table since the agent has a more up to date resource that will be shown soon at the server table.
+
+
 
