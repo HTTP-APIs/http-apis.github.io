@@ -281,3 +281,138 @@ You should get response as:
 ```
 
 To confirm that the object was deleted, making a GET request to `http://localhost:8080/serverapi/MessageCollection` returns `hydra:totalItems` as 0, which shows that the object from the database has been deleted.
+
+### Searching for an instance using hydrus
+*hydrus* provides an interface to search for instances saved in the database out of the box.
+For the sake of using searching feature, three instances of **Message** class have been inserted in the database using the PUT request with the *MessageString* property as "First", "Second" and "Third".
+Therefore a GET request to `http://localhost:8080/serverapi/MessageCollection`, responds with
+```json
+{
+    "@context": "/serverapi/contexts/MessageCollection.jsonld",
+    "@id": "/serverapi/MessageCollection/",
+    "@type": "MessageCollection",
+    "hydra:totalItems": 3,
+    "hydra:view": {
+        "@id": "/serverapi/MessageCollection?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/serverapi/MessageCollection?page=1",
+        "hydra:last": "/serverapi/MessageCollection?page=1"
+    },
+    "members": [
+        {
+            "@id": "/serverapi/MessageCollection/720dfcb6-8283-4486-82bf-115c687700af",
+            "@type": "Message"
+        },
+        {
+            "@id": "/serverapi/MessageCollection/20cfd926-5b56-468f-a4ab-01c0941453ae",
+            "@type": "Message"
+        },
+        {
+            "@id": "/serverapi/MessageCollection/7cd4e1a0-9311-472b-bfba-0859cfffca6e",
+            "@type": "Message"
+        }
+    ],
+    "search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:mapping": [
+            {
+                "@type": "hydra:IriTemplateMapping",
+                "hydra:property": "http://schema.org/Text",
+                "hydra:required": false,
+                "hydra:variable": "MessageString"
+            },
+            {
+                "@type": "hydra:IriTemplateMapping",
+                "hydra:property": "pageIndex",
+                "hydra:required": false,
+                "hydra:variable": "pageIndex"
+            },
+            {
+                "@type": "hydra:IriTemplateMapping",
+                "hydra:property": "limit",
+                "hydra:required": false,
+                "hydra:variable": "limit"
+            },
+            {
+                "@type": "hydra:IriTemplateMapping",
+                "hydra:property": "offset",
+                "hydra:required": false,
+                "hydra:variable": "offset"
+            }
+        ],
+        "hydra:template": "/serverapi/Message(MessageString, pageIndex, limit, offset)",
+        "hydra:variableRepresentation": "hydra:BasicRepresentation"
+    }
+}
+```
+We can clearly see that there are three instances of **Message** class in the database.
+
+*hydrus* uses query parameters to search for instances in the database.
+Now to search for the instance of the **Message** class with *MessageString* as "First", we need to make a GET request to
+`http://localhost:8080/serverapi/MessageCollection?MessageString=First`, and then we get the response as
+```json
+{
+    "@context": "/serverapi/contexts/MessageCollection.jsonld",
+    "@id": "/serverapi/MessageCollection/",
+    "@type": "MessageCollection",
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/serverapi/MessageCollection?MessageString=First&page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/serverapi/MessageCollection?MessageString=First&page=1",
+        "hydra:last": "/serverapi/MessageCollection?MessageString=First&page=1"
+    },
+    "members": [
+        {
+            "@id": "/serverapi/MessageCollection/720dfcb6-8283-4486-82bf-115c687700af",
+            "@type": "Message"
+        }
+    ],
+    "search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:mapping": [
+            {
+                "@type": "hydra:IriTemplateMapping",
+                "hydra:property": "http://schema.org/Text",
+                "hydra:required": false,
+                "hydra:variable": "MessageString"
+            },
+            {
+                "@type": "hydra:IriTemplateMapping",
+                "hydra:property": "pageIndex",
+                "hydra:required": false,
+                "hydra:variable": "pageIndex"
+            },
+            {
+                "@type": "hydra:IriTemplateMapping",
+                "hydra:property": "limit",
+                "hydra:required": false,
+                "hydra:variable": "limit"
+            },
+            {
+                "@type": "hydra:IriTemplateMapping",
+                "hydra:property": "offset",
+                "hydra:required": false,
+                "hydra:variable": "offset"
+            }
+        ],
+        "hydra:template": "/serverapi/Message(MessageString, pageIndex, limit, offset)",
+        "hydra:variableRepresentation": "hydra:BasicRepresentation"
+    }
+}
+```
+Now, in the response, the number of members is just one. It is the instance of the database with MessageString as "First".
+To confirm this, we can make a GET request to `http://localhost:8080/serverapi/MessageCollection/720dfcb6-8283-4486-82bf-115c687700af` to dereference that instance, and we get the response as:
+```json
+{
+    "@context": "/serverapi/contexts/MessageCollection.jsonld",
+    "@id": "/serverapi/MessageCollection/720dfcb6-8283-4486-82bf-115c687700af",
+    "@type": "Message",
+    "MessageString": "First"
+}
+```
+We can clearly see that the "MessageString" value of this instance in "First", confirming that *hydrus* as filtered the correct instance.
+
+**NOTE**: Searching in *hydrus* is case **sensitive**.
+
+Therefore, a GET request to `http://localhost:8080/serverapi/MessageCollection?MessageString=first` would lead to zero matches.
