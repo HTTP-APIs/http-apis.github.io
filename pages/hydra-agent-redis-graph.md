@@ -4,6 +4,235 @@ title: Redis as a graph database for Hydra Agent | Hydraecosystem.org
 permalink: /hydra-agent-redis-graph
 ---
 
+# Introduction:
+
+The hydra-python-agent is a smart Hydra client implemented in Python which works with any hydra powered server. Smart clients are generic automated clients that establish resilient connected data networks leveraging knowledge graphs.
+
+The Agent is designed to:
+
+*   Provide a seamless Client that can be used to communicate with Hydra APIs
+*   Cache metadata from the Hydra server it connects to, to allow querying on the client-side
+*   Maintain a synchronization mechanism which makes sure cached resources are consistent
+*   The graph can be queried using OpenCypher.
+
+
+# Using Hydrus APIs with the agent
+
+The agent can be used both as a package and with a GUI to interact with the hydra powered APIs. Here Hydrus server will be used to interact with the API.  
+
+
+## Using Agent as a package
+
+
+### Setting up Agent:
+
+Clone the repository and set up a virtual environment
+
+
+```bash
+git clone https://github.com/HTTP-APIs/hydra-python-agent.git
+cd hydra-python-agent
+apt-get install python3-venv # If not installed
+python3 -m venv venv
+source venv/bin/activate
+```
+
+
+Install the agent by running the following commands:
+
+
+```bash
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
+python3 setup.py install
+```
+
+
+Setup Redis which is used as caching layer(if permission denied use sudo):
+
+
+```bash
+sudo ./redis_setup.sh # <- Might be necessary to use sudo
+```
+
+
+Set up Hydrus by following the instructions here:  [https://github.com/HTTP-APIs/hydrus#demo](https://github.com/HTTP-APIs/hydrus#demo).
+
+Run `hydrus serve --no-auth `
+
+Open the python REPL in the project directory by typing python3 and hitting enter. 
+
+
+```python
+import hydrus_agent.agent import Agent
+```
+
+
+The agent supports all four basic operations namely, create, Read, Update, and Delete or CRUD. To create, the HTTP verb used is PUT, to read, GET is used while for update POST is used, and DELETE is used to delete the resource. 
+
+A server is required to add, create, or update the resources. To connect to the Hydrus server, in the python REPL type and hit enter
+
+
+```python
+agent = Agent("http://localhost:8080/serverapi")
+```
+
+
+The Agent is the factory class that returns the instance of the agent. All the CRUD operations can be invoked on this instance. If the APIDOC is not specified, Hydrus serves a default APIDOC. The default APIDOC features a flock of drones that have an objective to detect the presence of fires or abnormal heat spots in a given geographical area using sensors. For more details about the default APIDOC being used visit [https://www.hydraecosystem.org/Example](https://www.hydraecosystem.org/Example). Having this information in the background, see if there are any drones right now use the following command:  
+
+
+```python
+agent.get('https://localhost:8080/serverapi/DroneCollection')
+```
+
+An empty array is returned and rightly so because no drones were added. To add drones, we issue a PUT request to the server with the drone data. In the REPL type,
+
+```python
+agent.put("http://localhost:8080/serverapi/DroneCollection", {"DroneState":"1","name":"xyz","model":"s","MaxSpeed":"1","Sensor":"None","@type":"Drone"})
+```
+
+
+Now if you GET the Drone Collection you will see one item on the list:
+
+```json
+[{
+"@id" : "/serverapi/DroneCollection/2b6484c3-59bc-4f1e-801b-ea1119eba35e",
+"@type" : "Drone",
+},]
+```
+
+
+To update the resource on the server POST operation is used. To update the required fields of the drone with the updated resource, in the REPL type:
+
+
+```python
+agent.post("http://localhost:8080/serverapi/DroneCollection/2b6484c3-59bc-4f1e-801b-ea1119eba35e",{"DroneState":"1","name":"abc","model":"s","MaxSpeed":"1","Sensor":"no", })
+```
+
+Notice that the route contains the URL the same as `@id` obtained earlier. And to see if the name actually changed to “abc”, in the REPL type:
+
+```python
+agent.get("http://localhost:8080/DroneCollection", {"name":"abc"})
+```
+
+
+You should see the updated drone. To delete the drone, DELETE operation is used. 
+
+
+```python
+agent.delete("http://localhost:8080/serverapi/DroneCollection/2b6484c3-59bc-4f1e-801b-ea1119eba35e")
+```
+
+
+You will the see the response:
+
+
+```json
+{
+"@context": "http://www.w3.org/ns/hydra/context.jsonld", 
+"@type": "Status", 
+"description": "Object with ID 2b6484c3-59bc-4f1e-801b-ea1119eba35e successfully deleted",
+"statusCode": 200, 
+"title": "Object successfully deleted."
+}
+```
+
+
+Similarly, other collections and classes can be modified using the agent.
+
+
+## Using the GUI
+
+The agent also has a GUI (Graphical User Interface) that can be used to interact with Hydrus. 
+
+
+### Setting up the GUI
+
+Clone the repository and set up a virtual environment:
+
+
+```bash
+git clone https://github.com/HTTP-APIs/hydra-python-agent-gui.git
+cd hydra-python-agent-gui 
+apt-get install python3-venv # If not installed
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+```
+
+
+Run the Redis graph server:
+
+
+```bash
+sudo ./redis_setup.sh # <- Might be necessary to use sudo
+```
+
+
+Finally, run `python3 app.py` to launch GUI. The GUI can be used now on the [http://localhost:3000/](http://localhost:3000/)
+
+The GUI has two sections. The Graphical interface and the console. The Graph is the graphical representation of the APIDOC. You can zoom in and out, click on any node to highlight other nodes it is connected to. It graphically represents, what are the supported operations, supported properties, what it expects, what will it return, and other related metadata. 
+
+The console is where the CRUD operations can be performed on the endpoints. The raw command shows how would the agent be used, if it was being used as a package. The output returns the output of the operation performed. For example, click on DroneCollection. The supported operations and the supported properties will appear. If GET is chosen and keeping all the property fields blank, hit the send request, you will get the empty array as output. 
+
+To add a resource, for example, a drone. choose DroneCollection, and in the properties, leave the resource id, as it would be assigned by the hydrus, and fill in rest of the properties like,
+
+
+```bash
+"DroneState":"active",
+"Name":"abc",
+"Model":"abc",
+"MaxSpeed":"100",
+"Sensor":"on"
+```
+
+
+Notice that here we need not provide @type like we did while using an agent as a package, as it is automatically filled in for us by the agent. Also, the resource id field is left blank intentionally. In the output field you can see the output:
+
+
+```json
+[
+{
+"@context" :"http://www.w3.org/ns/hydra/context.jsonld",
+"@type" : "Status",
+"description" : "Object with ID 6aeaa6db-7a15-498f-8462-d7b2907f4281 successfully added,"
+"title" : "Object successfully added",
+},
+"http://localhost:8080/serverapi/DroneCollection/6aeaa6db-7a15-498f-8462-d7b2907f4281",
+]
+```
+
+
+The alphanumeric sequence appended after DroneCollection is the resource id. It is required to update and delete. To update the resource, chose POST operation, with the properties field having the updated properties, for eg:
+
+
+```bash
+DroneState:"active"
+Name:"qwerty",
+Model: "abc",
+MaxSpeed:"100",
+Sensor:"on"
+```
+
+
+On clicking the send request button, you will receive the output as :
+
+
+```json
+{
+"@context" :"http://www.w3.org/ns/hydra/context.jsonld",
+"@type" : "Status",
+"description" : "Object with ID 6aeaa6db-7a15-498f-8462-d7b2907f4281 successfully updated",
+"title" : "Object updated",
+}
+```
+
+
+Similarly, a particular resource can be deleted or retrieved by using the resource id.
+
+The great part is that the agent discovered all the endpoints and which operations can be invoked on the routes, the properties to send, and what properties to expect, without having to hardcode it. 
+
+
 # Redis as a graph database for Hydra Agent
 
 The aim is to implement Redis as a graph database for fast querying process for the hydra client.
