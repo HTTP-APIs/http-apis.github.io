@@ -95,23 +95,82 @@ The Agent is the factory class that returns the instance of the agent. All the C
 
 
 ```python
-agent.get('https://localhost:8080/serverapi/DroneCollection')
+agent.get('https://localhost:8080/serverapi/LogEntryCollection')
 ```
 
-An empty array is returned and rightly so because no drones were added. To add drones, we issue a PUT request to the server with the drone data. In the REPL type,
+An empty array is returned and rightly so because no drones were added. To add a log Entry, we issue a PUT request to the server with the drone data. In the REPL type,
 
 ```python
-agent.put("http://localhost:8080/serverapi/DroneCollection", {"DroneState":"1","name":"xyz","model":"s","MaxSpeed":"1","Sensor":"None","@type":"Drone"})
+agent.put("http://localhost:8080/serverapi/LogEntry", {
+   "@type":"LogEntry",
+   "DroneID":"5Z7T22",
+   "Update":"UJM514",
+   "Get":"7WQND8",
+   "Send":"YCBX0R",
+   "State":{
+      "@type":"State",
+      "Speed":"NRZ8BT",
+      "Position":"JR7LIN",
+      "Direction":"VMDEES",
+      "Battery":"4N7HAP",
+      "SensorStatus":"58AONM",
+      "DroneID":"67IK42"
+},
+   "Data":{
+      "@type":"Datastream",
+      "Temperature":"C5K2KM",
+      "DroneID":"Y6I8D9",
+      "Position":"LKKNIR"
+},
+   "Command":{
+      "@type":"Command",
+      "DroneID":"YUFSZU",
+      "State":{
+         "@type":"State",
+         "Speed":"CAWCP1",
+         "Position":"IJ1A4Y",
+         "Direction":"UOXIVX",
+         "Battery":"WG1BDM",
+         "SensorStatus":"RM4F1Q",
+         "DroneID":"ZT9G5J"
+}
+}
+})
 ```
-
-
-Now if you GET the Drone Collection you will see one item on the list:
+Now if you GET the LogEntry Collection you will see one item on the list:
 
 ```json
-[{
-"@id" : "/serverapi/DroneCollection/2b6484c3-59bc-4f1e-801b-ea1119eba35e",
-"@type" : "Drone",
-},]
+{
+    "@context": "/serverapi/contexts/LogEntryCollection.jsonld",
+    "@id": "/serverapi/LogEntryCollection/",
+    "@type": "LogEntryCollection",
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/serverapi/LogEntryCollection?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/serverapi/LogEntryCollection?page=1",
+        "hydra:last": "/serverapi/LogEntryCollection?page=1"
+    },
+    "members": [
+        {
+            "@id": "/serverapi/LogEntry/7c79d71e-fa8b-47c2-b35e-9f6ca0037c2a",
+            "@type": "LogEntry"
+        }
+    ],
+    "search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:mapping": [
+            {
+                "@type": "hydra:IriTemplateMapping",
+                "hydra:property": "http://schema.org/identifier",
+                "hydra:required": false,
+                "hydra:variable": "DroneID"
+            },
+            ....
+        ],
+        "hydra:template": "/serverapi/LogEntryCollection{?DroneID, Update, Get, Send, State[Speed], State[Position], State[Direction], State[Battery], State[SensorStatus], State[DroneID], Data[Temperature], Data[DroneID], Data[Position], Command[DroneID], Command[State], pageIndex, limit, offset}",
+        "hydra:variableRepresentation": "hydra:BasicRepresentation"
+    }
 ```
 
 
@@ -119,10 +178,11 @@ To update the resource on the server POST operation is used. To update the requi
 
 
 ```python
-agent.post("http://localhost:8080/serverapi/DroneCollection/2b6484c3-59bc-4f1e-801b-ea1119eba35e",{"DroneState":"1","name":"abc","model":"s","MaxSpeed":"1","Sensor":"no", })
+existing_log['Get'] = "123"
+agent.post("http://localhost:8080/serverapi/LogEntry/7c79d71e-fa8b-47c2-b35e-9f6ca0037c2a", existing_log)
 ```
 
-Notice that the route contains the URL the same as `@id` obtained earlier. And to see if the name actually changed to “abc”, in the REPL type:
+Notice that the route contains the URL the same as `@id` obtained earlier. And to see if the get actually changed to “123”, in the REPL type:
 
 ```python
 agent.get("http://localhost:8080/DroneCollection", {"name":"abc"})
@@ -133,7 +193,7 @@ You should see the updated drone. To delete the drone, DELETE operation is used.
 
 
 ```python
-agent.delete("http://localhost:8080/serverapi/DroneCollection/2b6484c3-59bc-4f1e-801b-ea1119eba35e")
+agent.delete("http://localhost:8080/serverapi/LogEntry/7c79d71e-fa8b-47c2-b35e-9f6ca0037c2a")
 ```
 
 
@@ -144,7 +204,7 @@ You will the see the response:
 {
 "@context": "http://www.w3.org/ns/hydra/context.jsonld", 
 "@type": "Status", 
-"description": "Object with ID 2b6484c3-59bc-4f1e-801b-ea1119eba35e successfully deleted",
+"description": "Object with ID 7c79d71e-fa8b-47c2-b35e-9f6ca0037c2a successfully deleted",
 "statusCode": 200, 
 "title": "Object successfully deleted."
 }
