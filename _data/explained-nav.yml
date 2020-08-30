@@ -5,7 +5,7 @@
 - name: Official client design - Heracles
   link: heracles_explained
 - name: Python Hydra agent
-  link: hydra-agent-redis-graph
+  link: hydra-agent
 - name: IriTemplate example
   link: IriTemplate
 - name: Pagination
