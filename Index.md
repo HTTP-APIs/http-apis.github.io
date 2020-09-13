@@ -10,7 +10,7 @@ Hydra is currently a draft created by [**World Wide Web Consortium's Hydra Commu
 
 **Hydra Ecosystem** promotes and facilitates the adoption of Hydra.
 
-This development community participates in [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/6557492048297984/) and [**Season of Docs**](https://developers.google.com/season-of-docs/docs/participants/#hydra-ecosystem-documentation).
+This development community participates in [**Google Summer of Code**](https://summerofcode.withgoogle.com/organizations/6557492048297984/).
 
 
 <div style="text-align:center;">
