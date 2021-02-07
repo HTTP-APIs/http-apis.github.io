@@ -28,8 +28,52 @@ To get in touch with the Community:
 
 # [Ideas for GSoC 2021](#Ideas)
 
-## 1. General Improvements in [hydrus](https://github.com/HTTP-APIs/hydrus).
-### Key points:
+## 1. Build a banking service with Open Risk and Hydra: prototype with hydrus and the agent
+### Key points
+The Hydra Ecosystem / [Open Risk](https://www.openriskmanagement.com/) project proposal for GSOC2021 aims to guide students to build *a basic REST service as the backend for a hypothetical banking service*. The use case is a small bank, peer-to-peer lender or asset manager holding a portfolio of loans. One or more databases contain data about borrowers, loans, credit risk assessments and other relevant information describing the portfolio. **The technical objective is to create a modern API that will allow other parties (investors, rating agencies, regulators etc.) to gain access to some facets of the portfolio data**, e.g., for due-diligence, valuation or other risk management purposes.
+
+### Objectives
+The project will provide Hydra Ecosystem community with:
+* useful architectural/engineering feedback and a working example to show functionalities and capabilities
+* a demo-reference for developers to learn and work on
+* general improvements and features implementations for the client-server (hydrus-agent) network system 
+* a cloud-deployed use-case and example
+
+The project will provide [Open Risk](https://www.openriskmanagement.com/) community with:
+* a work-on example and use-case to showcase tools, technologies and functionalities
+* feedback about tools from software developers
+
+**Skills Required**:
+- Python
+- Hydra
+- Semantic Web
+- Web APIs, REST paradigm
+- Software Engineering
+- Google Cloud
+- Basics understanding of and interest in financial business processes (lending, financial markets): domain-specific support about banking will be provided by dedicated mentor
+
+### Workflow
+A template workflow and requirements will be presented to the student to work out and develop the solution. The project is intended to be a simulation of an Agile/LEAN enviroment to allow the student to grow along with the prototype. Here a partial list of tasks that the student will be introduced to:
+#### Semantic Web
+* Create a RDF vocabulary to describe a fairly realistic(*) bank loan portfolio: e.g. classes Customer, Account, Deposit, Withdrawal, Transfer, LoanContract, etc.
+* Make templates (EBA Loan Templates @ Open Risk Manual) into RDF representation
+* How to connect the service to an existing RDF vocabulary (Open Risk)
+* Cloud and REST API design
+
+#### Create the service with Hydra
+* Deploy to Google Cloud (GCP)
+* Test and iterate with the community
+* Add features to existing Hydra server/client tools to fulfill Project Requirements 
+* Advanced features (Optional): use Hydra to create endpoints to compare interest rates or other fields in a contract. Create other filtering/querying endpoint for which the need arises during the Summer
+
+#### Training
+Create a video-tutorial of 5 minutes for Youtube channel: Fintech REST API: How To Deploy A Simple Banking Service with Hydra
+(*) Using the European Banking Authority or ESMA Loan Level Templates as a basis means the service will be on a path towards production readiness. These templates are very detailed but we can focus on some essential parts
+
+
+
+## 2. General Improvements in [hydrus](https://github.com/HTTP-APIs/hydrus).
+### Key points
 There is always room from improvement in our flagship server, hydrus:
 - Updating the server according to the Hydra Spec.
 - Creation of dynamic endpoints. Users need to be able to define endpoints that have some functionality. Right now hydrus can only serve static data and users are unable to define how incoming data is processed in a hydrus server.
@@ -51,8 +95,8 @@ There is always room from improvement in our flagship server, hydrus:
 Some issues are already open for these, please check [issues](https://github.com/HTTP-APIs/hydrus/issues).
 
 
-## 2. General Improvements in [agent](https://github.com/HTTP-APIs/hydra-python-agent).
-### Key points:
+## 3. General Improvements in [agent](https://github.com/HTTP-APIs/hydra-python-agent).
+### Key points
 The agent is a super cool way to interact with a hydra server, but there is lot of room for improvement. Some parts of this project can be:
 - Improving the UI/UX of the agent.
 - Add graph interaction events/actions support.
@@ -74,29 +118,8 @@ The agent is a super cool way to interact with a hydra server, but there is lot 
 **Issues**<br/>
 Some issues are already open for these, please check [issues](https://github.com/HTTP-APIs/hydra-python-agent-gui/issues).
 
-
-## 3. Demos
-### Key points:
-We are always happy to include new ways to demonstrate the capability of hydra and how are tools can be used. Some demos might need additions to the tools to be able to work, so be ready to handle multiple codebases. Possiblities for the demos include.
-- Extend the current flock demo to include more use cases and integrate the demo using hydrus and the agent.
-- Create a demo to demonstrate the main advantages of hydra, i.e, dynamic changes in ther server do not affect the client. The objective is to create an API whose structure (paths to different kinds of data) is constantly changing, clients can still consume data by parsing the entry point vocabulary.
-- Create a demo Hydra API for a publicly available dataset. This will show why Hydra is useful while also allowing the general public to be able to consume the dataset using Hydra. One example is the MusicBrainz public dataset. This demo includes analyzing the deployment scenario for the data, researching the specific domain to understand the data, creating Hydra documentation for the service and developing and deploying the service in GCLOUD.
-
-**Skills Required**:
-- Python
-- Hydra
-- Front and Backend development skills
-- Google Cloud
-- Semantic Web
-- Ability to write test suites
-
-**Difficulty Level**: *Intermediate* to *Hard*
-
-You can discuss each idea in detail on the Slack channel. We would be happy to provide more info if anyone is interested in any of the above projects.
-
-
-## 4. Make [hydrus](https://github.com/HTTP-APIs/hydrus) future proof
-### Key points:
+## 4. Make [hydrus](https://github.com/HTTP-APIs/hydrus) and [agent](https://github.com/HTTP-APIs/hydra-python-agent) future proof
+### Key points
 Right now hydrus is a generic flask compatible server. Most commercial APIs contain large amounts of data distributed over multiple servers. The idea here is to improve the scalability of the database by deploying a hydrus instance for a set of <em>HydraClass</em>'es and then allowing linking by reference.
 The parser should call for the deployment of a hydrus instance for each set of classes in the APIDoc, predicates between classes should be represented as links; by consequence, the agent should build its own representation by dereferencing the links.
 
@@ -113,7 +136,7 @@ The parser should call for the deployment of a hydrus instance for each set of c
 **NOTE**: This is a sophisticated project and will require a significant understanding of various HydraEcosystem tools including hydrus, parser, and the agent. We understand there's a lot to be done here, so, we'll try to pair 2-3 students to complete the overall task providing students an opportunity to learn how to work in distributed teams.
 
 ## 5. Get Creative
-We encourage creativity a lot and understand it is very important for you to work on the things you're really interested in. If you want, you can choose subparts from the ideas listed above or even come up with your own (discussing new ideas with mentors first is highly encouraged) to create the proposal best suited to your interests.
+We encourage creativity a lot and understand it is very important for you to work on the things you're really interested in. If you want, you can choose subparts from the ideas listed above or even come up with your own (discussing new ideas with mentors first is highly encouraged) to create the proposal best suited to your interests. The student can mix different components of these ideas to present an original proposal.
 
 ### Skills Required:
 - A TON OF CREATIVITY
