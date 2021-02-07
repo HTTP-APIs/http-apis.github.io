@@ -40,8 +40,9 @@ The project will provide Hydra Ecosystem community with:
 * a cloud-deployed use-case and example
 
 The project will provide [Open Risk](https://www.openriskmanagement.com/) community with:
-* a work-on example and use-case to showcase tools, technologies and functionalities
-* feedback about tools from software developers
+* disseminate useful financial knowledge among developers interested in the subject
+* a work-on example and use case to showcase tools, technologies and functionalities
+* feedback from software developers about community's tools
 
 **Skills Required**:
 - Python
@@ -50,14 +51,14 @@ The project will provide [Open Risk](https://www.openriskmanagement.com/) commun
 - Web APIs, REST paradigm
 - Software Engineering
 - Google Cloud
-- Basics understanding of and interest in financial business processes (lending, financial markets): domain-specific support about banking will be provided by dedicated mentor
+- Basics understanding of and interest in financial business processes (lending, financial markets, etc.): domain-specific support about banking will be provided by dedicated mentor
 
 ### Workflow
 A template workflow and requirements will be presented to the student to work out and develop the solution. The project is intended to be a simulation of an Agile/LEAN enviroment to allow the student to grow along with the prototype. Here a partial list of tasks that the student will be introduced to:
 #### Semantic Web
 * Create a RDF vocabulary to describe a fairly realistic(*) bank loan portfolio: e.g. classes Customer, Account, Deposit, Withdrawal, Transfer, LoanContract, etc.
-* Make templates (EBA Loan Templates @ Open Risk Manual) into RDF representation
-* How to connect the service to an existing RDF vocabulary (Open Risk)
+* Make templates ([EBA Loan Templates @ Open Risk Manual](https://www.openriskmanual.org/wiki/EBA_NPL_Template)) into RDF representation
+* How to connect the service to an existing [RDF vocabulary (Open Risk)](https://github.com/open-risk/open_risk_taxonomy)
 * Cloud and REST API design
 
 #### Create the service with Hydra
@@ -67,7 +68,9 @@ A template workflow and requirements will be presented to the student to work ou
 * Advanced features (Optional): use Hydra to create endpoints to compare interest rates or other fields in a contract. Create other filtering/querying endpoint for which the need arises during the Summer
 
 #### Training
-Create a video-tutorial of 5 minutes for Youtube channel: Fintech REST API: How To Deploy A Simple Banking Service with Hydra
+* Create a video-tutorial of 5 minutes for Hydra Ecosystem's Youtube channel with subject "APIs for Fintech: How To Deploy A Simple Banking Service with Hydra"
+
+
 (*) Using the European Banking Authority or ESMA Loan Level Templates as a basis means the service will be on a path towards production readiness. These templates are very detailed but we can focus on some essential parts
 
 
