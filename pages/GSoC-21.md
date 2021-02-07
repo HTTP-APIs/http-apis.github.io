@@ -10,7 +10,7 @@ Welcome to Hydra Ecosystem's ideas page for [GSoC 2021](https://summerofcode.wit
 and candidates can present projects to fulfill multiple ideas on this page and issues listed at our Github [organization page](https://github.com/HTTP-APIs/).
 
 To get in touch with the Community:
-* [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU)
+* [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/zt-ly4j3hg3-gVhJxgc6ykpGrel_N4Xvvg)
 
 ## Application Instructions
 - Students wanting to apply to the org must familarise themselves with the Github workflow.
@@ -35,7 +35,7 @@ There is always room from improvement in our flagship server, hydrus:
 - Creation of dynamic endpoints. Users need to be able to define endpoints that have some functionality. Right now hydrus can only serve static data and users are unable to define how incoming data is processed in a hydrus server.
 - General improvements in code and optimizing the server functionality, refactoring.
 - Keep up with the development of the querying system for the agent
-- Implement generalisation of Collection as a Resource.
+- Implement Update operation(POST) on collections. Refer to [this](https://github.com/HTTP-APIs/hydrus/issues/494) issue for more details.
 - Add more robust security features to hydrus.
 
 **Skills Required**:
@@ -123,7 +123,7 @@ We encourage creativity a lot and understand it is very important for you to wor
 
 # [How do I get started ?](#getting-started)
  Getting started is pretty easy. Head over to our [homepage](http://hydraecosystem.org/) or the W3C [community page](https://www.hydra-cg.com/). There are a lot of demos, presentations, and talks to get you up to speed. Then head over to the [hydrus repo](https://github.com/HTTP-APIs/hydrus) and clone it. Play with it a little, try to understand how the current implementation works, try to fix some bugs or report any issues you can find [here](https://github.com/HTTP-APIs/hydrus/issues).
-Lastly, don't hesitate to reach out in the [Slack community](https://join.slack.com/t/hydraecosystem/shared_invite/enQtNzM3NTg5NzQ2MDUxLWU1MjM3ZGRhZWM4ZTg1ODBjMTljNTQwNzAwMGM3ZDlmYTY3Y2E4OGJmN2NlZWRjMWIzY2MzN2NjOTIyYmQ1ZjU) if you have any question, we are very friendly people and we'll be more than happy to help you out.
+Lastly, don't hesitate to reach out in the [Slack community](https://join.slack.com/t/hydraecosystem/shared_invite/zt-ly4j3hg3-gVhJxgc6ykpGrel_N4Xvvg) if you have any question, we are very friendly people and we'll be more than happy to help you out.
 
 As a general entry point to understand the repositories, there is our [Wiki](http://hydraecosystem.org/) and related links. Having a clear insight of [Resource Description Framework](https://goo.gl/TCdYG3) is quite necessary, Mentors will give full support to catch up with it.
 
@@ -147,10 +147,10 @@ Writing a good proposal can be a really challenging task. We have curated a list
 [Here](https://docs.google.com/document/d/1qPR02o6jY4uFBdCf3S0ous4LG32YCe6ZJuDGojXH2JY/edit)'s a proposal template for you to get started.
 
 ## Communication Channels
-- [Gitter](https://gitter.im/HTTP-APIs/Lobby) [Archived]
-- [W3C Group](https://www.w3.org/community/hydra/)
 - [Slack](https://hydraecosystem.slack.com)
+- [W3C Group](https://www.w3.org/community/hydra/)
 - Email
     - [Chris Andrew](mailto:chrisandrew119[AT]gmail[DOT]com)
     - [Akshay Dahiya](mailto:xadahiya[AT]gmail[DOT]com)
     - [Lorenzo Moriondo](mailto:tunedconsulting[AT]gmail[DOT]com)
+    - [Samesh Lakhotia](mailto:samesh.lakhotia+work[AT]gmail[DOT]com)
