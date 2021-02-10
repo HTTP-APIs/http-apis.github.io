@@ -44,14 +44,14 @@ The project will provide [Open Risk](https://www.openriskmanagement.com/) commun
 * a work-on example and use case to showcase tools, technologies and functionalities
 * feedback from software developers about community's tools
 
-**Skills Required**:
+### Skills Required
 - Python
 - Hydra
 - Semantic Web
 - Web APIs, REST paradigm
 - Software Engineering
 - Google Cloud
-- Basics understanding of and interest in financial business processes (lending, financial markets, etc.): domain-specific support about banking will be provided by dedicated mentor
+- Basics understanding of and interest in financial business processes (lending, financial markets, etc.): domain-specific support about banking will be provided by dedicated mentor (see Appendix below for further material)
 
 ### Workflow
 A template workflow and requirements will be presented to the student to work out and develop the solution. The project is intended to be a simulation of an Agile/LEAN enviroment to allow the student to grow along with the prototype. Here a partial list of tasks that the student will be introduced to:
@@ -180,3 +180,27 @@ Writing a good proposal can be a really challenging task. We have curated a list
     - [Akshay Dahiya](mailto:xadahiya[AT]gmail[DOT]com)
     - [Lorenzo Moriondo](mailto:tunedconsulting[AT]gmail[DOT]com)
     - [Samesh Lakhotia](mailto:samesh.lakhotia+work[AT]gmail[DOT]com)
+
+## Appendix - Open Risk
+
+Some material to jumpstart with Open Risk Management:
+
+The starting point is an NPL (non-performing loan) ontology that descibes logical relations and data properties of a realistic bank loan portfolio. The ontology has around 8 major classes of data and 400+ fields.  In json-ld format, the ontology is available here (_there are more Open Risk ontologies and taxonomies but this one is the most relevant for the current stage of the project and GSOC21_) :
+
+* [NPL Ontology as json-ld](https://www.openriskmanual.org/ns/nplo/ontology.json)
+
+Using a web browser we can take a look at the ontology here. 
+
+* [Human readable version](https://www.openriskmanual.org/ns/nplo/index-en.html)
+
+The wiki description of all the data fields allows to continously update the descriptions and link with the usage of the data in practical operations and risk management documented in other parts of the wiki
+
+* [Wiki description of the EBA NPL data domain](https://www.openriskmanual.org/wiki/EBA_NPL_Template)
+
+The ontology is part of a broader toolkit / open source ecosystem for risk management tools, some background reading and further links are in this blog post and links therein
+
+* [Introductory Blog post](https://www.openriskmanagement.com/non-performing-loan-ontology/)
+
+One thing that could be useful (or not) but I want to mention is that we already have an open source REST implementation of the NPL data (as a django DRF project).  So this can be used by students to get a feel for what we are after. But it is still incomplete and in any case **it does not provide hateoas** which I think is the really powerful promise of hydra and the hydrus project. Because of the complexity and frequent changing nature of such loan databases providing "smart" tools that can make people's life a bit easier. The link to that project is here. 
+
+* [Django based simple REST API of openNPL](https://github.com/open-risk/openNPL)
