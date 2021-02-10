@@ -36,7 +36,7 @@ The Hydra Ecosystem / [Open Risk](https://www.openriskmanagement.com/) project p
 The project will provide Hydra Ecosystem community with:
 * useful architectural/engineering feedback and a working example to show functionalities and capabilities
 * a demo-reference for developers to learn and work on
-* general improvements and features implementations for the client-server (hydrus-agent) network system 
+* general improvements and features implementations for the client/server (hydrus/agent) network system 
 * a cloud-deployed use-case and example
 
 The project will provide [Open Risk](https://www.openriskmanagement.com/) community with:
@@ -85,7 +85,7 @@ There is always room from improvement in our flagship server, hydrus:
 - Implement Update operation(POST) on collections. Refer to [this](https://github.com/HTTP-APIs/hydrus/issues/494) issue for more details.
 - Add more robust security features to hydrus.
 
-**Skills Required**:
+### Skills Required
 - Python
 - Hydra
 - Semantic Web
@@ -101,15 +101,16 @@ Some issues are already open for these, please check [issues](https://github.com
 ## 3. General Improvements in [agent](https://github.com/HTTP-APIs/hydra-python-agent).
 ### Key points
 The agent is a super cool way to interact with a hydra server, but there is lot of room for improvement. Some parts of this project can be:
-- Improving the UI/UX of the agent.
-- Add graph interaction events/actions support.
-- Making the agent more responsive.
-- Generalising the agent so that it works with any hydra enabled API. Right now the agent is strongly tied up with hydrus.
-- Implement sync-mechanism for non-hydrus Hydra servers. (No backend updates pushed from the server)
-- Optimise the graph storage and search mechanism in the client.
-- Implement better design patterns for the frontend code.
+- Improving the UI/UX of the agent
+- Add graph interaction events/actions support
+- Making the agent more responsive
+- Generalising the agent so that it works with any hydra enabled API, right now the agent is strongly tied up with hydrus
+- Optimise the graph storage and search mechanism in the client
+- Bring on par hydrus and hydra-python-agent
+- Display object instances in the graph too realtime
+- Deploy with docker container so that other people can use it on the web without having to install it locally
 
-**Skills Required**:
+### Skills Required
 - Python
 - Hydra
 - ReactJS
@@ -126,7 +127,7 @@ Some issues are already open for these, please check [issues](https://github.com
 Right now hydrus is a generic flask compatible server. Most commercial APIs contain large amounts of data distributed over multiple servers. The idea here is to improve the scalability of the database by deploying a hydrus instance for a set of <em>HydraClass</em>'es and then allowing linking by reference.
 The parser should call for the deployment of a hydrus instance for each set of classes in the APIDoc, predicates between classes should be represented as links; by consequence, the agent should build its own representation by dereferencing the links.
 
-**Skills Required**:
+### Skills Required
 - Python
 - Hydra
 - Agent
@@ -180,6 +181,9 @@ Writing a good proposal can be a really challenging task. We have curated a list
     - [Akshay Dahiya](mailto:xadahiya[AT]gmail[DOT]com)
     - [Lorenzo Moriondo](mailto:tunedconsulting[AT]gmail[DOT]com)
     - [Samesh Lakhotia](mailto:samesh.lakhotia+work[AT]gmail[DOT]com)
+    - [Priyanshu Nayan](heypriyanshu[AT]gmail[DOT]com)
+
+----
 
 ## Appendix - Open Risk
 
