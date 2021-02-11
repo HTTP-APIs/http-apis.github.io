@@ -6,8 +6,7 @@ permalink: /gsoc-21
 ---
 
 # Introduction
-Welcome to Hydra Ecosystem's ideas page for [GSoC 2021](https://summerofcode.withgoogle.com/). We would like to receive proposals that encompass different aspects of the development. Different tools are under development
-and candidates can present projects to fulfill multiple ideas on this page and issues listed at our Github [organization page](https://github.com/HTTP-APIs/).
+Welcome to Hydra Ecosystem's ideas page for [GSoC 2021](https://summerofcode.withgoogle.com/). We would like to receive proposals that encompass different aspects of the development. Different tools are under development and candidates can present projects to fulfill multiple ideas on this page and issues listed at our Github [organization page](https://github.com/HTTP-APIs/).
 
 To get in touch with the Community:
 * [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/zt-ly4j3hg3-gVhJxgc6ykpGrel_N4Xvvg)
@@ -30,7 +29,7 @@ To get in touch with the Community:
 
 ## 1. Build a banking service with Open Risk and Hydra: prototype with hydrus and the agent
 ### Key points
-The Hydra Ecosystem / [Open Risk](https://www.openriskmanagement.com/) project proposal for GSOC2021 aims to guide students to build *a basic REST service as the backend for a hypothetical banking service*. The use case is a small bank, peer-to-peer lender or asset manager holding a portfolio of loans. One or more databases contain data about borrowers, loans, credit risk assessments and other relevant information describing the portfolio. **The technical objective is to create a modern API that will allow other parties (investors, rating agencies, regulators etc.) to gain access to some facets of the portfolio data**, e.g., for due-diligence, valuation or other risk management purposes.
+The Hydra Ecosystem / [Open Risk](https://www.openriskmanagement.com/) project proposal for GSOC2021 aims to guide students to build *a flexible REST service as the backend for a hypothetical banking service*. The use case is a small bank, peer-to-peer lender or asset manager holding a portfolio of loans. One or more databases contain data about borrowers, loans, credit risk assessments and other relevant information describing the portfolio. **The technical objective is to create a modern API that will allow other parties (investors, rating agencies, regulators etc.) to gain access to some facets of the portfolio data**, e.g., for due-diligence, valuation or other risk management purposes.
 
 ### Objectives
 The project will provide Hydra Ecosystem community with:
@@ -42,7 +41,7 @@ The project will provide Hydra Ecosystem community with:
 The project will provide [Open Risk](https://www.openriskmanagement.com/) community with:
 * disseminate useful financial knowledge among developers interested in the subject
 * a work-on example and use case to showcase tools, technologies and functionalities
-* feedback from software developers about community's tools
+* feedback from software developers about the community's tools
 
 ### Skills Required
 - Python
@@ -51,27 +50,27 @@ The project will provide [Open Risk](https://www.openriskmanagement.com/) commun
 - Web APIs, REST paradigm
 - Software Engineering
 - Google Cloud
-- Basics understanding of and interest in financial business processes (lending, financial markets, etc.): domain-specific support about banking will be provided by dedicated mentor (see Appendix below for further material)
+- Basics understanding of, and interest in, financial business processes (lending, financial markets, etc.): domain-specific support about banking will be provided by dedicated mentor (see Appendix below for further material)
 
 ### Workflow
 A template workflow and requirements will be presented to the student to work out and develop the solution. The project is intended to be a simulation of an Agile/LEAN enviroment to allow the student to grow along with the prototype. Here a partial list of tasks that the student will be introduced to:
 #### Semantic Web
-* Create a RDF vocabulary to describe a fairly realistic(*) bank loan portfolio: e.g. classes Customer, Account, Deposit, Withdrawal, Transfer, LoanContract, etc.
-* Make templates ([EBA Loan Templates @ Open Risk Manual](https://www.openriskmanual.org/wiki/EBA_NPL_Template)) into RDF representation
-* How to connect the service to an existing [RDF vocabulary (Open Risk)](https://github.com/open-risk/open_risk_taxonomy)
+* Create a RDF vocabulary to describe a fairly realistic(*) bank loan portfolio: e.g. classes Customer, LoanContract, Collateral etc.
+* Turn database templates ([EBA Loan Templates @ Open Risk Manual](https://www.openriskmanual.org/wiki/EBA_NPL_Template)) into RDF representations
+* Connect the service to an existing [RDF vocabulary (Open Risk)](https://www.openriskmanual.org/ns/nplo/index-en.html)
 * Cloud and REST API design
 
 #### Create the service with Hydra
 * Deploy to Google Cloud (GCP)
 * Test and iterate with the community
 * Add features to existing Hydra server/client tools to fulfill Project Requirements 
-* Advanced features (Optional): use Hydra to create endpoints to compare interest rates or other fields in a contract. Create other filtering/querying endpoint for which the need arises during the Summer
+* Advanced features (Optional): use Hydra to create endpoints to compare interest rates or any other fields in contract / borrower attributes. Create other filtering/querying endpoint for which the need arises during the Summer
 
 #### Training
 * Create a video-tutorial of 5 minutes for Hydra Ecosystem's Youtube channel with subject "APIs for Fintech: How To Deploy A Simple Banking Service with Hydra"
 
 
-(*) Using the European Banking Authority or ESMA Loan Level Templates as a basis means the service will be on a path towards production readiness. These templates are very detailed but we can focus on some essential parts
+(*) Using the [European Banking Authority Loan Level Templates](https://www.eba.europa.eu/eba-publishes-its-standardised-data-templates-as-a-step-to-reduce-npls) as a basis means the service will be on a path towards production readiness. These templates are very detailed including many optional or less critical data points. The project can focus on essential parts.
 
 
 
@@ -187,9 +186,11 @@ Writing a good proposal can be a really challenging task. We have curated a list
 
 ## Appendix - Open Risk
 
+![Loan Ontology](https://www.openriskmanagement.com/wp-content/uploads/2021/01/NPLO_0.1_Graph.png)
+
 Some material to jumpstart with Open Risk Management:
 
-The starting point is an NPL (non-performing loan) ontology that descibes logical relations and data properties of a realistic bank loan portfolio. The ontology has around 8 major classes of data and 400+ fields. In JSON-LD format, the ontology is available here (_there are more Open Risk ontologies and taxonomies but this one is the most relevant for the current stage of the project and GSOC21_):
+The starting point is an NPL (non-performing loan) OWL ontology that descibes the logical relations (business logic) and data properties of a realistic bank loan portfolio. The ontology has currently around 8 major classes of data and 400+ fields describing everything about borrowers, loans and their credit history. In JSON-LD format, the ontology is available here:
 
 * [NPL Ontology as JSON-LD](https://www.openriskmanual.org/ns/nplo/ontology.json)
 
@@ -197,7 +198,7 @@ Using a web browser we can take a look at the ontology here:
 
 * [Human readable version](https://www.openriskmanual.org/ns/nplo/index-en.html)
 
-The wiki description of all the data fields allows to continously update the descriptions and link with the usage of the data in practical operations and risk management documented in other parts of the wiki:
+There is a wiki description of all the data fields that links with the usage of the data in practical operations and risk management documented in other parts of the wiki:
 
 * [Wiki description of the EBA NPL data domain](https://www.openriskmanual.org/wiki/EBA_NPL_Template)
 
@@ -205,6 +206,7 @@ The ontology is part of a broader toolkit/Open Source ecosystem for risk managem
 
 * [Introductory Blog post](https://www.openriskmanagement.com/non-performing-loan-ontology/)
 
-One thing that could be useful (or not) but I want to mention is that we already have an Open Source REST implementation of the NPL data (as a django DRF project).  So this can be used by students to get a feel for what we are after. It is still incomplete and in any case it does not provide HATEOAS which I think is the really powerful promise of Hydra and the hydrus project. Because of the complexity and frequent changing nature of such loan databases providing "smart" tools that can make people's life a bit easier. The link to that project is here:
+An existing and Open Source REST implementation of the NPL data (as a [django DRF project](https://www.django-rest-framework.org/)) can be used by students to get a feel for what the end result might look like. This implementation does not provide [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) which is a powerful aspect of Hydra and the hydrus project. Because of the complexity, frequently changing and incomplete data quality of loan databases providing "smart" tools that can make people's life easier would be a big win. The links to the reference openNPL project are here:
 
 * [Django based simple REST API of openNPL](https://github.com/open-risk/openNPL)
+* [Docker image for simple deployment](https://hub.docker.com/r/openrisk/opennpl_web)
