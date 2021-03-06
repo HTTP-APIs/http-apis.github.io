@@ -11,9 +11,9 @@ A general introduction: [What does it mean to be a Open Source Maintainer](https
 1. Read the blog posts from GSOC 2017: [Lorenzo](https://www.linkedin.com/pulse/gsoc-2017-python-hydra-making-summer-great-hacking-web-moriondo/) [Chris](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/) [Akshay](https://xadahiya.github.io/Gsoc-Summary/)
 2. What is a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API; how is it different from an [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) API
 3. [What is a graph](https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-12-graphs-networks-incidence-matrices/) and how it can be represented with linear algebra. Watch [this video about Graph structures](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/lecture-6-graph-theory-and-coloring/) and [this one about directed graphs](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/lecture-10-graph-theory-iii/)
-4. General understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples.
-5. What are [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html)
-6. What is [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827)
+4. General understanding of RDF: [Wikipedia](https://en.wikipedia.org/wiki/Resource_Description_Framework) -  [Google Scholar](https://goo.gl/TCdYG3): especially the concept of representing data in triples. ([video reference](https://www.youtube.com/playlist?list=PLea0WJq13cnDDe8V7eVLReIaOnFztOEAq))
+5. What are [Linked Data](https://www.w3.org/DesignIssues/LinkedData.html) ([video reference](https://www.youtube.com/watch?v=4x_xzT5eF5Q))
+6. What is [JSON-LD](https://dl.acm.org/citation.cfm?id=2307827) ([video reference](https://www.youtube.com/watch?v=vioCbTo3C-4))
 7. Read these two papers [Hydra: A Vocabulary for Hypermedia-Driven Web APIs
 (Markus Lanthaler, Christian Gütl (2013))](http://www.markus-lanthaler.com/research/hydra-a-vocabulary-for-hypermedia-driven-web-apis.pdf) and [Creating 3rd Generation Web APIs with Hydra
 (Markus Lanthaler (2013))](http://www.markus-lanthaler.com/research/creating-3rd-generation-web-apis-with-hydra.pdf)
