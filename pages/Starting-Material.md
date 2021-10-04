@@ -7,6 +7,7 @@ permalink: /Starting-Material
 ## Starting contributing
 
 A general introduction: [What does it mean to be a Open Source Maintainer](https://mozilla.github.io/maintainer-cohort/).
+A brief [history of Semantic Web technologies and data processing](https://derwen.ai/docs/kgl/overview/).
 
 1. Read the blog posts from GSOC 2017: [Lorenzo](https://www.linkedin.com/pulse/gsoc-2017-python-hydra-making-summer-great-hacking-web-moriondo/) [Chris](https://gsocchrizandr.wordpress.com/the-book-of-hydrus/) [Akshay](https://xadahiya.github.io/Gsoc-Summary/)
 2. What is a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API; how is it different from an [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) API
