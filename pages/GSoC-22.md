@@ -6,7 +6,10 @@ permalink: /gsoc-22
 ---
 
 # Introduction
-Welcome to Hydra Ecosystem's ideas page for [GSoC 2022](https://summerofcode.withgoogle.com/). We would like to receive proposals that encompass different aspects of the development. Different tools are under development and candidates can present projects to fulfill multiple ideas on this page and issues listed at our Github [organization page](https://github.com/HTTP-APIs/).
+Welcome to Hydra Ecosystem's ideas page for [GSoC 2022](https://summerofcode.withgoogle.com/). 
+For the 6th year since 2017 Hydra Ecosystem will be applying to be part of Google Summer of Code. This is the mentors’ guidance about what the Community should try to achieve for this year and what your proposals should be focused on to contribute to the Community efforts.
+
+We would like to receive proposals that encompass different aspects of the development. Different tools are under development and candidates can present projects to fulfill ideas on this page and issues listed at our Github [organization page](https://github.com/HTTP-APIs/).
 
 To get in touch with the Community:
 * [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/zt-ly4j3hg3-gVhJxgc6ykpGrel_N4Xvvg)
@@ -28,12 +31,12 @@ To get in touch with the Community:
 # [Ideas for GSoC 2022](#Ideas)
 
 ## Improvements in Credit Risk API
-The Hydra Ecosystem / [Open Risk](https://www.openriskmanagement.com/) project proposal for GS0C 2022 aims to enhance and improve the existing [`hydra-creditrisk-poc`](https://github.com/HTTP-APIs/creditrisk-poc). 
+The Hydra Ecosystem / [Open Risk](https://www.openriskmanagement.com/) project proposal for GS0C 2022 aims to enhance and improve the existing [hydra-creditrisk-poc](https://github.com/HTTP-APIs/creditrisk-poc). 
 Two contributors will be chosen to contribute on the same project with a high level of collaboration. Selected students shall be responsible for the maintenance, deployment, testing, documentation and enhancement of the extant Credit Risk API. If required, they may also be mandated to maintain and contribute to the existing repositories of the Organization, like `hydrus` , `hydra-python-agent`, revamping of the documentation and all the necessary tasks to achieve the objectives below.
 
 ### Objectives
 The two best proposals will be chosen and integrated into a workable solution to achieve the objectives of the project:
-* “DevOps track”: improve deployment on GCP of the existing [`hydra-credit risk-poc`](https://github.com/HTTP-APIs/creditrisk-poc) and future POCs via scripting and reliability testing.
+* “DevOps track”: improve deployment on GCP of the existing [hydra-credit risk-poc](https://github.com/HTTP-APIs/creditrisk-poc) and future POCs via scripting and reliability testing.
 * Implement a network simulation for `hydra-credit risk-poc` with these characteristics: automatically deployable, multiple server (`hydrus`) instances, one `hydra-python-agent`; with focus on deploying and maintaining the [new documentation](https://github.com/HTTP-APIs/docs) (“Python track”)
 * … and relative GUI instance reading/writing data from/to the servers (“Frontend track”).
 * Spreadsheet functionality (reading/writing data) from/to an xlsx document. Implemented e.g. as a python module invoked on command line.
@@ -65,8 +68,8 @@ The contributors will present a proposal that covers two or more of these “tra
 - Semantic Web
 - Web APIs, REST paradigm
 - Software Engineering
-- Google Cloud
-- Basics understanding of, and interest in, financial business processes (lending, financial markets, etc.): domain-specific support about banking will be provided by dedicated mentor (see Appendix below for further material)
+- Google Cloud, Docker
+- Basics understanding of, and interest in, financial business processes (lending, financial markets, etc): domain-specific support about banking will be provided by dedicated mentor (see Appendix below for further material)
 
 ----
 
