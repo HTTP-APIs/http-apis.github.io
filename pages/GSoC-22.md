@@ -44,7 +44,7 @@ The two best proposals will be chosen and integrated into a project to achieve t
 * "Credit Risk track": explore the possibility of federated learning calculations on NPL data (adapting this [project](https://github.com/open-risk/openLGD))
 * Anything proposed by the contributors that fits the activities of the Community
 
-The contributors will present a proposal that covers two or more of these "tracks" will be considered for the Program. The mentors will select two candidates to achieve the best results in these subjects.
+The candidates that present a proposal covering two or more of these "tracks" will be considered for the Program. The mentors will select two candidates to achieve the best results in these subjects.
 
 ## Improvements to the stack
 
