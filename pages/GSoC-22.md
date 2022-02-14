@@ -34,7 +34,7 @@ To get in touch with the Community:
 The Hydra Ecosystem / [Open Risk](https://www.openriskmanagement.com/) project proposal for GS0C 2022 aims to enhance and improve the existing [hydra-creditrisk-poc](https://github.com/HTTP-APIs/creditrisk-poc).
 Two contributors will be chosen to contribute on the same project with a high level of collaboration. Selected students shall be responsible for the maintenance, deployment, testing, documentation and enhancement of the extant Credit Risk API. If required, they may also be mandated to maintain and contribute to the existing repositories of the Organization, like `hydrus` , `hydra-python-agent`, revamping of the documentation and all the necessary tasks to achieve the objectives below.
 
-The **main objective** will be to deploy a "simulation" involving multiple `hydrus` instances to contain data on credit risk events, while a "controller" based on `hydra-python-agent` and GUI will be tested to be used as a supervisor for the updates of the kwnoledge base available in the network. This to collect feedback on the current state of the tools and to find out possible road map to improve and make the stack closer to readiness. 
+The **main objective** of the project will be to deploy a "simulation" involving multiple `hydrus` instances to contain data on credit risk events, while a "controller" based on `hydra-python-agent` and GUI will be tested to be used as a supervisor for the updates of the kwnoledge base available in the network. This to collect feedback on the current state of the tools and to find out possible road map to improve and make the stack closer to readiness. 
 
 ### Objectives
 The two best proposals will be chosen and integrated into a project to achieve these objectives:
