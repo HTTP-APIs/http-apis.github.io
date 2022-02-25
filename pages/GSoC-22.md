@@ -89,6 +89,8 @@ This project's characteristics:
 * Preferred skills: focus on Semantic Web technologies (see [starting material](https://www.hydraecosystem.org/Starting-Material)), Python, Javascript frameworks depending on which repositories the contributor decides to work. 
 * mentors: Lorenzo, Hasan, Purvansh
 * First step: join [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/zt-ly4j3hg3-gVhJxgc6ykpGrel_N4Xvvg)
+
+
 ----
 
 
