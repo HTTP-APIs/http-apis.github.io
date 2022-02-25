@@ -30,37 +30,67 @@ To get in touch with the Community:
 
 # [Ideas for GSoC 2022](#Ideas)
 
-## Improvements in Credit Risk API
+### Generic Prerequisites
+
+* Basic knowledge of Git and Github and willingness to improve independently
+* Basic knowledge of Docker and Google Cloud Platform (Compute Engine).
+* Basic knowledgee of Python and popular database technology (some JavaScript involved for the GUI tool but also possible use of Jupyter notebooks)
+* Some prior minimal participation in the Community and contributions to the codebase
+
+## Improvements in Credit Risk API Demo
 The Hydra Ecosystem / [Open Risk](https://www.openriskmanagement.com/) project proposal for GS0C 2022 aims to enhance and improve the existing [hydra-creditrisk-poc](https://github.com/HTTP-APIs/creditrisk-poc).
-Two contributors will be chosen to contribute on the same project with a high level of collaboration. Selected students shall be responsible for the maintenance, deployment, testing, documentation and enhancement of the extant Credit Risk API. If required, they may also be mandated to maintain and contribute to the existing repositories of the Organization, like `hydrus` , `hydra-python-agent`, revamping of the documentation and all the necessary tasks to achieve the objectives below.
+Selected contributors shall be responsible for the maintenance, deployment, testing, documentation and enhancement of the extant Credit Risk API. This will involve some maintenance and improvements to the existing repositories of the Organization, like `hydrus` , `hydra-python-agent`, revamping of the documentation and all the necessary tasks to achieve the objectives below.
 
 The **main objective** of the project will be to deploy a "simulation" involving multiple `hydrus` instances to contain data on credit risk events, while a "controller" based on `hydra-python-agent` and GUI will be tested to be used as a supervisor for the updates of the kwnoledge base available in the network. This to collect feedback on the current state of the tools and to find out possible road map to improve and make the stack closer to readiness. 
 
 ### Objectives
-The two best proposals will be chosen and integrated into a project to achieve these objectives:
 * "DevOps track": improve deployment on GCP of the existing [hydra-credit risk-poc](https://github.com/HTTP-APIs/creditrisk-poc) and future POCs via scripting and reliability testing.
 * Implement a network simulation for `hydra-credit risk-poc` with these characteristics: automatically deployable, multiple server (`hydrus`) instances, one `hydra-python-agent`; with focus on deploying and maintaining the [new documentation](https://github.com/HTTP-APIs/docs) ("Python track")
-* ... and relative GUI instance reading/writing data from/to the servers ("Frontend track").
-* Spreadsheet functionality (reading/writing data) from/to an xlsx document. Implemented e.g. as a python module invoked on command line.
+* ... and relative GUI instance reading/writing data from/to the servers ("Frontend track", `hydra-python-agent`, `hydra-python-agent-gui`).
+* Spreadsheet functionality (reading/writing data) from/to an Excel document or CSV. Implemented e.g. as a Python module invoked on command line.
 * Take responsibility to maintain the cloud installation of the POC in the medium term to demonstrate the stack capabilities to newcomers ("Mentorship track").
 * "Credit Risk track": explore the possibility of federated learning calculations on NPL data (adapting this [project](https://github.com/open-risk/openLGD))
-* Anything proposed by the contributors that fits the activities of the Community
+* Anything proposed by the contributors that fits the project and the activities of the Community
 
-The candidates that present a proposal covering two or more of these "tracks" will be considered for the Program. The mentors will select two candidates to achieve the best results in these subjects.
+The candidates that present a proposal covering two or more of these "tracks" will be considered.
+
+This project's characteristics:
+* large size 350 hours
+* difficulty: hard
+* Preferred skills: focus on Semantic Web technologies (see [starting material](https://www.hydraecosystem.org/Starting-Material)) depending on the tracks chosen can be Python, DevOps on Google Cloud or Javascript frameworks
+* mentors: Philippos, Hasan, Purvansh
+* First step: join [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/zt-ly4j3hg3-gVhJxgc6ykpGrel_N4Xvvg)
+
+## An RML parser for a sharable database schema
+
+The **main objective** is to improve the way data is dumped into database schema by implementing [RML](https://rml.io/) to translate a dataset from CSV or TTL formats into an RML mapping and finally to dump the dataset into the database. The contributor will develop:
+* a Python CLI tool with these functionalities: read the data source, convert the dataset metadata into a [YARRRML](YARRRML) file
+* a parser from YARRRML to an Hydra-compliant `ApiDoc`
+* integrate the outputs of the CLI to deploy a server with our server `hydrus`
+
+This project's characteristics:
+* large size 350 hours
+* difficulty: hard
+* Preferred skills: focus on Semantic Web technologies (see [starting material](https://www.hydraecosystem.org/Starting-Material)), Python, parsers and data formats 
+* mentors: Lorenzo, Hasan
+* First step: join [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/zt-ly4j3hg3-gVhJxgc6ykpGrel_N4Xvvg)
 
 ## Improvements to the stack
 
-Hydra Ecosystem provides different tools for different layers of the Web stack, the applicants can find ways of contributing according to their skills. The applicants are free to propose improvements and add them to their proposal, together with fixes to oustanding issues.
+Hydra Ecosystem provides different tools for different layers of the Web stack, the applicants can find ways of contributing according to their skills. The applicants are free to propose improvements and add them to their proposal, together with fixes to oustanding issues:
+* Implement and improve the [new documentation](https://github.com/HTTP-APIs/docs/pulls)
+* Improvements or outstanding issues to the database system and server in `hydrus` or `hydra-python-core`
+* Improvements or outstanding issues to the database system and server in `hydra-python-agent` or `hydra-python-gui` 
+* Any improvement in the user experience
 
+This project's characteristics:
+* small size, 175 hours
+* difficulty: medium/easy depending which improvements the contributor proposes
+* Preferred skills: focus on Semantic Web technologies (see [starting material](https://www.hydraecosystem.org/Starting-Material)), Python, Javascript frameworks depending on which repositories the contributor decides to work. 
+* mentors: Lorenzo, Hasan, Purvansh
+* First step: join [Slack](https://join.slack.com/t/hydraecosystem/shared_invite/zt-ly4j3hg3-gVhJxgc6ykpGrel_N4Xvvg)
 ----
 
-
-### Prerequisites
-
-* Working knowledge for Git and Github and willingness to improve independently your knowledge
-* Working knowledge of Docker and Google Cloud Platform (Compute Engine).
-* Working knowledge of Python and popular database technology (some JavaScript involved for the GUI tool but also use of  Jupyter notebooks possible)
-* Some prior minimal participation in the Community and contributions to the codebase
 
 ### What contributors will be mentored about
 
@@ -73,8 +103,8 @@ Hydra Ecosystem provides different tools for different layers of the Web stack, 
 
 ### Skills Required
 - Python
-- Hydra
-- Semantic Web
+- Understanding of W3C Hydra
+- Semantic Web: W3C RDF standards
 - Web APIs, REST paradigm
 - Software Engineering
 - Google Cloud, Docker
@@ -92,7 +122,7 @@ As a general entry point to understand the repositories, there is our [Wiki](htt
 - ## What is Google Summer of Code?
 Google Summer of Code is a global, online program focused on bringing new contributors into open source software development. GSoC Contributors work with an open source organization on a 12+ week programming project under the guidance of mentors. The idea is to get students and other contributors involved and familiar with the open-source community and help them to put their summer break to good use.
 
-    You can read Google [Student Manual](https://developers.google.com/open-source/gsoc/resources/guide#student_manual) for more info.
+* You can read Google [Student Manual](https://developers.google.com/open-source/gsoc/resources/guide#student_manual) for more info.
 
 
 - ## How to write a proposal?
@@ -101,7 +131,7 @@ Writing a good proposal can be a really challenging task. We have curated a list
     - [How to write a good GSoC proposal (Quora)?](https://www.quora.com/How-to-write-a-good-GSoC-proposal)
     - [How to write a kick-ass proposal for Google Summer of Code](http://teom.org/blog/kde/how-to-write-a-kick-ass-proposal-for-google-summer-of-code/)
 
-    **Proposals can contain anything that can be valuable according to [GSoC guidelines for students](https://google.github.io/gsocguides/student/writing-a-proposal)**
+* Proposals can contain anything that can be valuable according to [GSoC guidelines for students](https://google.github.io/gsocguides/student/writing-a-proposal)**
 
 - ## Proposal template
 [Here](https://docs.google.com/document/d/1qPR02o6jY4uFBdCf3S0ous4LG32YCe6ZJuDGojXH2JY/edit)'s a proposal template for you to get started.
