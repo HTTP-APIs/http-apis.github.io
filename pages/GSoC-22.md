@@ -63,7 +63,7 @@ This project's characteristics:
 
 ## An RML parser for a sharable database schema
 
-The **main objective** is to improve the way data is dumped into database schema by implementing [RML](https://rml.io/) to translate a dataset from CSV or TTL formats into an RML mapping and finally to dump the dataset into the database. The contributor will develop:
+The **main objective** is to improve the way data is dumped into database schema by implementing [RML](https://rml.io/)(a [new W3C draft](https://rml.io/yarrrml/spec/) to define mappings between knowledge graphs and SQL) to translate a dataset from CSV or TTL formats into an RML mapping and finally to dump the dataset into the database. The contributor will develop:
 * a Python CLI tool with these functionalities: read the data source, convert the dataset metadata into a [YARRRML](YARRRML) file
 * a parser from YARRRML to an Hydra-compliant `ApiDoc`
 * integrate the outputs of the CLI to deploy a server with our server `hydrus`
